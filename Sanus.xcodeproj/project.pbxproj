@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A05AEB38202AD66C00F0D343 /* Citas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Citas.swift */; };
+		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
+		A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB3B202AD7D100F0D343 /* Hospitales.swift */; };
+		A05AEB3E202AD84500F0D343 /* Usuarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB3D202AD84500F0D343 /* Usuarios.swift */; };
+		A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082457F202A9FAB00543AD0 /* AppDelegate.swift */; };
+		A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824583202A9FAB00543AD0 /* Main.storyboard */; };
+		A0824587202A9FAB00543AD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0824586202A9FAB00543AD0 /* Assets.xcassets */; };
+		A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */; };
+		A0A62621202D7C0200EE34D2 /* NuevaCitaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* NuevaCitaController.swift */; };
+		A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D20202AA49E003FB0CB /* AjustesController.swift */; };
+		A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */; };
+		A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D24202AA4AC003FB0CB /* ChatController.swift */; };
+		A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D26202AA4B4003FB0CB /* CitasController.swift */; };
+		A0DC8D29202AA4BA003FB0CB /* CrearCuentaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D28202AA4BA003FB0CB /* CrearCuentaController.swift */; };
+		A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */; };
+		A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */; };
+		A0DC8D2F202AA4D3003FB0CB /* Doctores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */; };
+		A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */; };
+		A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */; };
+		A0E25F34202CB7B500A385C2 /* NuevoComentarioDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F33202CB7B500A385C2 /* NuevoComentarioDrController.swift */; };
+		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
+		A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A233202D7C8D00778C7B /* PlaticasController.swift */; };
+		A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A235202D814700778C7B /* PreguntarForoController.swift */; };
+		F06181F8B7F8FDE789097BFA /* Pods_Sanus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8484398106A8DE2914F5D92 /* Pods_Sanus.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
+		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
+		A05AEB37202AD66C00F0D343 /* Citas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citas.swift; sourceTree = "<group>"; };
+		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
+		A05AEB3B202AD7D100F0D343 /* Hospitales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitales.swift; sourceTree = "<group>"; };
+		A05AEB3D202AD84500F0D343 /* Usuarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuarios.swift; sourceTree = "<group>"; };
+		A082457C202A9FAB00543AD0 /* Sanus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A082457F202A9FAB00543AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0824584202A9FAB00543AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0824586202A9FAB00543AD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0824589202A9FAB00543AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A082458B202A9FAC00543AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0A62620202D7C0200EE34D2 /* NuevaCitaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevaCitaController.swift; sourceTree = "<group>"; };
+		A0DC8D20202AA49E003FB0CB /* AjustesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesController.swift; sourceTree = "<group>"; };
+		A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuscarController.swift; sourceTree = "<group>"; };
+		A0DC8D24202AA4AC003FB0CB /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		A0DC8D26202AA4B4003FB0CB /* CitasController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitasController.swift; sourceTree = "<group>"; };
+		A0DC8D28202AA4BA003FB0CB /* CrearCuentaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrearCuentaController.swift; sourceTree = "<group>"; };
+		A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForoController.swift; sourceTree = "<group>"; };
+		A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctores.swift; sourceTree = "<group>"; };
+		A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDoctorController.swift; sourceTree = "<group>"; };
+		A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrController.swift; sourceTree = "<group>"; };
+		A0E25F33202CB7B500A385C2 /* NuevoComentarioDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevoComentarioDrController.swift; sourceTree = "<group>"; };
+		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0F2A233202D7C8D00778C7B /* PlaticasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaticasController.swift; sourceTree = "<group>"; };
+		A0F2A235202D814700778C7B /* PreguntarForoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntarForoController.swift; sourceTree = "<group>"; };
+		D8484398106A8DE2914F5D92 /* Pods_Sanus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sanus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0824579202A9FAB00543AD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F06181F8B7F8FDE789097BFA /* Pods_Sanus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6675700300BD91AE56316C20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */,
+				5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		91E29BD572C67E8F9ABCD045 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8484398106A8DE2914F5D92 /* Pods_Sanus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0824573202A9FAB00543AD0 = {
+			isa = PBXGroup;
+			children = (
+				A082457E202A9FAB00543AD0 /* Sanus */,
+				A082457D202A9FAB00543AD0 /* Products */,
+				6675700300BD91AE56316C20 /* Pods */,
+				91E29BD572C67E8F9ABCD045 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A082457D202A9FAB00543AD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A082457C202A9FAB00543AD0 /* Sanus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A082457E202A9FAB00543AD0 /* Sanus */ = {
+			isa = PBXGroup;
+			children = (
+				A0E42675202AA0BA007D5379 /* controllers */,
+				A0E42678202AA0FA007D5379 /* models */,
+				A0E25F35202CB7C000A385C2 /* doctor */,
+				A0824586202A9FAB00543AD0 /* Assets.xcassets */,
+				A082457F202A9FAB00543AD0 /* AppDelegate.swift */,
+				A0824583202A9FAB00543AD0 /* Main.storyboard */,
+				A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */,
+				A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */,
+				A082458B202A9FAC00543AD0 /* Info.plist */,
+				A0A62620202D7C0200EE34D2 /* NuevaCitaController.swift */,
+				A0F2A233202D7C8D00778C7B /* PlaticasController.swift */,
+				A0F2A235202D814700778C7B /* PreguntarForoController.swift */,
+			);
+			path = Sanus;
+			sourceTree = "<group>";
+		};
+		A0E25F35202CB7C000A385C2 /* doctor */ = {
+			isa = PBXGroup;
+			children = (
+				A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */,
+				A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */,
+				A0E25F33202CB7B500A385C2 /* NuevoComentarioDrController.swift */,
+			);
+			name = doctor;
+			sourceTree = "<group>";
+		};
+		A0E42675202AA0BA007D5379 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0DC8D20202AA49E003FB0CB /* AjustesController.swift */,
+				A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */,
+				A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */,
+				A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */,
+				A0DC8D26202AA4B4003FB0CB /* CitasController.swift */,
+				A0DC8D28202AA4BA003FB0CB /* CrearCuentaController.swift */,
+				A0DC8D24202AA4AC003FB0CB /* ChatController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		A0E42678202AA0FA007D5379 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */,
+				A05AEB37202AD66C00F0D343 /* Citas.swift */,
+				A05AEB39202AD74000F0D343 /* Comentarios.swift */,
+				A05AEB3B202AD7D100F0D343 /* Hospitales.swift */,
+				A05AEB3D202AD84500F0D343 /* Usuarios.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A082457B202A9FAB00543AD0 /* Sanus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A082458E202A9FAC00543AD0 /* Build configuration list for PBXNativeTarget "Sanus" */;
+			buildPhases = (
+				1AAF59F37EE8C138A2BDB8C9 /* [CP] Check Pods Manifest.lock */,
+				A0824578202A9FAB00543AD0 /* Sources */,
+				A0824579202A9FAB00543AD0 /* Frameworks */,
+				A082457A202A9FAB00543AD0 /* Resources */,
+				E7435C356A04B9726489ACD8 /* [CP] Embed Pods Frameworks */,
+				7542EEF42C9DEADFD9C6AF1A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sanus;
+			productName = Sanus;
+			productReference = A082457C202A9FAB00543AD0 /* Sanus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0824574202A9FAB00543AD0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Luis;
+				TargetAttributes = {
+					A082457B202A9FAB00543AD0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A0824577202A9FAB00543AD0 /* Build configuration list for PBXProject "Sanus" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0824573202A9FAB00543AD0;
+			productRefGroup = A082457D202A9FAB00543AD0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A082457B202A9FAB00543AD0 /* Sanus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A082457A202A9FAB00543AD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */,
+				A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */,
+				A0824587202A9FAB00543AD0 /* Assets.xcassets in Resources */,
+				A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1AAF59F37EE8C138A2BDB8C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sanus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7542EEF42C9DEADFD9C6AF1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7435C356A04B9726489ACD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0824578202A9FAB00543AD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
+				A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */,
+				A0DC8D29202AA4BA003FB0CB /* CrearCuentaController.swift in Sources */,
+				A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */,
+				A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */,
+				A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */,
+				A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */,
+				A0DC8D2F202AA4D3003FB0CB /* Doctores.swift in Sources */,
+				A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */,
+				A05AEB3E202AD84500F0D343 /* Usuarios.swift in Sources */,
+				A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */,
+				A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */,
+				A0E25F34202CB7B500A385C2 /* NuevoComentarioDrController.swift in Sources */,
+				A05AEB38202AD66C00F0D343 /* Citas.swift in Sources */,
+				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,
+				A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */,
+				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
+				A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */,
+				A0A62621202D7C0200EE34D2 /* NuevaCitaController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0824583202A9FAB00543AD0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0824584202A9FAB00543AD0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0824589202A9FAB00543AD0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A082458C202A9FAC00543AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A082458D202A9FAC00543AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A082458F202A9FAC00543AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y99AD5GLT5;
+				INFOPLIST_FILE = Sanus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lwebsapp.sanus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A0824590202A9FAC00543AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y99AD5GLT5;
+				INFOPLIST_FILE = Sanus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lwebsapp.sanus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0824577202A9FAB00543AD0 /* Build configuration list for PBXProject "Sanus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A082458C202A9FAC00543AD0 /* Debug */,
+				A082458D202A9FAC00543AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A082458E202A9FAC00543AD0 /* Build configuration list for PBXNativeTarget "Sanus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A082458F202A9FAC00543AD0 /* Debug */,
+				A0824590202A9FAC00543AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0824574202A9FAB00543AD0 /* Project object */;
+}
