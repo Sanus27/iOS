@@ -1,0 +1,6 @@
+framework module Pods_Sanus {
+  umbrella header "Pods-Sanus-umbrella.h"
+
+  export *
+  module * { export * }
+}
