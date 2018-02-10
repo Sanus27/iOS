@@ -234,6 +234,9 @@
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                        <connections>
+                                                                            <action selector="txtEmailEditing:" destination="gj5-Wv-cLk" eventType="editingChanged" id="2fY-xz-VSC"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xgi-eL-FXe">
                                                                         <rect key="frame" x="0.0" y="50" width="266" height="45"/>
@@ -243,6 +246,9 @@
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <connections>
+                                                                            <action selector="txtPassEditing:" destination="gj5-Wv-cLk" eventType="editingChanged" id="WCd-kq-kgP"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -372,6 +378,7 @@
                         <viewLayoutGuide key="safeArea" id="vYh-1o-MC4"/>
                     </view>
                     <connections>
+                        <outlet property="btnIniciarSesion" destination="S0g-ES-TK4" id="iFg-G8-yf5"/>
                         <outlet property="load" destination="FqX-zI-icv" id="qhK-mF-EhY"/>
                         <outlet property="txtCorreo" destination="zN5-N1-RLm" id="DXm-WM-3bj"/>
                         <outlet property="txtPassword" destination="xgi-eL-FXe" id="5Qp-Bq-2cP"/>
@@ -424,8 +431,11 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uKc-pN-BCB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                                                 <subviews>
+                                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="R1h-cT-1hl">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                                                    </activityIndicatorView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBS-GM-Nag">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="20" width="320" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -465,12 +475,18 @@
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                        <connections>
+                                                                            <action selector="txtEmailEditing:" destination="x7J-4y-sX1" eventType="editingChanged" id="e9C-LA-bGd"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iEW-id-jBy">
                                                                         <rect key="frame" x="0.0" y="50" width="266" height="45"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <connections>
+                                                                            <action selector="txtPass1Editing:" destination="x7J-4y-sX1" eventType="editingChanged" id="tbB-nb-33F"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repetir contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjw-FO-FsE">
                                                                         <rect key="frame" x="0.0" y="100" width="266" height="45"/>
@@ -480,6 +496,9 @@
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <connections>
+                                                                            <action selector="txtPass2Editing:" destination="x7J-4y-sX1" eventType="editingChanged" id="E5C-nR-cx5"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -500,13 +519,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="HhK-dS-WbP">
-                                                                <rect key="frame" x="27" y="8" width="266" height="95"/>
+                                                                <rect key="frame" x="27" y="8" width="266" height="90"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CjB-Ee-4dk">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="266" height="95"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="266" height="90"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ7-dr-mAh">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="266" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="266" height="42.5"/>
                                                                                 <color key="backgroundColor" red="0.82622110843658447" green="0.38767033815383911" blue="0.17411154508590698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <state key="normal" title="Crear cuenta">
                                                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -520,14 +539,10 @@
                                                                                     <action selector="btnCrearCuenta:" destination="x7J-4y-sX1" eventType="touchUpInside" id="lCS-vC-iVJ"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZN9-hb-Ftz">
-                                                                                <rect key="frame" x="0.0" y="50" width="266" height="45"/>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noQ-Dt-5Bf">
+                                                                                <rect key="frame" x="0.0" y="47.5" width="266" height="42.5"/>
                                                                                 <color key="backgroundColor" red="0.17474138736724854" green="0.49642634391784668" blue="0.74941939115524292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="36" id="kem-vB-wct"/>
-                                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="uQw-8s-MKs"/>
-                                                                                </constraints>
-                                                                                <state key="normal" title="Ingresar">
+                                                                                <state key="normal" title="Iniciar sesión">
                                                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 </state>
                                                                                 <userDefinedRuntimeAttributes>
@@ -535,22 +550,19 @@
                                                                                         <integer key="value" value="5"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
-                                                                                <variation key="default">
-                                                                                    <mask key="constraints">
-                                                                                        <exclude reference="kem-vB-wct"/>
-                                                                                    </mask>
-                                                                                </variation>
                                                                                 <connections>
-                                                                                    <segue destination="gj5-Wv-cLk" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="hUy-BY-4fS"/>
+                                                                                    <segue destination="gj5-Wv-cLk" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="nvG-1A-kLA"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="90" id="Y3v-JU-wEc"/>
+                                                                        </constraints>
                                                                     </stackView>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="CjB-Ee-4dk" secondAttribute="bottom" id="CkO-JT-jrY"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="CjB-Ee-4dk" secondAttribute="trailing" id="L4g-LN-MWT"/>
-                                                                    <constraint firstItem="CjB-Ee-4dk" firstAttribute="top" secondItem="HhK-dS-WbP" secondAttribute="top" id="inS-7p-AXW"/>
+                                                                    <constraint firstItem="CjB-Ee-4dk" firstAttribute="leading" secondItem="HhK-dS-WbP" secondAttribute="leading" id="DgG-Aj-Jk5"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="CjB-Ee-4dk" secondAttribute="trailing" id="oUi-xP-VyM"/>
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
@@ -577,9 +589,12 @@
                         <viewLayoutGuide key="safeArea" id="ezK-EE-tvX"/>
                     </view>
                     <connections>
+                        <outlet property="btnCrearcuenta" destination="aZ7-dr-mAh" id="M5C-YC-AX7"/>
+                        <outlet property="load" destination="R1h-cT-1hl" id="1nZ-T0-1IH"/>
                         <outlet property="txtCorreo" destination="Sea-xH-L0c" id="eap-JX-ahe"/>
                         <outlet property="txtPass1" destination="iEW-id-jBy" id="dMy-0y-5Hn"/>
                         <outlet property="txtPass2" destination="zjw-FO-FsE" id="UWe-h7-MN6"/>
+                        <segue destination="gj5-Wv-cLk" kind="show" identifier="returnlogin" id="CnS-Rh-TAd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qs5-nH-B9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1550,6 +1565,6 @@
         <image name="user" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hUy-BY-4fS"/>
+        <segue reference="nvG-1A-kLA"/>
     </inferredMetricsTieBreakers>
 </document>
