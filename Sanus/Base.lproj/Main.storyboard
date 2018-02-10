@@ -189,11 +189,21 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FqX-zI-icv">
+                                                                <rect key="frame" x="269" y="15" width="20" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="2JK-2s-3BE"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="UcA-Ef-rpi"/>
+                                                                </constraints>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="ELQ-YO-BZa" secondAttribute="bottom" id="6ex-aD-7iF"/>
                                                             <constraint firstAttribute="trailing" secondItem="ELQ-YO-BZa" secondAttribute="trailing" id="8Kh-yL-uAw"/>
                                                             <constraint firstItem="ELQ-YO-BZa" firstAttribute="leading" secondItem="6Dx-Lf-hVf" secondAttribute="leading" id="HSw-1y-W2b"/>
+                                                            <constraint firstAttribute="trailing" secondItem="FqX-zI-icv" secondAttribute="trailing" constant="31" id="HeJ-1u-L7G"/>
+                                                            <constraint firstItem="FqX-zI-icv" firstAttribute="top" secondItem="6Dx-Lf-hVf" secondAttribute="top" constant="15" id="clS-1M-RUQ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="FqX-zI-icv" secondAttribute="bottom" constant="15" id="f2R-gF-fGP"/>
                                                             <constraint firstItem="ELQ-YO-BZa" firstAttribute="top" secondItem="6Dx-Lf-hVf" secondAttribute="top" id="z3G-AN-V2I"/>
                                                         </constraints>
                                                     </view>
@@ -223,7 +233,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="266" height="45"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xgi-eL-FXe">
                                                                         <rect key="frame" x="0.0" y="50" width="266" height="45"/>
@@ -232,7 +242,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -267,7 +277,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
-                                                                            <segue destination="rL1-kQ-2gn" kind="show" id="O1o-v7-XDW"/>
+                                                                            <action selector="btnIniciarSesion:" destination="gj5-Wv-cLk" eventType="touchUpInside" id="bhb-HK-Czr"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRE-cZ-rne">
@@ -361,6 +371,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vYh-1o-MC4"/>
                     </view>
+                    <connections>
+                        <outlet property="load" destination="FqX-zI-icv" id="qhK-mF-EhY"/>
+                        <outlet property="txtCorreo" destination="zN5-N1-RLm" id="DXm-WM-3bj"/>
+                        <outlet property="txtPassword" destination="xgi-eL-FXe" id="5Qp-Bq-2cP"/>
+                        <segue destination="rL1-kQ-2gn" kind="show" identifier="login" id="tUF-tm-zKi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdv-wJ-Ip0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -448,13 +464,13 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="266" height="45"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iEW-id-jBy">
                                                                         <rect key="frame" x="0.0" y="50" width="266" height="45"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repetir contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjw-FO-FsE">
                                                                         <rect key="frame" x="0.0" y="100" width="266" height="45"/>
@@ -463,7 +479,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -500,6 +516,9 @@
                                                                                         <integer key="value" value="5"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="btnCrearCuenta:" destination="x7J-4y-sX1" eventType="touchUpInside" id="lCS-vC-iVJ"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZN9-hb-Ftz">
                                                                                 <rect key="frame" x="0.0" y="50" width="266" height="45"/>
@@ -557,6 +576,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ezK-EE-tvX"/>
                     </view>
+                    <connections>
+                        <outlet property="txtCorreo" destination="Sea-xH-L0c" id="eap-JX-ahe"/>
+                        <outlet property="txtPass1" destination="iEW-id-jBy" id="dMy-0y-5Hn"/>
+                        <outlet property="txtPass2" destination="zjw-FO-FsE" id="UWe-h7-MN6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qs5-nH-B9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

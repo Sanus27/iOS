@@ -8,16 +8,24 @@
 
 import UIKit
 import FirebaseAuth
-//import GoogleSignIn
 
 class AjustesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let email = Auth.auth().currentUser?.email
+        print("Correo del usuario: \(email!) ")
     }
 
     @IBAction func btnCerrarSesion(_ sender: UIButton) {
-        performSegue(withIdentifier: "salir", sender: self)
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            performSegue(withIdentifier: "salir", sender: self)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

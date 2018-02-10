@@ -11,18 +11,34 @@ import FirebaseAuth
 
 class CrearCuentaController: UIViewController {
 
+    @IBOutlet weak var txtCorreo: UITextField!
+    @IBOutlet weak var txtPass1: UITextField!
+    @IBOutlet weak var txtPass2: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBAction func btnCrearCuenta(_ sender: UIButton) {
+        if txtPass1.text == txtPass2.text {
     
+            Auth.auth().createUser(withEmail: txtCorreo.text!, password: txtPass1.text!) { (user, error) in
+                if user != nil {
+                    print("Se ha creado la cuenta con exito")
+                } else {
+                    if let error = error?.localizedDescription {
+                        print("error de firebase: ", error)
+                    } else {
+                        print("error de codigo")
+                    }
+                }
+            }
+
+            
+        } else {
+            print("mal")
+        }
+    }
     
     /*
      // MARK: - Navigation
@@ -33,6 +49,10 @@ class CrearCuentaController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
