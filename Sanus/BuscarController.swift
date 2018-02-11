@@ -63,11 +63,11 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DoctorCell
         let doctor: Doctores
         doctor = doctoresFiltro[indexPath.row]
-        cell.textLabel?.text = doctor.nombre
-        cell.detailTextLabel?.text = doctor.especialidad
+        cell.nombreDoctor?.text = doctor.nombre
+        cell.especialidadDoctor?.text = doctor.especialidad
         return cell
     }
     

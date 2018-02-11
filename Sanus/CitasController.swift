@@ -37,9 +37,10 @@ class CitasController: UIViewController, UITableViewDelegate, UITableViewDataSou
                     let val = document.data()
                     let doctor = val["doctor"] as? String
                     let fecha = val["fecha"] as? String
+                    let hora = val["hora"] as? String
                     let usuario = val["usuario"] as? String
                     let hospital = val["hospital"] as? String
-                    let cita = Citas(id: id, doctor: doctor, fecha: fecha, hospital: hospital, usuario: usuario)
+                    let cita = Citas(id: id, doctor: doctor, fecha: fecha, hora: hora, hospital: hospital, usuario: usuario)
                     self.listaCitas.append(cita)
                     self.tabla.reloadData()
                 }
@@ -57,11 +58,13 @@ class CitasController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CitasCell
         let cita: Citas
         cita = listaCitas[indexPath.row]
-        cell.textLabel?.text = cita.doctor
-        cell.detailTextLabel?.text = cita.fecha
+        cell.doctorCitas?.text = cita.doctor
+        cell.hospitalCitas?.text = cita.hospital
+        cell.fechaCitas?.text = cita.fecha
+        cell.horaCitas?.text = cita.hora
         return cell
     }
     
