@@ -2,15 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-encuentra-hombre-usuario-100.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icon-buscar_2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icon-buscar_3x.png",
       "scale" : "3x"
     }
   ],

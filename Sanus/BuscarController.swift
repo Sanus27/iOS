@@ -99,7 +99,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
         } else {
            
             doctoresFiltro = listaDoctores.filter({ ( doctor ) -> Bool in
-                doctor.nombre!.lowercased().contains(buscar.text!.lowercased())
+                doctor.especialidad!.lowercased().contains(buscar.text!.lowercased())
             })
             DispatchQueue.main.async {
                 self.tabla.reloadData()
