@@ -33,72 +33,63 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="105.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-as-2sB">
-                                                            <rect key="frame" x="27" y="8" width="266" height="70"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7g-8X-fP1">
+                                                            <rect key="frame" x="27" y="17" width="266" height="71.5"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2f-dK-Aiz">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="266" height="70"/>
-                                                                    <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HGU-er-COg">
-                                                                            <rect key="frame" x="8" y="8" width="55" height="55"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="55" id="FXw-r4-gXf"/>
-                                                                                <constraint firstAttribute="width" constant="55" id="qpZ-Rn-Gtk"/>
-                                                                            </constraints>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                    <integer key="value" value="30"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                            </userDefinedRuntimeAttributes>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Especialidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSU-rd-HN1">
-                                                                            <rect key="frame" x="71" y="36" width="187" height="18"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfS-hv-duY">
-                                                                            <rect key="frame" x="71" y="17" width="187" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HGU-er-COg">
+                                                                    <rect key="frame" x="8" y="8" width="55" height="55"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="OSU-rd-HN1" firstAttribute="leading" secondItem="HGU-er-COg" secondAttribute="trailing" constant="8" id="1Kh-6F-0Sb"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="GfS-hv-duY" secondAttribute="trailing" constant="8" id="ETJ-mW-z3n"/>
-                                                                        <constraint firstItem="GfS-hv-duY" firstAttribute="top" secondItem="O2f-dK-Aiz" secondAttribute="top" constant="17" id="JQN-hg-2G0"/>
-                                                                        <constraint firstItem="HGU-er-COg" firstAttribute="top" secondItem="O2f-dK-Aiz" secondAttribute="top" constant="8" id="Lka-fs-wUJ"/>
-                                                                        <constraint firstItem="GfS-hv-duY" firstAttribute="leading" secondItem="HGU-er-COg" secondAttribute="trailing" constant="8" id="VrM-b2-Dt6"/>
-                                                                        <constraint firstItem="HGU-er-COg" firstAttribute="leading" secondItem="O2f-dK-Aiz" secondAttribute="leading" constant="8" id="ZbD-3m-wcA"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="OSU-rd-HN1" secondAttribute="bottom" constant="16" id="bUX-0y-MKL"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="HGU-er-COg" secondAttribute="bottom" constant="8" id="fAh-cI-x91"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="OSU-rd-HN1" secondAttribute="trailing" constant="8" id="yLh-P1-q1M"/>
+                                                                        <constraint firstAttribute="height" constant="55" id="GIL-7l-G7G"/>
+                                                                        <constraint firstAttribute="width" constant="55" id="NBy-cQ-J3z"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <integer key="value" value="10"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                                            <integer key="value" value="1"/>
+                                                                            <integer key="value" value="30"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
-                                                                </view>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfS-hv-duY">
+                                                                    <rect key="frame" x="71" y="16" width="187" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Especialidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSU-rd-HN1">
+                                                                    <rect key="frame" x="71" y="36" width="187" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="rLK-ko-B30"/>
+                                                                <constraint firstAttribute="bottom" secondItem="OSU-rd-HN1" secondAttribute="bottom" constant="17.5" id="0DV-sB-eFu"/>
+                                                                <constraint firstAttribute="bottom" secondItem="HGU-er-COg" secondAttribute="bottom" constant="8" id="14b-cM-ob1"/>
+                                                                <constraint firstItem="HGU-er-COg" firstAttribute="top" secondItem="Y7g-8X-fP1" secondAttribute="top" constant="8" id="1of-i0-brm"/>
+                                                                <constraint firstItem="OSU-rd-HN1" firstAttribute="leading" secondItem="HGU-er-COg" secondAttribute="trailing" constant="8" id="BwK-55-77U"/>
+                                                                <constraint firstAttribute="trailing" secondItem="GfS-hv-duY" secondAttribute="trailing" constant="8" id="OdP-Ia-onV"/>
+                                                                <constraint firstItem="GfS-hv-duY" firstAttribute="leading" secondItem="HGU-er-COg" secondAttribute="trailing" constant="8" id="QZQ-GQ-WC4"/>
+                                                                <constraint firstItem="GfS-hv-duY" firstAttribute="top" secondItem="Y7g-8X-fP1" secondAttribute="top" constant="16" id="i3X-UB-4Pp"/>
+                                                                <constraint firstAttribute="height" constant="71.5" id="l6I-dY-5iq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="OSU-rd-HN1" secondAttribute="trailing" constant="8" id="n08-BA-2o5"/>
+                                                                <constraint firstItem="HGU-er-COg" firstAttribute="leading" secondItem="Y7g-8X-fP1" secondAttribute="leading" constant="8" id="uAu-gp-jgN"/>
                                                             </constraints>
-                                                        </stackView>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                                    <integer key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.96090251207351685" green="0.96560662984848022" blue="0.97964173555374146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="NgR-as-2sB" secondAttribute="trailing" constant="27" id="77S-4r-P23"/>
-                                                        <constraint firstItem="NgR-as-2sB" firstAttribute="top" secondItem="spn-gM-KwM" secondAttribute="top" constant="8" id="AKY-1B-oa8"/>
-                                                        <constraint firstItem="NgR-as-2sB" firstAttribute="leading" secondItem="spn-gM-KwM" secondAttribute="leading" constant="27" id="ByW-TB-QJj"/>
-                                                        <constraint firstItem="NgR-as-2sB" firstAttribute="centerX" secondItem="spn-gM-KwM" secondAttribute="centerX" id="CVW-y6-3nw"/>
-                                                        <constraint firstAttribute="bottom" secondItem="NgR-as-2sB" secondAttribute="bottom" constant="8" id="MZp-Wc-hn4"/>
-                                                        <constraint firstItem="NgR-as-2sB" firstAttribute="centerY" secondItem="spn-gM-KwM" secondAttribute="centerY" id="qeq-N5-TSu"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Y7g-8X-fP1" secondAttribute="trailing" constant="27" id="GEX-9j-bGs"/>
+                                                        <constraint firstItem="Y7g-8X-fP1" firstAttribute="leading" secondItem="spn-gM-KwM" secondAttribute="leading" constant="27" id="Qra-oH-zbe"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Y7g-8X-fP1" secondAttribute="bottom" constant="17" id="Tpm-z4-cGa"/>
+                                                        <constraint firstItem="Y7g-8X-fP1" firstAttribute="top" secondItem="spn-gM-KwM" secondAttribute="top" constant="17" id="o85-QV-pRh"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -193,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9609.375" y="370.77464788732397"/>
+            <point key="canvasLocation" x="-9611.25" y="369.71830985915494"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="AjX-Rg-gK6">
