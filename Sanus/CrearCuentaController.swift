@@ -112,6 +112,7 @@ class CrearCuentaController: UIViewController {
                     let alerta = UIAlertController(title: " Exito", message: "La la cuenta ha sido creada con exito", preferredStyle: .alert);
                     alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
                         self.registrarUsuarios(email: self.txtCorreo.text!, password: self.txtPass1.text!)
+                        self.performSegue(withIdentifier: "firstLogin", sender: self);
                     }))
                     self.present(alerta, animated: true, completion: nil);
                     self.txtCorreo.text! = "";
@@ -171,23 +172,12 @@ class CrearCuentaController: UIViewController {
                     print("se h producido un error \(error)")
                 } else {
                     print("Registro hecho")
-                    self.salir()
-                    self.performSegue(withIdentifier: "returnlogin", sender: self);
                 }
             })
         }
     }
     
-    func salir(){
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            self.performSegue(withIdentifier: "salir", sender: self);
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
