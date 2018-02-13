@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 
 class CrearCuentaController: UIViewController {
@@ -19,9 +20,12 @@ class CrearCuentaController: UIViewController {
     var valdE:Bool = false;
     var valdP1:Bool = false;
     var valdP2:Bool = false;
+    var ref: DocumentReference!
+    var getRef: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getRef = Firestore.firestore()
         btnCrearcuenta.isEnabled = false;
         btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
@@ -107,9 +111,7 @@ class CrearCuentaController: UIViewController {
                     print("Se ha creado la cuenta con exito")
                     let alerta = UIAlertController(title: " Exito", message: "La la cuenta ha sido creada con exito", preferredStyle: .alert);
                     alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                        print("aceptar")
-                        print(action)
-                        self.performSegue(withIdentifier: "returnlogin", sender: self);
+                        self.registrarUsuarios(email: self.txtCorreo.text!, password: self.txtPass1.text!)
                     }))
                     self.present(alerta, animated: true, completion: nil);
                     self.txtCorreo.text! = "";
@@ -159,15 +161,32 @@ class CrearCuentaController: UIViewController {
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func registrarUsuarios( email: String, password:String){
+        Auth.auth().signIn(withEmail: email, password: password) { ( user, error ) in
+            let uid = Auth.auth().currentUser?.uid
+            let campos:[String:Any] = ["tipo": "Pasiente"]
+            self.ref = self.getRef.collection("usuarios").document(uid!)
+            self.ref.setData(campos, completion: { (error) in
+                if let error = error?.localizedDescription {
+                    print("se h producido un error \(error)")
+                } else {
+                    print("Registro hecho")
+                    self.salir()
+                    self.performSegue(withIdentifier: "returnlogin", sender: self);
+                }
+            })
+        }
+    }
+    
+    func salir(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.performSegue(withIdentifier: "salir", sender: self);
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);

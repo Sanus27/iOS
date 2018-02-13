@@ -13,8 +13,6 @@ class AjustesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let email = Auth.auth().currentUser?.email
-        print("Correo del usuario: \(email!) ")
     }
 
     @IBAction func btnCerrarSesion(_ sender: UIButton) {
