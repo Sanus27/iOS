@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
-class CompletarRegistroController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CompletarRegistroController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
+UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtApellido: UITextField!
@@ -23,10 +26,14 @@ class CompletarRegistroController: UIViewController, UIPickerViewDelegate, UIPic
     let plataformas = ["Selecciona tu edad" ,"Recien nacido", "Menor de edad", "De 18 a 25 años", "De 25 años a 50", "Mayor de edad"]
     var valdN:Bool = false;
     var valdA:Bool = false;
-    
+    var imagen = UIImage()
+    var data:Usuarios!
+    var ref: DocumentReference!
+    var getRef: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getRef = Firestore.firestore()
         edad.delegate = self
         edad.dataSource = self
         btnGuardar.isEnabled = false;
@@ -86,16 +93,45 @@ class CompletarRegistroController: UIViewController, UIPickerViewDelegate, UIPic
     @IBAction func btnGuardar(_ sender: UIButton) {
         let nombre = txtNombre.text!
         let apellido = txtApellido.text!
-        
+        let id = Auth.auth().currentUser?.uid
         if sexo.selectedSegmentIndex == 0 {
             sex = "Masculino"
         } else {
             sex = "Femenino"
         }
+        let campos : [String:Any] = ["nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex]
+        ref = Firestore.firestore().collection("usuarios").document(id!)
+        ref.setData(campos) { (error) in
+            if let error = error?.localizedDescription {
+                print("fallo al actualizar", error)
+            } else {
+                print("se inserto")
+                //self.dismiss(animated: true, completion: nil)
+            }
+        }
         print("El sexo es: \(sex)")
         print("Tu edad es: \(ed)")
         print("Tu nombre es: \(nombre)")
         print("Tu apellido es: \(apellido)")
+    }
+    
+    
+    @IBAction func btnCargarFoto(_ sender: UIButton) {
+        let imagePiker = UIImagePickerController()
+        imagePiker.delegate = self
+        imagePiker.sourceType = .photoLibrary
+        imagePiker.allowsEditing = true
+        present(imagePiker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let imagenElejida = info[UIImagePickerControllerEditedImage] as? UIImage
+        imagen = imagenElejida!
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
