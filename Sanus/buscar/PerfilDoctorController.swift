@@ -11,7 +11,12 @@ import Firebase
 
 class PerfilDoctorController: UIViewController {
     
+    @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var txtCV: UITextView!
+    @IBOutlet weak var txtEspecialidad: UILabel!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var txtCedula: UILabel!
+    
     var verPerfil:Doctores!
     var ref: DocumentReference!
     var id = ""
@@ -20,27 +25,34 @@ class PerfilDoctorController: UIViewController {
         super.viewDidLoad()
         id = verPerfil.id!
         ref = Firestore.firestore().collection("doctores").document(id)
-        txtCV.text = ""
+        mostrar()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func mostrar(){
+        ref.getDocument { (document, error) in
+            if let document = document {
+                let val = document.data()
+                let nombre = val!["nombre"] as! String
+                print(nombre)
+                self.navbar.title = nombre
+                let avatar = val!["avatar"] as! String
+                print(avatar)
+                let cv = val!["cv"] as! String
+                print(cv)
+                self.txtCV.text = cv
+                let especialidad = val!["especialidad"] as! String
+                print(especialidad)
+                self.txtEspecialidad.text = especialidad
+            } else {
+                print("documento no existe")
+            }
+        }
     }
     
     @IBAction func btnAtras(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }

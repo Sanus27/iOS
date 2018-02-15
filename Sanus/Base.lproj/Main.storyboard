@@ -1003,16 +1003,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQZ-I7-BDz">
-                                                <rect key="frame" x="8" y="12" width="98" height="41"/>
+                                                <rect key="frame" x="8" y="12" width="96.5" height="41"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valoración" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bY-8w-QmN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="98" height="12"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="96.5" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comentarios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG5-BY-02W">
-                                                        <rect key="frame" x="0.0" y="29" width="98" height="12"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Especialidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG5-BY-02W">
+                                                        <rect key="frame" x="0.0" y="29" width="96.5" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1131,7 +1131,11 @@
                         <viewLayoutGuide key="safeArea" id="8wQ-fP-cLP"/>
                     </view>
                     <connections>
+                        <outlet property="avatar" destination="WpJ-70-57v" id="3cK-qj-l3n"/>
+                        <outlet property="navbar" destination="zBW-fi-XFy" id="gMa-Lu-6uw"/>
                         <outlet property="txtCV" destination="oOw-DB-ta0" id="IvF-RG-KKz"/>
+                        <outlet property="txtCedula" destination="6bY-8w-QmN" id="QPz-9U-PEZ"/>
+                        <outlet property="txtEspecialidad" destination="wG5-BY-02W" id="YWS-I4-2O2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzY-KU-qKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
