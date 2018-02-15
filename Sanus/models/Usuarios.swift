@@ -13,14 +13,12 @@ class Usuarios{
     var edad: String?
     var estado: Int?
     var nombre: String?
-    var apellido: String?
     var tipo: String?
     
-    init( edad: String?, estado: Int?, nombre: String?, apellido: String?, tipo: String? ) {
+    init( edad: String?, estado: Int?, nombre: String?, tipo: String? ) {
         self.edad = edad
         self.estado = estado
         self.nombre = nombre
-        self.apellido = apellido
         self.tipo = tipo
     }
     

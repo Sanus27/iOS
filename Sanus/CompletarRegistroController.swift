@@ -10,32 +10,36 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class CompletarRegistroController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
-UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtApellido: UITextField!
     @IBOutlet weak var sexo: UISegmentedControl!
     @IBOutlet weak var edad: UIPickerView!
     @IBOutlet weak var btnGuardar: UIButton!
+    @IBOutlet weak var load: UIActivityIndicatorView!
     
-    
+    let imagePickerController = UIImagePickerController()
     var plataforma:String = ""
     var sex:String = ""
     var ed:String = ""
-    let plataformas = ["Selecciona tu edad" ,"Recien nacido", "Menor de edad", "De 18 a 25 años", "De 25 años a 50", "Mayor de edad"]
-    var valdN:Bool = false;
-    var valdA:Bool = false;
+    var campos: [String:Any] = [:]
+    let plataformas = ["Selecciona tu edad" ,"Recien nacido", "Menor de edad", "De 18 a 27 años", "De 27 años a 50", "De 50 en adelante"]
+    var valdN:Bool = false
+    var valdA:Bool = false
     var imagen = UIImage()
+    var pesoImg:Float = 0.0
     var data:Usuarios!
     var ref: DocumentReference!
     var getRef: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePickerController.delegate = self
         getRef = Firestore.firestore()
         edad.delegate = self
         edad.dataSource = self
+        print("imagen", imagen)
         btnGuardar.isEnabled = false;
         btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
@@ -63,11 +67,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func validar(){
         if ( valdA == true && valdN == true) {
-            print("validado correcto");
             btnGuardar.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
             btnGuardar.isEnabled = true;
         } else {
-            print("formulario invalido");
             btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
             btnGuardar.isEnabled = false;
         }
@@ -88,45 +90,87 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         plataforma = plataformas[row]
         ed = plataformas[row]
+        if plataformas[row] == "Selecciona tu edad" {
+            ed = ""
+        }
     }
     
     @IBAction func btnGuardar(_ sender: UIButton) {
+        load.startAnimating()
+        btnGuardar.isEnabled = false;
+        btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        
+        let id = Auth.auth().currentUser?.uid
         let nombre = txtNombre.text!
         let apellido = txtApellido.text!
-        let id = Auth.auth().currentUser?.uid
-        if sexo.selectedSegmentIndex == 0 {
-            sex = "Masculino"
+        if sexo.selectedSegmentIndex == 0 { sex = "Masculino" } else { sex = "Femenino" }
+        //subir imagen
+        if pesoImg != 0.0 {
+            let storage = Storage.storage().reference()
+            let directorio = storage.child("avatar/\(id!)")
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/png"
+            directorio.putData(UIImagePNGRepresentation(imagen)!, metadata: metaData) { (data, error) in
+                if error == nil {
+                    print("cargo la imagen")
+                    self.load.stopAnimating()
+                } else {
+                    if let error = error?.localizedDescription {
+                        print("Error al subir imagen", error)
+                    } else {
+
+                    }
+                }
+            }
+            
+            if ed != "" {
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente"]
+            } else {
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente"]
+            }
+            
         } else {
-            sex = "Femenino"
+            
+            if ed != "" {
+                campos = ["nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente"]
+            } else {
+                campos = ["nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente"]
+            }
         }
-        let campos : [String:Any] = ["nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex]
+        
+        //insertar datos
         ref = Firestore.firestore().collection("usuarios").document(id!)
         ref.setData(campos) { (error) in
             if let error = error?.localizedDescription {
                 print("fallo al actualizar", error)
+                let alerta = UIAlertController(title: "Se ha producido un error", message: "Intentalo de nuevo", preferredStyle: .alert);
+                alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+                    
+                }))
             } else {
-                print("se inserto")
-                //self.dismiss(animated: true, completion: nil)
+                let alerta = UIAlertController(title: "Se han actualizado tus datos", message: "Ahora puedes utilizar nuestra aplicación", preferredStyle: .alert);
+                alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+                    self.performSegue(withIdentifier: "goBuscador", sender: self);
+                }))
+                self.present(alerta, animated: true, completion: nil);
             }
         }
-        print("El sexo es: \(sex)")
-        print("Tu edad es: \(ed)")
-        print("Tu nombre es: \(nombre)")
-        print("Tu apellido es: \(apellido)")
     }
     
     
     @IBAction func btnCargarFoto(_ sender: UIButton) {
-        let imagePiker = UIImagePickerController()
-        imagePiker.delegate = self
-        imagePiker.sourceType = .photoLibrary
-        imagePiker.allowsEditing = true
-        present(imagePiker, animated: true, completion: nil)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let imagenElejida = info[UIImagePickerControllerEditedImage] as? UIImage
-        imagen = imagenElejida!
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])  {
+        let imagenTomada = info[UIImagePickerControllerEditedImage] as? UIImage
+        imagen = imagenTomada!
+        pesoImg = Float(imagen.size.width)
+        print(pesoImg)
         dismiss(animated: true, completion: nil)
     }
     

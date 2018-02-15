@@ -69,11 +69,9 @@ class LoginController: UIViewController {
     
     func validar(){
         if ( valdE == true && valdP == true) {
-            print("validado correcto");
             btnIniciarSesion.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
             btnIniciarSesion.isEnabled = true;
         } else {
-            print("formulario invalido");
             btnIniciarSesion.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
             btnIniciarSesion.isEnabled = false;
         }

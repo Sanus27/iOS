@@ -11,12 +11,14 @@ import Firebase
 import FirebaseAuth
 
 class CrearCuentaController: UIViewController {
-
+    
     @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet weak var btnCrearcuenta: UIButton!
+    @IBOutlet weak var btnLoginListen: UIButton!
     @IBOutlet weak var txtCorreo: UITextField!
     @IBOutlet weak var txtPass1: UITextField!
     @IBOutlet weak var txtPass2: UITextField!
+    
     var valdE:Bool = false;
     var valdP1:Bool = false;
     var valdP2:Bool = false;
@@ -29,6 +31,7 @@ class CrearCuentaController: UIViewController {
         btnCrearcuenta.isEnabled = false;
         btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
+    
     
     
     func isValidEmailAddress(emailAddressString: String) -> Bool {
@@ -89,29 +92,30 @@ class CrearCuentaController: UIViewController {
     
     func validar(){
         if ( valdE == true && valdP1 == true  && valdP2 == true) {
-            print("validado correcto");
             btnCrearcuenta.backgroundColor = UIColor(red: 255/255, green: 162/255, blue: 0/255, alpha: 1.0);
             btnCrearcuenta.isEnabled = true;
         } else {
-            print("formulario invalido");
             btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
             btnCrearcuenta.isEnabled = false;
         }
     }
    
 
-    
     @IBAction func btnCrearCuenta(_ sender: UIButton) {
+        
+        
+        btnLoginListen.isEnabled = false;
+        btnLoginListen.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        
         if txtPass1.text == txtPass2.text {
             self.load.startAnimating()
             Auth.auth().createUser(withEmail: txtCorreo.text!, password: txtPass1.text!) { (user, error) in
-                self.load.stopAnimating()
+                
                 if user != nil {
                     
                     print("Se ha creado la cuenta con exito")
                     let alerta = UIAlertController(title: " Exito", message: "La la cuenta ha sido creada con exito", preferredStyle: .alert);
                     alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                        self.registrarUsuarios(email: self.txtCorreo.text!, password: self.txtPass1.text!)
                         self.performSegue(withIdentifier: "firstLogin", sender: self);
                     }))
                     self.present(alerta, animated: true, completion: nil);
@@ -120,6 +124,10 @@ class CrearCuentaController: UIViewController {
                     self.txtPass2.text! = "";
                     
                 } else {
+                    
+                    self.btnLoginListen.isEnabled = true;
+                    self.btnLoginListen.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 0.3);
+                    
                     if  let error = error?.localizedDescription {
                         print("error de firebase", error);
                         if(error == "The password must be 6 characters long or more."){
@@ -161,21 +169,7 @@ class CrearCuentaController: UIViewController {
             print("mal")
         }
     }
-    
-    func registrarUsuarios( email: String, password:String){
-        Auth.auth().signIn(withEmail: email, password: password) { ( user, error ) in
-            let uid = Auth.auth().currentUser?.uid
-            let campos:[String:Any] = ["tipo": "Pasiente"]
-            self.ref = self.getRef.collection("usuarios").document(uid!)
-            self.ref.setData(campos, completion: { (error) in
-                if let error = error?.localizedDescription {
-                    print("se h producido un error \(error)")
-                } else {
-                    print("Registro hecho")
-                }
-            })
-        }
-    }
+
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
