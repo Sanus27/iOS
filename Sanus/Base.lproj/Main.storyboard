@@ -1643,11 +1643,11 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80t-Ws-3JF">
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="7Sx-78-HyB">
+                                                            <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerAjustes" translatesAutoresizingMaskIntoConstraints="NO" id="7Sx-78-HyB">
                                                                 <rect key="frame" x="5" y="5" width="80" height="80"/>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                                                        <integer key="value" value="35"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="40"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
@@ -1670,7 +1670,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                        <integer key="value" value="45"/>
+                                                                        <integer key="value" value="40"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
@@ -1856,6 +1856,7 @@
                     <connections>
                         <outlet property="btnGuardar" destination="rEZ-Xn-JrM" id="Bd4-Bt-1Bm"/>
                         <outlet property="edad" destination="6oL-Ly-9uS" id="X0i-pu-Leh"/>
+                        <outlet property="imageView" destination="7Sx-78-HyB" id="8Zw-AJ-UYx"/>
                         <outlet property="load" destination="mWz-Hb-x5N" id="VSe-LO-1Af"/>
                         <outlet property="sexo" destination="Ebv-xw-SrB" id="zB3-6h-Vqh"/>
                         <outlet property="txtApellido" destination="WTt-We-Ctw" id="XM8-MN-cAO"/>
@@ -1914,7 +1915,7 @@
         <image name="user" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tUF-tm-zKi"/>
+        <segue reference="n5x-9v-mmc"/>
         <segue reference="CnS-Rh-TAd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var edad: UIPickerView!
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var load: UIActivityIndicatorView!
+    @IBOutlet weak var imageView: UIImageView!
     
     let imagePickerController = UIImagePickerController()
     var plataforma:String = ""
@@ -168,6 +169,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])  {
         let imagenTomada = info[UIImagePickerControllerEditedImage] as? UIImage
+        imageView.image = imagenTomada!
         imagen = imagenTomada!
         pesoImg = Float(imagen.size.width)
         print(pesoImg)
@@ -177,6 +179,8 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
