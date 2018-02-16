@@ -32,11 +32,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 self.listaComentarios.removeAll()
                 for document in resp!.documents {
                     let val = document.data()
+                    let avatar = val["avatar"] as? String
                     let doctor = val["doctor"] as? String
                     let autor = val["usuario"] as? String
                     let fecha = val["fecha"] as? String
                     let comentario = val["comentario"] as? String
-                    let coments = Comentarios(comentario: comentario, doctor: doctor, fecha: fecha, usuario: autor)
+                    let coments = Comentarios(comentario: comentario, doctor: doctor, fecha: fecha, usuario: autor, avatar: avatar)
                     self.listaComentarios.append(coments)
                     self.tabla.reloadData()
                 }
@@ -59,6 +60,22 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         cell.usuario.text? = comentario.usuario!
         cell.fecha.text? = comentario.fecha!
         cell.comentario.text? = comentario.comentario!
+        
+        if let urlFoto = comentario.avatar {
+            Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                if let error = error?.localizedDescription {
+                    print("fallo al traer imagenes", error)
+                } else {
+                    cell.avatar?.image = UIImage(data: data!)
+                    cell.avatar.layer.masksToBounds = false
+                    cell.avatar.layer.cornerRadius = cell.avatar.frame.height / 2
+                    cell.avatar.clipsToBounds = true
+                    cell.avatar.layer.borderWidth = 1
+                    //self.tabla.reloadData()
+                }
+            })
+        }
+        
         return cell
     }
     

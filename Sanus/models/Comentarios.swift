@@ -14,12 +14,14 @@ class Comentarios{
     var doctor: String?
     var fecha: String?
     var usuario: String?
+    var avatar: String?
     
-    init( comentario: String?, doctor: String?, fecha: String?, usuario: String? ) {
+    init( comentario: String?, doctor: String?, fecha: String?, usuario: String?, avatar: String? ) {
         self.comentario = comentario
         self.doctor = doctor
         self.fecha = fecha
         self.usuario = usuario
+        self.avatar = avatar
     }
     
 }
