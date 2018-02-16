@@ -44,6 +44,9 @@ class PerfilDoctorController: UIViewController {
                 let especialidad = val!["especialidad"] as! String
                 print(especialidad)
                 self.txtEspecialidad.text = especialidad
+                let cedula = val!["cedula"] as! String
+                print(cedula)
+                self.txtCedula.text = cedula
                 
                 if foto != "" {
                     Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
