@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */; };
 		A05AEB38202AD66C00F0D343 /* Citas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Citas.swift */; };
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
 		A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB3B202AD7D100F0D343 /* Hospitales.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
 		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
+		A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrCell.swift; sourceTree = "<group>"; };
 		A05AEB37202AD66C00F0D343 /* Citas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citas.swift; sourceTree = "<group>"; };
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
 		A05AEB3B202AD7D100F0D343 /* Hospitales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitales.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */,
 				A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */,
 				A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */,
+				A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */,
 			);
 			path = buscar;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				A0ACF9B420334F0B004681AE /* CompletarRegistroController.swift in Sources */,
 				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,
 				A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */,
+				A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */,
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */,
 				A0A62621202D7C0200EE34D2 /* NuevaCitaController.swift in Sources */,

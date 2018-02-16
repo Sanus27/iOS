@@ -22,7 +22,6 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.viewDidLoad()
         tabla.delegate = self
         tabla.dataSource = self
         getRef = Firestore.firestore()
