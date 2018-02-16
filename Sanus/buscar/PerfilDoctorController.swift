@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class PerfilDoctorController: UIViewController {
     
@@ -35,14 +36,30 @@ class PerfilDoctorController: UIViewController {
                 let nombre = val!["nombre"] as! String
                 print(nombre)
                 self.navbar.title = nombre
-                let avatar = val!["avatar"] as! String
-                print(avatar)
+                let foto = val!["avatar"] as! String
+                print(foto)
                 let cv = val!["cv"] as! String
                 print(cv)
                 self.txtCV.text = cv
                 let especialidad = val!["especialidad"] as! String
                 print(especialidad)
                 self.txtEspecialidad.text = especialidad
+                
+                if foto != "" {
+                    Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                        if let error = error?.localizedDescription {
+                            print("fallo al traer imagenes", error)
+                        } else {
+                            self.avatar.image = UIImage(data: data!)
+                            self.avatar.layer.masksToBounds = false
+                            self.avatar.layer.cornerRadius = self.avatar.frame.height / 2
+                            self.avatar.clipsToBounds = true
+                            self.avatar.layer.borderWidth = 1
+                        }
+                    })
+                    
+                }
+                
             } else {
                 print("documento no existe")
             }

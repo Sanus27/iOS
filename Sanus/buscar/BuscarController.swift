@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -68,6 +69,20 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
         doctor = doctoresFiltro[indexPath.row]
         cell.nombreDoctor?.text = doctor.nombre
         cell.especialidadDoctor?.text = doctor.especialidad
+        if let urlFoto = doctor.avatar {
+            Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                if let error = error?.localizedDescription {
+                    print("fallo al traer imagenes", error)
+                } else {
+                    cell.avatarDoctor?.image = UIImage(data: data!)
+                    cell.avatarDoctor.layer.masksToBounds = false
+                    cell.avatarDoctor.layer.cornerRadius = cell.avatarDoctor.frame.height / 2
+                    cell.avatarDoctor.clipsToBounds = true
+                    cell.avatarDoctor.layer.borderWidth = 1
+                    //self.tabla.reloadData()
+                }
+            })
+        }
         return cell
     }
     
