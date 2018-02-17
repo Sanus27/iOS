@@ -13,31 +13,36 @@ import FirebaseStorage
 class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tabla: UITableView!
+    var verComentarios: Comentarios!
     var ref:DocumentReference!
     var getRef:Firestore!
     var listaComentarios = [Comentarios]()
+    var id = "OTYMy6HA1EPTrQHzuV3E"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabla.delegate = self
         tabla.dataSource = self
         getRef = Firestore.firestore()
+        //id = verComentarios.id!
         mostrarComentarios()
     }
     
     func mostrarComentarios(){
-        getRef.collection("comentarios").whereField("doctor", isEqualTo: "OTYMy6HA1EPTrQHzuV3E").addSnapshotListener { (resp , error) in
+        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).addSnapshotListener { (resp , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
                 self.listaComentarios.removeAll()
                 for document in resp!.documents {
+                    let id = document.documentID
                     let val = document.data()
                     let avatar = val["avatar"] as? String
                     let doctor = val["doctor"] as? String
                     let autor = val["usuario"] as? String
                     let fecha = val["fecha"] as? String
                     let comentario = val["comentario"] as? String
-                    let coments = Comentarios(comentario: comentario, doctor: doctor, fecha: fecha, usuario: autor, avatar: avatar)
+                    let coments = Comentarios(id: id, comentario: comentario, doctor: doctor, fecha: fecha, usuario: autor, avatar: avatar)
                     self.listaComentarios.append(coments)
                     self.tabla.reloadData()
                 }

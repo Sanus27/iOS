@@ -21,6 +21,7 @@ class PerfilDoctorController: UIViewController {
     var verPerfil:Doctores!
     var ref: DocumentReference!
     var id = ""
+    var uid = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,16 @@ class PerfilDoctorController: UIViewController {
                 print("documento no existe")
             }
         }
+    }
+    
+
+    
+    @IBAction func btnComentarios(_ sender: UIButton) {
+        performSegue(withIdentifier: "comentarios", sender: self)
+    }
+    
+    @IBAction func btnNuevoComentario(_ sender: UIButton) {
+        performSegue(withIdentifier: "nuevoComentario", sender: self)
     }
     
     @IBAction func btnAtras(_ sender: UIBarButtonItem) {

@@ -1057,7 +1057,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="mpV-Hq-gx8" kind="show" id="rrs-SM-Fyc"/>
+                                    <action selector="btnComentarios:" destination="IHO-us-7nY" eventType="touchUpInside" id="9ch-uF-uT6"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UcG-Rg-Ntl">
@@ -1107,7 +1107,7 @@
                                 </constraints>
                                 <state key="normal" image="icon-mas"/>
                                 <connections>
-                                    <segue destination="gHx-Y5-DRe" kind="show" id="4v4-JH-Y6A"/>
+                                    <action selector="btnNuevoComentario:" destination="IHO-us-7nY" eventType="touchUpInside" id="yJi-UQ-r7Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1142,6 +1142,8 @@
                         <outlet property="txtCV" destination="oOw-DB-ta0" id="IvF-RG-KKz"/>
                         <outlet property="txtCedula" destination="6bY-8w-QmN" id="QPz-9U-PEZ"/>
                         <outlet property="txtEspecialidad" destination="wG5-BY-02W" id="YWS-I4-2O2"/>
+                        <segue destination="gHx-Y5-DRe" kind="show" identifier="nuevoComentario" id="O3Z-v2-i5k"/>
+                        <segue destination="mpV-Hq-gx8" kind="show" identifier="comentarios" id="Ol0-Jl-lhK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzY-KU-qKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1256,7 +1258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="245-kv-ZCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9609" y="2179"/>
+            <point key="canvasLocation" x="-9654" y="2228"/>
         </scene>
         <!--Comentarios Dr Controller-->
         <scene sceneID="anm-Wp-07b">

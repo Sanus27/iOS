@@ -68,6 +68,8 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
         doctor = doctoresFiltro[indexPath.row]
         cell.nombreDoctor?.text = doctor.nombre
         cell.especialidadDoctor?.text = doctor.especialidad
+        
+        
         if let urlFoto = doctor.avatar {
             Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                 if let error = error?.localizedDescription {
@@ -82,6 +84,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             })
         }
+        
         return cell
     }
     

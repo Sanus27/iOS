@@ -10,13 +10,15 @@ import Foundation
 
 class Comentarios{
     
+    var id: String?
     var comentario: String?
     var doctor: String?
     var fecha: String?
     var usuario: String?
     var avatar: String?
     
-    init( comentario: String?, doctor: String?, fecha: String?, usuario: String?, avatar: String? ) {
+    init( id: String?, comentario: String?, doctor: String?, fecha: String?, usuario: String?, avatar: String? ) {
+        self.id = id
         self.comentario = comentario
         self.doctor = doctor
         self.fecha = fecha
