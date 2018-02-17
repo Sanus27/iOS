@@ -211,6 +211,10 @@
                                                                     <constraint firstAttribute="height" constant="172" id="kRg-oF-4sf"/>
                                                                 </constraints>
                                                             </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-sanus" translatesAutoresizingMaskIntoConstraints="NO" id="aES-Kh-PEE">
+                                                                <rect key="frame" x="133" y="106" width="55" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="Of8-wK-iSz" firstAttribute="top" secondItem="8jS-hd-QhA" secondAttribute="top" id="Dez-9B-Mza"/>
@@ -431,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdv-wJ-Ip0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6609" y="-1297"/>
+            <point key="canvasLocation" x="-6609.375" y="-1297.1830985915492"/>
         </scene>
         <!--Crear Cuenta Controller-->
         <scene sceneID="Bd2-T5-dAI">
@@ -458,6 +462,10 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="171" id="ZMW-Tf-PNm"/>
                                                                 </constraints>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-sanus" translatesAutoresizingMaskIntoConstraints="NO" id="lfE-VI-vMW">
+                                                                <rect key="frame" x="133" y="104" width="55" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
@@ -2000,12 +2008,13 @@
         <image name="icon-enviar" width="100" height="100"/>
         <image name="icon-foro" width="28" height="28"/>
         <image name="icon-mas" width="235" height="231"/>
+        <image name="icon-sanus" width="683" height="503"/>
         <image name="icono-star_c" width="115" height="109"/>
         <image name="ion-comentarios" width="102" height="103"/>
         <image name="user" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n5x-9v-mmc"/>
+        <segue reference="tUF-tm-zKi"/>
         <segue reference="CnS-Rh-TAd"/>
     </inferredMetricsTieBreakers>
 </document>
