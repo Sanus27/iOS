@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -17,49 +22,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="glr-XR-S1L">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VxA-eX-ayJ">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0Ij-P1-EcY">
-                                <rect key="frame" x="40" y="75" width="240" height="128"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txt-xZ-S37">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-sanus" translatesAutoresizingMaskIntoConstraints="NO" id="egv-67-NZ5">
-                                                <rect key="frame" x="51" y="0.0" width="138" height="100"/>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="egv-67-NZ5" firstAttribute="leading" secondItem="Txt-xZ-S37" secondAttribute="leading" constant="51" id="VIa-38-WKP"/>
-                                            <constraint firstAttribute="bottom" secondItem="egv-67-NZ5" secondAttribute="bottom" constant="28" id="fkZ-ip-dUZ"/>
-                                            <constraint firstItem="egv-67-NZ5" firstAttribute="top" secondItem="Txt-xZ-S37" secondAttribute="top" id="kRZ-9b-hmW"/>
-                                            <constraint firstItem="egv-67-NZ5" firstAttribute="centerX" secondItem="Txt-xZ-S37" secondAttribute="centerX" id="wz2-y7-RS3"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SANUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mo-Qs-I0D">
-                                <rect key="frame" x="0.0" y="211" width="320" height="33"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-sanus" translatesAutoresizingMaskIntoConstraints="NO" id="jnF-Fe-Ba9">
+                                <rect key="frame" x="78" y="87" width="164" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="gZC-uZ-AKB"/>
+                                    <constraint firstAttribute="width" constant="164" id="Gxv-Pq-oXo"/>
+                                    <constraint firstAttribute="height" constant="128" id="hpb-0V-fXz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sanus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03d-4Y-D2i">
+                                <rect key="frame" x="135" y="223" width="51" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93737488985061646" green="0.94207632541656494" blue="0.95611518621444702" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3mo-Qs-I0D" firstAttribute="top" secondItem="0Ij-P1-EcY" secondAttribute="bottom" constant="8" symbolic="YES" id="9qs-tj-Bne"/>
-                            <constraint firstItem="0Ij-P1-EcY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Fzh-Mb-9hC"/>
-                            <constraint firstItem="0Ij-P1-EcY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="55" id="bfs-kp-DPV"/>
-                            <constraint firstItem="glr-XR-S1L" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ifn-PR-FHe"/>
-                            <constraint firstAttribute="trailing" secondItem="3mo-Qs-I0D" secondAttribute="trailing" id="m6D-FU-s9O"/>
-                            <constraint firstItem="glr-XR-S1L" firstAttribute="top" secondItem="3mo-Qs-I0D" secondAttribute="bottom" constant="30" id="oMI-dX-3ZB"/>
-                            <constraint firstItem="0Ij-P1-EcY" firstAttribute="centerX" secondItem="3mo-Qs-I0D" secondAttribute="centerX" id="qFo-t4-ASh"/>
-                            <constraint firstItem="3mo-Qs-I0D" firstAttribute="centerX" secondItem="glr-XR-S1L" secondAttribute="centerX" id="vjI-D4-pxs"/>
-                            <constraint firstItem="3mo-Qs-I0D" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="xg0-qZ-oWr"/>
+                            <constraint firstItem="VxA-eX-ayJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2MO-v4-I8i"/>
+                            <constraint firstItem="03d-4Y-D2i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="135" id="3i3-qc-aLC"/>
+                            <constraint firstItem="VxA-eX-ayJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="534-gv-EQu"/>
+                            <constraint firstItem="jnF-Fe-Ba9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="9Qo-NE-MJ4"/>
+                            <constraint firstItem="03d-4Y-D2i" firstAttribute="top" secondItem="jnF-Fe-Ba9" secondAttribute="bottom" constant="8" id="Bp4-Ib-f5Y"/>
+                            <constraint firstItem="jnF-Fe-Ba9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67" id="EnH-lH-hBz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jnF-Fe-Ba9" secondAttribute="trailing" constant="78" id="FwD-I3-v3L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="03d-4Y-D2i" secondAttribute="trailing" constant="134" id="lsq-uL-a93"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -70,6 +60,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-sanus" width="683" height="503"/>
+        <image name="icon-sanus" width="316" height="237"/>
     </resources>
 </document>
