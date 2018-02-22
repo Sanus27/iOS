@@ -34,18 +34,13 @@ class PerfilDoctorController: UIViewController {
             if let document = document {
                 let val = document.data()
                 let nombre = val!["nombre"] as! String
-                print(nombre)
                 self.navbar.title = nombre
                 let foto = val!["avatar"] as! String
-                print(foto)
                 let cv = val!["cv"] as! String
-                print(cv)
                 self.txtCV.text = cv
                 let especialidad = val!["especialidad"] as! String
-                print(especialidad)
                 self.txtEspecialidad.text = especialidad
                 let cedula = val!["cedula"] as! String
-                print(cedula)
                 self.txtCedula.text = cedula
                 
                 if foto != "" {
@@ -60,7 +55,6 @@ class PerfilDoctorController: UIViewController {
                             self.avatar.layer.borderWidth = 1
                         }
                     })
-                    
                 }
                 
             } else {
