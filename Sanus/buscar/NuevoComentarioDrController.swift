@@ -94,7 +94,7 @@ class NuevoComentarioDrController: UIViewController {
                 "usuario": uid,
                 "doctor": id,
                 "comentario": txtComentario.text!,
-                "facha": fecha
+                "fecha": fecha
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")

@@ -92,7 +92,7 @@ class CrearCuentaController: UIViewController {
     
     func validar(){
         if ( valdE == true && valdP1 == true  && valdP2 == true) {
-            btnCrearcuenta.backgroundColor = UIColor(red: 255/255, green: 162/255, blue: 0/255, alpha: 1.0);
+            btnCrearcuenta.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
             btnCrearcuenta.isEnabled = true;
         } else {
             btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);

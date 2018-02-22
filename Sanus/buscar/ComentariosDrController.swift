@@ -25,7 +25,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         tabla.dataSource = self
         getRef = Firestore.firestore()
         id = verComentarios
-        print(id);
         mostrarComentarios()
     }
     
@@ -65,6 +64,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         comentario = listaComentarios[indexPath.row]
         cell.usuario.text? = comentario.usuario!
         cell.comentario.text? = comentario.comentario!
+        cell.fecha.text? = comentario.fecha!
         
         if let urlFoto = comentario.avatar {
             Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
@@ -84,10 +84,11 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 173
-    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 145
+    }
+
 
     @IBAction func btnAtras(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -96,6 +97,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabla.estimatedRowHeight = 150
+        tabla.rowHeight = UITableViewAutomaticDimension
+    }
+    
 
 
 }

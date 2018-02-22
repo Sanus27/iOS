@@ -13,7 +13,7 @@ class ComentariosDrCell: UITableViewCell {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var usuario: UILabel!
     @IBOutlet weak var fecha: UILabel!
-    @IBOutlet weak var comentario: UITextView!
+    @IBOutlet weak var comentario: UILabel!
     
     
     override func awakeFromNib() {
