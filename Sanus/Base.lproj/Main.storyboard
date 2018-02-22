@@ -1304,13 +1304,15 @@
                     </view>
                     <connections>
                         <outlet property="avatar" destination="tco-aF-LK5" id="oWL-4o-mSp"/>
+                        <outlet property="btnComentarEditing" destination="wF5-tU-PG0" id="eEA-XD-WZG"/>
                         <outlet property="load" destination="3z6-3E-hSd" id="lH1-Yz-5Jp"/>
                         <outlet property="txtComentario" destination="pkq-Aq-i0o" id="rQk-Og-trT"/>
+                        <segue destination="IHO-us-7nY" kind="show" identifier="irPerfil" id="NLK-pg-Uxf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="245-kv-ZCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10265.625" y="2253.1690140845071"/>
+            <point key="canvasLocation" x="-9581" y="2172"/>
         </scene>
         <!--Comentarios Dr Controller-->
         <scene sceneID="anm-Wp-07b">
@@ -2057,7 +2059,8 @@
         <image name="user" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n5x-9v-mmc"/>
+        <segue reference="tUF-tm-zKi"/>
+        <segue reference="NLK-pg-Uxf"/>
         <segue reference="FaR-Ey-JJy"/>
     </inferredMetricsTieBreakers>
 </document>

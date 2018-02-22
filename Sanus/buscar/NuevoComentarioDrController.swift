@@ -15,6 +15,7 @@ class NuevoComentarioDrController: UIViewController {
     @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var txtComentario: UITextView!
+    @IBOutlet weak var btnComentarEditing: UIButton!
     var nuevoComentario:String!
     var id = ""
     var uid = ""
@@ -24,11 +25,14 @@ class NuevoComentarioDrController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         id = nuevoComentario
+        btnComentarEditing.isEnabled = false
         getRef = Firestore.firestore()
         uid = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document(uid)
         comprobar();
     }
+    
+    
 
     func comprobar(){
         load.startAnimating()
@@ -48,6 +52,7 @@ class NuevoComentarioDrController: UIViewController {
                             self.avatar.clipsToBounds = true
                             self.avatar.layer.borderWidth = 1
                             self.load.stopAnimating()
+                            self.btnComentarEditing.isEnabled = true
                         }
                     })
                     
@@ -69,27 +74,39 @@ class NuevoComentarioDrController: UIViewController {
     }
     
     @IBAction func btnComentar(_ sender: UIButton) {
-        load.startAnimating()
-        let date = Date()
-        let formater = DateFormatter()
-        formater.dateStyle = .short
-        formater.timeStyle = .none
-        let fecha = formater.string(from: date)
-        
-        
-        ref = Firestore.firestore().collection("comentarios").addDocument(data: [
-            "usuario": uid,
-            "doctor": id,
-            "comentario": txtComentario!.text,
-            "facha": fecha
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-                self.load.stopAnimating()
-            } else {
-                print("Document added with ID: \(self.ref!.documentID)")
-                self.load.stopAnimating()
+        if txtComentario.text != "" {
+            
+            load.startAnimating()
+            let date = Date()
+            let formater = DateFormatter()
+            formater.dateStyle = .short
+            formater.timeStyle = .none
+            let fecha = formater.string(from: date)
+            
+            ref = Firestore.firestore().collection("comentarios").addDocument(data: [
+                "usuario": uid,
+                "doctor": id,
+                "comentario": txtComentario!.text,
+                "facha": fecha
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    self.load.stopAnimating()
+                } else {
+                    print("Document added with ID: \(self.ref!.documentID)")
+                    self.load.stopAnimating()
+                    self.txtComentario.text = ""
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
+            
+        } else {
+            
+            let alerta = UIAlertController(title: "Alerta", message: "Para poder enviar el comentario debes escribir algo", preferredStyle: .alert);
+            let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
+            alerta.addAction(aceptar);
+            self.present(alerta, animated: true, completion: nil);
+            
         }
 
     }
