@@ -64,7 +64,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         let comentario: Comentarios
         comentario = listaComentarios[indexPath.row]
         cell.usuario.text? = comentario.usuario!
-        cell.fecha.text? = comentario.fecha!
         cell.comentario.text? = comentario.comentario!
         
         if let urlFoto = comentario.avatar {

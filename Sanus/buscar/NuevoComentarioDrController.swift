@@ -60,7 +60,6 @@ class NuevoComentarioDrController: UIViewController {
                             self.avatar.clipsToBounds = true
                             self.avatar.layer.borderWidth = 1
                             self.load.stopAnimating()
-                            self.btnComentarEditing.isEnabled = true
                         }
                     })
                     
