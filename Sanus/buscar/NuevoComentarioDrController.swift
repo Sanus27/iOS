@@ -44,7 +44,7 @@ class NuevoComentarioDrController: UIViewController {
                         } else {
                             self.avatar.image = UIImage(data: data!)
                             self.avatar.layer.masksToBounds = false
-                            self.avatar.layer.cornerRadius = 63
+                            self.avatar.layer.cornerRadius = 25
                             self.avatar.clipsToBounds = true
                             self.avatar.layer.borderWidth = 1
                             self.load.stopAnimating()
