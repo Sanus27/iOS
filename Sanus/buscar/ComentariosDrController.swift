@@ -13,18 +13,19 @@ import FirebaseStorage
 class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tabla: UITableView!
-    var verComentarios: Comentarios!
+    var verComentarios:String!
     var ref:DocumentReference!
     var getRef:Firestore!
     var listaComentarios = [Comentarios]()
-    var id = "OTYMy6HA1EPTrQHzuV3E"
+    var id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabla.delegate = self
         tabla.dataSource = self
         getRef = Firestore.firestore()
-        //id = verComentarios.id!
+        id = verComentarios
+        print(id);
         mostrarComentarios()
     }
     

@@ -21,7 +21,6 @@ class PerfilDoctorController: UIViewController {
     var verPerfil:Doctores!
     var ref: DocumentReference!
     var id = ""
-    var uid = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +69,16 @@ class PerfilDoctorController: UIViewController {
         }
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "comentarios" {
+            let destino = segue.destination as! ComentariosDrController
+            destino.verComentarios = id
+        }
+        if segue.identifier == "nuevoComentario" {
+            let destino = segue.destination as! NuevoComentarioDrController
+            destino.nuevoComentario = id
+        }
+    }
     
     @IBAction func btnComentarios(_ sender: UIButton) {
         performSegue(withIdentifier: "comentarios", sender: self)

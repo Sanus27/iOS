@@ -10,8 +10,12 @@ import UIKit
 
 class NuevoComentarioDrController: UIViewController {
 
+    var nuevoComentario:String!
+    var id = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        id = nuevoComentario
+        print(id)
     }
 
 
