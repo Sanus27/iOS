@@ -14,8 +14,8 @@ class NuevoComentarioDrController: UIViewController {
 
     @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var txtComentario: UITextView!
     @IBOutlet weak var btnComentarEditing: UIButton!
+    @IBOutlet weak var txtComentario: UITextField!
     var nuevoComentario:String!
     var id = ""
     var uid = ""
@@ -33,7 +33,15 @@ class NuevoComentarioDrController: UIViewController {
     }
     
     
-
+    @IBAction func comentarioEditing(_ sender: UITextField) {
+        let num = Int(txtComentario.text!.count);
+        if num > 0 {
+            btnComentarEditing.isEnabled = true
+        } else {
+            btnComentarEditing.isEnabled = false
+        }
+    }
+    
     func comprobar(){
         load.startAnimating()
         ref.getDocument { (document, error) in
@@ -86,7 +94,7 @@ class NuevoComentarioDrController: UIViewController {
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
-                "comentario": txtComentario!.text,
+                "comentario": txtComentario.text!,
                 "facha": fecha
             ]) { err in
                 if let err = err {

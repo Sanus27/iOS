@@ -1206,23 +1206,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-Aq-i0o">
-                                <rect key="frame" x="74" y="83" width="230" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="fTh-HG-wSE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ujy-bM-HeU">
                                 <rect key="frame" x="16" y="149" width="232" height="40"/>
                                 <subviews>
@@ -1283,21 +1266,33 @@
                                     <constraint firstAttribute="height" constant="40" id="sgC-Np-xWk"/>
                                 </constraints>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btB-nV-Ian">
+                                <rect key="frame" x="82" y="83" width="222" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PbY-kA-t1B"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="comentarioEditing:" destination="gHx-Y5-DRe" eventType="editingChanged" id="bi0-dr-RRW"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251207351685" green="0.96560662984848022" blue="0.97964173555374146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wF5-tU-PG0" firstAttribute="top" secondItem="pkq-Aq-i0o" secondAttribute="bottom" constant="16" id="22e-U7-0CJ"/>
-                            <constraint firstItem="pkq-Aq-i0o" firstAttribute="top" secondItem="dlu-7b-hhc" secondAttribute="bottom" constant="19" id="2JA-M4-Ucr"/>
                             <constraint firstItem="tco-aF-LK5" firstAttribute="leading" secondItem="h3A-XD-VOe" secondAttribute="leading" constant="16" id="49z-nv-ryi"/>
                             <constraint firstItem="dlu-7b-hhc" firstAttribute="top" secondItem="h3A-XD-VOe" secondAttribute="top" id="7HN-PP-9dM"/>
                             <constraint firstItem="wF5-tU-PG0" firstAttribute="leading" secondItem="ujy-bM-HeU" secondAttribute="trailing" constant="16" id="IsZ-0k-rGL"/>
+                            <constraint firstItem="btB-nV-Ian" firstAttribute="top" secondItem="dlu-7b-hhc" secondAttribute="bottom" constant="19" id="RHf-Gf-ezj"/>
                             <constraint firstItem="h3A-XD-VOe" firstAttribute="trailing" secondItem="wF5-tU-PG0" secondAttribute="trailing" constant="16" id="SfC-c5-jVJ"/>
                             <constraint firstItem="dlu-7b-hhc" firstAttribute="trailing" secondItem="h3A-XD-VOe" secondAttribute="trailing" id="Sto-9b-t8J"/>
                             <constraint firstItem="ujy-bM-HeU" firstAttribute="leading" secondItem="h3A-XD-VOe" secondAttribute="leading" constant="16" id="Tqr-zl-e1d"/>
-                            <constraint firstItem="pkq-Aq-i0o" firstAttribute="leading" secondItem="tco-aF-LK5" secondAttribute="trailing" constant="8" symbolic="YES" id="bAU-7b-6cj"/>
                             <constraint firstItem="ujy-bM-HeU" firstAttribute="top" secondItem="tco-aF-LK5" secondAttribute="bottom" constant="16" id="bE5-Qn-qRe"/>
-                            <constraint firstItem="h3A-XD-VOe" firstAttribute="trailing" secondItem="pkq-Aq-i0o" secondAttribute="trailing" constant="16" id="j8l-St-TGG"/>
+                            <constraint firstItem="wF5-tU-PG0" firstAttribute="top" secondItem="ujy-bM-HeU" secondAttribute="top" id="npg-ed-Up5"/>
                             <constraint firstItem="dlu-7b-hhc" firstAttribute="leading" secondItem="h3A-XD-VOe" secondAttribute="leading" id="qw3-tj-yk6"/>
+                            <constraint firstItem="h3A-XD-VOe" firstAttribute="trailing" secondItem="btB-nV-Ian" secondAttribute="trailing" constant="16" id="rNb-kx-ziU"/>
+                            <constraint firstItem="btB-nV-Ian" firstAttribute="leading" secondItem="tco-aF-LK5" secondAttribute="trailing" constant="16" id="uv6-kR-Q7T"/>
                             <constraint firstItem="tco-aF-LK5" firstAttribute="top" secondItem="dlu-7b-hhc" secondAttribute="bottom" constant="19" id="yf6-gP-mca"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h3A-XD-VOe"/>
@@ -1306,13 +1301,13 @@
                         <outlet property="avatar" destination="tco-aF-LK5" id="oWL-4o-mSp"/>
                         <outlet property="btnComentarEditing" destination="wF5-tU-PG0" id="eEA-XD-WZG"/>
                         <outlet property="load" destination="3z6-3E-hSd" id="lH1-Yz-5Jp"/>
-                        <outlet property="txtComentario" destination="pkq-Aq-i0o" id="rQk-Og-trT"/>
+                        <outlet property="txtComentario" destination="btB-nV-Ian" id="3wg-ep-x7A"/>
                         <segue destination="IHO-us-7nY" kind="show" identifier="irPerfil" id="NLK-pg-Uxf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="245-kv-ZCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9581" y="2172"/>
+            <point key="canvasLocation" x="-9570" y="2121"/>
         </scene>
         <!--Comentarios Dr Controller-->
         <scene sceneID="anm-Wp-07b">
