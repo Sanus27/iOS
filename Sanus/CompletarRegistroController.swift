@@ -40,7 +40,10 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         getRef = Firestore.firestore()
         edad.delegate = self
         edad.dataSource = self
-        print("imagen", imagen)
+        self.imageView.layer.masksToBounds = false
+        self.imageView.layer.cornerRadius = 40
+        self.imageView.clipsToBounds = true
+        self.imageView.layer.borderWidth = 1
         btnGuardar.isEnabled = false;
         btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }

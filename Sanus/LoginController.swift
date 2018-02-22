@@ -12,7 +12,6 @@ import Firebase
 
 class LoginController: UIViewController {
 
-    
     @IBOutlet weak var btnIniciarSesion: UIButton!
     @IBOutlet weak var txtCorreo: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -20,9 +19,13 @@ class LoginController: UIViewController {
     var valdE:Bool = false;
     var valdP:Bool = false;
     
+    override func loadView() {
+        super.loadView()
+        login()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        login()
         btnIniciarSesion.isEnabled = false;
         btnIniciarSesion.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
@@ -37,8 +40,7 @@ class LoginController: UIViewController {
             let nsString = emailAddressString as NSString
             let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
             
-            if results.count == 0
-            {
+            if results.count == 0{
                 returnValue = false
             }
             
@@ -131,9 +133,7 @@ class LoginController: UIViewController {
     
     func login(){
         Auth.auth().addStateDidChangeListener{ ( auth, user ) in
-            if user == nil {
-                print("no ha iniciado sesion")
-            } else {
+            if user != nil {
                 self.performSegue(withIdentifier: "login", sender: self);
             }
         }
