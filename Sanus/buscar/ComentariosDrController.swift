@@ -83,12 +83,11 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
-    }
 
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 135
+    }
 
     @IBAction func btnAtras(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -98,10 +97,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         self.view.endEditing(true);
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tabla.estimatedRowHeight = 150
-        tabla.rowHeight = UITableViewAutomaticDimension
-    }
+    
     
 
 

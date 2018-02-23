@@ -92,6 +92,13 @@ class NuevoComentarioDrController: UIViewController {
             formater.timeStyle = .none
             let fecha = formater.string(from: date)
             
+//            if( calif == 0){
+//                calif = 20
+//            } else {
+//                calif = calif - 20;
+//            }
+            
+            
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
@@ -124,12 +131,12 @@ class NuevoComentarioDrController: UIViewController {
     
     @IBAction func starRagting(_ sender: UIButton) {
         let tag = sender.tag
-        calif = 10;
+        calif = 0
         for button in collectionStar {
             if button.tag <= tag {
                 //seleccionado
+                calif = button.tag
                 print("contador de selecionadas \(calif)")
-                calif = calif + 15
                 button.setTitle("★", for: .normal)
             } else {
                 //no selecionado
