@@ -24,6 +24,7 @@ class CrearCuentaController: UIViewController {
     var valdP2:Bool = false;
     var ref: DocumentReference!
     var getRef: Firestore!
+    var pass:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +95,7 @@ class CrearCuentaController: UIViewController {
         if ( valdE == true && valdP1 == true  && valdP2 == true) {
             btnCrearcuenta.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
             btnCrearcuenta.isEnabled = true;
+            pass = self.txtPass1.text!
         } else {
             btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
             btnCrearcuenta.isEnabled = false;
@@ -116,7 +118,16 @@ class CrearCuentaController: UIViewController {
                     print("Se ha creado la cuenta con exito")
                     let alerta = UIAlertController(title: " Exito", message: "La la cuenta ha sido creada con exito", preferredStyle: .alert);
                     alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                        self.performSegue(withIdentifier: "firstLogin", sender: self);
+                        let email = user?.email
+                        Auth.auth().signIn(withEmail: email!, password: self.pass) { ( usr, err ) in
+                            if usr != nil {
+                                self.performSegue(withIdentifier: "firstLogin", sender: self);
+                            } else {
+                                if let err = err?.localizedDescription {
+                                    print(err)
+                                }
+                            }
+                        }
                     }))
                     self.present(alerta, animated: true, completion: nil);
                     self.txtCorreo.text! = "";

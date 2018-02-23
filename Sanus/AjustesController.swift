@@ -7,12 +7,55 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 
 class AjustesController: UIViewController {
 
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var txtNombre: UILabel!
+    
+    var ref:DocumentReference!
+    var getRef: Firestore!
+    var uid:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getRef = Firestore.firestore()
+        self.uid = (Auth.auth().currentUser?.uid)!
+        ref = Firestore.firestore().collection("usuarios").document(self.uid)
+        dataUser()
+    }
+    
+    
+    func dataUser(){
+        ref.getDocument { (document, error) in
+            if let document = document {
+                let val = document.data()
+                let apellido = val!["apellido"] as! String
+                let nombre = val!["nombre"] as! String
+                let foto = val!["avatar"] as! String
+                
+                if foto != "" {
+                    Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                        if let error = error?.localizedDescription {
+                            print("fallo al traer imagenes", error)
+                        } else {
+                            self.avatar.image = UIImage(data: data!)
+                            self.avatar.layer.masksToBounds = false
+                            self.avatar.layer.cornerRadius = 25
+                            self.avatar.clipsToBounds = true
+                            self.avatar.layer.borderWidth = 1
+                            self.txtNombre.text = nombre + apellido
+                        }
+                    })
+                    
+                }
+                
+            } else {
+                print("documento no existe")
+            }
+        }
     }
 
     @IBAction func btnCerrarSesion(_ sender: UIButton) {

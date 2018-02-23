@@ -281,7 +281,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="266" height="45"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                                                         <connections>
                                                                             <action selector="txtEmailEditing:" destination="gj5-Wv-cLk" eventType="editingChanged" id="2fY-xz-VSC"/>
                                                                         </connections>
@@ -524,7 +524,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                                                         <connections>
                                                                             <action selector="txtEmailEditing:" destination="x7J-4y-sX1" eventType="editingChanged" id="kTq-ac-sLe"/>
                                                                         </connections>
@@ -536,7 +536,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                                                         <connections>
                                                                             <action selector="txtPass1Editing:" destination="x7J-4y-sX1" eventType="editingChanged" id="Tzi-zj-8BB"/>
                                                                         </connections>
@@ -1010,8 +1010,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cY-Ev-DCV">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Especialidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG5-BY-02W">
-                                                <rect key="frame" x="135.5" y="32.5" width="96.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Especialidad" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG5-BY-02W">
+                                                <rect key="frame" x="111" y="33" width="121" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1769,6 +1769,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Ajustes" image="icon-ajustes" id="PAE-di-eH6"/>
                     <connections>
+                        <outlet property="avatar" destination="JFx-c3-HdT" id="8OA-bi-hbS"/>
+                        <outlet property="txtNombre" destination="C5O-E1-RYL" id="Ovv-RA-LpC"/>
                         <segue destination="gj5-Wv-cLk" kind="show" identifier="salir" id="OAs-o2-dOy"/>
                     </connections>
                 </viewController>
@@ -2072,6 +2074,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="tUF-tm-zKi"/>
         <segue reference="NLK-pg-Uxf"/>
-        <segue reference="FaR-Ey-JJy"/>
+        <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
 </document>
