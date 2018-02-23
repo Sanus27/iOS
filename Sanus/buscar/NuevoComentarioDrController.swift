@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class NuevoComentarioDrController: UIViewController {
 
+    @IBOutlet var collectionStar: [UIButton]!
     @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var btnComentarEditing: UIButton!
@@ -21,6 +22,7 @@ class NuevoComentarioDrController: UIViewController {
     var uid = ""
     var ref:DocumentReference!
     var getRef: Firestore!
+    var calif = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +96,8 @@ class NuevoComentarioDrController: UIViewController {
                 "usuario": uid,
                 "doctor": id,
                 "comentario": txtComentario.text!,
-                "fecha": fecha
+                "fecha": fecha,
+                "calificacion": calif
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -117,6 +120,27 @@ class NuevoComentarioDrController: UIViewController {
         }
 
     }
+    
+    
+    @IBAction func starRagting(_ sender: UIButton) {
+        let tag = sender.tag
+        calif = 10;
+        for button in collectionStar {
+            if button.tag <= tag {
+                //seleccionado
+                print("contador de selecionadas \(calif)")
+                calif = calif + 15
+                button.setTitle("★", for: .normal)
+            } else {
+                //no selecionado
+                button.setTitle("☆", for: .normal)
+            }
+        }
+    }
+    
+    
+    
+    
     
 
 }
