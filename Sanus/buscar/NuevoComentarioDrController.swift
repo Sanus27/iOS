@@ -137,16 +137,11 @@ class NuevoComentarioDrController: UIViewController {
             }
         }
     }
+
     
     @IBAction func cerrarVentana(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-
-    
-    
-    
-    
     
 
 }

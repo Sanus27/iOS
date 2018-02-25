@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ywo-PO-xUm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gj5-Wv-cLk">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1170,38 +1170,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCV-R7-22r">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joS-SM-BWh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5p-iJ-pdH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="96I-Sk-nLr">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcW-bx-yVu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <action selector="cerrarVentana:" destination="gHx-Y5-DRe" eventType="touchUpInside" id="EFE-MD-NRy"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="NcW-bx-yVu" firstAttribute="leading" secondItem="96I-Sk-nLr" secondAttribute="leading" id="Cd0-xS-VU3"/>
-                                                <constraint firstItem="NcW-bx-yVu" firstAttribute="top" secondItem="96I-Sk-nLr" secondAttribute="top" id="GFH-gZ-gAW"/>
-                                                <constraint firstAttribute="bottom" secondItem="NcW-bx-yVu" secondAttribute="bottom" id="Qoy-vi-qfi"/>
-                                                <constraint firstAttribute="trailing" secondItem="NcW-bx-yVu" secondAttribute="trailing" id="lZC-CQ-1Kt"/>
-                                            </constraints>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <blurEffect style="prominent"/>
-                                    </visualEffectView>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="cerrarVentana:" destination="gHx-Y5-DRe" eventType="touchUpInside" id="AEZ-dy-2gQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="joS-SM-BWh" firstAttribute="leading" secondItem="TCV-R7-22r" secondAttribute="leading" id="QTR-cM-gyI"/>
-                                    <constraint firstAttribute="trailing" secondItem="joS-SM-BWh" secondAttribute="trailing" id="Un1-nM-Yev"/>
-                                    <constraint firstAttribute="bottom" secondItem="joS-SM-BWh" secondAttribute="bottom" id="eqr-dQ-r1T"/>
-                                    <constraint firstItem="joS-SM-BWh" firstAttribute="top" secondItem="TCV-R7-22r" secondAttribute="top" id="njZ-Ud-JUf"/>
+                                    <constraint firstAttribute="trailing" secondItem="q5p-iJ-pdH" secondAttribute="trailing" id="0Ql-Js-mTA"/>
+                                    <constraint firstItem="q5p-iJ-pdH" firstAttribute="top" secondItem="TCV-R7-22r" secondAttribute="top" id="57z-CE-nY9"/>
+                                    <constraint firstItem="q5p-iJ-pdH" firstAttribute="leading" secondItem="TCV-R7-22r" secondAttribute="leading" id="ffX-jz-yL8"/>
+                                    <constraint firstAttribute="bottom" secondItem="q5p-iJ-pdH" secondAttribute="bottom" id="g0i-iM-4vu"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ju7-Rg-eRn">
@@ -1284,15 +1266,8 @@
                                             <constraint firstAttribute="height" constant="50" id="TAA-91-TJt"/>
                                             <constraint firstAttribute="width" constant="50" id="VgD-qZ-jKr"/>
                                         </constraints>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="➤">
-                                                    <attributes>
-                                                        <font key="NSFont" size="32" name="ZapfDingbatsITC"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <state key="normal" image="icon-enviar">
+                                            <attributedString key="attributedTitle"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1304,7 +1279,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="wF5-tU-PG0" firstAttribute="top" secondItem="QuX-yE-bsd" secondAttribute="bottom" constant="14" id="18h-Wv-992"/>
                                     <constraint firstItem="3z6-3E-hSd" firstAttribute="leading" secondItem="QuX-yE-bsd" secondAttribute="trailing" constant="8" id="3Qx-PD-2mn"/>
