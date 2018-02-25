@@ -23,6 +23,8 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         tabla.delegate = self
         tabla.dataSource = self
+        tabla.estimatedRowHeight = 105
+        tabla.rowHeight = UITableViewAutomaticDimension
         getRef = Firestore.firestore()
         id = verComentarios
         mostrarComentarios()
@@ -87,9 +89,9 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
-        return 135
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+//        return 105
+//    }
 
     @IBAction func btnAtras(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
