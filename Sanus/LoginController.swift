@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var btnIniciarSesion: UIButton!
     @IBOutlet weak var txtCorreo: UITextField!
@@ -20,7 +20,14 @@ class LoginController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        txtCorreo.delegate = self
+        txtPassword.delegate = self
         login()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        txtPassword.resignFirstResponder()
+        return true
     }
     
     override func viewDidLoad() {

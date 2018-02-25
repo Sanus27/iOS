@@ -25,7 +25,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     var sex:String = ""
     var ed:String = ""
     var campos: [String:Any] = [:]
-    let plataformas = ["Selecciona tu edad" ,"Recien nacido", "Menor de edad", "De 18 a 27 años", "De 27 años a 50", "De 50 en adelante"]
+    var plataformas = ["Selecciona tu edad", "1 Año"]
     var valdN:Bool = false
     var valdA:Bool = false
     var imagen = UIImage()
@@ -46,6 +46,13 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         self.imageView.layer.borderWidth = 1
         btnGuardar.isEnabled = false;
         btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        setYears()
+    }
+    
+    func setYears(){
+        for i in 2...99 {
+            plataformas.append("\(i) Años")
+        }
     }
     
     @IBAction func txtNombreEditing(_ sender: UITextField) {
