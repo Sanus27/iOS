@@ -35,7 +35,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     
     func mostrarComentarios(){
         listaComentarios.removeAll()
-        
         getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (resp , error) in
             if let error = error {
                 print("hay un error en firebase", error)
@@ -112,7 +111,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                     cell.avatar.layer.cornerRadius = cell.avatar.frame.height / 2
                     cell.avatar.clipsToBounds = true
                     cell.avatar.layer.borderWidth = 1
-                    //self.tabla.reloadData()
                 }
             })
         }

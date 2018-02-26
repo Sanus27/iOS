@@ -13,7 +13,7 @@ import FirebaseStorage
 class PerfilDoctorController: UIViewController {
     
     @IBOutlet weak var navbar: UINavigationItem!
-    @IBOutlet weak var txtCV: UITextView!
+    @IBOutlet weak var txtCV: UILabel!
     @IBOutlet weak var txtEspecialidad: UILabel!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var txtCedula: UILabel!
