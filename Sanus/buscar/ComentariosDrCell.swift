@@ -15,6 +15,11 @@ class ComentariosDrCell: UITableViewCell {
     @IBOutlet weak var fecha: UILabel!
     @IBOutlet weak var comentario: UILabel!
     
+    @IBOutlet weak var starUno: UIButton!
+    @IBOutlet weak var starDos: UIButton!
+    @IBOutlet weak var starTres: UIButton!
+    @IBOutlet weak var starCuatro: UIButton!
+    @IBOutlet weak var starCinco: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

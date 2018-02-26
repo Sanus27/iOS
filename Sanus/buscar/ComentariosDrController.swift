@@ -13,6 +13,9 @@ import FirebaseStorage
 class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tabla: UITableView!
+    
+    
+    
     var verComentarios:String!
     var ref:DocumentReference!
     var getRef:Firestore!
@@ -33,7 +36,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     func mostrarComentarios(){
         listaComentarios.removeAll()
         
-        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).addSnapshotListener { (resp , error) in
+        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (resp , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
@@ -42,11 +45,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                     let id = document.documentID
                     let val = document.data()
                     let avatar = val["avatar"] as? String
+                    let calificacion = val["calificacion"] as? String
                     let doctor = val["doctor"] as? String
                     let autor = val["usuario"] as? String
                     let fecha = val["fecha"] as? String
                     let comentario = val["comentario"] as? String
-                    let coments = Comentarios(id: id, comentario: comentario, doctor: doctor, fecha: fecha, usuario: autor, avatar: avatar)
+                    let coments = Comentarios( id: id, comentario: comentario, doctor: doctor, fecha: fecha, usuario: autor, avatar: avatar, calificacion:calificacion )
                     self.listaComentarios.append(coments)
                     self.tabla.reloadData()
                 }
@@ -69,6 +73,34 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         cell.usuario.text? = comentario.usuario!
         cell.comentario.text? = comentario.comentario!
         cell.fecha.text? = comentario.fecha!
+        if let star_v = comentario.calificacion {
+            if(star_v == "20"){
+                cell.starUno.setTitle("★", for: .normal)
+            }
+            if(star_v == "40"){
+                cell.starUno.setTitle("★", for: .normal)
+                cell.starDos.setTitle("★", for: .normal)
+            }
+            if(star_v == "60"){
+                cell.starUno.setTitle("★", for: .normal)
+                cell.starDos.setTitle("★", for: .normal)
+                cell.starTres.setTitle("★", for: .normal)
+            }
+            if(star_v == "80"){
+                cell.starUno.setTitle("★", for: .normal)
+                cell.starDos.setTitle("★", for: .normal)
+                cell.starTres.setTitle("★", for: .normal)
+                cell.starCuatro.setTitle("★", for: .normal)
+            }
+            if(star_v == "100"){
+                cell.starUno.setTitle("★", for: .normal)
+                cell.starDos.setTitle("★", for: .normal)
+                cell.starTres.setTitle("★", for: .normal)
+                cell.starCuatro.setTitle("★", for: .normal)
+                cell.starCinco.setTitle("★", for: .normal)
+            }
+        }
+        
         
         if let urlFoto = comentario.avatar {
             Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
@@ -88,11 +120,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
-//        return 105
-//    }
-
     @IBAction func btnAtras(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -101,8 +128,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         self.view.endEditing(true);
     }
     
+    func getCalif( data:String? ) {
+        
+    }
     
     
-
+    
+    
 
 }

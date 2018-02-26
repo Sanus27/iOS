@@ -1379,38 +1379,35 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clQ-Ko-5Qz">
-                                                    <rect key="frame" x="15" y="39" width="150" height="50"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="clQ-Ko-5Qz">
+                                                    <rect key="frame" x="15" y="39" width="190" height="50.5"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ib4-rA-7U9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <state key="normal" title="★"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqx-Cb-18P">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="50.5"/>
+                                                            <state key="normal" title="☆">
+                                                                <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D43-9B-VcK">
-                                                            <rect key="frame" x="30" y="0.0" width="30" height="50"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <state key="normal" title="★"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uT2-Fk-7V2">
+                                                            <rect key="frame" x="40" y="0.0" width="30" height="50.5"/>
+                                                            <state key="normal" title="☆"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpJ-jz-2y2">
-                                                            <rect key="frame" x="60" y="0.0" width="30" height="50"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <state key="normal" title="★"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnP-K5-PBf">
+                                                            <rect key="frame" x="80" y="0.0" width="30" height="50.5"/>
+                                                            <state key="normal" title="☆"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqv-M5-1l8">
-                                                            <rect key="frame" x="90" y="0.0" width="30" height="50"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <state key="normal" title="★"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm0-ee-BOp">
+                                                            <rect key="frame" x="120" y="0.0" width="30" height="50.5"/>
+                                                            <state key="normal" title="☆"/>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p22-ja-hWB">
-                                                            <rect key="frame" x="120" y="0.0" width="30" height="50"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <state key="normal" title="★"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogw-WJ-gMf">
+                                                            <rect key="frame" x="160" y="0.0" width="30" height="50.5"/>
+                                                            <state key="normal" title="☆"/>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-oP-aKk">
-                                                    <rect key="frame" x="15" y="89" width="290" height="20.5"/>
+                                                    <rect key="frame" x="15" y="89.5" width="290" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1427,8 +1424,9 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27/03/15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu3-Rf-puW">
-                                                    <rect key="frame" x="262" y="64" width="42.5" height="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="27/03/15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pu3-Rf-puW">
+                                                    <rect key="frame" x="233" y="58" width="71" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1447,8 +1445,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="Rbn-z3-Mhi" secondAttribute="trailing" constant="15" id="p6F-Wp-URY"/>
                                                 <constraint firstItem="Rbn-z3-Mhi" firstAttribute="leading" secondItem="FJf-sT-5yA" secondAttribute="trailing" constant="9" id="sns-5s-McD"/>
                                                 <constraint firstItem="clQ-Ko-5Qz" firstAttribute="top" secondItem="FJf-sT-5yA" secondAttribute="bottom" constant="-2" id="tMS-zG-rBg"/>
-                                                <constraint firstItem="Pu3-Rf-puW" firstAttribute="top" secondItem="Rbn-z3-Mhi" secondAttribute="bottom" constant="29" id="vS6-gw-ELD"/>
-                                                <constraint firstAttribute="trailing" secondItem="Pu3-Rf-puW" secondAttribute="trailing" constant="15" id="xly-0T-kNt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <viewLayoutGuide key="safeArea" id="X3f-1U-HGl"/>
@@ -1456,6 +1452,11 @@
                                             <outlet property="avatar" destination="FJf-sT-5yA" id="mAd-97-ewl"/>
                                             <outlet property="comentario" destination="iEK-oP-aKk" id="gMI-pT-NdR"/>
                                             <outlet property="fecha" destination="Pu3-Rf-puW" id="io8-df-Lbv"/>
+                                            <outlet property="starCinco" destination="ogw-WJ-gMf" id="8Np-Bq-6Zs"/>
+                                            <outlet property="starCuatro" destination="jm0-ee-BOp" id="z9c-sw-iNk"/>
+                                            <outlet property="starDos" destination="uT2-Fk-7V2" id="A1f-mt-JKP"/>
+                                            <outlet property="starTres" destination="JnP-K5-PBf" id="CCg-do-JFp"/>
+                                            <outlet property="starUno" destination="Wqx-Cb-18P" id="2Ff-lS-rzz"/>
                                             <outlet property="usuario" destination="Rbn-z3-Mhi" id="asl-JA-6cx"/>
                                         </connections>
                                     </tableViewCell>
