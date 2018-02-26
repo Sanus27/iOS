@@ -91,13 +91,14 @@ class NuevoComentarioDrController: UIViewController {
             formater.dateStyle = .short
             formater.timeStyle = .none
             let fecha = formater.string(from: date)
+            let cal:String = String(calif)
             
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
                 "comentario": txtComentario.text!,
                 "fecha": fecha,
-                "calificacion": calif
+                "calificacion": cal
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -127,12 +128,9 @@ class NuevoComentarioDrController: UIViewController {
         calif = 0
         for button in collectionStar {
             if button.tag <= tag {
-                //seleccionado
                 calif = button.tag
-                print("contador de selecionadas \(calif)")
                 button.setTitle("★", for: .normal)
             } else {
-                //no selecionado
                 button.setTitle("☆", for: .normal)
             }
         }
