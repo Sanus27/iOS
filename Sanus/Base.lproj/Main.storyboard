@@ -1085,27 +1085,27 @@
                                     <action selector="btnNuevoComentario:" destination="IHO-us-7nY" eventType="touchUpInside" id="yJi-UQ-r7Z"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ren-ZK-oze">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ren-ZK-oze">
                                 <rect key="frame" x="85" y="214" width="150" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDY-dF-n1W">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDY-dF-n1W">
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="30"/>
                                         <state key="normal" title="☆"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YH2-UY-CHU">
-                                        <rect key="frame" x="30" y="0.0" width="30" height="30"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YH2-UY-CHU">
+                                        <rect key="frame" x="31" y="0.0" width="26" height="30"/>
                                         <state key="normal" title="☆"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvv-F0-mYW">
-                                        <rect key="frame" x="60" y="0.0" width="30" height="30"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvv-F0-mYW">
+                                        <rect key="frame" x="62" y="0.0" width="26" height="30"/>
                                         <state key="normal" title="☆"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spc-Vf-iP6">
-                                        <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spc-Vf-iP6">
+                                        <rect key="frame" x="93" y="0.0" width="26" height="30"/>
                                         <state key="normal" title="☆"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtQ-ru-kw0">
-                                        <rect key="frame" x="120" y="0.0" width="30" height="30"/>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtQ-ru-kw0">
+                                        <rect key="frame" x="124" y="0.0" width="26" height="30"/>
                                         <state key="normal" title="☆"/>
                                     </button>
                                 </subviews>
@@ -1167,6 +1167,11 @@
                     <connections>
                         <outlet property="avatar" destination="WpJ-70-57v" id="3cK-qj-l3n"/>
                         <outlet property="navbar" destination="zBW-fi-XFy" id="gMa-Lu-6uw"/>
+                        <outlet property="starCinco" destination="mtQ-ru-kw0" id="1n7-nf-eKj"/>
+                        <outlet property="starCuatro" destination="Spc-Vf-iP6" id="25Y-k9-1gT"/>
+                        <outlet property="starDos" destination="YH2-UY-CHU" id="JLe-J9-TPg"/>
+                        <outlet property="starTres" destination="dvv-F0-mYW" id="0CW-Gq-cqd"/>
+                        <outlet property="starUno" destination="DDY-dF-n1W" id="wAg-tr-fkO"/>
                         <outlet property="txtCV" destination="OmB-A2-y0V" id="kvs-yh-B96"/>
                         <outlet property="txtCedula" destination="6bY-8w-QmN" id="QPz-9U-PEZ"/>
                         <outlet property="txtEspecialidad" destination="wG5-BY-02W" id="YWS-I4-2O2"/>

@@ -18,6 +18,12 @@ class PerfilDoctorController: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var txtCedula: UILabel!
     
+    @IBOutlet weak var starUno: UIButton!
+    @IBOutlet weak var starDos: UIButton!
+    @IBOutlet weak var starCuatro: UIButton!
+    @IBOutlet weak var starTres: UIButton!
+    @IBOutlet weak var starCinco: UIButton!
+    
     var verPerfil:Doctores!
     var ref: DocumentReference!
     var id = ""
@@ -42,6 +48,36 @@ class PerfilDoctorController: UIViewController {
                 self.txtEspecialidad.text = especialidad
                 let cedula = val!["cedula"] as! String
                 self.txtCedula.text = cedula
+                let calif = val!["calificacion"] as! String
+                print(calif)
+                
+                if calif != "" {
+                    if calif == "20" {
+                        self.starUno.setTitle("★", for: .normal)
+                    }
+                    if calif == "40" {
+                        self.starUno.setTitle("★", for: .normal)
+                        self.starDos.setTitle("★", for: .normal)
+                    }
+                    if calif == "60" {
+                        self.starUno.setTitle("★", for: .normal)
+                        self.starDos.setTitle("★", for: .normal)
+                        self.starTres.setTitle("★", for: .normal)
+                    }
+                    if calif == "80" {
+                        self.starUno.setTitle("★", for: .normal)
+                        self.starDos.setTitle("★", for: .normal)
+                        self.starTres.setTitle("★", for: .normal)
+                        self.starCuatro.setTitle("★", for: .normal)
+                    }
+                    if calif == "100" {
+                        self.starUno.setTitle("★", for: .normal)
+                        self.starDos.setTitle("★", for: .normal)
+                        self.starTres.setTitle("★", for: .normal)
+                        self.starCuatro.setTitle("★", for: .normal)
+                        self.starCinco.setTitle("★", for: .normal)
+                    }
+                }
                 
                 if foto != "" {
                     Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
