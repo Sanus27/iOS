@@ -21,8 +21,10 @@ class NuevoComentarioDrController: UIViewController {
     var id = ""
     var uid = ""
     var ref:DocumentReference!
+    var ref2:DocumentReference!
     var getRef: Firestore!
     var calif = 0
+    var califi = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class NuevoComentarioDrController: UIViewController {
         getRef = Firestore.firestore()
         uid = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document(uid)
+        ref2 = Firestore.firestore().collection("doctores").document(id)
         comprobar();
     }
     
@@ -92,7 +95,6 @@ class NuevoComentarioDrController: UIViewController {
             formater.timeStyle = .none
             let fecha = formater.string(from: date)
             let cal:String = String(calif)
-            
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
@@ -107,6 +109,7 @@ class NuevoComentarioDrController: UIViewController {
                     print("Document added with ID: \(self.ref!.documentID)")
                     self.load.stopAnimating()
                     self.txtComentario.text = ""
+                    self.calificaciones( campos: cal )
                     self.dismiss(animated: true, completion: nil)
                 }
             }
@@ -122,6 +125,31 @@ class NuevoComentarioDrController: UIViewController {
 
     }
     
+    func calificaciones( campos:String ) {
+        print("tu calificacion es: \(campos)")
+        ref2.getDocument { (document, error) in
+            if let document = document {
+                let val = document.data()
+                var puntaje = val!["calificacion"] as! String
+                let avatar = val!["avatar"] as! String
+                let cedula = val!["cedula"] as! String
+                let cv = val!["cv"] as! String
+                let especialidad = val!["especialidad"] as! String
+                let nombre = val!["nombre"] as! String
+
+                puntaje = puntaje + campos
+                let data = [ "calificacion": puntaje, "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre ]
+                print(data)
+                self.ref2.setData(data) { (err) in
+                    if let err = err?.localizedDescription {
+                        print("Se ha producido un error \(err)")
+                    } else {
+                        print("Exito al modificar los campos")
+                    }
+                }
+            }
+        }
+    }
     
     @IBAction func starRagting(_ sender: UIButton) {
         let tag = sender.tag

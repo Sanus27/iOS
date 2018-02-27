@@ -34,12 +34,11 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func mostrarComentarios(){
-        listaComentarios.removeAll()
         getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (resp , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
-                
+                self.listaComentarios.removeAll()
                 for document in resp!.documents {
                     let id = document.documentID
                     let val = document.data()
