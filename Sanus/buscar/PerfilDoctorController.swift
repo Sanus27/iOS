@@ -49,7 +49,7 @@ class PerfilDoctorController: UIViewController {
                 let cedula = val!["cedula"] as! String
                 self.txtCedula.text = cedula
                 let calif = val!["calificacion"] as! String
-                print(calif)
+                //print(calif)
                 
                 if calif != "" {
                     if calif == "20" {

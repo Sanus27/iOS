@@ -1601,11 +1601,11 @@
                         <outlet property="load" destination="3md-GK-R0u" id="FuG-Gb-wEx"/>
                         <outlet property="tabla" destination="uNK-Lb-mAh" id="na0-h8-aCf"/>
                         <outlet property="txtComentario" destination="9Kn-0L-ePD" id="gka-sO-TNT"/>
-                        <outletCollection property="collectionStar" destination="4OQ-PG-c3S" collectionClass="NSMutableArray" id="veU-2a-g5O"/>
-                        <outletCollection property="collectionStar" destination="Kqz-0H-Lof" collectionClass="NSMutableArray" id="Tzn-YV-ODr"/>
-                        <outletCollection property="collectionStar" destination="g4D-Zc-R1A" collectionClass="NSMutableArray" id="OVb-Ge-6Ke"/>
-                        <outletCollection property="collectionStar" destination="jXT-Hc-wga" collectionClass="NSMutableArray" id="ni4-cv-hgs"/>
-                        <outletCollection property="collectionStar" destination="Nej-EJ-ein" collectionClass="NSMutableArray" id="uwx-mv-NqS"/>
+                        <outletCollection property="collectionStar" destination="Nej-EJ-ein" collectionClass="NSMutableArray" id="pn7-5q-blK"/>
+                        <outletCollection property="collectionStar" destination="jXT-Hc-wga" collectionClass="NSMutableArray" id="lvZ-fH-Sae"/>
+                        <outletCollection property="collectionStar" destination="4OQ-PG-c3S" collectionClass="NSMutableArray" id="qZK-8x-8Fs"/>
+                        <outletCollection property="collectionStar" destination="g4D-Zc-R1A" collectionClass="NSMutableArray" id="luY-bM-37p"/>
+                        <outletCollection property="collectionStar" destination="Kqz-0H-Lof" collectionClass="NSMutableArray" id="vOK-bp-31u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="id8-Pj-TZy" userLabel="First Responder" sceneMemberID="firstResponder"/>

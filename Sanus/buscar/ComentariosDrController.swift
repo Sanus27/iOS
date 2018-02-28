@@ -27,7 +27,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     var id = ""
     var uid = ""
     var calif = 0
-    var califi = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +96,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func calificaciones( campos:String ) {
-        print("tu calificacion es: \(campos)")
         ref2.getDocument { (document, error) in
             if let document = document {
                 let val = document.data()
@@ -110,7 +108,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 
                 puntaje = puntaje + campos
                 let data = [ "calificacion": puntaje, "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre ]
-                print(data)
                 self.ref2.setData(data) { (err) in
                     if let err = err?.localizedDescription {
                         print("Se ha producido un error \(err)")
@@ -124,10 +121,10 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func starRagting(_ sender: UIButton) {
         let tag = sender.tag
-        calif = 0
         for button in collectionStar {
             if button.tag <= tag {
                 calif = button.tag
+                print(calif)
                 button.setTitle("★", for: .normal)
             } else {
                 button.setTitle("☆", for: .normal)
@@ -252,13 +249,5 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
-    
-    func getCalif( data:String? ) {
-        
-    }
-    
-    
-    
-    
 
 }
