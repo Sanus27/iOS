@@ -8,29 +8,138 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseStorage
 
-class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet var collectionStar: [UIButton]!
     @IBOutlet weak var tabla: UITableView!
+    @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
+    @IBOutlet weak var btnComentarEditing: UIButton!
+    @IBOutlet weak var txtComentario: UITextField!
     var verComentarios:String!
     var ref:DocumentReference!
+    var ref2:DocumentReference!
     var getRef:Firestore!
     var listaComentarios = [Comentarios]()
     var id = ""
+    var uid = ""
+    var calif = 0
+    var califi = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabla.delegate = self
         tabla.dataSource = self
+        txtComentario.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         tabla.estimatedRowHeight = 105
         tabla.rowHeight = UITableViewAutomaticDimension
         getRef = Firestore.firestore()
+        uid = (Auth.auth().currentUser?.uid)!
         id = verComentarios
+        ref = Firestore.firestore().collection("usuarios").document(uid)
+        ref2 = Firestore.firestore().collection("doctores").document(id)
         mostrarComentarios()
     }
+    
+    @IBAction func comentarioEditing(_ sender: UITextField) {
+        let num = Int(txtComentario.text!.count);
+        if num > 0 {
+            btnComentarEditing.isEnabled = true
+        } else {
+            btnComentarEditing.isEnabled = false
+        }
+    }
+    
+    
+    @IBAction func btnComentar(_ sender: UIButton) {
+       comentar()
+    }
+    
+    func comentar(){
+        if txtComentario.text != "" {
+            load.startAnimating()
+            let date = Date()
+            let formater = DateFormatter()
+            formater.dateStyle = .short
+            formater.timeStyle = .none
+            let fecha = formater.string(from: date)
+            let cal:String = String(calif)
+            ref = Firestore.firestore().collection("comentarios").addDocument(data: [
+                "usuario": uid,
+                "doctor": id,
+                "comentario": txtComentario.text!,
+                "fecha": fecha,
+                "calificacion": cal
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    self.load.stopAnimating()
+                } else {
+                    self.load.stopAnimating()
+                    self.calificaciones( campos: cal )
+                    self.txtComentario.resignFirstResponder()
+                    self.mostrarComentarios()
+                }
+            }
+            
+        } else {
+            
+            let alerta = UIAlertController(title: "Alerta", message: "Para poder enviar el comentario debes escribir algo", preferredStyle: .alert);
+            let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
+            alerta.addAction(aceptar);
+            self.present(alerta, animated: true, completion: nil);
+            
+        }
+    }
+    
+    func calificaciones( campos:String ) {
+        print("tu calificacion es: \(campos)")
+        ref2.getDocument { (document, error) in
+            if let document = document {
+                let val = document.data()
+                var puntaje = val!["calificacion"] as! String
+                let avatar = val!["avatar"] as! String
+                let cedula = val!["cedula"] as! String
+                let cv = val!["cv"] as! String
+                let especialidad = val!["especialidad"] as! String
+                let nombre = val!["nombre"] as! String
+                
+                puntaje = puntaje + campos
+                let data = [ "calificacion": puntaje, "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre ]
+                print(data)
+                self.ref2.setData(data) { (err) in
+                    if let err = err?.localizedDescription {
+                        print("Se ha producido un error \(err)")
+                    } else {
+                        print("Exito al modificar los campos")
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func starRagting(_ sender: UIButton) {
+        let tag = sender.tag
+        calif = 0
+        for button in collectionStar {
+            if button.tag <= tag {
+                calif = button.tag
+                button.setTitle("★", for: .normal)
+            } else {
+                button.setTitle("☆", for: .normal)
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        comentar()
+        return true
+    }
+    
     
     @objc func keyboardNotification(notification: NSNotification){
         if let userInfo = notification.userInfo{
