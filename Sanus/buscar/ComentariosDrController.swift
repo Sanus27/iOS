@@ -67,7 +67,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
             formater.timeStyle = .none
             let fecha = formater.string(from: date)
             let cal:String = String(calif)
-            print(cal)
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
@@ -102,23 +101,26 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    
     func calificaciones( campos:String ) {
         ref2.getDocument { (document, error) in
             if let document = document {
                 let val = document.data()
-                var puntaje = val!["calificacion"] as! String
+                let puntaje = val!["calificacion"] as! String
+                let comentario = val!["comentario"] as! String
                 let avatar = val!["avatar"] as! String
                 let cedula = val!["cedula"] as! String
                 let cv = val!["cv"] as! String
                 let especialidad = val!["especialidad"] as! String
                 let nombre = val!["nombre"] as! String
                 let cal = Int(puntaje)! + Int(campos)!
-                let data = [ "calificacion": String(cal), "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre ]
+                let com = Int(comentario)! + 1
+                let data = [ "calificacion": String(cal), "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre, "comentario": String(com) ]
                 self.ref2.setData(data) { (err) in
                     if let err = err?.localizedDescription {
                         print("Se ha producido un error \(err)")
                     } else {
-                        print("Exito al modificar los campos")
+                        //print("Exito al modificar los campos")
                     }
                 }
             }

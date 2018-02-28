@@ -48,10 +48,13 @@ class PerfilDoctorController: UIViewController {
                 self.txtEspecialidad.text = especialidad
                 let cedula = val!["cedula"] as! String
                 self.txtCedula.text = cedula
-                let calif = val!["calificacion"] as! String
-                //print(calif)
+                var calif = val!["calificacion"] as! String
+                let comentario = val!["comentario"] as! String
                 
                 if calif != "" {
+                    let op:Int = Int(calif)! / Int(comentario)!
+                    calif = String(op)
+                    print(calif)
                     if calif == "20" {
                         self.starUno.setTitle("★", for: .normal)
                     }
