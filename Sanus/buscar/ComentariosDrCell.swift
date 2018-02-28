@@ -10,6 +10,7 @@ import UIKit
 
 class ComentariosDrCell: UITableViewCell {
 
+    
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var usuario: UILabel!
     @IBOutlet weak var fecha: UILabel!

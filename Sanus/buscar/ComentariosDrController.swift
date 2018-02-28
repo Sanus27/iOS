@@ -80,6 +80,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 } else {
                     self.load.stopAnimating()
                     self.calificaciones( campos: cal )
+                    self.txtComentario.text = ""
                     self.txtComentario.resignFirstResponder()
                     self.mostrarComentarios()
                 }
@@ -150,11 +151,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
             } else {
                 self.keyboardHeightLayoutConstraint?.constant = (endFrame?.size.height)!
             }
-            UIView.animate(withDuration: duration,
-                           delay: TimeInterval(0),
-                           options: animationCurve,
-                           animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
+            UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: { self.view.layoutIfNeeded() }, completion: nil)
         }
     }
     
