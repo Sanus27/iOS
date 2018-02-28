@@ -67,6 +67,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
             formater.timeStyle = .none
             let fecha = formater.string(from: date)
             let cal:String = String(calif)
+            print(cal)
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
@@ -82,7 +83,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                     self.calificaciones( campos: cal )
                     self.txtComentario.text = ""
                     self.txtComentario.resignFirstResponder()
+                    for button in self.collectionStar {
+                        button.setTitle("☆", for: .normal)
+                    }
+                    self.calif = 0
                     self.mostrarComentarios()
+                    
                 }
             }
             
@@ -106,9 +112,8 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 let cv = val!["cv"] as! String
                 let especialidad = val!["especialidad"] as! String
                 let nombre = val!["nombre"] as! String
-                
-                puntaje = puntaje + campos
-                let data = [ "calificacion": puntaje, "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre ]
+                let cal = Int(puntaje)! + Int(campos)!
+                let data = [ "calificacion": String(cal), "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre ]
                 self.ref2.setData(data) { (err) in
                     if let err = err?.localizedDescription {
                         print("Se ha producido un error \(err)")
@@ -125,7 +130,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         for button in collectionStar {
             if button.tag <= tag {
                 calif = button.tag
-                print(calif)
                 button.setTitle("★", for: .normal)
             } else {
                 button.setTitle("☆", for: .normal)
@@ -156,11 +160,11 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func mostrarComentarios(){
+        self.listaComentarios.removeAll()
         getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (resp , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
-                self.listaComentarios.removeAll()
                 for document in resp!.documents {
                     let id = document.documentID
                     let val = document.data()
