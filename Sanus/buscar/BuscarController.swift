@@ -31,44 +31,52 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func mostrarTodo(){
         
-//        getRef.collection("usuarios").addSnapshotListener { (result , err) in
-//            if let err = err {
-//                print("hay un error en firebase", err)
-//            } else {
-//
-//                for usuario in result!.documents {
-//
-//                    let uid = usuario.documentID
-//
-                        self.getRef.collection("doctores").addSnapshotListener { (resp , error) in
-                                    if let error = error {
-                                        print("hay un error en firebase", error)
-                                    } else {
-                                        
-                                        self.doctoresFiltro.removeAll()
-                                        self.listaDoctores.removeAll()
-                                        
-                                            for doctor in resp!.documents {
-                                                let id = doctor.documentID
-                                                let val = doctor.data()
-                                                let avatar = val["avatar"] as? String
-                                                let nombre = val["nombre"] as? String
-                                                let especialidad = val["especialidad"] as? String
-                                                let doctor = Doctores( id:id, avatar: avatar, cedula: nil, cv: nil, especialidad: especialidad, horario: nil, nombre: nombre )
-                                                self.doctoresFiltro.append(doctor)
-                                                self.listaDoctores.append(doctor)
-                                                self.tabla.reloadData()
-                                            }
-                                       
-                                    }
+        
+        self.getRef.collection("doctores").getDocuments { (result, error) in
+            if let error = error {
+                print("se ha producido un error \(error)")
+            } else {
+                
+                for doctores in result!.documents {
+                    let id = doctores.documentID
+                    let valDoc = doctores.data()
+                    let especialidad = valDoc["especialidad"] as? String
+                    print("data doctores")
+                    
+                    
+                    self.ref = Firestore.firestore().collection("usuarios").document(id)
+                    self.ref.getDocument { (resp, error) in
+                        if let error = error {
+                                print("se ha producido un error \(error)")
+                        } else {
+                                
+                                if let resp = resp {
+                                    let valUser = resp.data()
+                                    print("data usuarios")
+                                    let avatar = valUser!["avatar"] as? String
+                                    let nombre = valUser!["nombre"] as? String
+                                    let apellido = valUser!["apellido"] as? String
+                                    let doctor = Doctores( id:id, avatar: avatar, cedula: nil, cv: nil, especialidad: especialidad, horario: nil, nombre: nombre, apellido: apellido)
+                                    self.doctoresFiltro.append(doctor)
+                                    self.listaDoctores.append(doctor)
+                                    self.tabla.reloadData()
                                 }
-//
-//
-//                 }
-//
-//            }
-        //}
-    
+                                
+                        }
+                    }
+                    
+                    
+                   
+                    
+                    
+                }
+                
+            }
+        }
+        
+        
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,7 +91,8 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DoctorCell
         let doctor: Doctores
         doctor = doctoresFiltro[indexPath.row]
-        cell.nombreDoctor?.text = doctor.nombre
+        let nombreCompleto = doctor.nombre! + " " + doctor.apellido!
+        cell.nombreDoctor?.text = nombreCompleto
         cell.especialidadDoctor?.text = doctor.especialidad
         
         

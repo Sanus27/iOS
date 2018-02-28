@@ -16,9 +16,10 @@ class Doctores {
     var especialidad: String?
     var horario: String?
     var nombre: String?
+    var apellido: String?
     var id: String?
     
-    init( id:String?, avatar: String?, cedula: String?, cv:String?, especialidad:String?, horario:String?, nombre:String? ) {
+    init( id:String?, avatar: String?, cedula: String?, cv:String?, especialidad:String?, horario:String?, nombre:String?, apellido: String? ) {
         self.id = id
         self.avatar = avatar
         self.cedula = cedula
@@ -26,6 +27,7 @@ class Doctores {
         self.especialidad = especialidad
         self.horario = horario
         self.nombre = nombre
+        self.apellido = apellido
     }
     
 }
