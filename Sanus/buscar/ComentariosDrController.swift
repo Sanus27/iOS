@@ -13,9 +13,7 @@ import FirebaseStorage
 class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tabla: UITableView!
-    
-    
-    
+    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     var verComentarios:String!
     var ref:DocumentReference!
     var getRef:Firestore!
@@ -26,11 +24,32 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         tabla.delegate = self
         tabla.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         tabla.estimatedRowHeight = 105
         tabla.rowHeight = UITableViewAutomaticDimension
         getRef = Firestore.firestore()
         id = verComentarios
         mostrarComentarios()
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification){
+        if let userInfo = notification.userInfo{
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
+                self.keyboardHeightLayoutConstraint?.constant = 0.0
+            } else {
+                self.keyboardHeightLayoutConstraint?.constant = (endFrame?.size.height)!
+            }
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
+        }
     }
     
     func mostrarComentarios(){

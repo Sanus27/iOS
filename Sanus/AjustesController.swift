@@ -35,7 +35,7 @@ class AjustesController: UIViewController {
                 let apellido = val!["apellido"] as! String
                 let nombre = val!["nombre"] as! String
                 let foto = val!["avatar"] as! String
-                
+               
                 if foto != "" {
                     Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                         if let error = error?.localizedDescription {
