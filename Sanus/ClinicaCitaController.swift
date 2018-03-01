@@ -12,10 +12,16 @@ class ClinicaCitaController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("seleciona tu clinica")
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true);
+    @IBAction func btnAtras(_ sender: UIBarButtonItem) {
+        print("atras...")
+        dismiss(animated: true, completion: nil)
     }
-
+    
+    @IBAction func btnSiguiente(_ sender: UIBarButtonItem) {
+        print("siguiente...")
+    }
+    
 }
