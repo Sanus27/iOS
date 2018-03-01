@@ -162,26 +162,59 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func mostrarComentarios(){
+        
+        
+        
         self.listaComentarios.removeAll()
-        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (resp , error) in
+        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (result , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
-                for document in resp!.documents {
-                    let id = document.documentID
-                    let val = document.data()
-                    let avatar = val["avatar"] as? String
-                    let calificacion = val["calificacion"] as? String
-                    let doctor = val["doctor"] as? String
-                    let autor = val["usuario"] as? String
-                    let fecha = val["fecha"] as? String
-                    let comentario = val["comentario"] as? String
-                    let coments = Comentarios( id: id, comentario: comentario, doctor: doctor, fecha: fecha, usuario: autor, avatar: avatar, calificacion:calificacion )
-                    self.listaComentarios.append(coments)
-                    self.tabla.reloadData()
+                for document in result!.documents {
+                    let valComen = document.data()
+                    let calificacion = valComen["calificacion"] as? String
+                    let usuario = valComen["usuario"] as? String
+                    let fecha = valComen["fecha"] as? String
+                    let comentario = valComen["comentario"] as? String
+                   
+                    
+                    
+                    self.ref.collection("usuarios").document(usuario!)
+                    self.ref.getDocument { (resp, error) in
+                        if let error = error {
+                            print("se ha producido un error \(error)")
+                        } else {
+
+                           if let resp = resp {
+                                let valUser = resp.data()
+                                let avatar = valUser!["avatar"] as? String
+                                let nombre = valUser!["nombre"] as? String
+                                let apellido = valUser!["apellido"] as? String
+                                let nombre_completo = nombre! + " " + apellido!
+                            
+                            
+                                let comentario = Comentarios( comentario: comentario, doctor: nombre_completo, fecha: fecha, usuario: usuario, avatar: avatar, calificacion: calificacion )
+                                self.listaComentarios.append(comentario)
+                                self.tabla.reloadData()
+                            }
+
+                        }
+                    }
+                    
+                    
+                    
+                    
                 }
             }
         }
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -196,7 +229,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ComentariosDrCell
         let comentario: Comentarios
         comentario = listaComentarios[indexPath.row]
-        cell.usuario.text? = comentario.usuario!
+        cell.usuario.text? = comentario.doctor!
         cell.comentario.text? = comentario.comentario!
         cell.fecha.text? = comentario.fecha!
         if let star_v = comentario.calificacion {

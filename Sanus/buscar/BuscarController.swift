@@ -41,7 +41,6 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                     let id = doctores.documentID
                     let valDoc = doctores.data()
                     let especialidad = valDoc["especialidad"] as? String
-                    print("data doctores")
                     
                     
                     self.ref = Firestore.firestore().collection("usuarios").document(id)
@@ -52,7 +51,6 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                                 
                                 if let resp = resp {
                                     let valUser = resp.data()
-                                    print("data usuarios")
                                     let avatar = valUser!["avatar"] as? String
                                     let nombre = valUser!["nombre"] as? String
                                     let apellido = valUser!["apellido"] as? String
@@ -64,13 +62,8 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                                 
                         }
                     }
-                    
-                    
-                   
-                    
-                    
+
                 }
-                
             }
         }
         

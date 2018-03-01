@@ -52,9 +52,11 @@ class PerfilDoctorController: UIViewController {
                 let comentario = val!["comentario"] as! String
                 
                 if calif != "" {
-                    let op:Int = Int(calif)! / Int(comentario)!
-                    calif = String(op)
-                    print(calif)
+                    if calif != "0" {
+                        let op:Int = Int(calif)! / Int(comentario)!
+                        calif = String(op)
+                    }
+        
                     if calif == "20" {
                         self.starUno.setTitle("★", for: .normal)
                     }
