@@ -26,22 +26,49 @@ class PerfilDoctorController: UIViewController {
     
     var verPerfil:Doctores!
     var ref: DocumentReference!
+    var ref2: DocumentReference!
     var id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         id = verPerfil.id!
         ref = Firestore.firestore().collection("doctores").document(id)
+        ref2 = Firestore.firestore().collection("usuarios").document(id)
         mostrar()
     }
     
     func mostrar(){
         ref.getDocument { (document, error) in
+            
+            
+            self.ref2.getDocument { (docs, err) in
+                if let docs = docs {
+                    let valUser = docs.data()
+                    let nombre = valUser!["nombre"] as! String
+                    let apellido = valUser!["apellido"] as! String
+                    self.navbar.title = nombre + " " + apellido
+                    let foto = valUser!["avatar"] as! String
+                    
+                    if foto != "" {
+                        Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                            if let error = error?.localizedDescription {
+                                print("fallo al traer imagenes", error)
+                            } else {
+                                self.avatar.image = UIImage(data: data!)
+                                self.avatar.layer.masksToBounds = false
+                                self.avatar.layer.cornerRadius = self.avatar.frame.height / 2
+                                self.avatar.clipsToBounds = true
+                                self.avatar.layer.borderWidth = 1
+                            }
+                        })
+                    }
+                }
+            }
             if let document = document {
                 let val = document.data()
-                let nombre = val!["nombre"] as! String
-                self.navbar.title = nombre
-                let foto = val!["avatar"] as! String
+                //let nombre = val!["nombre"] as! String
+                //self.navbar.title = nombre
+                //let foto = val!["avatar"] as! String
                 let cv = val!["cv"] as! String
                 self.txtCV.text = cv
                 let especialidad = val!["especialidad"] as! String
@@ -84,19 +111,7 @@ class PerfilDoctorController: UIViewController {
                     }
                 }
                 
-                if foto != "" {
-                    Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
-                        if let error = error?.localizedDescription {
-                            print("fallo al traer imagenes", error)
-                        } else {
-                            self.avatar.image = UIImage(data: data!)
-                            self.avatar.layer.masksToBounds = false
-                            self.avatar.layer.cornerRadius = self.avatar.frame.height / 2
-                            self.avatar.clipsToBounds = true
-                            self.avatar.layer.borderWidth = 1
-                        }
-                    })
-                }
+                
                 
             } else {
                 print("documento no existe")
