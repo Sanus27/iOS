@@ -1,14 +1,14 @@
 //
-//  NuevaCitaController.swift
+//  SelectDayCitasController.swift
 //  Sanus
 //
-//  Created by Luis on 09/02/18.
+//  Created by luis on 01/03/18.
 //  Copyright © 2018 Luis. All rights reserved.
 //
 
 import UIKit
 
-class NuevaCitaController: UIViewController {
+class SelectDayCitasController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,7 @@ class NuevaCitaController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnAtras(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     /*
     // MARK: - Navigation
 
@@ -34,9 +31,5 @@ class NuevaCitaController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true);
-    }
-
 
 }
