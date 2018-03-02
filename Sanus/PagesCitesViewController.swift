@@ -53,7 +53,7 @@ class PagesCitesViewController:UIPageViewController, UIPageViewControllerDataSou
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return VCArr.last
+            return nil
         }
         
         guard VCArr.count > previousIndex else {
@@ -64,6 +64,7 @@ class PagesCitesViewController:UIPageViewController, UIPageViewControllerDataSou
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
         guard let viewControllerIndex = VCArr.index(of: viewController) else {
             return nil
         }
@@ -71,7 +72,7 @@ class PagesCitesViewController:UIPageViewController, UIPageViewControllerDataSou
         let nextIndex = viewControllerIndex + 1
         
         guard nextIndex < VCArr.count else {
-            return VCArr.first
+            return nil
         }
         
         guard VCArr.count > nextIndex else {

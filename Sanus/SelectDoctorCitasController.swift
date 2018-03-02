@@ -6,30 +6,49 @@
 //  Copyright © 2018 Luis. All rights reserved.
 //
 
+
 import UIKit
 
-class SelectDoctorCitasController: UIPageViewController {
-
+class SelectDoctorCitasController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    @IBOutlet weak var ListaDoctores: UIPickerView!
+    var plataformas = ["Selecciona tu doctor"]
+    var plataforma:String = ""
+    var ed:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ListaDoctores.delegate = self
+        ListaDoctores.dataSource = self
+        setDoctores()
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setDoctores(){
+        for i in 1...127 {
+            plataformas.append("Doctor # \(i)")
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
-
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return plataformas[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return plataformas.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        plataforma = plataformas[row]
+        ed = plataformas[row]
+        if plataformas[row] == "Selecciona tu doctor" {
+            ed = ""
+        }
+    }
+    
+    
+    
 }
