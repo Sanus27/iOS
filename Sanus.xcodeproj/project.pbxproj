@@ -35,7 +35,6 @@
 		A0DC8D2F202AA4D3003FB0CB /* Doctores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */; };
 		A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */; };
 		A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */; };
-		A0E25F34202CB7B500A385C2 /* NuevoComentarioDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F33202CB7B500A385C2 /* NuevoComentarioDrController.swift */; };
 		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
 		A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A233202D7C8D00778C7B /* PlaticasController.swift */; };
 		A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A235202D814700778C7B /* PreguntarForoController.swift */; };
@@ -75,7 +74,6 @@
 		A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctores.swift; sourceTree = "<group>"; };
 		A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDoctorController.swift; sourceTree = "<group>"; };
 		A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrController.swift; sourceTree = "<group>"; };
-		A0E25F33202CB7B500A385C2 /* NuevoComentarioDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevoComentarioDrController.swift; sourceTree = "<group>"; };
 		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0F2A233202D7C8D00778C7B /* PlaticasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaticasController.swift; sourceTree = "<group>"; };
 		A0F2A235202D814700778C7B /* PreguntarForoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntarForoController.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				A06CDB66203024440092C621 /* DoctorCell.swift */,
-				A0E25F33202CB7B500A385C2 /* NuevoComentarioDrController.swift */,
 				A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */,
 				A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */,
 				A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */,
@@ -381,7 +378,6 @@
 				A05AEB3E202AD84500F0D343 /* Usuarios.swift in Sources */,
 				A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */,
 				A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */,
-				A0E25F34202CB7B500A385C2 /* NuevoComentarioDrController.swift in Sources */,
 				A05AEB38202AD66C00F0D343 /* Citas.swift in Sources */,
 				A06CDB67203024440092C621 /* DoctorCell.swift in Sources */,
 				A0ACF9B420334F0B004681AE /* CompletarRegistroController.swift in Sources */,

@@ -86,7 +86,9 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                         button.setTitle("☆", for: .normal)
                     }
                     self.calif = 0
-                    self.mostrarComentarios()
+                    self.dismiss(animated: true, completion: nil)
+                    //self.performSegue(withIdentifier: "comentado", sender: nil)
+                    //self.mostrarComentarios()
                     
                 }
             }
