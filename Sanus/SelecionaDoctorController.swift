@@ -1,33 +1,34 @@
 //
-//  NuevaCitaController.swift
+//  SelectDoctorCitasController.swift
 //  Sanus
 //
-//  Created by Luis on 09/02/18.
+//  Created by luis on 01/03/18.
 //  Copyright © 2018 Luis. All rights reserved.
 //
 
+
 import UIKit
 
-class ClinicaCitaController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-
-    @IBOutlet weak var clinica: UIPickerView!
-    var plataformas = ["Selecciona tu clinica"]
+class SelecionaDoctorController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    @IBOutlet weak var ListaDoctores: UIPickerView!
+    var plataformas = ["Selecciona tu doctor"]
     var plataforma:String = ""
     var ed:String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        clinica.delegate = self
-        clinica.dataSource = self
-        setClinica()
+        ListaDoctores.delegate = self
+        ListaDoctores.dataSource = self
+        setDoctores()
+        // Do any additional setup after loading the view.
     }
     
-    func setClinica(){
+    func setDoctores(){
         for i in 1...127 {
-            plataformas.append("Clinica # \(i)")
+            plataformas.append("Doctor # \(i)")
         }
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -43,15 +44,11 @@ class ClinicaCitaController: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         plataforma = plataformas[row]
         ed = plataformas[row]
-        if plataformas[row] == "Selecciona tu clinica" {
+        if plataformas[row] == "Selecciona tu doctor" {
             ed = ""
         }
     }
     
-    @IBAction func btnAtras(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
     
-
     
 }

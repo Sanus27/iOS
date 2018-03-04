@@ -124,10 +124,6 @@ class PerfilDoctorController: UIViewController {
             let destino = segue.destination as! ComentariosDrController
             destino.verComentarios = id
         }
-        if segue.identifier == "nuevoComentario" {
-            let destino = segue.destination as! NuevoComentarioDrController
-            destino.nuevoComentario = id
-        }
     }
     
     @IBAction func btnComentarios(_ sender: UIButton) {

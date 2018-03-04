@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectHoursCitesController: UIViewController {
+class SelecionaHoraController: UIViewController {
 
     @IBOutlet weak var datePiker: UIDatePicker!
     

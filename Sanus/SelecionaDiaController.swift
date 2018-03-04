@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectDayCitasController: UIViewController{
+class SelecionaDiaController: UIViewController{
 
     
     override func viewDidLoad() {

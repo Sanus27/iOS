@@ -188,7 +188,7 @@
         <!--Login Controller-->
         <scene sceneID="AjX-Rg-gK6">
             <objects>
-                <viewController id="gj5-Wv-cLk" customClass="LoginController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="loginFalse" storyboardIdentifier="loginFalse" id="gj5-Wv-cLk" customClass="LoginController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JGC-fa-cEL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -425,6 +425,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vYh-1o-MC4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="t6n-M4-jnD"/>
                     <connections>
                         <outlet property="btnIniciarSesion" destination="S0g-ES-TK4" id="iFg-G8-yf5"/>
                         <outlet property="load" destination="FqX-zI-icv" id="qhK-mF-EhY"/>
@@ -848,10 +849,10 @@
             </objects>
             <point key="canvasLocation" x="-8456.25" y="370.77464788732397"/>
         </scene>
-        <!--Clinica Cita Controller-->
+        <!--Seleciona Cinica Controller-->
         <scene sceneID="Fh2-PG-0lX">
             <objects>
-                <viewController restorationIdentifier="SelectClinica" storyboardIdentifier="SelectClinica" id="lKq-fg-9iu" customClass="ClinicaCitaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectClinica" storyboardIdentifier="SelectClinica" id="lKq-fg-9iu" customClass="SelecionaCinicaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mfT-kh-JBz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -969,10 +970,10 @@
             </objects>
             <point key="canvasLocation" x="-9941.25" y="2230.9859154929577"/>
         </scene>
-        <!--Pages Cites View Controller-->
+        <!--Paginacion Citas Controller-->
         <scene sceneID="k39-4a-sEA">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Tc5-SL-zF3" customClass="PagesCitesViewController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Tc5-SL-zF3" customClass="PaginacionCitasController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyJ-wo-pQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-8456" y="1255"/>
@@ -2185,7 +2186,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="xBd-oP-Pep">
             <objects>
-                <tabBarController id="rL1-kQ-2gn" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="loginTrue" storyboardIdentifier="loginTrue" id="rL1-kQ-2gn" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w17-bp-kdy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2204,10 +2205,10 @@
             </objects>
             <point key="canvasLocation" x="-6609" y="-427"/>
         </scene>
-        <!--Select Doctor Citas Controller-->
+        <!--Seleciona Doctor Controller-->
         <scene sceneID="8Ah-B4-cq6">
             <objects>
-                <viewController restorationIdentifier="SelectDoctormio" storyboardIdentifier="SelectDoctormio" id="peK-zN-rnE" customClass="SelectDoctorCitasController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectDoctormio" storyboardIdentifier="SelectDoctormio" id="peK-zN-rnE" customClass="SelecionaDoctorController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bFb-YA-PpS" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2301,10 +2302,10 @@
             </objects>
             <point key="canvasLocation" x="-9206.25" y="2230.9859154929577"/>
         </scene>
-        <!--Select Hours Cites Controller-->
+        <!--Seleciona Hora Controller-->
         <scene sceneID="ANG-9b-G7p">
             <objects>
-                <viewController restorationIdentifier="SelectHours" storyboardIdentifier="SelectHours" id="ros-cL-sG2" customClass="SelectHoursCitesController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectHours" storyboardIdentifier="SelectHours" id="ros-cL-sG2" customClass="SelecionaHoraController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sg2-ww-B9G" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2401,10 +2402,10 @@
             </objects>
             <point key="canvasLocation" x="-7719.375" y="2230.9859154929577"/>
         </scene>
-        <!--Resum Cita Controller-->
+        <!--Agregar Cita Controller-->
         <scene sceneID="PFY-FK-1Ug">
             <objects>
-                <viewController restorationIdentifier="SaveCite" storyboardIdentifier="SaveCite" id="96v-LY-zLV" customClass="ResumCitaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SaveCite" storyboardIdentifier="SaveCite" id="96v-LY-zLV" customClass="AgregarCitaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JlF-Mx-1Sj" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2483,10 +2484,10 @@
             </objects>
             <point key="canvasLocation" x="-6984.375" y="2230.9859154929577"/>
         </scene>
-        <!--Select Day Citas Controller-->
+        <!--Seleciona Dia Controller-->
         <scene sceneID="hBI-N8-QQT">
             <objects>
-                <viewController restorationIdentifier="SelectDay" storyboardIdentifier="SelectDay" id="P6D-23-hyi" customClass="SelectDayCitasController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectDay" storyboardIdentifier="SelectDay" id="P6D-23-hyi" customClass="SelecionaDiaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zna-Ln-biE" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2573,6 +2574,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="tUF-tm-zKi"/>
         <segue reference="lsY-y0-mY7"/>
-        <segue reference="OAs-o2-dOy"/>
+        <segue reference="CnS-Rh-TAd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PagesCitesViewController:UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class PaginacionCitasController:UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     lazy var VCArr: [UIViewController] = {
         return [

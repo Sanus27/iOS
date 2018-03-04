@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */; };
-		A051DF9620487E8900D4C8DD /* PagesCitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9520487E8900D4C8DD /* PagesCitesViewController.swift */; };
-		A051DF9820487F5D00D4C8DD /* SelectDoctorCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9720487F5D00D4C8DD /* SelectDoctorCitasController.swift */; };
-		A051DF9A20487FD000D4C8DD /* SelectDayCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9920487FD000D4C8DD /* SelectDayCitasController.swift */; };
-		A051DF9C2048802100D4C8DD /* SelectHoursCitesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9B2048802100D4C8DD /* SelectHoursCitesController.swift */; };
-		A051DF9E2048809200D4C8DD /* ResumCitaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* ResumCitaController.swift */; };
+		A03DA6CC204B738600EFE474 /* NavegationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* NavegationController.swift */; };
+		A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */; };
+		A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */; };
+		A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */; };
+		A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */; };
+		A051DF9E2048809200D4C8DD /* AgregarCitaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */; };
 		A05AEB38202AD66C00F0D343 /* Citas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Citas.swift */; };
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
 		A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB3B202AD7D100F0D343 /* Hospitales.swift */; };
@@ -22,7 +23,7 @@
 		A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824583202A9FAB00543AD0 /* Main.storyboard */; };
 		A0824587202A9FAB00543AD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0824586202A9FAB00543AD0 /* Assets.xcassets */; };
 		A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */; };
-		A0A62621202D7C0200EE34D2 /* ClinicaCitaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* ClinicaCitaController.swift */; };
+		A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */; };
 		A0ACF9B420334F0B004681AE /* CompletarRegistroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACF9B320334F0B004681AE /* CompletarRegistroController.swift */; };
 		A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6151620302A1C006622A8 /* CitasCell.swift */; };
 		A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D20202AA49E003FB0CB /* AjustesController.swift */; };
@@ -45,11 +46,12 @@
 		5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
 		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
 		A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrCell.swift; sourceTree = "<group>"; };
-		A051DF9520487E8900D4C8DD /* PagesCitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesCitesViewController.swift; sourceTree = "<group>"; };
-		A051DF9720487F5D00D4C8DD /* SelectDoctorCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorCitasController.swift; sourceTree = "<group>"; };
-		A051DF9920487FD000D4C8DD /* SelectDayCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayCitasController.swift; sourceTree = "<group>"; };
-		A051DF9B2048802100D4C8DD /* SelectHoursCitesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHoursCitesController.swift; sourceTree = "<group>"; };
-		A051DF9D2048809200D4C8DD /* ResumCitaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumCitaController.swift; sourceTree = "<group>"; };
+		A03DA6CB204B738600EFE474 /* NavegationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavegationController.swift; sourceTree = "<group>"; };
+		A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginacionCitasController.swift; sourceTree = "<group>"; };
+		A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaDoctorController.swift; sourceTree = "<group>"; };
+		A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaDiaController.swift; sourceTree = "<group>"; };
+		A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaHoraController.swift; sourceTree = "<group>"; };
+		A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarCitaController.swift; sourceTree = "<group>"; };
 		A05AEB37202AD66C00F0D343 /* Citas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citas.swift; sourceTree = "<group>"; };
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
 		A05AEB3B202AD7D100F0D343 /* Hospitales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitales.swift; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 		A0824586202A9FAB00543AD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0824589202A9FAB00543AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A082458B202A9FAC00543AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0A62620202D7C0200EE34D2 /* ClinicaCitaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicaCitaController.swift; sourceTree = "<group>"; };
+		A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaCinicaController.swift; sourceTree = "<group>"; };
 		A0ACF9B320334F0B004681AE /* CompletarRegistroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletarRegistroController.swift; sourceTree = "<group>"; };
 		A0B6151620302A1C006622A8 /* CitasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasCell.swift; sourceTree = "<group>"; };
 		A0DC8D20202AA49E003FB0CB /* AjustesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesController.swift; sourceTree = "<group>"; };
@@ -124,14 +126,14 @@
 		A03A340720353999002834A5 /* citas */ = {
 			isa = PBXGroup;
 			children = (
-				A0A62620202D7C0200EE34D2 /* ClinicaCitaController.swift */,
+				A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */,
 				A0DC8D26202AA4B4003FB0CB /* CitasController.swift */,
 				A0B6151620302A1C006622A8 /* CitasCell.swift */,
-				A051DF9520487E8900D4C8DD /* PagesCitesViewController.swift */,
-				A051DF9720487F5D00D4C8DD /* SelectDoctorCitasController.swift */,
-				A051DF9920487FD000D4C8DD /* SelectDayCitasController.swift */,
-				A051DF9B2048802100D4C8DD /* SelectHoursCitesController.swift */,
-				A051DF9D2048809200D4C8DD /* ResumCitaController.swift */,
+				A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */,
+				A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */,
+				A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */,
+				A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */,
+				A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */,
 			);
 			name = citas;
 			sourceTree = "<group>";
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */,
+				A03DA6CB204B738600EFE474 /* NavegationController.swift */,
 				A05AEB37202AD66C00F0D343 /* Citas.swift */,
 				A05AEB39202AD74000F0D343 /* Comentarios.swift */,
 				A05AEB3B202AD7D100F0D343 /* Hospitales.swift */,
@@ -364,15 +367,15 @@
 			files = (
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
 				A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */,
-				A051DF9820487F5D00D4C8DD /* SelectDoctorCitasController.swift in Sources */,
+				A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */,
 				A0DC8D29202AA4BA003FB0CB /* CrearCuentaController.swift in Sources */,
 				A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */,
-				A051DF9E2048809200D4C8DD /* ResumCitaController.swift in Sources */,
+				A051DF9E2048809200D4C8DD /* AgregarCitaController.swift in Sources */,
 				A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */,
 				A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */,
 				A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */,
 				A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */,
-				A051DF9620487E8900D4C8DD /* PagesCitesViewController.swift in Sources */,
+				A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */,
 				A0DC8D2F202AA4D3003FB0CB /* Doctores.swift in Sources */,
 				A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */,
 				A05AEB3E202AD84500F0D343 /* Usuarios.swift in Sources */,
@@ -384,11 +387,12 @@
 				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,
 				A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */,
 				A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */,
-				A051DF9C2048802100D4C8DD /* SelectHoursCitesController.swift in Sources */,
+				A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */,
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */,
-				A0A62621202D7C0200EE34D2 /* ClinicaCitaController.swift in Sources */,
-				A051DF9A20487FD000D4C8DD /* SelectDayCitasController.swift in Sources */,
+				A03DA6CC204B738600EFE474 /* NavegationController.swift in Sources */,
+				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,
+				A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

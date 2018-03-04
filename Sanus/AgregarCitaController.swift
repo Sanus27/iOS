@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResumCitaController: UIViewController {
+class AgregarCitaController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
