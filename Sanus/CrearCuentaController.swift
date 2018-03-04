@@ -33,8 +33,6 @@ class CrearCuentaController: UIViewController {
         btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
     
-    
-    
     func isValidEmailAddress(emailAddressString: String) -> Bool {
         var returnValue = true
         let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"

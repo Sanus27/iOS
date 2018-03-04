@@ -331,7 +331,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
-                                                                            <action selector="btnIniciarSesion:" destination="gj5-Wv-cLk" eventType="touchUpInside" id="bhb-HK-Czr"/>
+                                                                            <action selector="loginAction:" destination="gj5-Wv-cLk" eventType="touchUpInside" id="t7n-Zb-cH4"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRE-cZ-rne">
@@ -349,7 +349,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
-                                                                            <segue destination="x7J-4y-sX1" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="svl-ya-Jqs"/>
+                                                                            <segue destination="x7J-4y-sX1" kind="presentation" identifier="returnCreateUser" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="svl-ya-Jqs"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -427,9 +427,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="t6n-M4-jnD"/>
                     <connections>
-                        <outlet property="btnIniciarSesion" destination="S0g-ES-TK4" id="iFg-G8-yf5"/>
+                        <outlet property="btnLogin" destination="S0g-ES-TK4" id="1gu-qD-JcU"/>
                         <outlet property="load" destination="FqX-zI-icv" id="qhK-mF-EhY"/>
-                        <outlet property="txtCorreo" destination="zN5-N1-RLm" id="DXm-WM-3bj"/>
+                        <outlet property="txtEmail" destination="zN5-N1-RLm" id="Lwc-ox-9US"/>
                         <outlet property="txtPassword" destination="xgi-eL-FXe" id="5Qp-Bq-2cP"/>
                         <segue destination="rL1-kQ-2gn" kind="show" identifier="login" id="tUF-tm-zKi"/>
                     </connections>
@@ -593,24 +593,9 @@
                                                                             <action selector="btnCrearCuenta:" destination="x7J-4y-sX1" eventType="touchUpInside" id="Khs-HY-NGA"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7n8-yt-ApO">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CR-uo-Fhs">
                                                                         <rect key="frame" x="0.0" y="50" width="266" height="45"/>
-                                                                        <color key="backgroundColor" red="0.82622110843658447" green="0.38767033815383911" blue="0.17411154508590698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="45" id="NeY-1d-w4A"/>
-                                                                        </constraints>
-                                                                        <state key="normal" title="Iniciar sesión">
-                                                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        </state>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                <integer key="value" value="5"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <segue destination="gj5-Wv-cLk" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="FaR-Ey-JJy"/>
-                                                                        </connections>
-                                                                    </button>
+                                                                    </view>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
@@ -639,12 +624,10 @@
                     </view>
                     <connections>
                         <outlet property="btnCrearcuenta" destination="zYV-DX-8zE" id="tMW-Bx-G98"/>
-                        <outlet property="btnLoginListen" destination="7n8-yt-ApO" id="Fb5-F5-s12"/>
                         <outlet property="load" destination="VER-Iz-jPN" id="r0Y-uf-vEU"/>
                         <outlet property="txtCorreo" destination="Etb-bm-27E" id="pNA-tS-iEA"/>
                         <outlet property="txtPass1" destination="a0c-tN-9qz" id="4Vd-4Z-TBe"/>
                         <outlet property="txtPass2" destination="90Y-Va-6HV" id="6Uu-0p-gKP"/>
-                        <segue destination="gj5-Wv-cLk" kind="presentation" identifier="returnlogin" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="CnS-Rh-TAd"/>
                         <segue destination="Ywo-PO-xUm" kind="show" identifier="firstLogin" id="acG-SJ-JJD"/>
                     </connections>
                 </viewController>
@@ -914,6 +897,9 @@
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnNext:" destination="lKq-fg-9iu" eventType="touchUpInside" id="nvG-wM-do9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfs-RL-UnS">
                                 <rect key="frame" x="27" y="344" width="60" height="60"/>
@@ -2245,6 +2231,9 @@
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnNext:" destination="peK-zN-rnE" eventType="touchUpInside" id="3yU-Ki-eA6"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWK-CG-OhS">
                                 <rect key="frame" x="27" y="229" width="266" height="151"/>
@@ -2314,7 +2303,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indicanos la hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a74-14-9Xk">
-                                <rect key="frame" x="27" y="47" width="266" height="18"/>
+                                <rect key="frame" x="27" y="37" width="266" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2342,6 +2331,9 @@
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnNext:" destination="ros-cL-sG2" eventType="touchUpInside" id="zcW-kC-Is7"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89a-LG-ggd">
                                 <rect key="frame" x="27" y="213" width="266" height="163"/>
@@ -2385,7 +2377,7 @@
                             <constraint firstItem="aBT-rz-ULm" firstAttribute="leading" secondItem="sg2-ww-B9G" secondAttribute="leading" constant="27" id="W9j-sA-IAa"/>
                             <constraint firstItem="jg6-Ga-NTY" firstAttribute="bottom" secondItem="89a-LG-ggd" secondAttribute="bottom" constant="192" id="db2-lZ-mis"/>
                             <constraint firstItem="5Tl-QL-0vj" firstAttribute="top" secondItem="sg2-ww-B9G" secondAttribute="top" id="eh5-qi-F3N"/>
-                            <constraint firstItem="a74-14-9Xk" firstAttribute="top" secondItem="jg6-Ga-NTY" secondAttribute="top" constant="27" id="h4H-0s-jJr"/>
+                            <constraint firstItem="a74-14-9Xk" firstAttribute="top" secondItem="jg6-Ga-NTY" secondAttribute="top" constant="17" id="h4H-0s-jJr"/>
                             <constraint firstItem="5Tl-QL-0vj" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" id="iEn-q9-JZJ"/>
                             <constraint firstAttribute="trailing" secondItem="aBT-rz-ULm" secondAttribute="trailing" constant="27" id="iii-tv-TNX"/>
                             <constraint firstItem="89a-LG-ggd" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" constant="27" id="kHs-bM-cMq"/>
@@ -2446,6 +2438,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="btnCreate:" destination="96v-LY-zLV" eventType="touchUpInside" id="Mgn-Km-QNQ"/>
                                     <action selector="btnGuardar:" destination="96v-LY-zLV" eventType="touchUpInside" id="0Pf-8p-wrt"/>
                                 </connections>
                             </button>
@@ -2462,6 +2455,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhS-WU-9j8">
+                                <rect key="frame" x="27" y="481" width="60" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="fSB-9Q-RHd"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="ouN-nK-9Mr"/>
+                                    <constraint firstAttribute="width" constant="60" id="wIq-I5-IKm"/>
+                                    <constraint firstAttribute="height" constant="60" id="xmI-LM-TEE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="✖︎">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnAtras:" destination="lKq-fg-9iu" eventType="touchUpInside" id="eVA-0z-DkL"/>
+                                    <action selector="btnCancel:" destination="96v-LY-zLV" eventType="touchUpInside" id="3GI-ws-MPu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2470,6 +2486,8 @@
                             <constraint firstAttribute="trailing" secondItem="L3c-GI-ZSn" secondAttribute="trailing" constant="27" id="Eph-xD-EIW"/>
                             <constraint firstItem="rtY-XB-s4m" firstAttribute="top" secondItem="JlF-Mx-1Sj" secondAttribute="top" id="JR5-mh-cp1"/>
                             <constraint firstItem="rtY-XB-s4m" firstAttribute="trailing" secondItem="mLm-la-9Gz" secondAttribute="trailing" id="MID-zo-LVx"/>
+                            <constraint firstItem="mLm-la-9Gz" firstAttribute="bottom" secondItem="mhS-WU-9j8" secondAttribute="bottom" constant="27" id="Tzo-OY-JRZ"/>
+                            <constraint firstItem="mhS-WU-9j8" firstAttribute="leading" secondItem="mLm-la-9Gz" secondAttribute="leading" constant="27" id="U8g-Ov-ZB9"/>
                             <constraint firstItem="mLm-la-9Gz" firstAttribute="trailing" secondItem="FDj-6Y-st2" secondAttribute="trailing" constant="27" id="aON-ne-SSZ"/>
                             <constraint firstItem="mLm-la-9Gz" firstAttribute="trailing" secondItem="adO-kd-WU1" secondAttribute="trailing" constant="27" id="ekj-Bt-w7j"/>
                             <constraint firstItem="L3c-GI-ZSn" firstAttribute="leading" secondItem="JlF-Mx-1Sj" secondAttribute="leading" constant="27" id="fXR-W4-b4c"/>
@@ -2524,6 +2542,9 @@
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnNext:" destination="P6D-23-hyi" eventType="touchUpInside" id="qIC-K6-zuz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2574,6 +2595,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="tUF-tm-zKi"/>
         <segue reference="lsY-y0-mY7"/>
-        <segue reference="CnS-Rh-TAd"/>
     </inferredMetricsTieBreakers>
 </document>

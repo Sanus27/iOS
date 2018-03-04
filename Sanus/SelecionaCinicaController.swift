@@ -22,6 +22,20 @@ class SelecionaCinicaController: UIViewController, UIPickerViewDataSource, UIPic
         setClinica()
     }
     
+    lazy var VCArr: [UIViewController] = {
+        return [
+            self.VCInstance(name: "SelectDoctormio"),
+            self.VCInstance(name: "SelectClinica"),
+            self.VCInstance(name: "SelectDay"),
+            self.VCInstance(name: "SelectHours"),
+            self.VCInstance(name: "SaveCite")
+        ]
+    }()
+    
+    private func VCInstance(name: String) -> UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
+    }
+    
     func setClinica(){
         for i in 1...127 {
             plataformas.append("Clinica # \(i)")
@@ -47,6 +61,17 @@ class SelecionaCinicaController: UIViewController, UIPickerViewDataSource, UIPic
             ed = ""
         }
     }
+    
+    @IBAction func btnNext(_ sender: UIButton) {
+        let NextPage =  [
+            self.VCInstance(name: "SelectDoctormio")
+        ]
+        print(NextPage)
+        //present(NextPage, animated: true, completion: nil)
+            //setViewControllers([NextPage], direction: .forward, animated: true, completion: nil)
+        
+    }
+    
     
     @IBAction func btnAtras(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

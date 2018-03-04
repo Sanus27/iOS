@@ -21,7 +21,10 @@ class SelecionaDiaController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    @IBAction func btnNext(_ sender: UIButton) {
+        
+    }
     
     /*
      // MARK: - Navigation

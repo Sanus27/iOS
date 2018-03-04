@@ -10,9 +10,9 @@ import UIKit
 import FirebaseAuth
 
 class LoginController: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var btnIniciarSesion: UIButton!
-    @IBOutlet weak var txtCorreo: UITextField!
+    
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var load: UIActivityIndicatorView!
     var valdE:Bool = false;
@@ -20,9 +20,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     override func loadView() {
         super.loadView()
-        txtCorreo.delegate = self
+        txtEmail.delegate = self
         txtPassword.delegate = self
-        login()
+        verifyLogin()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -32,8 +32,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnIniciarSesion.isEnabled = false;
-        btnIniciarSesion.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        btnLogin.isEnabled = false;
+        btnLogin.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
     
     func isValidEmailAddress(emailAddressString: String) -> Bool {
@@ -66,29 +66,29 @@ class LoginController: UIViewController, UITextFieldDelegate {
         } else {
             valdP = false;
         }
-        validar();
+        valid();
     }
     
     @IBAction func txtEmailEditing(_ sender: UITextField) {
-        let num = isValidEmailAddress(emailAddressString: txtCorreo.text!);
+        let num = isValidEmailAddress(emailAddressString: txtEmail.text!);
         valdE = num;
-        validar();
+        valid();
     }
     
-    func validar(){
+    func valid(){
         if ( valdE == true && valdP == true) {
-            btnIniciarSesion.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
-            btnIniciarSesion.isEnabled = true;
+            btnLogin.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+            btnLogin.isEnabled = true;
         } else {
-            btnIniciarSesion.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
-            btnIniciarSesion.isEnabled = false;
+            btnLogin.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+            btnLogin.isEnabled = false;
         }
     }
     
     
-    @IBAction func btnIniciarSesion(_ sender: UIButton) {
+    @IBAction func loginAction(_ sender: UIButton) {
         self.load.startAnimating()
-        Auth.auth().signIn(withEmail: txtCorreo.text!, password: txtPassword.text!) { ( user, error ) in
+        Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { ( user, error ) in
             
             self.load.stopAnimating()
             if user != nil {
@@ -101,7 +101,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
                         alerta.addAction(aceptar);
                         self.present(alerta, animated: true, completion: nil);
-                        self.txtCorreo.text! = "";
+                        self.txtEmail.text! = "";
                         self.valdE = false;
                     }
                     if(error == "The password is invalid or the user does not have a password."){
@@ -110,19 +110,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         alerta.addAction(aceptar);
                         self.present(alerta, animated: true, completion: nil);
                         self.txtPassword.text! = "";
-                        self.txtCorreo.text! = "";
+                        self.txtEmail.text! = "";
                         self.valdE = false;
                         self.valdP = false;
                     }
                     if(error == "There is no user record corresponding to this identifier. The user may have been deleted."){
                         let alerta = UIAlertController(title: "Correo no esta registrado", message: "¿Desea crear una cuenta?", preferredStyle: .alert);
                         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                            self.performSegue(withIdentifier: "RcrearCuenta", sender: self);
+                            self.performSegue(withIdentifier: "returnCreateUser", sender: self);
                         }))
                         alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil ))
                         self.present(alerta, animated: true, completion: nil);
                         self.txtPassword.text! = "";
-                        self.txtCorreo.text! = "";
+                        self.txtEmail.text! = "";
                         self.valdE = false;
                         self.valdP = false;
                     }
@@ -137,7 +137,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func login(){
+    func verifyLogin(){
         Auth.auth().addStateDidChangeListener{ ( auth, user ) in
             if user != nil {
                 self.performSegue(withIdentifier: "login", sender: self);

@@ -29,6 +29,7 @@ class PaginacionCitasController:UIPageViewController, UIPageViewControllerDataSo
         self.dataSource = self
         self.delegate = self
         if let firstVC = VCArr.first {
+            //print(firstVC)
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
     }

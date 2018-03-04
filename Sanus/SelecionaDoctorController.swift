@@ -49,6 +49,11 @@ class SelecionaDoctorController: UIViewController, UIPickerViewDataSource, UIPic
         }
     }
     
+    @IBAction func btnNext(_ sender: UIButton) {
+        
+    }
+    
+    
     
     
 }
