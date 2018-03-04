@@ -12,16 +12,16 @@ import FirebaseAuth
 
 class CrearCuentaController: UIViewController {
     
+    @IBOutlet weak var listenerBtnShow: UIButton!
+    @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var load: UIActivityIndicatorView!
-    @IBOutlet weak var btnCrearcuenta: UIButton!
-    @IBOutlet weak var btnLoginListen: UIButton!
-    @IBOutlet weak var txtCorreo: UITextField!
-    @IBOutlet weak var txtPass1: UITextField!
-    @IBOutlet weak var txtPass2: UITextField!
-    
-    var valdE:Bool = false;
-    var valdP1:Bool = false;
-    var valdP2:Bool = false;
+    @IBOutlet weak var listenerCreateUser: UIButton!
+    @IBOutlet weak var listenerDismis: UIButton!
+    @IBOutlet weak var txtPassword: UITextField!
+    var valdE:Bool = false
+    var valdP1:Bool = false
+    var valdP2:Bool = false
+    var iconClick = true
     var ref: DocumentReference!
     var getRef: Firestore!
     var pass:String = ""
@@ -29,8 +29,10 @@ class CrearCuentaController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getRef = Firestore.firestore()
-        btnCrearcuenta.isEnabled = false;
-        btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        listenerBtnShow.setTitle("Mostrar", for: .normal)
+        txtPassword.isSecureTextEntry = true
+        listenerCreateUser.isEnabled = false;
+        listenerCreateUser.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
     
     func isValidEmailAddress(emailAddressString: String) -> Bool {
@@ -55,67 +57,50 @@ class CrearCuentaController: UIViewController {
     }
     
     @IBAction func txtEmailEditing(_ sender: UITextField) {
-        let num = isValidEmailAddress(emailAddressString: txtCorreo.text!);
+        let num = isValidEmailAddress(emailAddressString: txtEmail.text!);
         valdE = num;
-        validar()
+        validate()
     }
     
-    @IBAction func txtPass1Editing(_ sender: UITextField) {
-        let num = Int(txtPass1.text!.count);
+    @IBAction func txtPassEditing(_ sender: UITextField) {
+        let num = Int(txtPassword.text!.count);
         if num > 6 {
             valdP1 = true;
         } else {
             valdP1 = false;
         }
-        validar()
+        validate()
     }
     
     
-    @IBAction func txtPass2Editing(_ sender: UITextField) {
-        let num = Int(txtPass2.text!.count);
-        if num > 6 {
-            let pass1 = txtPass1.text!
-            let pass2  = txtPass2.text!
-            if pass1 == pass2 {
-                valdP2 = true;
-            } else {
-                valdP2 = false;
-            }
+    func validate(){
+        if ( valdE == true && valdP1 == true ) {
+            listenerCreateUser.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+            listenerCreateUser.isEnabled = true;
+            pass = self.txtPassword.text!
         } else {
-            valdP2 = false;
-        }
-        validar()
-    }
-    
-
-    
-    func validar(){
-        if ( valdE == true && valdP1 == true  && valdP2 == true) {
-            btnCrearcuenta.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
-            btnCrearcuenta.isEnabled = true;
-            pass = self.txtPass1.text!
-        } else {
-            btnCrearcuenta.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
-            btnCrearcuenta.isEnabled = false;
+            listenerCreateUser.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+            listenerCreateUser.isEnabled = false;
         }
     }
    
+    
 
-    @IBAction func btnCrearCuenta(_ sender: UIButton) {
+    @IBAction func btnCreateUser(_ sender: UIButton) {
         
         
-        btnLoginListen.isEnabled = false;
-        btnLoginListen.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        listenerDismis.isEnabled = false;
+        txtPassword.isSecureTextEntry = true
+        listenerDismis.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
         
-        if txtPass1.text == txtPass2.text {
+       
             self.load.startAnimating()
-            Auth.auth().createUser(withEmail: txtCorreo.text!, password: txtPass1.text!) { (user, error) in
+            Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
                 
                 if user != nil {
                     
-                    print("Se ha creado la cuenta con exito")
-                    let alerta = UIAlertController(title: " Exito", message: "La la cuenta ha sido creada con exito", preferredStyle: .alert);
-                    alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+                    let alerts = UIAlertController(title: " Exito", message: "La la cuenta ha sido creada con exito", preferredStyle: .alert);
+                    alerts.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
                         let email = user?.email
                         Auth.auth().signIn(withEmail: email!, password: self.pass) { ( usr, err ) in
                             if usr != nil {
@@ -127,58 +112,65 @@ class CrearCuentaController: UIViewController {
                             }
                         }
                     }))
-                    self.present(alerta, animated: true, completion: nil);
-                    self.txtCorreo.text! = "";
-                    self.txtPass1.text! = "";
-                    self.txtPass2.text! = "";
+                    self.present(alerts, animated: true, completion: nil);
+                    self.txtEmail.text! = "";
+                    self.txtPassword.text! = "";
                     
                 } else {
                     
-                    self.btnLoginListen.isEnabled = true;
-                    self.btnLoginListen.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 0.3);
+                    self.listenerDismis.isEnabled = true;
+                    self.listenerDismis.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 0.3);
                     
                     if  let error = error?.localizedDescription {
                         print("error de firebase", error);
                         if(error == "The password must be 6 characters long or more."){
-                            let alerta = UIAlertController(title: " Se ha producido un error", message: "La contraseñas debe tener mas de 6 digitos", preferredStyle: .alert);
-                            let aceptar = UIAlertAction( title: "Aceptar", style: .default, handler: nil );
-                            alerta.addAction(aceptar);
-                            self.present(alerta, animated: true, completion: nil);
-                            self.txtPass1.text! = "";
-                            self.txtPass2.text! = "";
+                            let alerts = UIAlertController(title: " Se ha producido un error", message: "La contraseñas debe tener mas de 6 digitos", preferredStyle: .alert);
+                            let acept = UIAlertAction( title: "Aceptar", style: .default, handler: nil );
+                            alerts.addAction(acept);
+                            self.present(alerts, animated: true, completion: nil);
+                            self.txtPassword.text! = "";
                         }
                         if(error == "The email address is already in use by another account."){
-                            let alerta = UIAlertController(title: " Se ha producido un error", message: "Este correo electronico ya tiene una cuenta con nosotros", preferredStyle: .alert);
-                            let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                            alerta.addAction(aceptar);
-                            self.present(alerta, animated: true, completion: nil);
-                            self.txtCorreo.text! = "";
-                            self.txtPass1.text! = "";
-                            self.txtPass2.text! = "";
+                            let alerts = UIAlertController(title: " Se ha producido un error", message: "Este correo electronico ya tiene una cuenta con nosotros", preferredStyle: .alert);
+                            let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
+                            alerts.addAction(acept);
+                            self.present(alerts, animated: true, completion: nil);
+                            self.txtEmail.text! = "";
+                            self.txtPassword.text! = "";
                         }
                         if(error == "The email address is badly formatted."){
-                            let alerta = UIAlertController(title: " Se ha producido un error", message: "Este no es un correo electronico", preferredStyle: .alert);
-                            let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                            alerta.addAction(aceptar);
-                            self.present(alerta, animated: true, completion: nil);
-                            self.txtCorreo.text! = "";
+                            let alerts = UIAlertController(title: " Se ha producido un error", message: "Este no es un correo electronico", preferredStyle: .alert);
+                            let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
+                            alerts.addAction(acept);
+                            self.present(alerts, animated: true, completion: nil);
+                            self.txtEmail.text! = "";
                         }
                     } else {
-                        let alerta = UIAlertController(title: "Se ha producido un error", message: error! as? String, preferredStyle: .alert);
-                        let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                        alerta.addAction(aceptar);
-                        self.present(alerta, animated: true, completion: nil);
+                        let alerts = UIAlertController(title: "Se ha producido un error", message: error! as? String, preferredStyle: .alert);
+                        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
+                        alerts.addAction(acept);
+                        self.present(alerts, animated: true, completion: nil);
                         print("error de codigo", error!);
                     }
                 }
             }
 
-            
+
+    }
+    
+
+    @IBAction func btnShowPass(_ sender: UIButton) {
+        if(iconClick == true) {
+            listenerBtnShow.setTitle("Ocultar", for: .normal)
+            txtPassword.isSecureTextEntry = false
+            iconClick = false
         } else {
-            print("mal")
+            listenerBtnShow.setTitle("Mostrar", for: .normal)
+            txtPassword.isSecureTextEntry = true
+            iconClick = true
         }
     }
-
+    
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
