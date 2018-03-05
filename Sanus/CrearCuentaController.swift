@@ -104,6 +104,8 @@ class CrearCuentaController: UIViewController {
                         let email = user?.email
                         Auth.auth().signIn(withEmail: email!, password: self.pass) { ( usr, err ) in
                             if usr != nil {
+                                let id = usr?.uid
+                                self.completeUser( uid: id! )
                                 self.performSegue(withIdentifier: "firstLogin", sender: self);
                             } else {
                                 if let err = err?.localizedDescription {
@@ -158,6 +160,18 @@ class CrearCuentaController: UIViewController {
 
     }
     
+    
+    func completeUser( uid: String ){
+        let  campos = [ "completo": "incompleto" ]
+        ref = Firestore.firestore().collection("usuarios").document(uid)
+        ref.setData(campos) { (error) in
+            if let error = error?.localizedDescription {
+                print("fallo al actualizar", error)
+            } else {
+                print("completado")
+            }
+        }
+    }
 
     @IBAction func btnShowPass(_ sender: UIButton) {
         if(iconClick == true) {

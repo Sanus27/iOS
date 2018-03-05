@@ -1866,7 +1866,7 @@
         <!--Completar Registro Controller-->
         <scene sceneID="Kiz-mv-8eA">
             <objects>
-                <viewController id="Ywo-PO-xUm" customClass="CompletarRegistroController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="completeRegister" storyboardIdentifier="completeRegister" id="Ywo-PO-xUm" customClass="CompletarRegistroController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vDi-UU-WWs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

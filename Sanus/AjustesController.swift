@@ -46,7 +46,7 @@ class AjustesController: UIViewController {
                             self.avatar.layer.cornerRadius = 25
                             self.avatar.clipsToBounds = true
                             self.avatar.layer.borderWidth = 1
-                            self.txtNombre.text = nombre + apellido
+                            self.txtNombre.text = nombre + " " + apellido
                         }
                     })
                     

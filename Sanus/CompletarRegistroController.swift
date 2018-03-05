@@ -136,17 +136,17 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
             }
             
             if ed != "" {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente"]
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
             } else {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente"]
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
             }
             
         } else {
             
             if ed != "" {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
             } else {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
             }
         }
         
