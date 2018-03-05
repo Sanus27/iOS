@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */; };
-		A03DA6CC204B738600EFE474 /* NavegationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* NavegationController.swift */; };
+		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
 		A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */; };
 		A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */; };
 		A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */; };
@@ -46,7 +46,7 @@
 		5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
 		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
 		A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrCell.swift; sourceTree = "<group>"; };
-		A03DA6CB204B738600EFE474 /* NavegationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavegationController.swift; sourceTree = "<group>"; };
+		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
 		A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginacionCitasController.swift; sourceTree = "<group>"; };
 		A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaDoctorController.swift; sourceTree = "<group>"; };
 		A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaDiaController.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */,
-				A03DA6CB204B738600EFE474 /* NavegationController.swift */,
+				A03DA6CB204B738600EFE474 /* Navegation.swift */,
 				A05AEB37202AD66C00F0D343 /* Citas.swift */,
 				A05AEB39202AD74000F0D343 /* Comentarios.swift */,
 				A05AEB3B202AD7D100F0D343 /* Hospitales.swift */,
@@ -390,7 +390,7 @@
 				A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */,
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */,
-				A03DA6CC204B738600EFE474 /* NavegationController.swift in Sources */,
+				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,
 				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,
 				A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */,
 			);

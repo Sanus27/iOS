@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class NavegationController: UINavigationController {
+class Navegation: UINavigationController {
     
     var ref:DocumentReference!
     
@@ -25,7 +25,7 @@ class NavegationController: UINavigationController {
         return mainStoryBoard.instantiateViewController(withIdentifier: name)
     }
     
-    //
+    
     public func isLoggedIn() {
         Auth.auth().addStateDidChangeListener{ ( auth, user ) in
             if user != nil {

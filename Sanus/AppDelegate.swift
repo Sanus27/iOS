@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = NavegationController()
+        window?.rootViewController = Navegation()
         return true
     }
 
