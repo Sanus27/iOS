@@ -12,7 +12,6 @@ class PlaticasController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +20,7 @@ class PlaticasController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnAtras(_ sender: UIBarButtonItem) {
+    @IBAction func btnBack(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     

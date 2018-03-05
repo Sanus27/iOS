@@ -375,7 +375,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yd2-E1-Ge6">
                                                                         <rect key="frame" x="0.0" y="0.0" width="130.5" height="45"/>
-                                                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.85925239324569702" green="0.26601973176002502" blue="0.21583029627799988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="45" id="YDY-Tr-jLf"/>
                                                                         </constraints>
@@ -390,7 +390,7 @@
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ei-pQ-x3T">
                                                                         <rect key="frame" x="135.5" y="0.0" width="130.5" height="45"/>
-                                                                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.25985953211784363" green="0.40468725562095642" blue="0.69658392667770386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="Facebook">
                                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </state>
@@ -921,7 +921,7 @@
                                         <barButtonItem key="leftBarButtonItem" image="icon-atras" id="pEM-yx-hXA">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <action selector="btnAtras:" destination="k13-gn-GuM" id="4A0-bN-xuT"/>
+                                                <action selector="btnBack:" destination="k13-gn-GuM" id="8Wc-qV-0AS"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -998,7 +998,7 @@
                                         <barButtonItem key="leftBarButtonItem" image="icon-atras" id="MKI-1f-Md6">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <action selector="btnAtras:" destination="7BB-Zz-1ha" id="pcE-HO-n93"/>
+                                                <action selector="btnBack:" destination="7BB-Zz-1ha" id="sXA-8c-EVh"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1819,7 +1819,7 @@
                                                     </attributedString>
                                                 </state>
                                                 <connections>
-                                                    <action selector="btnCerrarSesion:" destination="DyF-a3-ddc" eventType="touchUpInside" id="v41-E6-Kr4"/>
+                                                    <action selector="btnSignOff:" destination="DyF-a3-ddc" eventType="touchUpInside" id="tgd-ac-54g"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1855,7 +1855,7 @@
                     <tabBarItem key="tabBarItem" title="Ajustes" image="icon-ajustes" id="PAE-di-eH6"/>
                     <connections>
                         <outlet property="avatar" destination="JFx-c3-HdT" id="8OA-bi-hbS"/>
-                        <outlet property="txtNombre" destination="C5O-E1-RYL" id="Ovv-RA-LpC"/>
+                        <outlet property="txtName" destination="C5O-E1-RYL" id="oDV-e5-hBZ"/>
                         <segue destination="gj5-Wv-cLk" kind="show" identifier="salir" id="OAs-o2-dOy"/>
                     </connections>
                 </viewController>
@@ -2522,7 +2522,7 @@
         <image name="headerForo" width="1500" height="1000"/>
         <image name="ic_cancel" width="24" height="24"/>
         <image name="icon-ajustes" width="28" height="28"/>
-        <image name="icon-atras" width="23" height="22"/>
+        <image name="icon-atras" width="36" height="36"/>
         <image name="icon-buscar" width="28" height="28"/>
         <image name="icon-camara" width="48" height="48"/>
         <image name="icon-chat" width="28" height="28"/>
@@ -2536,7 +2536,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="n5x-9v-mmc"/>
-        <segue reference="lsY-y0-mY7"/>
-        <segue reference="saL-cK-rVX"/>
+        <segue reference="A9J-a0-IhT"/>
+        <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
 </document>

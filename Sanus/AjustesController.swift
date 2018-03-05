@@ -13,7 +13,7 @@ import FirebaseAuth
 class AjustesController: UIViewController {
 
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var txtNombre: UILabel!
+    @IBOutlet weak var txtName: UILabel!
     
     var ref:DocumentReference!
     var getRef: Firestore!
@@ -32,12 +32,12 @@ class AjustesController: UIViewController {
         ref.getDocument { (document, error) in
             if let document = document {
                 let val = document.data()
-                let apellido = val!["apellido"] as! String
-                let nombre = val!["nombre"] as! String
-                let foto = val!["avatar"] as! String
+                let lastname = val!["apellido"] as! String
+                let name = val!["nombre"] as! String
+                let avatar = val!["avatar"] as! String
                
-                if foto != "" {
-                    Storage.storage().reference(forURL: foto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                if avatar != "" {
+                    Storage.storage().reference(forURL: avatar).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                         if let error = error?.localizedDescription {
                             print("fallo al traer imagenes", error)
                         } else {
@@ -46,7 +46,7 @@ class AjustesController: UIViewController {
                             self.avatar.layer.cornerRadius = 25
                             self.avatar.clipsToBounds = true
                             self.avatar.layer.borderWidth = 1
-                            self.txtNombre.text = nombre + " " + apellido
+                            self.txtName.text = name + " " + lastname
                         }
                     })
                     
@@ -58,10 +58,10 @@ class AjustesController: UIViewController {
         }
     }
 
-    @IBAction func btnCerrarSesion(_ sender: UIButton) {
+    @IBAction func btnSignOff(_ sender: UIButton) {
         
-        let alerta = UIAlertController(title: " Cerrar sesión", message: "¿Esta seguro cerrar su sesión?", preferredStyle: .alert);
-        alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+        let alerts = UIAlertController(title: " Cerrar sesión", message: "¿Esta seguro cerrar su sesión?", preferredStyle: .alert);
+        alerts.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
             
             let firebaseAuth = Auth.auth()
             do {
@@ -72,8 +72,8 @@ class AjustesController: UIViewController {
             }
             
         }))
-        alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil ))
-        self.present(alerta, animated: true, completion: nil);
+        alerts.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil ))
+        self.present(alerts, animated: true, completion: nil);
 
     }
     
