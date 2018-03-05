@@ -30,6 +30,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     var valdA:Bool = false
     var imagen = UIImage()
     var pesoImg:Float = 0.0
+    var imageDefault = "gs://sanus-27.appspot.com/images/user.png"
     var data:Usuarios!
     var ref: DocumentReference!
     var getRef: Firestore!
@@ -143,9 +144,9 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         } else {
             
             if ed != "" {
-                campos = ["nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente"]
             } else {
-                campos = ["nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente"]
             }
         }
         

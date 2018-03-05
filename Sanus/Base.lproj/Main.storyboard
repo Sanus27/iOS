@@ -2514,12 +2514,12 @@
     </scenes>
     <resources>
         <image name="Escribe tu mensaje" width="16" height="16"/>
-        <image name="headerAjustes" width="1920" height="1081"/>
-        <image name="headerCcuenta" width="745" height="362"/>
-        <image name="headerChat" width="1200" height="801"/>
-        <image name="headerCitas" width="1366" height="768"/>
-        <image name="headerCompletarRegistro" width="2048" height="1152"/>
-        <image name="headerForo" width="3000" height="2000"/>
+        <image name="headerAjustes" width="960" height="540"/>
+        <image name="headerCcuenta" width="372" height="181"/>
+        <image name="headerChat" width="600" height="400"/>
+        <image name="headerCitas" width="683" height="384"/>
+        <image name="headerCompletarRegistro" width="1024" height="576"/>
+        <image name="headerForo" width="1500" height="1000"/>
         <image name="ic_cancel" width="24" height="24"/>
         <image name="icon-ajustes" width="28" height="28"/>
         <image name="icon-atras" width="23" height="22"/>
@@ -2527,15 +2527,15 @@
         <image name="icon-camara" width="48" height="48"/>
         <image name="icon-chat" width="28" height="28"/>
         <image name="icon-citas" width="28" height="28"/>
-        <image name="icon-enviar" width="100" height="100"/>
+        <image name="icon-enviar" width="50" height="50"/>
         <image name="icon-foro" width="28" height="28"/>
-        <image name="icon-mas" width="235" height="231"/>
+        <image name="icon-mas" width="117" height="115"/>
         <image name="icon-sanus" width="316" height="237"/>
-        <image name="ion-comentarios" width="102" height="103"/>
-        <image name="user" width="512" height="512"/>
+        <image name="ion-comentarios" width="51" height="51"/>
+        <image name="user" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tUF-tm-zKi"/>
+        <segue reference="n5x-9v-mmc"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="saL-cK-rVX"/>
     </inferredMetricsTieBreakers>

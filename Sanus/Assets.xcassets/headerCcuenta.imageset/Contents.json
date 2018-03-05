@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "headerCcuenta.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "headerCcuenta.png",
       "scale" : "2x"
     },
     {
