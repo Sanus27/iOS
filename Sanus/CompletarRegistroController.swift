@@ -24,6 +24,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     var plataforma:String = ""
     var sex:String = ""
     var ed:String = ""
+    var uid:String = ""
     var campos: [String:Any] = [:]
     var plataformas = ["Selecciona tu edad", "1 Año"]
     var valdN:Bool = false
@@ -31,7 +32,6 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     var imagen = UIImage()
     var pesoImg:Float = 0.0
     var imageDefault = "gs://sanus-27.appspot.com/images/user.png"
-    var data:Usuarios!
     var ref: DocumentReference!
     var getRef: Firestore!
     
@@ -47,7 +47,42 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         self.imageView.layer.borderWidth = 1
         btnGuardar.isEnabled = false;
         btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
-        setYears()
+        self.uid = (Auth.auth().currentUser?.uid)!
+        ref = Firestore.firestore().collection("usuarios").document(self.uid)
+        getAlert()
+    }
+    
+    func getAlert(){
+        ref.getDocument { (document, error) in
+            if let document = document {
+                let val = document.data()
+                let name = val!["nombre"] as! String
+                let alerts = UIAlertController(title: "Bienvenido: \(name)", message: "Para completar el registro necesitamos algunos datos", preferredStyle: .alert);
+                alerts.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+                
+                }))
+                alerts.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
+                    self.signOff()
+                }))
+                self.present(alerts, animated: true, completion: nil);
+            }
+        }
+    }
+    
+    public func setStory(name: String) -> UIViewController {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return mainStoryBoard.instantiateViewController(withIdentifier: name)
+    }
+    
+    public func signOff(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            let inicio = self.setStory(name: "loginFalse")
+            self.present(inicio, animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
     func setYears(){
@@ -136,17 +171,17 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
             }
             
             if ed != "" {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completado": "1"]
             } else {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completado": "1"]
             }
             
         } else {
             
             if ed != "" {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completado": "1"]
             } else {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completo": "finalizado"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completado": "1"]
             }
         }
         

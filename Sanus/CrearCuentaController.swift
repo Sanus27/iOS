@@ -162,7 +162,7 @@ class CrearCuentaController: UIViewController {
     
     
     func completeUser( uid: String ){
-        let  campos = [ "completo": "incompleto" ]
+        let  campos = [ "completado": "0" ]
         ref = Firestore.firestore().collection("usuarios").document(uid)
         ref.setData(campos) { (error) in
             if let error = error?.localizedDescription {
