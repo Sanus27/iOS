@@ -11,38 +11,38 @@ import Firebase
 
 class CitasController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var tabla: UITableView!
+    @IBOutlet weak var table: UITableView!
     var ref:DocumentReference!
     var getRef:Firestore!
-    var listaCitas = [Citas]()
+    var listItems = [Appointment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabla.delegate = self
-        tabla.dataSource = self
+        table.delegate = self
+        table.dataSource = self
         getRef = Firestore.firestore()
-        mostrarCitas()
+        showData()
     }
     
-    func mostrarCitas(){
+    func showData(){
         getRef.collection("citas").addSnapshotListener { (resp , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
                 
-                self.listaCitas.removeAll()
+                self.listItems.removeAll()
                 
                 for document in resp!.documents {
                     let id = document.documentID
                     let val = document.data()
                     let doctor = val["doctor"] as? String
-                    let fecha = val["fecha"] as? String
-                    let hora = val["hora"] as? String
-                    let usuario = val["usuario"] as? String
+                    let date = val["fecha"] as? String
+                    let hour = val["hora"] as? String
+                    let user = val["usuario"] as? String
                     let hospital = val["hospital"] as? String
-                    let cita = Citas(id: id, doctor: doctor, fecha: fecha, hora: hora, hospital: hospital, usuario: usuario)
-                    self.listaCitas.append(cita)
-                    self.tabla.reloadData()
+                    let appointment = Appointment(id: id, doctor: doctor, date: date, hour: hour, hospital: hospital, user: user)
+                    self.listItems.append(appointment)
+                    self.table.reloadData()
                 }
                 
             }
@@ -54,17 +54,17 @@ class CitasController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listaCitas.count
+        return listItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CitasCell
-        let cita: Citas
-        cita = listaCitas[indexPath.row]
-        cell.doctorCitas?.text = cita.doctor
-        cell.hospitalCitas?.text = cita.hospital
-        cell.fechaCitas?.text = cita.fecha
-        cell.horaCitas?.text = cita.hora
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CitasCell
+        let data: Appointment
+        data = listItems[indexPath.row]
+        cell.doctorCitas?.text = data.doctor
+        cell.hospitalCitas?.text = data.hospital
+        cell.fechaCitas?.text = data.date
+        cell.horaCitas?.text = data.hour
         return cell
     }
     

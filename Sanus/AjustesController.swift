@@ -24,7 +24,7 @@ class AjustesController: UIViewController {
         getRef = Firestore.firestore()
         self.uid = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document(self.uid)
-        dataUser()
+        //dataUser()
     }
     
     

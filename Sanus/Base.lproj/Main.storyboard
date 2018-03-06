@@ -123,7 +123,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
-                                                                    <action selector="buscador:" destination="BYZ-38-t0r" eventType="editingChanged" id="RcB-gT-Obf"/>
+                                                                    <action selector="btnSearch:" destination="BYZ-38-t0r" eventType="editingChanged" id="peN-29-c4K"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
@@ -176,8 +176,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Buscar" image="icon-buscar" selectedImage="icon-buscar" id="V9a-jJ-2G7"/>
                     <connections>
-                        <outlet property="buscar" destination="MW7-jz-0qr" id="BHL-xR-8a4"/>
-                        <outlet property="tabla" destination="Amu-yX-CHV" id="y5R-mP-qDp"/>
+                        <outlet property="tableData" destination="Amu-yX-CHV" id="aGT-s4-Fgd"/>
+                        <outlet property="txtSearch" destination="MW7-jz-0qr" id="5lN-Zu-Q4A"/>
                         <segue destination="IHO-us-7nY" kind="show" identifier="perfil" id="A9J-a0-IhT"/>
                     </connections>
                 </viewController>
@@ -767,7 +767,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Citas" image="icon-citas" id="rIe-aF-s50"/>
                     <connections>
-                        <outlet property="tabla" destination="8C3-S2-fTd" id="HTn-dW-2c3"/>
+                        <outlet property="table" destination="8C3-S2-fTd" id="2HT-EC-XjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gk4-I2-isU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -891,7 +891,7 @@
                         <viewLayoutGuide key="safeArea" id="Zqh-Kp-bPb"/>
                     </view>
                     <connections>
-                        <outlet property="clinica" destination="s5g-VR-wA5" id="zL4-WE-Ysv"/>
+                        <outlet property="clinic" destination="s5g-VR-wA5" id="y09-lK-mKM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKq-XW-QcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1031,7 +1031,7 @@
                                         <barButtonItem key="leftBarButtonItem" image="icon-atras" id="GOm-tz-Dz2">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <action selector="btnAtras:" destination="IHO-us-7nY" id="gEn-wu-c0D"/>
+                                                <action selector="btnBack:" destination="IHO-us-7nY" id="izg-cH-eYz"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1104,7 +1104,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnComentarios:" destination="IHO-us-7nY" eventType="touchUpInside" id="9ch-uF-uT6"/>
+                                    <action selector="btnComents:" destination="IHO-us-7nY" eventType="touchUpInside" id="QOr-XD-vac"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ren-ZK-oze">
@@ -1184,16 +1184,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="BSP-kn-Kj3"/>
                     <connections>
+                        <outlet property="StarFive" destination="mtQ-ru-kw0" id="IeY-Qu-tb8"/>
+                        <outlet property="StarFour" destination="Spc-Vf-iP6" id="bNo-aJ-gWv"/>
+                        <outlet property="StarOne" destination="DDY-dF-n1W" id="aey-2C-gbQ"/>
+                        <outlet property="StarThree" destination="dvv-F0-mYW" id="llD-Mj-LFm"/>
+                        <outlet property="StarTwo" destination="YH2-UY-CHU" id="Ldh-YR-R66"/>
                         <outlet property="avatar" destination="WpJ-70-57v" id="3cK-qj-l3n"/>
                         <outlet property="navbar" destination="zBW-fi-XFy" id="gMa-Lu-6uw"/>
-                        <outlet property="starCinco" destination="mtQ-ru-kw0" id="1n7-nf-eKj"/>
-                        <outlet property="starCuatro" destination="Spc-Vf-iP6" id="25Y-k9-1gT"/>
-                        <outlet property="starDos" destination="YH2-UY-CHU" id="JLe-J9-TPg"/>
-                        <outlet property="starTres" destination="dvv-F0-mYW" id="0CW-Gq-cqd"/>
-                        <outlet property="starUno" destination="DDY-dF-n1W" id="wAg-tr-fkO"/>
                         <outlet property="txtCV" destination="OmB-A2-y0V" id="kvs-yh-B96"/>
-                        <outlet property="txtCedula" destination="6bY-8w-QmN" id="QPz-9U-PEZ"/>
-                        <outlet property="txtEspecialidad" destination="wG5-BY-02W" id="YWS-I4-2O2"/>
+                        <outlet property="txtIdCard" destination="6bY-8w-QmN" id="N7H-cq-Gkj"/>
+                        <outlet property="txtSpecialty" destination="wG5-BY-02W" id="Z7R-5m-bv3"/>
                         <segue destination="mpV-Hq-gx8" kind="show" identifier="comentarios" id="Ol0-Jl-lhK"/>
                     </connections>
                 </viewController>
@@ -1449,7 +1449,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="btnComentar:" destination="mpV-Hq-gx8" eventType="touchUpInside" id="7qN-Gk-BUs"/>
+                                            <action selector="btnNewComent:" destination="mpV-Hq-gx8" eventType="touchUpInside" id="X1m-gJ-epo"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escribe tu comentario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Kn-0L-ePD">
@@ -1510,11 +1510,11 @@
                         <viewLayoutGuide key="safeArea" id="0GB-d2-LW6"/>
                     </view>
                     <connections>
-                        <outlet property="btnComentarEditing" destination="2Eb-0G-OBB" id="UM9-of-OvF"/>
+                        <outlet property="btnComentEditing" destination="2Eb-0G-OBB" id="kVj-ow-zaF"/>
+                        <outlet property="dataTable" destination="uNK-Lb-mAh" id="63M-6U-zIJ"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="Xnn-Z1-acC" id="91r-Na-w2O"/>
                         <outlet property="load" destination="3md-GK-R0u" id="FuG-Gb-wEx"/>
-                        <outlet property="tabla" destination="uNK-Lb-mAh" id="na0-h8-aCf"/>
-                        <outlet property="txtComentario" destination="9Kn-0L-ePD" id="gka-sO-TNT"/>
+                        <outlet property="txtComents" destination="9Kn-0L-ePD" id="ZTK-rD-gaw"/>
                         <outletCollection property="collectionStar" destination="Nej-EJ-ein" collectionClass="NSMutableArray" id="pn7-5q-blK"/>
                         <outletCollection property="collectionStar" destination="jXT-Hc-wga" collectionClass="NSMutableArray" id="lvZ-fH-Sae"/>
                         <outletCollection property="collectionStar" destination="4OQ-PG-c3S" collectionClass="NSMutableArray" id="qZK-8x-8Fs"/>
@@ -2226,7 +2226,7 @@
                         <viewLayoutGuide key="safeArea" id="BPT-GQ-t4k"/>
                     </view>
                     <connections>
-                        <outlet property="ListaDoctores" destination="sR1-ck-iIP" id="8RW-Bf-5Ne"/>
+                        <outlet property="doctors" destination="sR1-ck-iIP" id="RCY-Ap-nNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8s-t7-YWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2536,7 +2536,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="n5x-9v-mmc"/>
-        <segue reference="A9J-a0-IhT"/>
+        <segue reference="lsY-y0-mY7"/>
         <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
 </document>

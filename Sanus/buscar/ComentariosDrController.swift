@@ -14,64 +14,64 @@ import FirebaseStorage
 class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet var collectionStar: [UIButton]!
-    @IBOutlet weak var tabla: UITableView!
+    @IBOutlet weak var dataTable: UITableView!
     @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
-    @IBOutlet weak var btnComentarEditing: UIButton!
-    @IBOutlet weak var txtComentario: UITextField!
-    var verComentarios:String!
-    var ref:DocumentReference!
-    var ref2:DocumentReference!
-    var getRef:Firestore!
-    var listaComentarios = [Comentarios]()
+    @IBOutlet weak var btnComentEditing: UIButton!
+    @IBOutlet weak var txtComents: UITextField!
+    var showComents: String!
+    var ref: DocumentReference!
+    var ref2: DocumentReference!
+    var getRef: Firestore!
+    var listComents = [Comments]()
     var id = ""
     var uid = ""
     var calif = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabla.delegate = self
-        tabla.dataSource = self
-        txtComentario.delegate = self
+        dataTable.delegate = self
+        dataTable.dataSource = self
+        txtComents.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        tabla.estimatedRowHeight = 105
-        tabla.rowHeight = UITableViewAutomaticDimension
+        dataTable.estimatedRowHeight = 105
+        dataTable.rowHeight = UITableViewAutomaticDimension
         getRef = Firestore.firestore()
         uid = (Auth.auth().currentUser?.uid)!
-        id = verComentarios
+        id = showComents
         ref = Firestore.firestore().collection("usuarios").document(uid)
         ref2 = Firestore.firestore().collection("doctores").document(id)
-        mostrarComentarios()
+        showData()
     }
     
     @IBAction func comentarioEditing(_ sender: UITextField) {
-        let num = Int(txtComentario.text!.count);
+        let num = Int(txtComents.text!.count);
         if num > 0 {
-            btnComentarEditing.isEnabled = true
+            btnComentEditing.isEnabled = true
         } else {
-            btnComentarEditing.isEnabled = false
+            btnComentEditing.isEnabled = false
         }
     }
     
     
-    @IBAction func btnComentar(_ sender: UIButton) {
-       comentar()
+    @IBAction func btnNewComent(_ sender: UIButton) {
+       newComent()
     }
     
-    func comentar(){
-        if txtComentario.text != "" {
+    func newComent(){
+        if txtComents.text != "" {
             load.startAnimating()
             let date = Date()
             let formater = DateFormatter()
             formater.dateStyle = .short
             formater.timeStyle = .none
-            let fecha = formater.string(from: date)
+            let valDate = formater.string(from: date)
             let cal:String = String(calif)
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
-                "comentario": txtComentario.text!,
-                "fecha": fecha,
+                "comentario": txtComents.text!,
+                "fecha": valDate,
                 "calificacion": cal
             ]) { err in
                 if let err = err {
@@ -79,16 +79,16 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                     self.load.stopAnimating()
                 } else {
                     self.load.stopAnimating()
-                    self.calificaciones( campos: cal )
-                    self.txtComentario.text = ""
-                    self.txtComentario.resignFirstResponder()
+                    self.ratings( data: cal )
+                    self.txtComents.text = ""
+                    self.txtComents.resignFirstResponder()
                     for button in self.collectionStar {
                         button.setTitle("☆", for: .normal)
                     }
                     self.calif = 0
                     self.dismiss(animated: true, completion: nil)
                     //self.performSegue(withIdentifier: "comentado", sender: nil)
-                    //self.mostrarComentarios()
+                    //self.showData()
                     
                 }
             }
@@ -104,25 +104,25 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-    func calificaciones( campos:String ) {
+    func ratings( data:String ) {
         ref2.getDocument { (document, error) in
             if let document = document {
                 let val = document.data()
                 let puntaje = val!["calificacion"] as! String
-                let comentario = val!["comentario"] as! String
+                let comment = val!["comentario"] as! String
                 let avatar = val!["avatar"] as! String
                 let cedula = val!["cedula"] as! String
                 let cv = val!["cv"] as! String
                 let especialidad = val!["especialidad"] as! String
                 let nombre = val!["nombre"] as! String
-                let cal = Int(puntaje)! + Int(campos)!
-                let com = Int(comentario)! + 1
+                let cal = Int(puntaje)! + Int(data)!
+                let com = Int(comment)! + 1
                 let data = [ "calificacion": String(cal), "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre, "comentario": String(com) ]
                 self.ref2.setData(data) { (err) in
                     if let err = err?.localizedDescription {
                         print("Se ha producido un error \(err)")
                     } else {
-                        //print("Exito al modificar los campos")
+                        //print("Exito al modificar los data")
                     }
                 }
             }
@@ -142,7 +142,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        comentar()
+        newComent()
         return true
     }
     
@@ -163,25 +163,25 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func mostrarComentarios(){
+    func showData(){
         
         
         
-        self.listaComentarios.removeAll()
+        self.listComents.removeAll()
         getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (result , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
                 for document in result!.documents {
                     let valComen = document.data()
-                    let calificacion = valComen["calificacion"] as? String
-                    let usuario = valComen["usuario"] as? String
-                    let fecha = valComen["fecha"] as? String
-                    let comentario = valComen["comentario"] as? String
+                    let rating = valComen["calificacion"] as? String
+                    let user = valComen["usuario"] as? String
+                    let date = valComen["fecha"] as? String
+                    let comment = valComen["comentario"] as? String
                    
                     
                     
-                    self.ref.collection("usuarios").document(usuario!)
+                    self.ref.collection("usuarios").document(user!)
                     self.ref.getDocument { (resp, error) in
                         if let error = error {
                             print("se ha producido un error \(error)")
@@ -192,12 +192,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                                 let avatar = valUser!["avatar"] as? String
                                 let nombre = valUser!["nombre"] as? String
                                 let apellido = valUser!["apellido"] as? String
-                                let nombre_completo = nombre! + " " + apellido!
+                                let fullname = nombre! + " " + apellido!
                             
                             
-                                let comentario = Comentarios( comentario: comentario, doctor: nombre_completo, fecha: fecha, usuario: usuario, avatar: avatar, calificacion: calificacion )
-                                self.listaComentarios.append(comentario)
-                                self.tabla.reloadData()
+                                let comments = Comments( comment: comment, doctor: fullname, date: date, user: user, avatar: avatar, rating: rating )
+                                self.listComents.append(comments)
+                                self.dataTable.reloadData()
                             }
 
                         }
@@ -224,17 +224,17 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listaComentarios.count
+        return listComents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ComentariosDrCell
-        let comentario: Comentarios
-        comentario = listaComentarios[indexPath.row]
-        cell.usuario.text? = comentario.doctor!
-        cell.comentario.text? = comentario.comentario!
-        cell.fecha.text? = comentario.fecha!
-        if let star_v = comentario.calificacion {
+        let cell = dataTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ComentariosDrCell
+        let comment: Comments
+        comment = listComents[indexPath.row]
+        cell.usuario.text? = comment.doctor!
+        cell.comentario.text? = comment.comment!
+        cell.fecha.text? = comment.date!
+        if let star_v = comment.rating {
             if(star_v == "20"){
                 cell.starUno.setTitle("★", for: .normal)
             }
@@ -263,7 +263,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         
-        if let urlFoto = comentario.avatar {
+        if let urlFoto = comment.avatar {
             Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                 if let error = error?.localizedDescription {
                     print("fallo al traer imagenes", error)

@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Citas{
+class Appointment{
     
     var id: String?
     var doctor: String?
-    var fecha: String?
-    var hora: String?
+    var date: String?
+    var hour: String?
     var hospital: String?
-    var usuario: String?
+    var user: String?
     
-    init( id:String?, doctor:String?, fecha:String?, hora: String?, hospital:String?, usuario:String? ) {
+    init( id:String?, doctor:String?, date:String?, hour: String?, hospital:String?, user:String? ) {
         self.id = id
         self.doctor = doctor
-        self.fecha = fecha
-        self.hora = hora
+        self.date = date
+        self.hour = hour
         self.hospital = hospital
-        self.usuario = usuario
+        self.user = user
     }
 }

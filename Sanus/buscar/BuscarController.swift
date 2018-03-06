@@ -12,24 +12,24 @@ import FirebaseStorage
 
 class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tabla: UITableView!
-    @IBOutlet weak var buscar: UITextField!
+    @IBOutlet weak var tableData: UITableView!
+    @IBOutlet weak var txtSearch: UITextField!
     
     var ref:DocumentReference!
     var getRef:Firestore!
-    var listaDoctores = [Doctores]()
-    var doctoresFiltro = [Doctores]()
+    var listDoctors = [Doctor]()
+    var listFilter = [Doctor]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabla.delegate = self
-        tabla.dataSource = self
+        tableData.delegate = self
+        tableData.dataSource = self
         getRef = Firestore.firestore()
-        mostrarTodo()
-        doctoresFiltro = listaDoctores
+        showData()
+        listFilter = listDoctors
     }
     
-    func mostrarTodo(){
+    func showData(){
         
         
         self.getRef.collection("doctores").getDocuments { (result, error) in
@@ -37,10 +37,10 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 print("se ha producido un error \(error)")
             } else {
                 
-                for doctores in result!.documents {
-                    let id = doctores.documentID
-                    let valDoc = doctores.data()
-                    let especialidad = valDoc["especialidad"] as? String
+                for doc in result!.documents {
+                    let id = doc.documentID
+                    let valDoc = doc.data()
+                    let specialty = valDoc["especialidad"] as? String
                     
                     
                     self.ref = Firestore.firestore().collection("usuarios").document(id)
@@ -52,12 +52,12 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                                 if let resp = resp {
                                     let valUser = resp.data()
                                     let avatar = valUser!["avatar"] as? String
-                                    let nombre = valUser!["nombre"] as? String
-                                    let apellido = valUser!["apellido"] as? String
-                                    let doctor = Doctores( id:id, avatar: avatar, cedula: nil, cv: nil, especialidad: especialidad, horario: nil, nombre: nombre, apellido: apellido)
-                                    self.doctoresFiltro.append(doctor)
-                                    self.listaDoctores.append(doctor)
-                                    self.tabla.reloadData()
+                                    let name = valUser!["nombre"] as? String
+                                    let lastname = valUser!["apellido"] as? String
+                                    let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
+                                    self.listFilter.append(doctor)
+                                    self.listDoctors.append(doctor)
+                                    self.tableData.reloadData()
                                 }
                                 
                         }
@@ -77,16 +77,16 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return doctoresFiltro.count
+        return listFilter.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DoctorCell
-        let doctor: Doctores
-        doctor = doctoresFiltro[indexPath.row]
-        let nombreCompleto = doctor.nombre! + " " + doctor.apellido!
-        cell.nombreDoctor?.text = nombreCompleto
-        cell.especialidadDoctor?.text = doctor.especialidad
+        let cell = tableData.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DoctorCell
+        let doctor: Doctor
+        doctor = listFilter[indexPath.row]
+        let fullname = doctor.nombre! + " " + doctor.apellido!
+        cell.nombreDoctor?.text = fullname
+        cell.especialidadDoctor?.text = doctor.specialty
         
         
         if let urlFoto = doctor.avatar {
@@ -99,7 +99,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                     cell.avatarDoctor.layer.cornerRadius = cell.avatarDoctor.frame.height / 2
                     cell.avatarDoctor.clipsToBounds = true
                     cell.avatarDoctor.layer.borderWidth = 1
-                    //self.tabla.reloadData()
+                    //self.tableData.reloadData()
                 }
             })
         }
@@ -113,32 +113,32 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "perfil" {
-            if let id = tabla.indexPathForSelectedRow {
-                let fila = doctoresFiltro[id.row]
+            if let id = tableData.indexPathForSelectedRow {
+                let fila = listFilter[id.row]
                 let destino = segue.destination as! PerfilDoctorController
-                destino.verPerfil = fila
+                destino.showProfile = fila
             }
         }
     }
     
     
-    @IBAction func buscador(_ sender: UITextField) {
+    @IBAction func btnSearch(_ sender: UITextField) {
         
-        if buscar.text!.isEmpty {
+        if txtSearch.text!.isEmpty {
             
-            doctoresFiltro = listaDoctores
+            listFilter = listDoctors
             DispatchQueue.main.async {
-                self.tabla.reloadData()
+                self.tableData.reloadData()
             }
             return
             
         } else {
            
-            doctoresFiltro = listaDoctores.filter({ ( doctor ) -> Bool in
-                doctor.especialidad!.lowercased().contains(buscar.text!.lowercased())
+            listFilter = listDoctors.filter({ ( doctor ) -> Bool in
+                doctor.specialty!.lowercased().contains(txtSearch.text!.lowercased())
             })
             DispatchQueue.main.async {
-                self.tabla.reloadData()
+                self.tableData.reloadData()
             }
             return
             

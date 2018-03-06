@@ -8,23 +8,23 @@
 
 import Foundation
 
-class Doctores {
+class Doctor {
     
     var avatar: String?
-    var cedula: String?
+    var idCard: String?
     var cv: String?
-    var especialidad: String?
+    var specialty: String?
     var horario: String?
     var nombre: String?
     var apellido: String?
     var id: String?
     
-    init( id:String?, avatar: String?, cedula: String?, cv:String?, especialidad:String?, horario:String?, nombre:String?, apellido: String? ) {
+    init( id:String?, avatar: String?, idCard: String?, cv:String?, specialty:String?, horario:String?, nombre:String?, apellido: String? ) {
         self.id = id
         self.avatar = avatar
-        self.cedula = cedula
+        self.idCard = idCard
         self.cv = cv
-        self.especialidad = especialidad
+        self.specialty = specialty
         self.horario = horario
         self.nombre = nombre
         self.apellido = apellido

@@ -11,21 +11,21 @@ import UIKit
 
 class SelecionaDoctorController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
-    @IBOutlet weak var ListaDoctores: UIPickerView!
-    var plataformas = ["Selecciona tu doctor"]
-    var plataforma:String = ""
+    @IBOutlet weak var doctors: UIPickerView!
+    var items = ["Selecciona tu doctor"]
+    var doctor:String = ""
     var ed:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        ListaDoctores.delegate = self
-        ListaDoctores.dataSource = self
+        doctors.delegate = self
+        doctors.dataSource = self
         setDoctores()
         // Do any additional setup after loading the view.
     }
     
     func setDoctores(){
         for i in 1...127 {
-            plataformas.append("Doctor # \(i)")
+            items.append("Doctor # \(i)")
         }
     }
     
@@ -34,17 +34,17 @@ class SelecionaDoctorController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return plataformas[row]
+        return items[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return plataformas.count
+        return items.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        plataforma = plataformas[row]
-        ed = plataformas[row]
-        if plataformas[row] == "Selecciona tu doctor" {
+        doctor = items[row]
+        ed = items[row]
+        if items[row] == "Selecciona tu doctor" {
             ed = ""
         }
     }

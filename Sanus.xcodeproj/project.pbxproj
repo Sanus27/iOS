@@ -14,7 +14,7 @@
 		A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */; };
 		A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */; };
 		A051DF9E2048809200D4C8DD /* AgregarCitaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */; };
-		A05AEB38202AD66C00F0D343 /* Citas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Citas.swift */; };
+		A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Appointment.swift */; };
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
 		A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB3B202AD7D100F0D343 /* Hospitales.swift */; };
 		A05AEB3E202AD84500F0D343 /* Usuarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB3D202AD84500F0D343 /* Usuarios.swift */; };
@@ -33,7 +33,7 @@
 		A0DC8D29202AA4BA003FB0CB /* CrearCuentaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D28202AA4BA003FB0CB /* CrearCuentaController.swift */; };
 		A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */; };
 		A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */; };
-		A0DC8D2F202AA4D3003FB0CB /* Doctores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */; };
+		A0DC8D2F202AA4D3003FB0CB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2E202AA4D3003FB0CB /* Doctor.swift */; };
 		A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */; };
 		A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */; };
 		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
@@ -52,7 +52,7 @@
 		A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaDiaController.swift; sourceTree = "<group>"; };
 		A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaHoraController.swift; sourceTree = "<group>"; };
 		A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarCitaController.swift; sourceTree = "<group>"; };
-		A05AEB37202AD66C00F0D343 /* Citas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citas.swift; sourceTree = "<group>"; };
+		A05AEB37202AD66C00F0D343 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
 		A05AEB3B202AD7D100F0D343 /* Hospitales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitales.swift; sourceTree = "<group>"; };
 		A05AEB3D202AD84500F0D343 /* Usuarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuarios.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		A0DC8D28202AA4BA003FB0CB /* CrearCuentaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrearCuentaController.swift; sourceTree = "<group>"; };
 		A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForoController.swift; sourceTree = "<group>"; };
 		A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctores.swift; sourceTree = "<group>"; };
+		A0DC8D2E202AA4D3003FB0CB /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDoctorController.swift; sourceTree = "<group>"; };
 		A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrController.swift; sourceTree = "<group>"; };
 		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -207,9 +207,9 @@
 		A0E42678202AA0FA007D5379 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				A0DC8D2E202AA4D3003FB0CB /* Doctores.swift */,
+				A0DC8D2E202AA4D3003FB0CB /* Doctor.swift */,
 				A03DA6CB204B738600EFE474 /* Navegation.swift */,
-				A05AEB37202AD66C00F0D343 /* Citas.swift */,
+				A05AEB37202AD66C00F0D343 /* Appointment.swift */,
 				A05AEB39202AD74000F0D343 /* Comentarios.swift */,
 				A05AEB3B202AD7D100F0D343 /* Hospitales.swift */,
 				A05AEB3D202AD84500F0D343 /* Usuarios.swift */,
@@ -376,12 +376,12 @@
 				A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */,
 				A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */,
 				A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */,
-				A0DC8D2F202AA4D3003FB0CB /* Doctores.swift in Sources */,
+				A0DC8D2F202AA4D3003FB0CB /* Doctor.swift in Sources */,
 				A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */,
 				A05AEB3E202AD84500F0D343 /* Usuarios.swift in Sources */,
 				A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */,
 				A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */,
-				A05AEB38202AD66C00F0D343 /* Citas.swift in Sources */,
+				A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */,
 				A06CDB67203024440092C621 /* DoctorCell.swift in Sources */,
 				A0ACF9B420334F0B004681AE /* CompletarRegistroController.swift in Sources */,
 				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,

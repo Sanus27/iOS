@@ -8,23 +8,23 @@
 
 import Foundation
 
-class Comentarios{
+class Comments{
     
     //var id: String?
-    var comentario: String?
+    var comment: String?
     var doctor: String?
-    var fecha: String?
-    var usuario: String?
+    var date: String?
+    var user: String?
     var avatar: String?
-    var calificacion: String?
+    var rating: String?
     
-    init( comentario: String?, doctor: String?, fecha: String?, usuario: String?, avatar: String?, calificacion: String? ) {
-        self.comentario = comentario
+    init( comment: String?, doctor: String?, date: String?, user: String?, avatar: String?, rating: String? ) {
+        self.comment = comment
         self.doctor = doctor
-        self.fecha = fecha
-        self.usuario = usuario
+        self.date = date
+        self.user = user
         self.avatar = avatar
-        self.calificacion = calificacion
+        self.rating = rating
     }
     
 }

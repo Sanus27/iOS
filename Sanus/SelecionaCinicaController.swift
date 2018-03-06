@@ -10,16 +10,16 @@ import UIKit
 
 class SelecionaCinicaController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
-    @IBOutlet weak var clinica: UIPickerView!
-    var plataformas = ["Selecciona tu clinica"]
-    var plataforma:String = ""
+    @IBOutlet weak var clinic: UIPickerView!
+    var plataforms = ["Selecciona tu clinica"]
+    var plataform:String = ""
     var ed:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        clinica.delegate = self
-        clinica.dataSource = self
-        setClinica()
+        clinic.delegate = self
+        clinic.dataSource = self
+        setClinic()
     }
     
     lazy var VCArr: [UIViewController] = {
@@ -36,9 +36,9 @@ class SelecionaCinicaController: UIViewController, UIPickerViewDataSource, UIPic
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
     }
     
-    func setClinica(){
+    func setClinic(){
         for i in 1...127 {
-            plataformas.append("Clinica # \(i)")
+            plataforms.append("Clinica # \(i)")
         }
     }
 
@@ -47,17 +47,17 @@ class SelecionaCinicaController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return plataformas[row]
+        return plataforms[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return plataformas.count
+        return plataforms.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        plataforma = plataformas[row]
-        ed = plataformas[row]
-        if plataformas[row] == "Selecciona tu clinica" {
+        plataform = plataforms[row]
+        ed = plataforms[row]
+        if plataforms[row] == "Selecciona tu clinica" {
             ed = ""
         }
     }
