@@ -432,6 +432,7 @@
                         <outlet property="txtEmail" destination="zN5-N1-RLm" id="Lwc-ox-9US"/>
                         <outlet property="txtPassword" destination="xgi-eL-FXe" id="5Qp-Bq-2cP"/>
                         <segue destination="rL1-kQ-2gn" kind="show" identifier="login" id="tUF-tm-zKi"/>
+                        <segue destination="Ywo-PO-xUm" kind="show" identifier="completeUser" id="RDV-8D-BlE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdv-wJ-Ip0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,7 +576,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qs5-nH-B9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5508.75" y="-1297.1830985915492"/>
+            <point key="canvasLocation" x="-5267" y="-1639"/>
         </scene>
         <!--Citas-->
         <scene sceneID="5uB-Kh-GDq">
@@ -2263,15 +2264,45 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBR-h9-VPu">
+                                <rect key="frame" x="27" y="304" width="266" height="128"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="d3s-Hc-CX6">
+                                        <rect key="frame" x="10" y="10" width="246" height="108"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="542123114.93751204">
+                                            <!--2018-03-07 13:45:14 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="d3s-Hc-CX6" firstAttribute="top" secondItem="cBR-h9-VPu" secondAttribute="top" constant="10" id="9Rg-5y-zAd"/>
+                                    <constraint firstAttribute="trailing" secondItem="d3s-Hc-CX6" secondAttribute="trailing" constant="10" id="D1L-q2-RR7"/>
+                                    <constraint firstItem="d3s-Hc-CX6" firstAttribute="leading" secondItem="cBR-h9-VPu" secondAttribute="leading" constant="10" id="otd-xy-s8r"/>
+                                    <constraint firstAttribute="bottom" secondItem="d3s-Hc-CX6" secondAttribute="bottom" constant="10" id="tAS-Mg-lV8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jg6-Ga-NTY" firstAttribute="trailing" secondItem="jDs-Jr-7Yd" secondAttribute="trailing" constant="27" id="13t-Zq-5ra"/>
                             <constraint firstItem="qdd-x8-iAh" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" constant="27" id="3I8-Hq-gig"/>
                             <constraint firstAttribute="trailing" secondItem="5Tl-QL-0vj" secondAttribute="trailing" id="3nC-qT-rlo"/>
+                            <constraint firstItem="jg6-Ga-NTY" firstAttribute="bottom" secondItem="cBR-h9-VPu" secondAttribute="bottom" constant="136" id="9Gi-9P-YDr"/>
                             <constraint firstItem="jg6-Ga-NTY" firstAttribute="trailing" secondItem="qdd-x8-iAh" secondAttribute="trailing" constant="27" id="9kt-lb-jqy"/>
+                            <constraint firstItem="jg6-Ga-NTY" firstAttribute="trailing" secondItem="cBR-h9-VPu" secondAttribute="trailing" constant="27" id="GaZ-Mn-ymP"/>
                             <constraint firstItem="qdd-x8-iAh" firstAttribute="top" secondItem="jg6-Ga-NTY" secondAttribute="top" constant="39" id="HKn-V7-e32"/>
                             <constraint firstItem="jg6-Ga-NTY" firstAttribute="bottom" secondItem="5Tl-QL-0vj" secondAttribute="bottom" constant="397" id="HNi-4B-4Lg"/>
+                            <constraint firstItem="cBR-h9-VPu" firstAttribute="top" secondItem="jDs-Jr-7Yd" secondAttribute="bottom" constant="106" id="JQj-w5-r2b"/>
+                            <constraint firstItem="cBR-h9-VPu" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" constant="27" id="TrI-Jo-Jdj"/>
                             <constraint firstItem="jDs-Jr-7Yd" firstAttribute="top" secondItem="jg6-Ga-NTY" secondAttribute="top" constant="118" id="dVt-Qh-NNu"/>
                             <constraint firstItem="5Tl-QL-0vj" firstAttribute="top" secondItem="sg2-ww-B9G" secondAttribute="top" id="eh5-qi-F3N"/>
                             <constraint firstItem="5Tl-QL-0vj" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" id="iEn-q9-JZJ"/>
@@ -2691,8 +2722,9 @@
         <image name="user" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n5x-9v-mmc"/>
+        <segue reference="tUF-tm-zKi"/>
+        <segue reference="RDV-8D-BlE"/>
         <segue reference="lsY-y0-mY7"/>
-        <segue reference="OAs-o2-dOy"/>
+        <segue reference="saL-cK-rVX"/>
     </inferredMetricsTieBreakers>
 </document>

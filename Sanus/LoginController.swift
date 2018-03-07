@@ -22,7 +22,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         super.loadView()
         txtEmail.delegate = self
         txtPassword.delegate = self
-        verifyLogin()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -92,23 +91,21 @@ class LoginController: UIViewController, UITextFieldDelegate {
             
             self.load.stopAnimating()
             if user != nil {
-                //self.performSegue(withIdentifier: "login", sender: self)
+                let login = Navegation()
+                let sesion = login.isLoggedIfisCompleate()
+                if sesion {
+                    self.performSegue(withIdentifier: "login", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "completeUser", sender: self)
+                }
             } else {
                 if let error = error?.localizedDescription {
                     
-                    if(error == "The email address is badly formatted."){
-                        let alerta = UIAlertController(title: "Alerta", message: "Este no es un correo electronico", preferredStyle: .alert);
-                        let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                        alerta.addAction(aceptar);
-                        self.present(alerta, animated: true, completion: nil);
-                        self.txtEmail.text! = "";
-                        self.valdE = false;
-                    }
+
                     if(error == "The password is invalid or the user does not have a password."){
-                        let alerta = UIAlertController(title: "Alerta", message: "El correo y/o contraseña con incorrectos", preferredStyle: .alert);
-                        let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                        alerta.addAction(aceptar);
-                        self.present(alerta, animated: true, completion: nil);
+                        let alert = Alerts(titileAlert: "Alerta", bodyAlert: "El correo y/o contraseña con incorrectos")
+                        let showAlert = alert.alertSimple()
+                        self.present(showAlert, animated: true, completion: nil);
                         self.txtPassword.text! = "";
                         self.txtEmail.text! = "";
                         self.valdE = false;
@@ -127,23 +124,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         self.valdP = false;
                     }
                     
-                } else {
-                    self.txtPassword.text! = "";
-                    self.valdE = false;
-                    self.valdP = false;
-                    print("error de codigo")
                 }
             }
         }
     }
     
-    func verifyLogin(){
-        Auth.auth().addStateDidChangeListener{ ( auth, user ) in
-            if user != nil {
-                self.performSegue(withIdentifier: "login", sender: self);
-            }
-        }
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);

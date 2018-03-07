@@ -19,10 +19,11 @@ class Alerts {
         self.bodyAlert = bodyAlert
     }
     
-    public func alertSimple(){
+    public func alertSimple() -> UIAlertController {
         let alert = UIAlertController(title: self.titileAlert, message: self.bodyAlert, preferredStyle: .alert);
         let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
         alert.addAction(acept);
+        return alert
     }
     
     public func alertAvanced( segueReturn:String ){
