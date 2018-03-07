@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 
 class LoginController: UIViewController, UITextFieldDelegate {
@@ -17,6 +18,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var load: UIActivityIndicatorView!
     var valdE:Bool = false;
     var valdP:Bool = false;
+    var ref: DocumentReference!
     
     override func loadView() {
         super.loadView()
@@ -85,19 +87,38 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     
+    public func isLoggedIfisCompleateLogin()  {
+        
+        let id = (Auth.auth().currentUser?.uid)!
+        ref = Firestore.firestore().collection("usuarios").document( id )
+        ref.getDocument { (document, error) in
+            
+            if let document = document {
+                let exist = document.data()
+                if exist != nil {
+                    self.performSegue(withIdentifier: "login", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "completeUser", sender: self)
+                }
+            }
+            
+            
+        }
+        
+    }
+    
     @IBAction func loginAction(_ sender: UIButton) {
         self.load.startAnimating()
         Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { ( user, error ) in
             
             self.load.stopAnimating()
             if user != nil {
-                let login = Navegation()
-                let sesion = login.isLoggedIfisCompleate()
-                if sesion {
-                    self.performSegue(withIdentifier: "login", sender: self)
-                } else {
-                    self.performSegue(withIdentifier: "completeUser", sender: self)
-                }
+                self.isLoggedIfisCompleateLogin()
+//                if sesion == 1 {
+//                    self.performSegue(withIdentifier: "login", sender: self)
+//                } else {
+//                    self.performSegue(withIdentifier: "completeUser", sender: self)
+//                }
             } else {
                 if let error = error?.localizedDescription {
                     
