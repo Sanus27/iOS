@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A01D6774205085450025987C /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6773205085450025987C /* Hospitals.swift */; };
+		A01D6776205087990025987C /* HospitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6775205087990025987C /* HospitalCell.swift */; };
 		A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */; };
 		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
 		A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */; };
@@ -16,7 +18,6 @@
 		A051DF9E2048809200D4C8DD /* AgregarCitaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */; };
 		A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Appointment.swift */; };
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
-		A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB3B202AD7D100F0D343 /* Hospitales.swift */; };
 		A06CDB67203024440092C621 /* DoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CDB66203024440092C621 /* DoctorCell.swift */; };
 		A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082457F202A9FAB00543AD0 /* AppDelegate.swift */; };
 		A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824583202A9FAB00543AD0 /* Main.storyboard */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
 		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
+		A01D6773205085450025987C /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
+		A01D6775205087990025987C /* HospitalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCell.swift; sourceTree = "<group>"; };
 		A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrCell.swift; sourceTree = "<group>"; };
 		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
 		A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginacionCitasController.swift; sourceTree = "<group>"; };
@@ -54,7 +57,6 @@
 		A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarCitaController.swift; sourceTree = "<group>"; };
 		A05AEB37202AD66C00F0D343 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
-		A05AEB3B202AD7D100F0D343 /* Hospitales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitales.swift; sourceTree = "<group>"; };
 		A06CDB66203024440092C621 /* DoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCell.swift; sourceTree = "<group>"; };
 		A082457C202A9FAB00543AD0 /* Sanus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A082457F202A9FAB00543AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */,
 				A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */,
 				A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */,
+				A01D6775205087990025987C /* HospitalCell.swift */,
 			);
 			name = citas;
 			sourceTree = "<group>";
@@ -212,7 +215,7 @@
 				A03DA6CB204B738600EFE474 /* Navegation.swift */,
 				A05AEB37202AD66C00F0D343 /* Appointment.swift */,
 				A05AEB39202AD74000F0D343 /* Comentarios.swift */,
-				A05AEB3B202AD7D100F0D343 /* Hospitales.swift */,
+				A01D6773205085450025987C /* Hospitals.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -366,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
-				A05AEB3C202AD7D100F0D343 /* Hospitales.swift in Sources */,
 				A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */,
 				A0DC8D29202AA4BA003FB0CB /* CrearCuentaController.swift in Sources */,
 				A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */,
@@ -387,6 +389,8 @@
 				A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */,
 				A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */,
 				A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */,
+				A01D6776205087990025987C /* HospitalCell.swift in Sources */,
+				A01D6774205085450025987C /* Hospitals.swift in Sources */,
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */,
 				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,

@@ -814,6 +814,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="btnSearch:" destination="lKq-fg-9iu" eventType="editingChanged" id="GT8-5N-G8x"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -854,6 +857,64 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KY8-0Q-2Mk">
                                 <rect key="frame" x="0.0" y="209" width="320" height="359"/>
                                 <color key="backgroundColor" red="0.96090251207351685" green="0.96560662984848022" blue="0.97964173555374146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="90" id="Dwq-c2-pfT" customClass="HospitalCell" customModule="Sanus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dwq-c2-pfT" id="nUt-lb-uhf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6v-y9-LcV">
+                                                    <rect key="frame" x="27" y="9" width="266" height="71"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9t-UB-cGv">
+                                                            <rect key="frame" x="10" y="16" width="246" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direccion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyy-VW-6Ml">
+                                                            <rect key="frame" x="10" y="39" width="246" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="d9t-UB-cGv" secondAttribute="trailing" constant="10" id="1N9-5d-86t"/>
+                                                        <constraint firstAttribute="height" constant="71" id="DWx-W5-762"/>
+                                                        <constraint firstItem="d9t-UB-cGv" firstAttribute="top" secondItem="m6v-y9-LcV" secondAttribute="top" constant="16" id="Q5m-PC-k6D"/>
+                                                        <constraint firstItem="Kyy-VW-6Ml" firstAttribute="leading" secondItem="m6v-y9-LcV" secondAttribute="leading" constant="10" id="QZE-Ga-aPK"/>
+                                                        <constraint firstItem="d9t-UB-cGv" firstAttribute="leading" secondItem="m6v-y9-LcV" secondAttribute="leading" constant="10" id="cjd-pq-q2h"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Kyy-VW-6Ml" secondAttribute="trailing" constant="10" id="gvH-CW-3g0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Kyy-VW-6Ml" secondAttribute="bottom" constant="16" id="hoa-vA-183"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="m6v-y9-LcV" secondAttribute="bottom" constant="9.5" id="7sX-95-Wh3"/>
+                                                <constraint firstItem="m6v-y9-LcV" firstAttribute="top" secondItem="nUt-lb-uhf" secondAttribute="top" constant="9" id="8zs-lv-S3D"/>
+                                                <constraint firstAttribute="trailing" secondItem="m6v-y9-LcV" secondAttribute="trailing" constant="27" id="i2F-fW-H0X"/>
+                                                <constraint firstItem="m6v-y9-LcV" firstAttribute="leading" secondItem="nUt-lb-uhf" secondAttribute="leading" constant="27" id="rjx-kX-wHq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtAddress" destination="Kyy-VW-6Ml" id="hv7-Mg-t8s"/>
+                                            <outlet property="txtName" destination="d9t-UB-cGv" id="rGN-1w-Nf8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -876,10 +937,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zqh-Kp-bPb"/>
                     </view>
+                    <connections>
+                        <outlet property="tableData" destination="KY8-0Q-2Mk" id="NZN-i5-Qol"/>
+                        <outlet property="txtSearch" destination="mVP-vG-Sw4" id="nn8-Ul-JUK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKq-XW-QcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9941.25" y="2230.9859154929577"/>
+            <point key="canvasLocation" x="-10014.375" y="2230.9859154929577"/>
         </scene>
         <!--Paginacion Citas Controller-->
         <scene sceneID="k39-4a-sEA">
@@ -2724,7 +2789,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
-        <segue reference="lsY-y0-mY7"/>
+        <segue reference="A9J-a0-IhT"/>
         <segue reference="saL-cK-rVX"/>
     </inferredMetricsTieBreakers>
 </document>
