@@ -47,19 +47,16 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         self.imageView.layer.borderWidth = 1
         btnGuardar.isEnabled = false;
         btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
-        self.uid = (Auth.auth().currentUser?.uid)!
-        ref = Firestore.firestore().collection("usuarios").document(self.uid)
         getAlert()
+        setYears()
     }
     
     func getAlert(){
-        ref.getDocument { (document, error) in
-            if let document = document {
-                let val = document.data()
-                let name = val!["nombre"] as! String
-                let alerts = UIAlertController(title: "Bienvenido: \(name)", message: "Para completar el registro necesitamos algunos datos", preferredStyle: .alert);
+        Auth.auth().addStateDidChangeListener{ ( auth, user ) in
+            if user != nil {
+                let alerts = UIAlertController(title: "Sanus", message: "Para completar el registro necesitamos algunos datos", preferredStyle: .alert);
                 alerts.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                
+                    
                 }))
                 alerts.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
                     self.signOff()
@@ -171,17 +168,17 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
             }
             
             if ed != "" {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completado": "1"]
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
             } else {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completado": "1"]
+                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
             }
             
         } else {
             
             if ed != "" {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "completado": "1"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
             } else {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "completado": "1"]
+                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
             }
         }
         

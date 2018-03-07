@@ -92,7 +92,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
             
             self.load.stopAnimating()
             if user != nil {
-                self.performSegue(withIdentifier: "login", sender: self)
+                //self.performSegue(withIdentifier: "login", sender: self)
             } else {
                 if let error = error?.localizedDescription {
                     

@@ -42,17 +42,15 @@ class Navegation: UINavigationController {
         ref = Firestore.firestore().collection("usuarios").document( id )
         ref.getDocument { (document, error) in
             if let document = document {
-                let val = document.data()
-                let completado = val!["completado"] as! String
-                if completado == "0"{
+                
+                if document.data() != nil {
+                    let inicio = self.setStory(name: "loginTrue")
+                    self.present(inicio, animated: true, completion: nil)
+                } else {
                     let register = self.setStory(name: "completeRegister")
                     self.present(register, animated: true, completion: nil)
-                } else {
-                    if completado == "1"{
-                        let inicio = self.setStory(name: "loginTrue")
-                        self.present(inicio, animated: true, completion: nil)
-                    }
                 }
+                
             }
         }
     }
