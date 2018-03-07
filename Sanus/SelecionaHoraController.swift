@@ -10,8 +10,6 @@ import UIKit
 
 class SelecionaHoraController: UIViewController {
 
-    @IBOutlet weak var datePiker: UIDatePicker!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +25,9 @@ class SelecionaHoraController: UIViewController {
         
     }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true);
+    }
     /*
      // MARK: - Navigation
      
@@ -37,7 +37,6 @@ class SelecionaHoraController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
-    
+
 
 }
