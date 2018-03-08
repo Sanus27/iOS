@@ -10,10 +10,16 @@ import UIKit
 
 class SelecionaHoraController: UIViewController {
 
+    @IBOutlet weak var selectDate: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        selectDate.datePickerMode = .time
+    }
+    
+    @IBAction func btnDate(_ sender: UIDatePicker) {
+        let dataFormater = DateFormatter()
+        dataFormater.dateFormat = "hh:mm a"
+        print(dataFormater.string(from: selectDate.date))
     }
     
     override func didReceiveMemoryWarning() {

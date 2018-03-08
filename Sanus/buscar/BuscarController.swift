@@ -87,8 +87,8 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let fullname = doctor.nombre! + " " + doctor.apellido!
         cell.nombreDoctor?.text = fullname
         cell.especialidadDoctor?.text = doctor.specialty
-        
-        
+
+
         if let urlFoto = doctor.avatar {
             Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                 if let error = error?.localizedDescription {
@@ -103,7 +103,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             })
         }
-        
+
         return cell
     }
     

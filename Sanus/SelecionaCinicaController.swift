@@ -70,6 +70,18 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
+        let fila = listFilter[indexPath.row]
+        print("seleccionado: \(fila)")
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor.clear
+    }
+    
     @IBAction func btnNext(_ sender: UIButton) {
         print("NextPage")
     }

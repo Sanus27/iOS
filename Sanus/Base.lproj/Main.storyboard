@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="309"/>
                                         <color key="backgroundColor" red="0.96090251207351685" green="0.96560662984848022" blue="0.97964173555374146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="106" id="shR-FU-ecv" customClass="DoctorCell" customModule="Sanus" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="106" id="shR-FU-ecv" customClass="DoctorCell" customModule="Sanus" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="320" height="106"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="shR-FU-ecv" id="spn-gM-KwM">
@@ -668,7 +668,7 @@
                                     <constraint firstAttribute="height" constant="326" id="6wM-Hc-LlD"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="EAT-wt-dvV" customClass="CitasCell" customModule="Sanus" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="116" id="EAT-wt-dvV" customClass="CitasCell" customModule="Sanus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EAT-wt-dvV" id="qiu-9W-CuI">
@@ -858,7 +858,7 @@
                                 <rect key="frame" x="0.0" y="209" width="320" height="359"/>
                                 <color key="backgroundColor" red="0.96090251207351685" green="0.96560662984848022" blue="0.97964173555374146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="90" id="Dwq-c2-pfT" customClass="HospitalCell" customModule="Sanus" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="90" id="Dwq-c2-pfT" customClass="HospitalCell" customModule="Sanus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dwq-c2-pfT" id="nUt-lb-uhf">
@@ -1277,7 +1277,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="422"/>
                                 <color key="backgroundColor" red="0.96090251207351685" green="0.96560662984848022" blue="0.97964173555374146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="116" id="3Bf-0G-JRs" customClass="ComentariosDrCell" customModule="Sanus" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="116" id="3Bf-0G-JRs" customClass="ComentariosDrCell" customModule="Sanus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Bf-0G-JRs" id="Ijf-Tc-FQQ">
@@ -2222,6 +2222,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="btnSearch:" destination="peK-zN-rnE" eventType="editingChanged" id="rgp-AV-oV8"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2244,6 +2247,81 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mBn-xt-rHr">
                                 <rect key="frame" x="0.0" y="202" width="320" height="366"/>
                                 <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="106" id="H8j-d2-Esa" customClass="DoctorCell" customModule="Sanus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="106"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H8j-d2-Esa" id="22p-wZ-qyY">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="105.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4M-1E-pbG">
+                                                    <rect key="frame" x="27" y="16.5" width="266" height="71.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELX-ns-tRC">
+                                                            <rect key="frame" x="8" y="8" width="55" height="55"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="55" id="eI2-Zd-6ck"/>
+                                                                <constraint firstAttribute="height" constant="55" id="nAV-cm-aF3"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4p-q6-rFC">
+                                                            <rect key="frame" x="71" y="16" width="187" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Especialidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRX-FL-kCu">
+                                                            <rect key="frame" x="71" y="36" width="187" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="eRX-FL-kCu" secondAttribute="trailing" constant="8" id="3rL-C6-e5g"/>
+                                                        <constraint firstAttribute="height" constant="71.5" id="ADa-RA-W96"/>
+                                                        <constraint firstAttribute="trailing" secondItem="K4p-q6-rFC" secondAttribute="trailing" constant="8" id="Ciy-Dp-VwW"/>
+                                                        <constraint firstItem="eRX-FL-kCu" firstAttribute="leading" secondItem="ELX-ns-tRC" secondAttribute="trailing" constant="8" id="SfR-tK-5wn"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="71.5" id="Z0t-us-ro8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="eRX-FL-kCu" secondAttribute="bottom" constant="17.5" id="ahY-61-pTO"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ELX-ns-tRC" secondAttribute="bottom" constant="8" id="asu-mL-yYK"/>
+                                                        <constraint firstItem="K4p-q6-rFC" firstAttribute="top" secondItem="k4M-1E-pbG" secondAttribute="top" constant="16" id="flw-Og-V2I"/>
+                                                        <constraint firstItem="K4p-q6-rFC" firstAttribute="leading" secondItem="ELX-ns-tRC" secondAttribute="trailing" constant="8" id="hta-jm-Wb5"/>
+                                                        <constraint firstItem="ELX-ns-tRC" firstAttribute="leading" secondItem="k4M-1E-pbG" secondAttribute="leading" constant="8" id="kiS-MM-P9z"/>
+                                                        <constraint firstItem="ELX-ns-tRC" firstAttribute="top" secondItem="k4M-1E-pbG" secondAttribute="top" constant="8" id="qDx-co-KD5"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="k4M-1E-pbG" firstAttribute="top" secondItem="22p-wZ-qyY" secondAttribute="top" constant="16.5" id="COH-gR-mmg"/>
+                                                <constraint firstAttribute="bottom" secondItem="k4M-1E-pbG" secondAttribute="bottom" constant="17.5" id="mr8-9t-p32"/>
+                                                <constraint firstAttribute="trailing" secondItem="k4M-1E-pbG" secondAttribute="trailing" constant="27" id="qXD-tp-ku9"/>
+                                                <constraint firstItem="k4M-1E-pbG" firstAttribute="leading" secondItem="22p-wZ-qyY" secondAttribute="leading" constant="27" id="w8U-Km-08k"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="avatarMedical" destination="ELX-ns-tRC" id="U0n-Ph-mCe"/>
+                                            <outlet property="txtEspecilidadMedical" destination="eRX-FL-kCu" id="mmg-5k-5oZ"/>
+                                            <outlet property="txtNameMedical" destination="K4p-q6-rFC" id="8Np-Ce-lwr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2266,6 +2344,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BPT-GQ-t4k"/>
                     </view>
+                    <connections>
+                        <outlet property="tableData" destination="mBn-xt-rHr" id="hld-Lz-rCa"/>
+                        <outlet property="txtSearch" destination="jG9-4d-fb4" id="LlI-SB-G6Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8s-t7-YWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2337,6 +2419,9 @@
                                         <date key="date" timeIntervalSinceReferenceDate="542123114.93751204">
                                             <!--2018-03-07 13:45:14 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="btnDate:" destination="ros-cL-sG2" eventType="editingChanged" id="MHT-h1-b84"/>
+                                        </connections>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2375,6 +2460,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jg6-Ga-NTY"/>
                     </view>
+                    <connections>
+                        <outlet property="selectDate" destination="d3s-Hc-CX6" id="hDV-LW-iQ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ka8-dj-VVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

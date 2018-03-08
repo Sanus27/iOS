@@ -1,23 +1,18 @@
 //
-//  DoctorCell.swift
+//  DoctorMedicalCell.swift
 //  Sanus
 //
-//  Created by Luis on 11/02/18.
+//  Created by luis on 07/03/18.
 //  Copyright © 2018 Luis. All rights reserved.
 //
 
 import UIKit
 
-class DoctorCell: UITableViewCell {
+class DoctorMedicalCell: UITableViewCell {
 
-    @IBOutlet weak var nombreDoctor: UILabel!
-    @IBOutlet weak var avatarDoctor: UIImageView!
-    @IBOutlet weak var especialidadDoctor: UILabel!
-    
-    
-    @IBOutlet weak var avatarMedical: UIImageView!
-    @IBOutlet weak var txtEspecilidadMedical: UILabel!
+    @IBOutlet weak var txtEspecialidadMedical: UILabel!
     @IBOutlet weak var txtNameMedical: UILabel!
+    @IBOutlet weak var avatarMedical: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A01D6774205085450025987C /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6773205085450025987C /* Hospitals.swift */; };
 		A01D6776205087990025987C /* HospitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6775205087990025987C /* HospitalCell.swift */; };
+		A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */; };
 		A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */; };
 		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
 		A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */; };
@@ -48,6 +49,7 @@
 		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
 		A01D6773205085450025987C /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
 		A01D6775205087990025987C /* HospitalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCell.swift; sourceTree = "<group>"; };
+		A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorMedicalCell.swift; sourceTree = "<group>"; };
 		A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrCell.swift; sourceTree = "<group>"; };
 		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
 		A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginacionCitasController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */,
 				A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */,
 				A01D6775205087990025987C /* HospitalCell.swift */,
+				A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */,
 			);
 			name = citas;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				A01D6776205087990025987C /* HospitalCell.swift in Sources */,
 				A01D6774205085450025987C /* Hospitals.swift in Sources */,
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
+				A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */,
 				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,
 				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,
