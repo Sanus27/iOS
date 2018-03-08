@@ -27,8 +27,14 @@ class SelecionaHoraController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnPreview(_ sender: UIButton) {
+        let preview = parent as? PaginacionCitasController
+        preview?.previewView(index: 3)
+    }
+    
     @IBAction func btnNext(_ sender: UIButton) {
-        
+        let next = parent as? PaginacionCitasController
+        next?.nextView(index: 3)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -26,7 +26,8 @@ class AgregarCitaController: UIViewController {
     }
     
     @IBAction func btnCancel(_ sender: UIButton) {
-        dismiss( animated: true, completion: nil )
+        let preview = parent as? PaginacionCitasController
+        preview?.previewView(index: 1)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

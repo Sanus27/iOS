@@ -844,7 +844,7 @@
                                     <constraint firstAttribute="height" constant="63" id="mZQ-y5-eFe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="←"/>
+                                <state key="normal" title="✖︎"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <real key="value" value="31.5"/>
@@ -2211,7 +2211,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnNext:" destination="peK-zN-rnE" eventType="touchUpInside" id="3yU-Ki-eA6"/>
+                                    <action selector="btnNext:" destination="peK-zN-rnE" eventType="touchUpInside" id="hAA-XD-ss8"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nle-Q0-Xl1">
@@ -2323,15 +2323,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTd-I6-f5B">
+                                <rect key="frame" x="27" y="139" width="63" height="63"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="19t-Ob-DCg"/>
+                                    <constraint firstAttribute="width" constant="63" id="BaV-3G-DXV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="31.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnPreview:" destination="peK-zN-rnE" eventType="touchUpInside" id="SOn-L9-0Ka"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="p2c-Iw-rGu" firstAttribute="top" secondItem="bFb-YA-PpS" secondAttribute="top" id="47e-WG-t6i"/>
+                            <constraint firstItem="mBn-xt-rHr" firstAttribute="top" secondItem="DTd-I6-f5B" secondAttribute="bottom" id="4f7-X5-9mv"/>
                             <constraint firstItem="CP9-ED-iCV" firstAttribute="top" secondItem="nle-Q0-Xl1" secondAttribute="bottom" constant="28" id="C7j-HR-yRA"/>
                             <constraint firstItem="nle-Q0-Xl1" firstAttribute="top" secondItem="BPT-GQ-t4k" secondAttribute="top" constant="39" id="CgZ-cB-1CM"/>
                             <constraint firstItem="BPT-GQ-t4k" firstAttribute="trailing" secondItem="CP9-ED-iCV" secondAttribute="trailing" constant="27" id="DxL-sP-aR4"/>
                             <constraint firstItem="p2c-Iw-rGu" firstAttribute="leading" secondItem="BPT-GQ-t4k" secondAttribute="leading" id="HLk-pj-sPk"/>
                             <constraint firstAttribute="trailing" secondItem="p2c-Iw-rGu" secondAttribute="trailing" id="JpA-AD-00h"/>
+                            <constraint firstItem="DTd-I6-f5B" firstAttribute="top" secondItem="nle-Q0-Xl1" secondAttribute="bottom" constant="28" id="KJE-hE-B8A"/>
                             <constraint firstItem="BPT-GQ-t4k" firstAttribute="trailing" secondItem="nle-Q0-Xl1" secondAttribute="trailing" constant="27" id="LFa-zP-8BZ"/>
                             <constraint firstItem="mBn-xt-rHr" firstAttribute="leading" secondItem="BPT-GQ-t4k" secondAttribute="leading" id="OHE-tL-iBr"/>
                             <constraint firstItem="BPT-GQ-t4k" firstAttribute="bottom" secondItem="p2c-Iw-rGu" secondAttribute="bottom" constant="397" id="PLw-OG-Log"/>
@@ -2339,6 +2361,7 @@
                             <constraint firstItem="BPT-GQ-t4k" firstAttribute="trailing" secondItem="mBn-xt-rHr" secondAttribute="trailing" id="Zrd-Nu-RIJ"/>
                             <constraint firstItem="nle-Q0-Xl1" firstAttribute="leading" secondItem="BPT-GQ-t4k" secondAttribute="leading" constant="27" id="dE1-DD-d44"/>
                             <constraint firstItem="BPT-GQ-t4k" firstAttribute="bottom" secondItem="mBn-xt-rHr" secondAttribute="bottom" id="glH-6C-V7T"/>
+                            <constraint firstItem="DTd-I6-f5B" firstAttribute="leading" secondItem="BPT-GQ-t4k" secondAttribute="leading" constant="27" id="h86-Ge-nwH"/>
                             <constraint firstItem="mBn-xt-rHr" firstAttribute="top" secondItem="CP9-ED-iCV" secondAttribute="bottom" id="jUz-oQ-gAm"/>
                             <constraint firstItem="BPT-GQ-t4k" firstAttribute="trailing" secondItem="CP9-ED-iCV" secondAttribute="trailing" constant="27" id="zgI-1G-KmK"/>
                         </constraints>
@@ -2440,6 +2463,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mi9-UI-Myk">
+                                <rect key="frame" x="27" y="135" width="63" height="63"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="OR2-2g-vJB"/>
+                                    <constraint firstAttribute="width" constant="63" id="tFT-gU-M2W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="31.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnPreview:" destination="ros-cL-sG2" eventType="touchUpInside" id="fJ7-WA-QPg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2451,11 +2494,14 @@
                             <constraint firstItem="jg6-Ga-NTY" firstAttribute="trailing" secondItem="cBR-h9-VPu" secondAttribute="trailing" constant="27" id="GaZ-Mn-ymP"/>
                             <constraint firstItem="qdd-x8-iAh" firstAttribute="top" secondItem="jg6-Ga-NTY" secondAttribute="top" constant="39" id="HKn-V7-e32"/>
                             <constraint firstItem="jg6-Ga-NTY" firstAttribute="bottom" secondItem="5Tl-QL-0vj" secondAttribute="bottom" constant="397" id="HNi-4B-4Lg"/>
+                            <constraint firstItem="Mi9-UI-Myk" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" constant="27" id="Hif-mC-MQy"/>
                             <constraint firstItem="cBR-h9-VPu" firstAttribute="top" secondItem="jDs-Jr-7Yd" secondAttribute="bottom" constant="106" id="JQj-w5-r2b"/>
+                            <constraint firstItem="Mi9-UI-Myk" firstAttribute="top" secondItem="qdd-x8-iAh" secondAttribute="bottom" constant="24" id="Jiz-6K-fdV"/>
                             <constraint firstItem="cBR-h9-VPu" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" constant="27" id="TrI-Jo-Jdj"/>
                             <constraint firstItem="jDs-Jr-7Yd" firstAttribute="top" secondItem="jg6-Ga-NTY" secondAttribute="top" constant="118" id="dVt-Qh-NNu"/>
                             <constraint firstItem="5Tl-QL-0vj" firstAttribute="top" secondItem="sg2-ww-B9G" secondAttribute="top" id="eh5-qi-F3N"/>
                             <constraint firstItem="5Tl-QL-0vj" firstAttribute="leading" secondItem="jg6-Ga-NTY" secondAttribute="leading" id="iEn-q9-JZJ"/>
+                            <constraint firstItem="cBR-h9-VPu" firstAttribute="top" secondItem="Mi9-UI-Myk" secondAttribute="bottom" constant="106" id="taN-by-lDY"/>
                             <constraint firstItem="jDs-Jr-7Yd" firstAttribute="top" secondItem="qdd-x8-iAh" secondAttribute="bottom" constant="27" id="urY-4R-hUQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jg6-Ga-NTY"/>
@@ -2770,7 +2816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yep-nk-zBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6984.375" y="2230.9859154929577"/>
+            <point key="canvasLocation" x="-7011" y="2231"/>
         </scene>
         <!--Seleciona Dia Controller-->
         <scene sceneID="hBI-N8-QQT">
@@ -2826,15 +2872,38 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5j-fE-Wa1">
+                                <rect key="frame" x="27" y="140" width="63" height="63"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="MJT-Yx-uEg"/>
+                                    <constraint firstAttribute="height" constant="63" id="qM5-U2-8ot"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="31.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnPreview:" destination="P6D-23-hyi" eventType="touchUpInside" id="9py-XW-4pC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sMU-9D-nyZ" firstAttribute="bottom" secondItem="VVo-5w-OVV" secondAttribute="bottom" constant="397" id="1L0-sR-zf4"/>
                             <constraint firstItem="VVo-5w-OVV" firstAttribute="leading" secondItem="sMU-9D-nyZ" secondAttribute="leading" id="5Zt-up-3yN"/>
+                            <constraint firstItem="t5j-fE-Wa1" firstAttribute="leading" secondItem="sMU-9D-nyZ" secondAttribute="leading" constant="27" id="Mq8-EI-rSn"/>
                             <constraint firstItem="jsr-dm-yeZ" firstAttribute="top" secondItem="zRz-FJ-KE9" secondAttribute="bottom" constant="30" id="Sad-vp-X2U"/>
                             <constraint firstItem="zRz-FJ-KE9" firstAttribute="top" secondItem="sMU-9D-nyZ" secondAttribute="top" constant="39" id="TDM-vr-0EO"/>
+                            <constraint firstItem="t5j-fE-Wa1" firstAttribute="top" secondItem="zRz-FJ-KE9" secondAttribute="bottom" constant="29" id="TDg-Pp-veD"/>
                             <constraint firstItem="sMU-9D-nyZ" firstAttribute="bottom" secondItem="jsr-dm-yeZ" secondAttribute="bottom" constant="367" id="ZMQ-rX-3Ie"/>
                             <constraint firstItem="zRz-FJ-KE9" firstAttribute="leading" secondItem="sMU-9D-nyZ" secondAttribute="leading" constant="27" id="cVN-BX-r4r"/>
+                            <constraint firstItem="sMU-9D-nyZ" firstAttribute="bottom" secondItem="t5j-fE-Wa1" secondAttribute="bottom" constant="365" id="d65-xh-e0z"/>
                             <constraint firstAttribute="trailing" secondItem="VVo-5w-OVV" secondAttribute="trailing" id="f90-oL-cUC"/>
                             <constraint firstItem="jsr-dm-yeZ" firstAttribute="leading" secondItem="sMU-9D-nyZ" secondAttribute="leading" constant="233" id="fK8-q5-wZ6"/>
                             <constraint firstItem="VVo-5w-OVV" firstAttribute="top" secondItem="Zna-Ln-biE" secondAttribute="top" id="huD-jp-XX7"/>
@@ -2847,7 +2916,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZG-HD-8Ta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8456.25" y="2230.9859154929577"/>
+            <point key="canvasLocation" x="-8505" y="2215"/>
         </scene>
     </scenes>
     <resources>

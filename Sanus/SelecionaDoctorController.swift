@@ -145,6 +145,15 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
         
     }
     
+    @IBAction func btnPreview(_ sender: UIButton) {
+        let preview = parent as? PaginacionCitasController
+        preview?.previewView(index: 1)
+    }
+    
+    @IBAction func btnNext(_ sender: UIButton) {
+        let next = parent as? PaginacionCitasController
+        next?.nextView(index: 1)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);

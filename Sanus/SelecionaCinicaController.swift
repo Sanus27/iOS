@@ -81,10 +81,7 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.clear
     }
-    
-    @IBAction func btnNext(_ sender: UIButton) {
-        print("NextPage")
-    }
+
     
     @IBAction func btnSearch(_ sender: UITextField) {
         if txtSearch.text!.isEmpty {
@@ -107,6 +104,11 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
+    }
+    
+    @IBAction func btnNext(_ sender: UIButton) {
+        let next = parent as? PaginacionCitasController
+        next?.nextView(index: 0)
     }
     
     @IBAction func btnAtras(_ sender: UIButton) {
