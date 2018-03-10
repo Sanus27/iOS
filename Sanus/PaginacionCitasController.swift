@@ -20,13 +20,13 @@ class PaginacionCitasController:UIPageViewController, UIPageViewControllerDataSo
               ]
     }()
     
-    private func VCInstance(name: String) -> UIViewController {
+    public func VCInstance(name: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource = self
+        //self.dataSource = self
         self.delegate = self
         if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)

@@ -114,11 +114,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
             self.load.stopAnimating()
             if user != nil {
                 self.isLoggedIfisCompleateLogin()
-//                if sesion == 1 {
-//                    self.performSegue(withIdentifier: "login", sender: self)
-//                } else {
-//                    self.performSegue(withIdentifier: "completeUser", sender: self)
-//                }
             } else {
                 if let error = error?.localizedDescription {
                     

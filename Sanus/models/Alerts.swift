@@ -26,12 +26,22 @@ class Alerts {
         return alert
     }
     
-    public func alertAvanced( segueReturn:String ){
-        let alerta = UIAlertController(title: "Correo no esta registrado", message: "¿Desea crear una cuenta?", preferredStyle: .alert);
+    public func alertAvanced(){
+        let alerta = UIAlertController(title: self.titileAlert, message: self.bodyAlert, preferredStyle: .alert);
         alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-            //self.performSegue(withIdentifier: segueReturn, sender: self);
+            self.actionAcept()
         }))
-        alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil ))
+        alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
+            self.actionCancel()
+        }))
+    }
+    
+    public func actionAcept(){
+        
+    }
+    
+    public func actionCancel(){
+        
     }
     
 }

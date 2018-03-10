@@ -39,6 +39,7 @@
 		A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */; };
 		A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */; };
 		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
+		A0ED6DEE20538840009E143C /* ParamsNewAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */; };
 		A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A233202D7C8D00778C7B /* PlaticasController.swift */; };
 		A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A235202D814700778C7B /* PreguntarForoController.swift */; };
 		F06181F8B7F8FDE789097BFA /* Pods_Sanus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8484398106A8DE2914F5D92 /* Pods_Sanus.framework */; };
@@ -81,6 +82,7 @@
 		A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDoctorController.swift; sourceTree = "<group>"; };
 		A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrController.swift; sourceTree = "<group>"; };
 		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamsNewAppointment.swift; sourceTree = "<group>"; };
 		A0F2A233202D7C8D00778C7B /* PlaticasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaticasController.swift; sourceTree = "<group>"; };
 		A0F2A235202D814700778C7B /* PreguntarForoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntarForoController.swift; sourceTree = "<group>"; };
 		D8484398106A8DE2914F5D92 /* Pods_Sanus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sanus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 				A05AEB37202AD66C00F0D343 /* Appointment.swift */,
 				A05AEB39202AD74000F0D343 /* Comentarios.swift */,
 				A01D6773205085450025987C /* Hospitals.swift */,
+				A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,
 				A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */,
 				A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */,
+				A0ED6DEE20538840009E143C /* ParamsNewAppointment.swift in Sources */,
 				A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */,
 				A01D6776205087990025987C /* HospitalCell.swift in Sources */,
 				A01D6774205085450025987C /* Hospitals.swift in Sources */,

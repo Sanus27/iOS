@@ -31,13 +31,6 @@ class Navegation: UINavigationController {
         Auth.auth().addStateDidChangeListener{ ( auth, user ) in
             if user != nil {
                 self.isLoggedIfisCompleate()
-//                if sesion == 1{
-//                    let inicio = self.setStory(name: "loginTrue")
-//                    self.present(inicio, animated: true, completion: nil)
-//                } else {
-//                    let register = self.setStory(name: "completeRegister")
-//                    self.present(register, animated: true, completion: nil)
-//                }
             } else {
                 let login = self.setStory(name: "loginFalse")
                 self.present(login, animated: true, completion: nil)

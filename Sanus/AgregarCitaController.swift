@@ -22,12 +22,13 @@ class AgregarCitaController: UIViewController {
     }
     
     @IBAction func btnCreate(_ sender: UIButton) {
-        
+        let alert = Alerts( titileAlert: "Exito", bodyAlert: "Haz agendado una cita de manera exitosa" )
+        let showAlert = alert.alertSimple()
+        present( showAlert, animated: true, completion: nil )
     }
     
     @IBAction func btnCancel(_ sender: UIButton) {
-        let preview = parent as? PaginacionCitasController
-        preview?.previewView(index: 1)
+        dismiss(animated: true, completion: nil )
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

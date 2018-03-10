@@ -13,44 +13,48 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
   
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tableData: UITableView!
+    @IBOutlet weak var nextListener: UIButton!
     
     private var ref:DocumentReference!
     private var getRef:Firestore!
     private var listItems = [Hospitals]()
     private var listFilter = [Hospitals]()
+    private var selected:NSNumber = 0
+    public var idHospital = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableData.dataSource = self
         tableData.delegate = self
         getRef = Firestore.firestore()
+        nextListener.isEnabled = false
+        
+        nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
         showData()
         listFilter = listItems
     }
     
     private func showData(){
-        self.getRef.collection("hospitales").getDocuments { (result, error) in
+        
+        self.getRef.collection("hospitales").addSnapshotListener { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
     
-                for doc in result!.documents {
-                    let id = doc.documentID
-                    let valDoc = doc.data()
-                    let name = valDoc["nombre"] as? String
-                    let address = valDoc["direccion"] as? String
-    
-                    let hospital = Hospitals( id: id, address: address, name: name )
-                    self.listItems.append(hospital)
-                    self.listFilter.append(hospital)
-                    self.tableData.reloadData()
+                    for doc in result!.documents {
+                        let id = doc.documentID
+                        let valDoc = doc.data()
+                        let name = valDoc["nombre"] as? String
+                        let address = valDoc["direccion"] as? String
+                        let hospital = Hospitals( id: id, address: address, name: name )
+                        self.listItems.append(hospital)
+                        self.listFilter.append(hospital)
+                        self.tableData.reloadData()
+                    }
                 
-                
-                    
-    
-                }
             }
         }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,13 +75,21 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected = 1
+        nextListener.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+        nextListener.isEnabled = true;
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
         let fila = listFilter[indexPath.row]
-        print("seleccionado: \(fila)")
+        let idHospital = fila.id!
+        let params = ParamsNewAppointment()
+        params.setHospital( id: idHospital)
     }
     
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selected = 0
+        //UserDefaults.standard.removeObject(forKey: "idHospital")
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.clear
     }

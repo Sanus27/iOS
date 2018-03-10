@@ -15,57 +15,72 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
-  
-    var ref:DocumentReference!
-    var getRef:Firestore!
-    var listDoctors = [Doctor]()
-    var listFilter = [Doctor]()
+    @IBOutlet weak var nextListener: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private var ref:DocumentReference!
+    private var getRef:Firestore!
+    private var listDoctors = [Doctor]()
+    private var listFilter = [Doctor]()
+    private var selected:NSNumber = 0
+    public var idHospital: String? = ""
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
+        self.listFilter.removeAll()
+        self.listDoctors.removeAll()
+        nextListener.isEnabled = false
+        nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
+        self.tableData.reloadData()
         showData()
         listFilter = listDoctors
     }
     
+    
     func showData(){
+    
+        let params = ParamsNewAppointment()
+        idHospital = params.getHospital()
         
+        print("mostrar data")
+        print(idHospital!)
         
-        self.getRef.collection("doctores").getDocuments { (result, error) in
-            if let error = error {
-                print("se ha producido un error \(error)")
-            } else {
-                
-                for doc in result!.documents {
-                    let id = doc.documentID
-                    let valDoc = doc.data()
-                    let specialty = valDoc["especialidad"] as? String
-                    
-                    
-                    self.ref = Firestore.firestore().collection("usuarios").document(id)
-                    self.ref.getDocument { (resp, error) in
-                        if let error = error {
-                            print("se ha producido un error \(error)")
-                        } else {
-                            
-                            if let resp = resp {
-                                let valUser = resp.data()
-                                let avatar = valUser!["avatar"] as? String
-                                let name = valUser!["nombre"] as? String
-                                let lastname = valUser!["apellido"] as? String
-                                let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
-                                self.listFilter.append(doctor)
-                                self.listDoctors.append(doctor)
-                                self.tableData.reloadData()
+        self.getRef.collection("doctores").whereField( "hospital", isEqualTo: idHospital! ).getDocuments { (result, error) in
+                if let error = error {
+                    print("se ha producido un error \(error)")
+                } else {
+
+                    for doc in result!.documents {
+                        let id = doc.documentID
+                        let valDoc = doc.data()
+                        let specialty = valDoc["especialidad"] as? String
+
+
+                        self.ref = Firestore.firestore().collection("usuarios").document(id)
+                        self.ref.addSnapshotListener { (resp, error) in
+                            if let error = error {
+                                print("se ha producido un error \(error)")
+                            } else {
+
+                                if let resp = resp {
+                                    let valUser = resp.data()
+                                    let avatar = valUser!["avatar"] as? String
+                                    let name = valUser!["nombre"] as? String
+                                    let lastname = valUser!["apellido"] as? String
+                                    let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
+                                    self.listFilter.append(doctor)
+                                    self.listDoctors.append(doctor)
+                                    self.tableData.reloadData()
+                                }
+
                             }
-                            
                         }
+
                     }
-                    
                 }
-            }
         }
         
         
@@ -100,7 +115,7 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
                     cell.avatarMedical.layer.cornerRadius = cell.avatarMedical.frame.height / 2
                     cell.avatarMedical.clipsToBounds = true
                     cell.avatarMedical.layer.borderWidth = 1
-                    //self.tableData.reloadData()
+                    self.tableData.reloadData()
                 }
             })
         }
@@ -109,13 +124,18 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected = 1
+        nextListener.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+        nextListener.isEnabled = true;
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
         let fila = listFilter[indexPath.row]
         print("seleccionado: \(fila)")
     }
     
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selected = 0
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.clear
     }
@@ -146,8 +166,9 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func btnPreview(_ sender: UIButton) {
-        let preview = parent as? PaginacionCitasController
-        preview?.previewView(index: 1)
+        UserDefaults.standard.removeObject(forKey: "idHospital")
+        let next = parent as? PaginacionCitasController
+        next?.previewView(index: 1)
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
