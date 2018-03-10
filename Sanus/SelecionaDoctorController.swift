@@ -48,7 +48,7 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
         print("mostrar data")
         print(idHospital!)
         
-        self.getRef.collection("doctores").whereField( "hospital", isEqualTo: idHospital! ).getDocuments { (result, error) in
+        self.getRef.collection("doctores").whereField( "hospital", isEqualTo: idHospital! ).addSnapshotListener { (result, error) in
                 if let error = error {
                     print("se ha producido un error \(error)")
                 } else {

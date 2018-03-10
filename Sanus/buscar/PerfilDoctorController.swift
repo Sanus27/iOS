@@ -36,6 +36,12 @@ class PerfilDoctorController: UIViewController {
         showData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showData()
+        print("hola")
+    }
+    
     func showData(){
         ref.getDocument { (document, error) in
             
@@ -63,6 +69,7 @@ class PerfilDoctorController: UIViewController {
                     }
                 }
             }
+            
             if let document = document {
                 let val = document.data()
                 let cv = val!["cv"] as! String
@@ -76,18 +83,34 @@ class PerfilDoctorController: UIViewController {
                 
                 if calif != "" {
                     if calif != "0" {
+                        print(calif)
+                        print(coment)
                         let op:Int = Int(calif)! / Int(coment)!
                         calif = String(op)
                     }
+                    
+                    print(calif)
         
                     if calif == "20" {
+                       self.StarOne.setTitle("★", for: .normal)
+                    }
+                    if calif == "30" {
                         self.StarOne.setTitle("★", for: .normal)
                     }
                     if calif == "40" {
                         self.StarOne.setTitle("★", for: .normal)
                         self.StarTwo.setTitle("★", for: .normal)
                     }
+                    if calif == "50" {
+                        self.StarOne.setTitle("★", for: .normal)
+                        self.StarTwo.setTitle("★", for: .normal)
+                    }
                     if calif == "60" {
+                        self.StarOne.setTitle("★", for: .normal)
+                        self.StarTwo.setTitle("★", for: .normal)
+                        self.StarThree.setTitle("★", for: .normal)
+                    }
+                    if calif == "70" {
                         self.StarOne.setTitle("★", for: .normal)
                         self.StarTwo.setTitle("★", for: .normal)
                         self.StarThree.setTitle("★", for: .normal)
@@ -97,6 +120,13 @@ class PerfilDoctorController: UIViewController {
                         self.StarTwo.setTitle("★", for: .normal)
                         self.StarThree.setTitle("★", for: .normal)
                         self.StarFour.setTitle("★", for: .normal)
+                    }
+                    if calif == "90" {
+                        self.StarOne.setTitle("★", for: .normal)
+                        self.StarTwo.setTitle("★", for: .normal)
+                        self.StarThree.setTitle("★", for: .normal)
+                        self.StarFour.setTitle("★", for: .normal)
+                        self.StarFive.setTitle("★", for: .normal)
                     }
                     if calif == "100" {
                         self.StarOne.setTitle("★", for: .normal)

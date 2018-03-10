@@ -43,6 +43,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         ref2 = Firestore.firestore().collection("doctores").document(id)
         showData()
     }
+
     
     @IBAction func comentarioEditing(_ sender: UITextField) {
         let num = Int(txtComents.text!.count);
@@ -87,8 +88,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                     }
                     self.calif = 0
                     self.dismiss(animated: true, completion: nil)
-                    //self.performSegue(withIdentifier: "comentado", sender: nil)
-                    //self.showData()
                     
                 }
             }
@@ -110,14 +109,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 let val = document.data()
                 let puntaje = val!["calificacion"] as! String
                 let comment = val!["comentario"] as! String
-                let avatar = val!["avatar"] as! String
                 let cedula = val!["cedula"] as! String
                 let cv = val!["cv"] as! String
                 let especialidad = val!["especialidad"] as! String
-                let nombre = val!["nombre"] as! String
                 let cal = Int(puntaje)! + Int(data)!
                 let com = Int(comment)! + 1
-                let data = [ "calificacion": String(cal), "avatar": avatar,  "cedula": cedula, "cv":cv, "especialidad": especialidad, "nombre": nombre, "comentario": String(com) ]
+                let data = [ "calificacion": String(cal), "cedula": cedula, "cv":cv, "especialidad": especialidad, "comentario": String(com) ]
                 self.ref2.setData(data) { (err) in
                     if let err = err?.localizedDescription {
                         print("Se ha producido un error \(err)")
@@ -166,8 +163,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     func showData(){
         
         
-        
-        self.listComents.removeAll()
+    
         getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (result , error) in
             if let error = error {
                 print("hay un error en firebase", error)
