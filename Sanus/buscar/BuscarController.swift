@@ -93,6 +93,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
             Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                 if let error = error?.localizedDescription {
                     print("fallo al traer imagenes", error)
+                    cell.avatarDoctor?.image = #imageLiteral(resourceName: "user")
                 } else {
                     cell.avatarDoctor?.image = UIImage(data: data!)
                     cell.avatarDoctor.layer.masksToBounds = false

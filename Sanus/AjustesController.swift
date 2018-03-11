@@ -34,10 +34,11 @@ class AjustesController: UIViewController {
                 let val = document.data()
                 let lastname = val!["apellido"] as! String
                 let name = val!["nombre"] as! String
-                let avatar = val!["avatar"] as! String
+                let avatar = val!["avatar"] as? String
+                let fullname: String = name + " " + lastname
                
-                if avatar != "" {
-                    Storage.storage().reference(forURL: avatar).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                if avatar != nil {
+                    Storage.storage().reference(forURL: avatar!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                         if let error = error?.localizedDescription {
                             print("fallo al traer imagenes", error)
                         } else {
@@ -50,7 +51,11 @@ class AjustesController: UIViewController {
                         }
                     })
                     
+                } else {
+                    self.avatar.image = #imageLiteral(resourceName: "user")
                 }
+                
+                self.txtName.text = fullname 
                 
             } else {
                 print("documento no existe")

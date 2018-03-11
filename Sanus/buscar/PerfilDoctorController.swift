@@ -52,10 +52,10 @@ class PerfilDoctorController: UIViewController {
                     let name = valUser!["nombre"] as! String
                     let lastname = valUser!["apellido"] as! String
                     self.navbar.title = name + " " + lastname
-                    let picture = valUser!["avatar"] as! String
+                    let picture = valUser!["avatar"] as? String
                     
-                    if picture != "" {
-                        Storage.storage().reference(forURL: picture).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                    if picture != nil {
+                        Storage.storage().reference(forURL: picture!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                             if let error = error?.localizedDescription {
                                 print("fallo al traer imagenes", error)
                             } else {
@@ -66,6 +66,8 @@ class PerfilDoctorController: UIViewController {
                                 self.avatar.layer.borderWidth = 1
                             }
                         })
+                    } else {
+                        self.avatar?.image = #imageLiteral(resourceName: "user")
                     }
                 }
             }

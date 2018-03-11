@@ -112,9 +112,10 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 let cedula = val!["cedula"] as! String
                 let cv = val!["cv"] as! String
                 let especialidad = val!["especialidad"] as! String
+                let hospital = val!["hospital"] as! String
                 let cal = Int(puntaje)! + Int(data)!
                 let com = Int(comment)! + 1
-                let data = [ "calificacion": String(cal), "cedula": cedula, "cv":cv, "especialidad": especialidad, "comentario": String(com) ]
+                let data = [ "calificacion": String(cal), "cedula": cedula, "cv":cv, "especialidad": especialidad, "comentario": String(com), "hospital":hospital ]
                 self.ref2.setData(data) { (err) in
                     if let err = err?.localizedDescription {
                         print("Se ha producido un error \(err)")
@@ -263,6 +264,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
             Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                 if let error = error?.localizedDescription {
                     print("fallo al traer imagenes", error)
+                    cell.avatar?.image = #imageLiteral(resourceName: "user")
                 } else {
                     cell.avatar?.image = UIImage(data: data!)
                     cell.avatar.layer.masksToBounds = false
