@@ -176,9 +176,9 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         } else {
             
             if ed != "" {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
+                campos = ["nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
             } else {
-                campos = ["avatar": String(describing: imageDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
+                campos = ["nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
             }
         }
         

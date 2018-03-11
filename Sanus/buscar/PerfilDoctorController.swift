@@ -39,7 +39,6 @@ class PerfilDoctorController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showData()
-        print("hola")
     }
     
     func showData(){
@@ -85,13 +84,9 @@ class PerfilDoctorController: UIViewController {
                 
                 if calif != "" {
                     if calif != "0" {
-                        print(calif)
-                        print(coment)
                         let op:Int = Int(calif)! / Int(coment)!
                         calif = String(op)
                     }
-                    
-                    print(calif)
         
                     if calif == "20" {
                        self.StarOne.setTitle("★", for: .normal)

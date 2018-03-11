@@ -2014,7 +2014,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vls-Bn-hZG">
                                         <rect key="frame" x="0.0" y="0.0" width="266" height="396"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Para completar el registro necesitamos algunos datos, los que tengan un * son obligatorios" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="COZ-cH-Uqp">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Para completar el registro necesitamos algunos datos, los que tengan un * son obligatorios" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COZ-cH-Uqp">
                                                 <rect key="frame" x="13" y="13" width="240" height="68"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -2949,7 +2949,7 @@
         <image name="user" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tUF-tm-zKi"/>
+        <segue reference="n5x-9v-mmc"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="OAs-o2-dOy"/>

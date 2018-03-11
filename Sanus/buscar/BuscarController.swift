@@ -46,7 +46,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                     self.ref = Firestore.firestore().collection("usuarios").document(id)
                     self.ref.getDocument { (resp, error) in
                         if let error = error {
-                                print("se ha producido un error \(error)")
+                            print("se ha producido un error \(error)")
                         } else {
                                 
                                 if let resp = resp {
