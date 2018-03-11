@@ -19,7 +19,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     var valdE:Bool = false;
     var valdP:Bool = false;
     var ref: DocumentReference!
-    
+    private let login = loginModel()
     override func loadView() {
         super.loadView()
         txtEmail.delegate = self
@@ -87,36 +87,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     
-    public func isLoggedIfisCompleateLogin()  {
-        
-        let id = (Auth.auth().currentUser?.uid)!
-        ref = Firestore.firestore().collection("usuarios").document( id )
-        ref.getDocument { (document, error) in
-            
-            if let document = document {
-                let exist = document.data()
-                if exist != nil {
-                    self.performSegue(withIdentifier: "login", sender: self)
-                } else {
-                    self.performSegue(withIdentifier: "completeUser", sender: self)
-                }
-            }
-            
-            
-        }
-        
-    }
+
     
     @IBAction func loginAction(_ sender: UIButton) {
+        
         self.load.startAnimating()
         Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { ( user, error ) in
-            
+
             self.load.stopAnimating()
             if user != nil {
-                self.isLoggedIfisCompleateLogin()
+                self.login.isLoggedIsCompleateLogin( this: self )
             } else {
                 if let error = error?.localizedDescription {
-                    
+
 
                     if(error == "The password is invalid or the user does not have a password."){
                         let alert = Alerts(titileAlert: "Alerta", bodyAlert: "El correo y/o contraseña con incorrectos")
@@ -139,7 +122,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         self.valdE = false;
                         self.valdP = false;
                     }
-                    
+
                 }
             }
         }

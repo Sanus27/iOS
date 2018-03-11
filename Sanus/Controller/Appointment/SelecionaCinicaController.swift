@@ -80,16 +80,17 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
         nextListener.isEnabled = true;
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
+        
         let fila = listFilter[indexPath.row]
         let idHospital = fila.id!
         let params = ParamsNewAppointment()
         params.setHospital( id: idHospital)
+        
     }
     
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         selected = 0
-        //UserDefaults.standard.removeObject(forKey: "idHospital")
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.clear
     }
