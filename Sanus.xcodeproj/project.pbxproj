@@ -144,6 +144,7 @@
 				A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */,
 			);
 			name = citas;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A03A3408203539EA002834A5 /* chat */ = {
@@ -153,6 +154,7 @@
 				A0F2A233202D7C8D00778C7B /* PlaticasController.swift */,
 			);
 			name = chat;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A03A340920353A1A002834A5 /* foro */ = {
@@ -162,6 +164,69 @@
 				A0F2A235202D814700778C7B /* PreguntarForoController.swift */,
 			);
 			path = foro;
+			sourceTree = "<group>";
+		};
+		A04F3AF12054DA0F00535DF5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A04F3AF22054DA0F00535DF5 /* CreateUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateUser;
+			sourceTree = "<group>";
+		};
+		A04F3AF32054DA1000535DF5 /* CompleteUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CompleteUser;
+			sourceTree = "<group>";
+		};
+		A04F3AF42054DA2D00535DF5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A04F3AF52054DA2D00535DF5 /* CreateUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateUser;
+			sourceTree = "<group>";
+		};
+		A04F3AF62054DA2D00535DF5 /* CompleteUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CompleteUser;
+			sourceTree = "<group>";
+		};
+		A04F3AF72054DA3D00535DF5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A04F3AF82054DA3D00535DF5 /* CreateUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateUser;
+			sourceTree = "<group>";
+		};
+		A04F3AF92054DA3D00535DF5 /* CompleteUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CompleteUser;
 			sourceTree = "<group>";
 		};
 		A0824573202A9FAB00543AD0 = {
@@ -185,20 +250,181 @@
 		A082457E202A9FAB00543AD0 /* Sanus */ = {
 			isa = PBXGroup;
 			children = (
+				A0B72DAE2054D6DF004E2B78 /* Model */,
+				A0B72DAF2054D6E8004E2B78 /* View */,
+				A0B72DAD2054D6D6004E2B78 /* Controller */,
+				A0824583202A9FAB00543AD0 /* Main.storyboard */,
+				A0824586202A9FAB00543AD0 /* Assets.xcassets */,
+				A082458B202A9FAC00543AD0 /* Info.plist */,
+				A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */,
+				A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */,
+				A0B72DAC2054D6C6004E2B78 /* otro */,
+			);
+			path = Sanus;
+			sourceTree = "<group>";
+		};
+		A08A5BDF2054D94D003A567B /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		A08A5BE02054D957003A567B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A082457F202A9FAB00543AD0 /* AppDelegate.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A08A5BE12054D957003A567B /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Forum;
+			sourceTree = "<group>";
+		};
+		A08A5BE22054D957003A567B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A08A5BE32054D957003A567B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A08A5BE42054D976003A567B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A08A5BE52054D977003A567B /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Forum;
+			sourceTree = "<group>";
+		};
+		A08A5BE62054D977003A567B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A08A5BE72054D977003A567B /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		A08A5BE82054D977003A567B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A08A5BE92054D994003A567B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A08A5BEA2054D994003A567B /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Forum;
+			sourceTree = "<group>";
+		};
+		A08A5BEB2054D994003A567B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A08A5BEC2054D994003A567B /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		A08A5BED2054D995003A567B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A0B72DAC2054D6C6004E2B78 /* otro */ = {
+			isa = PBXGroup;
+			children = (
 				A0E42675202AA0BA007D5379 /* controllers */,
 				A0E42678202AA0FA007D5379 /* models */,
 				A03A3406203538BD002834A5 /* buscar */,
 				A03A340720353999002834A5 /* citas */,
 				A03A3408203539EA002834A5 /* chat */,
 				A03A340920353A1A002834A5 /* foro */,
-				A082457F202A9FAB00543AD0 /* AppDelegate.swift */,
-				A0824583202A9FAB00543AD0 /* Main.storyboard */,
-				A0824586202A9FAB00543AD0 /* Assets.xcassets */,
-				A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */,
-				A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */,
-				A082458B202A9FAC00543AD0 /* Info.plist */,
 			);
-			path = Sanus;
+			path = otro;
+			sourceTree = "<group>";
+		};
+		A0B72DAD2054D6D6004E2B78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A04F3AF92054DA3D00535DF5 /* CompleteUser */,
+				A04F3AF82054DA3D00535DF5 /* CreateUser */,
+				A04F3AF72054DA3D00535DF5 /* Login */,
+				A08A5BE72054D977003A567B /* Appointment */,
+				A08A5BE62054D977003A567B /* Chat */,
+				A08A5BE52054D977003A567B /* Forum */,
+				A08A5BE82054D977003A567B /* Search */,
+				A08A5BE42054D976003A567B /* Settings */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A0B72DAE2054D6DF004E2B78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A04F3AF32054DA1000535DF5 /* CompleteUser */,
+				A04F3AF22054DA0F00535DF5 /* CreateUser */,
+				A04F3AF12054DA0F00535DF5 /* Login */,
+				A08A5BEC2054D994003A567B /* Appointment */,
+				A08A5BEB2054D994003A567B /* Chat */,
+				A08A5BEA2054D994003A567B /* Forum */,
+				A08A5BED2054D995003A567B /* Search */,
+				A08A5BE92054D994003A567B /* Settings */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0B72DAF2054D6E8004E2B78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A04F3AF62054DA2D00535DF5 /* CompleteUser */,
+				A04F3AF52054DA2D00535DF5 /* CreateUser */,
+				A04F3AF42054DA2D00535DF5 /* Login */,
+				A08A5BDF2054D94D003A567B /* Appointment */,
+				A08A5BE22054D957003A567B /* Chat */,
+				A08A5BE12054D957003A567B /* Forum */,
+				A08A5BE32054D957003A567B /* Search */,
+				A08A5BE02054D957003A567B /* Settings */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A0E42675202AA0BA007D5379 /* controllers */ = {
@@ -210,6 +436,7 @@
 				A0ACF9B320334F0B004681AE /* CompletarRegistroController.swift */,
 			);
 			name = controllers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A0E42678202AA0FA007D5379 /* models */ = {

@@ -43,7 +43,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>usar galeria</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>usar galeria</string>
 </dict>
 </plist>
