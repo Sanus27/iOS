@@ -35,22 +35,18 @@ class loginModel {
     }
     
     //LOGIN
-    public func startLogin( txtEmail: String, txtPassword: String ) -> String {
-        
-            Auth.auth().signIn( withEmail: txtEmail, password: txtPassword ) { ( user, error ) in
-                if user != nil {
-                    let userId = "success"
-                    self.resp = userId
-                }
+    public func startLogin(txtEmail: String, txtPassword: String, completionHandler: @escaping ((String) -> Void)) {
+        Auth.auth().signIn( withEmail: txtEmail, password: txtPassword ) { ( user, error ) in
+            if user != nil {
+                self.resp = "success"
+                completionHandler( self.resp )
+            } else {
                 if let error = error?.localizedDescription {
                     self.resp = error
+                    completionHandler( self.resp )
                 }
             }
-        
-        
-        return self.resp
-          
-        
+        }
     }
     
     

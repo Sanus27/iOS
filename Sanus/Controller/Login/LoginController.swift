@@ -93,36 +93,23 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBAction func loginAction(_ sender: UIButton) {
     
         self.load.startAnimating()
-//        var resp = self.login.startLogin( txtEmail: txtEmail.text!, txtPassword: txtPassword.text! )
-//        print("resp")
-//        print(resp)
-        Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { ( user, error ) in
-
+        self.login.startLogin( txtEmail: txtEmail.text!, txtPassword: txtPassword.text!, completionHandler: { resp in
             self.load.stopAnimating()
-            if user != nil {
+            if resp == "success" {
                 self.login.isLoggedIsCompleateLogin( this: self )
             } else {
-                if let error = error?.localizedDescription {
-
-
-                    if(error == "The password is invalid or the user does not have a password."){
-                        self.alert.alertSimple( this: self, titileAlert: "Alerta", bodyAlert: "El correo y/o contraseña con incorrectos", actionAlert: nil )
-                        self.txtPassword.text! = "";
-                        self.txtEmail.text! = "";
-                        self.valdE = false;
-                        self.valdP = false;
-                    }
-                    if(error == "There is no user record corresponding to this identifier. The user may have been deleted."){
-                        self.alert.alertAvanced( this: self, titileAlert: "Correo no esta registrado", bodyAlert: "¿Desea crear una cuenta?", actionAlert: "login")
-                        self.txtPassword.text! = "";
-                        self.txtEmail.text! = "";
-                        self.valdE = false;
-                        self.valdP = false;
-                    }
-
+                if(resp == "The password is invalid or the user does not have a password."){
+                    self.alert.alertSimple( this: self, titileAlert: "Alerta", bodyAlert: "El correo y/o contraseña con incorrectos", actionAlert: nil )
                 }
+                if(resp == "There is no user record corresponding to this identifier. The user may have been deleted."){
+                    self.alert.alertAvanced( this: self, titileAlert: "Correo no esta registrado", bodyAlert: "¿Desea crear una cuenta?", actionAlert: "login")
+                }
+                self.txtPassword.text! = "";
+                self.txtEmail.text! = "";
+                self.valdE = false;
+                self.valdP = false;
             }
-        }
+        })
         
     }
     
