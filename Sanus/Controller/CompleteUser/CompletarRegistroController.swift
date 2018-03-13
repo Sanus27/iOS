@@ -203,7 +203,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         present(imagePicker, animated: true, completion: nil)
     }
     
-     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])  {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])  {
         let imagenTomada = info[UIImagePickerControllerEditedImage] as? UIImage
         imageView.image = imagenTomada!
         imagen = imagenTomada!

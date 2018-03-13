@@ -16,13 +16,11 @@ class AjustesController: UIViewController {
     @IBOutlet weak var txtName: UILabel!
     
     private var ref:DocumentReference!
-    private var getRef: Firestore!
     private var uid:String = ""
     private let alert = Alerts()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRef = Firestore.firestore()
         self.uid = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document(self.uid)
         dataUser()
