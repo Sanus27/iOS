@@ -15,9 +15,10 @@ class AjustesController: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var txtName: UILabel!
     
-    var ref:DocumentReference!
-    var getRef: Firestore!
-    var uid:String = ""
+    private var ref:DocumentReference!
+    private var getRef: Firestore!
+    private var uid:String = ""
+    private let alert = Alerts()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class AjustesController: UIViewController {
     }
     
     
-    func dataUser(){
+    private func dataUser(){
         ref.getDocument { (document, error) in
             if let document = document {
                 let val = document.data()
@@ -64,22 +65,7 @@ class AjustesController: UIViewController {
     }
 
     @IBAction func btnSignOff(_ sender: UIButton) {
-        
-        let alerts = UIAlertController(title: " Cerrar sesión", message: "¿Esta seguro cerrar su sesión?", preferredStyle: .alert);
-        alerts.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-            
-            let firebaseAuth = Auth.auth()
-            do {
-                try firebaseAuth.signOut()
-                self.performSegue(withIdentifier: "salir", sender: self);
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-            }
-            
-        }))
-        alerts.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil ))
-        self.present(alerts, animated: true, completion: nil);
-
+        self.alert.alertAvanced( this: self, titileAlert: "Cerrar sesión", bodyAlert: "¿Esta seguro cerrar su sesión?", actionAlert: "signOut")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

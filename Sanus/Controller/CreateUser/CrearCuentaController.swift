@@ -25,6 +25,7 @@ class CrearCuentaController: UIViewController {
     var ref: DocumentReference!
     var getRef: Firestore!
     var pass:String = ""
+    private let alert = Alerts()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +92,6 @@ class CrearCuentaController: UIViewController {
         
         listenerDismis.isEnabled = false;
         txtPassword.isSecureTextEntry = true
-        listenerDismis.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
         
        
             self.load.startAnimating()
@@ -99,6 +99,7 @@ class CrearCuentaController: UIViewController {
                 
                 if user != nil {
                     
+                    self.load.stopAnimating()
                     let email = user?.email
                     Auth.auth().signIn(withEmail: email!, password: self.pass) { ( usr, err ) in
                         if usr != nil {
@@ -115,37 +116,24 @@ class CrearCuentaController: UIViewController {
                 } else {
                     
                     self.listenerDismis.isEnabled = true;
-                    self.listenerDismis.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 0.3);
-                    
+                    self.load.stopAnimating()
                     if  let error = error?.localizedDescription {
                         print("error de firebase", error);
                         if(error == "The password must be 6 characters long or more."){
-                            let alerts = UIAlertController(title: " Se ha producido un error", message: "La contraseñas debe tener mas de 6 digitos", preferredStyle: .alert);
-                            let acept = UIAlertAction( title: "Aceptar", style: .default, handler: nil );
-                            alerts.addAction(acept);
-                            self.present(alerts, animated: true, completion: nil);
+                            self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "La contraseñas debe tener mas de 6 digitos", actionAlert: nil )
                             self.txtPassword.text! = "";
                         }
                         if(error == "The email address is already in use by another account."){
-                            let alerts = UIAlertController(title: " Se ha producido un error", message: "Este correo electronico ya tiene una cuenta con nosotros", preferredStyle: .alert);
-                            let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                            alerts.addAction(acept);
-                            self.present(alerts, animated: true, completion: nil);
+                            self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Este correo electronico ya tiene una cuenta con nosotros", actionAlert: nil )
                             self.txtEmail.text! = "";
                             self.txtPassword.text! = "";
                         }
                         if(error == "The email address is badly formatted."){
-                            let alerts = UIAlertController(title: " Se ha producido un error", message: "Este no es un correo electronico", preferredStyle: .alert);
-                            let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                            alerts.addAction(acept);
-                            self.present(alerts, animated: true, completion: nil);
+                            self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Este no es un correo electronico", actionAlert: nil )
                             self.txtEmail.text! = "";
                         }
                     } else {
-                        let alerts = UIAlertController(title: "Se ha producido un error", message: error! as? String, preferredStyle: .alert);
-                        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-                        alerts.addAction(acept);
-                        self.present(alerts, animated: true, completion: nil);
+                        self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: error! as? String, actionAlert: nil )
                         print("error de codigo", error!);
                     }
                 }

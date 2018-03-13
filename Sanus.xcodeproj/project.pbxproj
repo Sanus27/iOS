@@ -36,6 +36,7 @@
 		A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */; };
 		A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */; };
 		A0DC8D2F202AA4D3003FB0CB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2E202AA4D3003FB0CB /* Doctor.swift */; };
+		A0E1388020579FEB0019EEA8 /* SettingProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E1387F20579FEB0019EEA8 /* SettingProfileController.swift */; };
 		A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */; };
 		A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */; };
 		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
@@ -80,6 +81,7 @@
 		A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForoController.swift; sourceTree = "<group>"; };
 		A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		A0DC8D2E202AA4D3003FB0CB /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		A0E1387F20579FEB0019EEA8 /* SettingProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileController.swift; sourceTree = "<group>"; };
 		A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDoctorController.swift; sourceTree = "<group>"; };
 		A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrController.swift; sourceTree = "<group>"; };
 		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				A0DC8D20202AA49E003FB0CB /* AjustesController.swift */,
+				A0E1387F20579FEB0019EEA8 /* SettingProfileController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				A0FFAB292054F98B00D956BF /* loginModel.swift in Sources */,
 				A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */,
 				A01D6776205087990025987C /* HospitalCell.swift in Sources */,
+				A0E1388020579FEB0019EEA8 /* SettingProfileController.swift in Sources */,
 				A01D6774205085450025987C /* Hospitals.swift in Sources */,
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
 				A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */,

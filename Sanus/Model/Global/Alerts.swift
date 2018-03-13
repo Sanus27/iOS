@@ -8,40 +8,73 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class Alerts {
     
-    public var titileAlert: String?
-    public var bodyAlert: String?
+    private var resp:Int = 0
+    private var conta:Int = 270
     
-    init( titileAlert: String?, bodyAlert: String? ) {
-        self.titileAlert = titileAlert
-        self.bodyAlert = bodyAlert
-    }
-    
-    public func alertSimple() -> UIAlertController {
-        let alert = UIAlertController(title: self.titileAlert, message: self.bodyAlert, preferredStyle: .alert);
-        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
+    public func alertSimple( this: UIViewController, titileAlert: String?, bodyAlert: String?, actionAlert: String? ) -> Void {
+        let alert = UIAlertController(title: titileAlert, message: bodyAlert, preferredStyle: .alert);
+        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+            self.actionAcept( this:this, action: actionAlert )
+        })
         alert.addAction(acept);
-        return alert
+        this.present(alert, animated: true, completion: nil);
     }
     
-    public func alertAvanced(){
-        let alerta = UIAlertController(title: self.titileAlert, message: self.bodyAlert, preferredStyle: .alert);
-        alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-            self.actionAcept()
-        }))
-        alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
-            self.actionCancel()
-        }))
+    public func alertAvanced( this: UIViewController, titileAlert: String?, bodyAlert: String?, actionAlert: String? ) -> Void {
+        let alert = UIAlertController(title: titileAlert, message: bodyAlert, preferredStyle: .alert);
+        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+            self.actionAcept( this:this, action: actionAlert )
+        })
+        let cancel = UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
+            self.actionCancel( this:this, action: actionAlert )
+        })
+        alert.addAction(acept);
+        alert.addAction(cancel);
+        this.present(alert, animated: true, completion: nil);
     }
     
-    public func actionAcept(){
+    public func prueba() ->Int {
+        
+        func dentro() -> Int {
+            if conta == 27 {
+                self.resp = 1
+            } else {
+                self.resp = 2
+            }
+            return self.resp
+        }
+        
+        return dentro()
         
     }
     
-    public func actionCancel(){
+ 
+    private func actionAcept( this: UIViewController, action: String?  ){
+        if action == "login" {
+            this.performSegue(withIdentifier: "returnCreateUser", sender: this);
+        }
+        if action == "completeRegister" {
+            this.performSegue(withIdentifier: "goBuscador", sender: this);
+        }
+        if action == "signOut" {
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                this.performSegue( withIdentifier: "salir", sender: this );
+            } catch let signOutError as NSError {
+                self.alertSimple(this: this, titileAlert: "Se ha producido un error", bodyAlert: "Intentalo mas tarde", actionAlert: nil  )
+                print ("Error signing out: %@", signOutError)
+            }
+        }
+    }
+    
+    private func actionCancel( this: UIViewController, action: String? ){
         
     }
+    
     
 }

@@ -13,7 +13,7 @@ import FirebaseAuth
 class loginModel {
     
     private var ref: DocumentReference!
-    public let result = SetAndGets()
+    private var resp:String = ""
     
     //VALID IS THE USER IS COMPLE OR NOT
     public func isLoggedIsCompleateLogin( this: UIViewController ) -> Void {
@@ -35,44 +35,24 @@ class loginModel {
     }
     
     //LOGIN
-    public func login( this: UIViewController, txtEmail: String, txtPassword: String ) -> Void {
+    public func startLogin( txtEmail: String, txtPassword: String ) -> String {
         
-        
-        Auth.auth().signIn( withEmail: txtEmail, password: txtPassword ) { ( user, error ) in
-            if user != nil {
-                print(user!)
-            } else {
+            Auth.auth().signIn( withEmail: txtEmail, password: txtPassword ) { ( user, error ) in
+                if user != nil {
+                    let userId = "success"
+                    self.resp = userId
+                }
                 if let error = error?.localizedDescription {
-                    print(error)
+                    self.resp = error
                 }
             }
-            
-        }
         
         
-    }
-    
-    
-    
-}
-
-
-
-
-
-class SetAndGets {
-    
-    public var resp: String = ""
-    public func getData() -> String {
         return self.resp
+          
+        
     }
     
-    public func setData( newData: String ){
-        self.resp = newData
-    }
+    
     
 }
-
-
-
-

@@ -22,9 +22,8 @@ class AgregarCitaController: UIViewController {
     }
     
     @IBAction func btnCreate(_ sender: UIButton) {
-        let alert = Alerts( titileAlert: "Exito", bodyAlert: "Haz agendado una cita de manera exitosa" )
-        let showAlert = alert.alertSimple()
-        present( showAlert, animated: true, completion: nil )
+        let alert = Alerts()
+        alert.alertSimple( this: self, titileAlert: "Exito", bodyAlert: "Haz agendado una cita de manera exitosa", actionAlert: nil )
     }
     
     @IBAction func btnCancel(_ sender: UIButton) {

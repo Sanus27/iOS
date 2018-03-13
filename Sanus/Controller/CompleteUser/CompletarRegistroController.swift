@@ -31,9 +31,9 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     var valdA:Bool = false
     var imagen = UIImage()
     var pesoImg:Float = 0.0
-    var imageDefault = "gs://sanus-27.appspot.com/images/user.png"
     var ref: DocumentReference!
     var getRef: Firestore!
+    private let alert = Alerts()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,16 +187,9 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         ref.setData(campos) { (error) in
             if let error = error?.localizedDescription {
                 print("fallo al actualizar", error)
-                let alerta = UIAlertController(title: "Se ha producido un error", message: "Intentalo de nuevo", preferredStyle: .alert);
-                alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                    
-                }))
+                self.alert.alertSimple( this: self, titileAlert: "Se ha producido un error", bodyAlert: "Intentalo de nuevo", actionAlert: nil )
             } else {
-                let alerta = UIAlertController(title: "Se han actualizado tus datos", message: "Ahora puedes utilizar nuestra aplicación", preferredStyle: .alert);
-                alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                    self.performSegue(withIdentifier: "goBuscador", sender: self);
-                }))
-                self.present(alerta, animated: true, completion: nil);
+                self.alert.alertSimple(this: self, titileAlert: "Se han actualizado tus datos", bodyAlert: "Ahora puedes utilizar nuestra aplicación", actionAlert: "completeRegister")
             }
         }
     }

@@ -20,6 +20,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     var valdP:Bool = false;
     var ref: DocumentReference!
     private let login = loginModel()
+    private let alert = Alerts()
     override func loadView() {
         super.loadView()
         txtEmail.delegate = self
@@ -33,7 +34,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnLogin.isEnabled = false;
+        btnLogin.isEnabled = true;
         btnLogin.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
     
@@ -90,8 +91,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func loginAction(_ sender: UIButton) {
-        
+    
         self.load.startAnimating()
+//        var resp = self.login.startLogin( txtEmail: txtEmail.text!, txtPassword: txtPassword.text! )
+//        print("resp")
+//        print(resp)
         Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { ( user, error ) in
 
             self.load.stopAnimating()
@@ -102,21 +106,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
 
                     if(error == "The password is invalid or the user does not have a password."){
-                        let alert = Alerts(titileAlert: "Alerta", bodyAlert: "El correo y/o contraseña con incorrectos")
-                        let showAlert = alert.alertSimple()
-                        self.present(showAlert, animated: true, completion: nil);
+                        self.alert.alertSimple( this: self, titileAlert: "Alerta", bodyAlert: "El correo y/o contraseña con incorrectos", actionAlert: nil )
                         self.txtPassword.text! = "";
                         self.txtEmail.text! = "";
                         self.valdE = false;
                         self.valdP = false;
                     }
                     if(error == "There is no user record corresponding to this identifier. The user may have been deleted."){
-                        let alerta = UIAlertController(title: "Correo no esta registrado", message: "¿Desea crear una cuenta?", preferredStyle: .alert);
-                        alerta.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                            self.performSegue(withIdentifier: "returnCreateUser", sender: self);
-                        }))
-                        alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil ))
-                        self.present(alerta, animated: true, completion: nil);
+                        self.alert.alertAvanced( this: self, titileAlert: "Correo no esta registrado", bodyAlert: "¿Desea crear una cuenta?", actionAlert: "login")
                         self.txtPassword.text! = "";
                         self.txtEmail.text! = "";
                         self.valdE = false;
@@ -126,6 +123,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+        
     }
     
     
