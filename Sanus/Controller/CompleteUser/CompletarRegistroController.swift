@@ -54,14 +54,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
     func getAlert(){
         Auth.auth().addStateDidChangeListener{ ( auth, user ) in
             if user != nil {
-                let alerts = UIAlertController(title: "Sanus", message: "Para completar el registro necesitamos algunos datos", preferredStyle: .alert);
-                alerts.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-                    
-                }))
-                alerts.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
-                    self.signOff()
-                }))
-                self.present(alerts, animated: true, completion: nil);
+                self.alert.alertAvanced(this: self, titileAlert: "Sanus", bodyAlert: "Para completar el registro necesitamos algunos datos", actionAlert: nil )
             }
         }
     }

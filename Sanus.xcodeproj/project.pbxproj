@@ -25,6 +25,7 @@
 		A0824587202A9FAB00543AD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0824586202A9FAB00543AD0 /* Assets.xcassets */; };
 		A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */; };
 		A084A36020502864001509CE /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084A35F20502864001509CE /* Alerts.swift */; };
+		A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E8BC1205890D600811243 /* SettingsModel.swift */; };
 		A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */; };
 		A0ACF9B420334F0B004681AE /* CompletarRegistroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACF9B320334F0B004681AE /* CompletarRegistroController.swift */; };
 		A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6151620302A1C006622A8 /* CitasCell.swift */; };
@@ -70,6 +71,7 @@
 		A0824589202A9FAB00543AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A082458B202A9FAC00543AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A084A35F20502864001509CE /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		A09E8BC1205890D600811243 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaCinicaController.swift; sourceTree = "<group>"; };
 		A0ACF9B320334F0B004681AE /* CompletarRegistroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletarRegistroController.swift; sourceTree = "<group>"; };
 		A0B6151620302A1C006622A8 /* CitasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasCell.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		A08A5BE92054D994003A567B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				A09E8BC1205890D600811243 /* SettingsModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 			files = (
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
 				A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */,
+				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,
 				A0DC8D29202AA4BA003FB0CB /* CrearCuentaController.swift in Sources */,
 				A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */,
 				A051DF9E2048809200D4C8DD /* AgregarCitaController.swift in Sources */,
