@@ -85,6 +85,9 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
         
         cell.dateLabel.textColor = UIColor.black
         
+        cell.dateLabel.layer.cornerRadius = 20
+        cell.backgroundColor = UIColor.white
+        
         if cell.isHidden {
             cell.isHidden = false
         }
@@ -114,8 +117,9 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
             break
         }
         
-        if currentMonth == Months[calendar.component( .month, from: date ) - 1] && year == calendar.component( .year, from: date ) && indexPath.row + 1 == day {
+        if currentMonth == Months[calendar.component( .month, from: date ) - 1] && year == calendar.component( .year, from: date ) && indexPath.row - 2 == day {
             cell.backgroundColor = UIColor.red
+            cell.dateLabel.textColor = UIColor.white
         }
         
         
@@ -180,7 +184,6 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
             Calendar.reloadData()
         }
     }
-    
     
     @IBAction func btnPreview(_ sender: UIButton) {
         let preview = parent as? PaginacionCitasController
