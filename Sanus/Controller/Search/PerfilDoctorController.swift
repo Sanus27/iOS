@@ -51,10 +51,11 @@ class PerfilDoctorController: UIViewController {
                     let name = valUser!["nombre"] as! String
                     let lastname = valUser!["apellido"] as! String
                     self.navbar.title = name + " " + lastname
-                    let picture = valUser!["avatar"] as? String
+                    var avatar = valUser!["avatar"] as? String
                     
-                    if picture != nil {
-                        Storage.storage().reference(forURL: picture!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                    if avatar != nil {
+                        avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
+                        Storage.storage().reference(forURL: avatar!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                             if let error = error?.localizedDescription {
                                 print("fallo al traer imagenes", error)
                             } else {

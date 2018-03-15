@@ -15,6 +15,7 @@ class SettingsModel: UIViewController {
     private var ref:DocumentReference!
     private var uid:String = ""
     private var success: [String:Any] = [:]
+    private let url:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,12 +25,13 @@ class SettingsModel: UIViewController {
         ref.getDocument { (document, error) in
             if let document = document {
                 let val = document.data()
-                let avatar = val!["avatar"] as? String
+                var avatar = val!["avatar"] as? String
                 let name = val!["nombre"] as! String
                 let lastname = val!["apellido"] as! String
                 let fullname: String = name + " " + lastname
                 
                 if avatar != nil {
+                    avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
                     Storage.storage().reference(forURL: avatar!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                         if let error = error?.localizedDescription {
                             self.success = [ "warning": true ]

@@ -53,7 +53,8 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
                 let val = document.data()
                 let lastname = val!["apellido"] as! String
                 let name = val!["nombre"] as! String
-                let avatar = val!["avatar"] as? String
+                var avatar = val!["avatar"] as? String
+                avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
                 let sex = val!["sexo"] as? String
                 //let year = val!["edad"] as? String
                 

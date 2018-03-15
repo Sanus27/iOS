@@ -28,6 +28,11 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     var LeapYearContent = 2
     var DayCounter = 0
     var highlightdate = -1
+    var dayreserv = 27
+    
+    
+    
+    
     public var idDoctor: String = ""
     
     override func viewDidLoad() {
@@ -141,7 +146,12 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         if highlightdate == indexPath.row {
-            cell.backgroundColor = UIColor.blue
+            cell.backgroundColor = UIColor.init(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
+            cell.dateLabel.textColor = UIColor.white
+        }
+        
+        if dayreserv == indexPath.row {
+            cell.backgroundColor = UIColor.init(red: 255/255, green: 98/255, blue: 0/255, alpha: 1)
             cell.dateLabel.textColor = UIColor.white
         }
         

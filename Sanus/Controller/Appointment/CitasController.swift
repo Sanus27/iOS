@@ -40,6 +40,8 @@ class CitasController: UIViewController, UITableViewDelegate, UITableViewDataSou
                     let hour = val["hora"] as? String
                     let user = val["usuario"] as? String
                     let hospital = val["hospital"] as? String
+                    var avatar = val["avatar"] as? String
+                    avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
                     let appointment = Appointment(id: id, doctor: doctor, date: date, hour: hour, hospital: hospital, user: user)
                     self.listItems.append(appointment)
                     self.table.reloadData()

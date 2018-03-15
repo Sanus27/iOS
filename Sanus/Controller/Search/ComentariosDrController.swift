@@ -186,11 +186,11 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
 
                            if let resp = resp {
                                 let valUser = resp.data()
-                                let avatar = valUser!["avatar"] as? String
+                                var avatar = valUser!["avatar"] as? String
                                 let nombre = valUser!["nombre"] as? String
                                 let apellido = valUser!["apellido"] as? String
                                 let fullname = nombre! + " " + apellido!
-                            
+                                avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
                             
                                 let comments = Comments( comment: comment, doctor: fullname, date: date, user: user, avatar: avatar, rating: rating )
                                 self.listComents.append(comments)

@@ -145,6 +145,7 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
         if pesoImg != 0.0 {
             let storage = Storage.storage().reference()
             let directorio = storage.child("avatar/\(id!)")
+            let avatar = id!
             let metaData = StorageMetadata()
             metaData.contentType = "image/png"
             directorio.putData(UIImagePNGRepresentation(imagen)!, metadata: metaData) { (data, error) in
@@ -161,9 +162,9 @@ class CompletarRegistroController: UIViewController, UIPickerViewDataSource, UIP
             }
             
             if ed != "" {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
+                campos = ["avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
             } else {
-                campos = ["avatar": String(describing: directorio), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
+                campos = ["avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
             }
             
         } else {

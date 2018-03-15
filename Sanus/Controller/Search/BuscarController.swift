@@ -51,9 +51,10 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
                                 
                                 if let resp = resp {
                                     let valUser = resp.data()
-                                    let avatar = valUser!["avatar"] as? String
+                                    var avatar = valUser!["avatar"] as? String
                                     let name = valUser!["nombre"] as? String
                                     let lastname = valUser!["apellido"] as? String
+                                    avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
                                     let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
                                     self.listFilter.append(doctor)
                                     self.listDoctors.append(doctor)
