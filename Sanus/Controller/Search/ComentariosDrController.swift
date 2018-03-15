@@ -22,6 +22,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     var showComents: String!
     var ref: DocumentReference!
     var ref2: DocumentReference!
+    var ref3: Firestore!
     var getRef: Firestore!
     var listComents = [Comments]()
     var id = ""
@@ -41,6 +42,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         id = showComents
         ref = Firestore.firestore().collection("usuarios").document(uid)
         ref2 = Firestore.firestore().collection("doctores").document(id)
+        ref3 = Firestore.firestore()
         showData()
     }
 
@@ -178,8 +180,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                    
                     
                     
-                    self.ref.collection("usuarios").document(user!)
-                    self.ref.getDocument { (resp, error) in
+                    self.ref3.collection("usuarios").document(user!).getDocument { (resp, error) in
                         if let error = error {
                             print("se ha producido un error \(error)")
                         } else {
