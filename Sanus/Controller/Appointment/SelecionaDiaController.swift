@@ -27,6 +27,7 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     var PositionIndex = 0
     var LeapYearContent = 2
     var DayCounter = 0
+    public var idDoctor: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,18 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
         if weekday == 0 {
             weekday = 7
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showData()
+    }
+    
+    func showData(){
+        let params = ParamsNewAppointment()
+        idDoctor = params.getDoctor()!
+        print("idDoctor")
+        print(idDoctor)
     }
     
     func GetStartDateDayPosition(){

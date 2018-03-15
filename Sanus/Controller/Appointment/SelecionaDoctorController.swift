@@ -13,78 +13,73 @@ import FirebaseStorage
 
 class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
+    @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var nextListener: UIButton!
-    
     private var ref:DocumentReference!
     private var getRef:Firestore!
-    private var listDoctors = [Doctor]()
+    private var listItems = [Doctor]()
     private var listFilter = [Doctor]()
     private var selected:NSNumber = 0
-    public var idHospital: String? = ""
+    public var idHospital = ""
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableData.dataSource = self
+        tableData.delegate = self
+        getRef = Firestore.firestore()
+        nextListener.isEnabled = false
+        nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableData.delegate = self
-        tableData.dataSource = self
-        getRef = Firestore.firestore()
-        self.listFilter.removeAll()
-        self.listDoctors.removeAll()
-        nextListener.isEnabled = false
-        nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
-        self.tableData.reloadData()
         showData()
-        listFilter = listDoctors
+        listFilter = listItems
     }
     
-    
-    func showData(){
-    
+    private func showData(){
+        
         let params = ParamsNewAppointment()
-        idHospital = params.getHospital()
+        idHospital = params.getHospital()!
         
         print("mostrar data")
-        print(idHospital!)
+        print(idHospital)
         
-        self.getRef.collection("doctores").whereField( "hospital", isEqualTo: idHospital! ).addSnapshotListener { (result, error) in
-                if let error = error {
-                    print("se ha producido un error \(error)")
-                } else {
-
-                    for doc in result!.documents {
-                        let id = doc.documentID
-                        let valDoc = doc.data()
-                        let specialty = valDoc["especialidad"] as? String
-
-
-                        self.ref = Firestore.firestore().collection("usuarios").document(id)
-                        self.ref.addSnapshotListener { (resp, error) in
-                            if let error = error {
-                                print("se ha producido un error \(error)")
-                            } else {
-
-                                if let resp = resp {
-                                    let valUser = resp.data()
-                                    let avatar = valUser!["avatar"] as? String
-                                    let name = valUser!["nombre"] as? String
-                                    let lastname = valUser!["apellido"] as? String
-                                    let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
-                                    self.listFilter.append(doctor)
-                                    self.listDoctors.append(doctor)
-                                    self.tableData.reloadData()
-                                }
-
+        self.getRef.collection("doctores").whereField( "hospital", isEqualTo: idHospital ).addSnapshotListener { (result, error) in
+            if let error = error {
+                print("se ha producido un error \(error)")
+            } else {
+                
+                for doc in result!.documents {
+                    let id = doc.documentID
+                    let valDoc = doc.data()
+                    let specialty = valDoc["especialidad"] as? String
+                    
+                    
+                    self.ref = Firestore.firestore().collection("usuarios").document(id)
+                    self.ref.addSnapshotListener { (resp, error) in
+                        if let error = error {
+                            print("se ha producido un error \(error)")
+                        } else {
+                            
+                            if let resp = resp {
+                                let valUser = resp.data()
+                                let avatar = valUser!["avatar"] as? String
+                                let name = valUser!["nombre"] as? String
+                                let lastname = valUser!["apellido"] as? String
+                                let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
+                                self.listFilter.append(doctor)
+                                self.listItems.append(doctor)
+                                self.tableData.reloadData()
                             }
+                            
                         }
-
                     }
+                    
                 }
+            }
         }
-        
-        
-        
         
     }
     
@@ -123,6 +118,7 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = 1
         nextListener.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
@@ -130,7 +126,9 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
         let fila = listFilter[indexPath.row]
-        print("seleccionado: \(fila)")
+        let idDoctor = fila.id!
+        let params = ParamsNewAppointment()
+        params.setDoctor( id: idDoctor)
     }
     
     
@@ -140,11 +138,11 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
         selectedCell.contentView.backgroundColor = UIColor.clear
     }
     
+    
     @IBAction func btnSearch(_ sender: UITextField) {
-        
         if txtSearch.text!.isEmpty {
             
-            listFilter = listDoctors
+            listFilter = listItems
             DispatchQueue.main.async {
                 self.tableData.reloadData()
             }
@@ -152,7 +150,7 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
             
         } else {
             
-            listFilter = listDoctors.filter({ ( doctor ) -> Bool in
+            listFilter = listItems.filter({ ( doctor ) -> Bool in
                 doctor.specialty!.lowercased().contains(txtSearch.text!.lowercased())
             })
             DispatchQueue.main.async {
@@ -161,9 +159,8 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
             return
             
         }
-        
-        
     }
+    
     
     @IBAction func btnPreview(_ sender: UIButton) {
         let next = parent as? PaginacionCitasController

@@ -32,6 +32,7 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
         listFilter = listItems
     }
     
+
     private func showData(){
         
         self.getRef.collection("hospitales").addSnapshotListener { (result, error) in
