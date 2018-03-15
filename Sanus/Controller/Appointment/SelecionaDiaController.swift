@@ -13,6 +13,8 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
 
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var Calendar: UICollectionView!
+    @IBOutlet weak var listenerNext: UIButton!
+    
     
     let Months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
     let DaysOfMonth = [ "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" ]
@@ -28,6 +30,8 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        listenerNext.isEnabled = false
+        listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
         currentMonth = Months[month]
         labelMonth.text = "\(currentMonth) \(year)"
         GetStartDateDayPosition()
@@ -118,7 +122,7 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         if currentMonth == Months[calendar.component( .month, from: date ) - 1] && year == calendar.component( .year, from: date ) && indexPath.row - 2 == day {
-            cell.backgroundColor = UIColor.red
+            cell.backgroundColor = UIColor.gray
             cell.dateLabel.textColor = UIColor.white
         }
         
