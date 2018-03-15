@@ -3262,7 +3262,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iw2-sy-mex">
                                                     <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="6ao-in-83f"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="6ao-in-83f"/>
                                                         <constraint firstAttribute="height" constant="35" id="Tg8-6h-tJq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
