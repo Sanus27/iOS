@@ -166,7 +166,6 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func btnPreview(_ sender: UIButton) {
-        UserDefaults.standard.removeObject(forKey: "idHospital")
         let next = parent as? PaginacionCitasController
         next?.previewView(index: 1)
     }

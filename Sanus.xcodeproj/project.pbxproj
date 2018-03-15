@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A01D6774205085450025987C /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6773205085450025987C /* Hospitals.swift */; };
 		A01D6776205087990025987C /* HospitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6775205087990025987C /* HospitalCell.swift */; };
+		A0263D932059780400A778B1 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0263D922059780400A778B1 /* JTAppleCalendar.framework */; };
+		A0263D9620597C0A00A778B1 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0263D9520597C0A00A778B1 /* CalendarCell.swift */; };
+		A0263D9820597D2C00A778B1 /* CalendarVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0263D9720597D2C00A778B1 /* CalendarVariables.swift */; };
 		A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */; };
 		A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */; };
 		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
@@ -53,6 +56,9 @@
 		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
 		A01D6773205085450025987C /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
 		A01D6775205087990025987C /* HospitalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCell.swift; sourceTree = "<group>"; };
+		A0263D922059780400A778B1 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
+		A0263D9520597C0A00A778B1 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		A0263D9720597D2C00A778B1 /* CalendarVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVariables.swift; sourceTree = "<group>"; };
 		A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorMedicalCell.swift; sourceTree = "<group>"; };
 		A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrCell.swift; sourceTree = "<group>"; };
 		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F06181F8B7F8FDE789097BFA /* Pods_Sanus.framework in Frameworks */,
+				A0263D932059780400A778B1 /* JTAppleCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +125,7 @@
 		91E29BD572C67E8F9ABCD045 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0263D922059780400A778B1 /* JTAppleCalendar.framework */,
 				D8484398106A8DE2914F5D92 /* Pods_Sanus.framework */,
 			);
 			name = Frameworks;
@@ -295,6 +303,7 @@
 				A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */,
 				A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */,
 				A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */,
+				A0263D9520597C0A00A778B1 /* CalendarCell.swift */,
 			);
 			path = Appointment;
 			sourceTree = "<group>";
@@ -340,6 +349,7 @@
 				A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */,
 				A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */,
 				A05AEB37202AD66C00F0D343 /* Appointment.swift */,
+				A0263D9720597D2C00A778B1 /* CalendarVariables.swift */,
 			);
 			path = Appointment;
 			sourceTree = "<group>";
@@ -424,6 +434,7 @@
 				A082457A202A9FAB00543AD0 /* Resources */,
 				E7435C356A04B9726489ACD8 /* [CP] Embed Pods Frameworks */,
 				7542EEF42C9DEADFD9C6AF1A /* [CP] Copy Pods Resources */,
+				A0263D942059783700A778B1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -516,6 +527,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A0263D942059783700A778B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		E7435C356A04B9726489ACD8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,10 +609,12 @@
 				A0FFAB292054F98B00D956BF /* loginModel.swift in Sources */,
 				A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */,
 				A01D6776205087990025987C /* HospitalCell.swift in Sources */,
+				A0263D9820597D2C00A778B1 /* CalendarVariables.swift in Sources */,
 				A0E1388020579FEB0019EEA8 /* SettingProfileController.swift in Sources */,
 				A01D6774205085450025987C /* Hospitals.swift in Sources */,
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
 				A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */,
+				A0263D9620597C0A00A778B1 /* CalendarCell.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* PlaticasController.swift in Sources */,
 				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,
 				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,
@@ -732,6 +759,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y99AD5GLT5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Sanus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -749,6 +780,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y99AD5GLT5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Sanus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

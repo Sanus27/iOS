@@ -7,21 +7,181 @@
 //
 
 import UIKit
+import JTAppleCalendar
 
-class SelecionaDiaController: UIViewController{
+class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var labelMonth: UILabel!
+    @IBOutlet weak var Calendar: UICollectionView!
+    
+    let Months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
+    let DaysOfMonth = [ "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" ]
+    var DaysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
+    var currentMonth = String()
+    var NumberOfEmptyBox = Int()
+    var NextNumberOfEmptyBox = Int()
+    var PreviousNumberOfEmptyBox = 0
+    var Direction = 0
+    var PositionIndex = 0
+    var LeapYearContent = 2
+    var DayCounter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        currentMonth = Months[month]
+        labelMonth.text = "\(currentMonth) \(year)"
+        GetStartDateDayPosition()
+        if weekday == 0 {
+            weekday = 7
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func GetStartDateDayPosition(){
+        switch Direction {
+        case 0:
+            NumberOfEmptyBox = weekday
+            DayCounter = day
+            while DayCounter > 0 {
+                NumberOfEmptyBox = NumberOfEmptyBox - 1
+                DayCounter = DayCounter - 1
+                if NumberOfEmptyBox == 0{
+                    NumberOfEmptyBox = 7
+                }
+            }
+            if NumberOfEmptyBox == 7 {
+                NumberOfEmptyBox = 0
+            }
+            PositionIndex = NumberOfEmptyBox
+        case 1...:
+            NextNumberOfEmptyBox = (PositionIndex + DaysInMonths[month])%7
+            PositionIndex = NextNumberOfEmptyBox
+        case -1:
+            PreviousNumberOfEmptyBox = ( 7 - ( DaysInMonths[month] - PositionIndex )%7 )
+            if PreviousNumberOfEmptyBox == 7 {
+                PreviousNumberOfEmptyBox = 0
+            }
+            PositionIndex = PreviousNumberOfEmptyBox
+        default:
+            fatalError()
+        }
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch Direction {
+        case 0:
+            return DaysInMonths[month] + NumberOfEmptyBox
+        case 1...:
+            return DaysInMonths[month] + NextNumberOfEmptyBox
+        case -1:
+            return DaysInMonths[month] + PreviousNumberOfEmptyBox
+        default:
+            fatalError()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath ) as! CalendarCell
+        cell.backgroundColor = UIColor.clear
+        
+        cell.dateLabel.textColor = UIColor.black
+        
+        if cell.isHidden {
+            cell.isHidden = false
+        }
+        
+        switch Direction {
+        case 0:
+            cell.dateLabel.text = "\(indexPath.row + 1 - NumberOfEmptyBox )"
+        case 1:
+            cell.dateLabel.text = "\(indexPath.row + 1 - NextNumberOfEmptyBox )"
+        case -1:
+            cell.dateLabel.text = "\(indexPath.row + 1 - PreviousNumberOfEmptyBox )"
+        default:
+            fatalError()
+        }
+        
+        //OCULTAR DIAS DEL MES ANTERIOR
+        if Int(cell.dateLabel.text!)! < 1 {
+            cell.isHidden = true
+        }
+        
+        switch indexPath.row {
+        case 5,6,12,13,19,20,26,27,33,34:
+            if Int(cell.dateLabel.text!)! > 0 {
+                cell.dateLabel.textColor = UIColor.lightGray
+            }
+        default:
+            break
+        }
+        
+        if currentMonth == Months[calendar.component( .month, from: date ) - 1] && year == calendar.component( .year, from: date ) && indexPath.row + 1 == day {
+            cell.backgroundColor = UIColor.red
+        }
+        
+        
+        return cell
+    }
+    
+    @IBAction func nextMonth(_ sender: UIButton) {
+        switch currentMonth {
+        case "Diciembre":
+            month = 0
+            year += 1
+            Direction = 1
+            if LeapYearContent < 5 {
+                LeapYearContent += 1
+            }
+            if LeapYearContent == 4 {
+                DaysInMonths[1] = 29
+            }
+            if LeapYearContent == 5 {
+                LeapYearContent = 1
+                DaysInMonths[1] = 28
+            }
+            GetStartDateDayPosition()
+            currentMonth = Months[month]
+            labelMonth.text = "\(currentMonth) \(year)"
+            Calendar.reloadData()
+        default:
+            Direction = 1
+            GetStartDateDayPosition()
+            month += 1
+            currentMonth = Months[month]
+            labelMonth.text = "\(currentMonth) \(year)"
+            Calendar.reloadData()
+        }
+    }
+    
+    @IBAction func previewMonth(_ sender: UIButton) {
+        switch currentMonth {
+        case "Enero":
+            month = 11
+            year -= 1
+            Direction = -1
+            if LeapYearContent > 0 {
+                LeapYearContent -= 1
+            }
+            if LeapYearContent == 0 {
+                DaysInMonths[1] = 29
+                LeapYearContent = 4
+            } else {
+                DaysInMonths[1] = 28
+            }
+            GetStartDateDayPosition()
+            currentMonth = Months[month]
+            labelMonth.text = "\(currentMonth) \(year)"
+            Calendar.reloadData()
+        default:
+            month -= 1
+            Direction = -1
+            GetStartDateDayPosition()
+            currentMonth = Months[month]
+            labelMonth.text = "\(currentMonth) \(year)"
+            Calendar.reloadData()
+        }
+    }
+    
+    
     @IBAction func btnPreview(_ sender: UIButton) {
         let preview = parent as? PaginacionCitasController
         preview?.previewView(index: 2)
@@ -35,15 +195,5 @@ class SelecionaDiaController: UIViewController{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 
 }
