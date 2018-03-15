@@ -303,7 +303,6 @@
 				A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */,
 				A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */,
 				A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */,
-				A0263D9520597C0A00A778B1 /* CalendarCell.swift */,
 			);
 			path = Appointment;
 			sourceTree = "<group>";
@@ -350,6 +349,7 @@
 				A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */,
 				A05AEB37202AD66C00F0D343 /* Appointment.swift */,
 				A0263D9720597D2C00A778B1 /* CalendarVariables.swift */,
+				A0263D9520597C0A00A778B1 /* CalendarCell.swift */,
 			);
 			path = Appointment;
 			sourceTree = "<group>";

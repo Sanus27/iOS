@@ -3242,15 +3242,29 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="sEP-oS-jg0" customClass="CalendarCell" customModule="Sanus" customModuleProvider="target">
+                                    <collectionViewCell hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="sEP-oS-jg0" customClass="CalendarCell" customModule="Sanus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xh2-Ym-3tV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="17.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iw2-sy-mex">
                                                     <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="6ao-in-83f"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Tg8-6h-tJq"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3258,13 +3272,14 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Iw2-sy-mex" firstAttribute="leading" secondItem="sEP-oS-jg0" secondAttribute="leading" id="8tL-sn-aUE"/>
-                                            <constraint firstAttribute="bottom" secondItem="Iw2-sy-mex" secondAttribute="bottom" id="sbf-Dg-rNl"/>
-                                            <constraint firstItem="Iw2-sy-mex" firstAttribute="top" secondItem="sEP-oS-jg0" secondAttribute="top" id="tpD-d2-ayU"/>
-                                            <constraint firstAttribute="trailing" secondItem="Iw2-sy-mex" secondAttribute="trailing" id="uNo-vd-T3Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="Iw2-sy-mex" secondAttribute="trailing" id="glT-z0-Jkw"/>
+                                            <constraint firstItem="Iw2-sy-mex" firstAttribute="leading" secondItem="sEP-oS-jg0" secondAttribute="leading" id="hRh-JZ-9Xc"/>
+                                            <constraint firstItem="Iw2-sy-mex" firstAttribute="top" secondItem="sEP-oS-jg0" secondAttribute="top" id="oL6-iM-mOw"/>
+                                            <constraint firstAttribute="bottom" secondItem="Iw2-sy-mex" secondAttribute="bottom" id="wp6-nM-d5D"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="Iw2-sy-mex" id="AT3-5i-wEe"/>
+                                            <outlet property="selectedView" destination="Xh2-Ym-3tV" id="kLD-pm-ZWL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

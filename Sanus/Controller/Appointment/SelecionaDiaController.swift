@@ -15,7 +15,7 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var listenerNext: UIButton!
     
-    
+    private var selected:NSNumber = 0
     let Months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
     let DaysOfMonth = [ "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" ]
     var DaysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
@@ -27,6 +27,7 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     var PositionIndex = 0
     var LeapYearContent = 2
     var DayCounter = 0
+    var highlightdate = -1
     public var idDoctor: String = ""
     
     override func viewDidLoad() {
@@ -134,16 +135,29 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
             break
         }
         
-        if currentMonth == Months[calendar.component( .month, from: date ) - 1] && year == calendar.component( .year, from: date ) && indexPath.row - 2 == day {
+        if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == day{
             cell.backgroundColor = UIColor.gray
             cell.dateLabel.textColor = UIColor.white
         }
         
+        if highlightdate == indexPath.row {
+            cell.backgroundColor = UIColor.blue
+            cell.dateLabel.textColor = UIColor.white
+        }
         
         return cell
     }
     
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dateString: String = "\(indexPath.row - PositionIndex + 1) \(currentMonth) \(year)"
+        print(dateString)
+        highlightdate = indexPath.row
+        collectionView.reloadData()
+    }
+    
     @IBAction func nextMonth(_ sender: UIButton) {
+        highlightdate = -1
         switch currentMonth {
         case "Diciembre":
             month = 0
@@ -174,6 +188,7 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func previewMonth(_ sender: UIButton) {
+        highlightdate = -1
         switch currentMonth {
         case "Enero":
             month = 11
