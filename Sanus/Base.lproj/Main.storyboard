@@ -2723,26 +2723,31 @@
                                 <rect key="frame" x="0.0" y="198" width="320" height="370"/>
                                 <color key="backgroundColor" red="0.9648237824" green="0.96952837709999995" blue="0.98356288670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="106" id="Jtd-Pc-Aew">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="106" id="Jtd-Pc-Aew">
                                         <rect key="frame" x="0.0" y="28" width="320" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jtd-Pc-Aew" id="5Ff-YJ-Tln">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="105.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="slj-gd-N1R">
-                                                    <rect key="frame" x="40" y="22" width="240" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slj-gd-N1R">
+                                                    <rect key="frame" x="27" y="22" width="266" height="60"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlT-Fp-p7l">
-                                                            <rect key="frame" x="13" y="15" width="42" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De: 7:00 am A: 8:00 am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlT-Fp-p7l">
+                                                            <rect key="frame" x="43" y="20" width="181" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="jlT-Fp-p7l" firstAttribute="top" secondItem="slj-gd-N1R" secondAttribute="top" constant="20" id="1mW-7b-Ado"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jlT-Fp-p7l" secondAttribute="bottom" constant="19" id="3wL-bL-Ybd"/>
+                                                        <constraint firstAttribute="height" constant="60" id="bGX-Jq-bx8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="jlT-Fp-p7l" secondAttribute="trailing" constant="42" id="sXt-Ss-QxV"/>
+                                                        <constraint firstItem="jlT-Fp-p7l" firstAttribute="leading" secondItem="slj-gd-N1R" secondAttribute="leading" constant="43" id="tGI-Ys-Bfd"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                                             <integer key="value" value="1"/>
@@ -2754,6 +2759,12 @@
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.9648237824" green="0.96952837709999995" blue="0.98356288670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="slj-gd-N1R" firstAttribute="leading" secondItem="5Ff-YJ-Tln" secondAttribute="leading" constant="27" id="2tE-hS-iW1"/>
+                                                <constraint firstItem="slj-gd-N1R" firstAttribute="top" secondItem="5Ff-YJ-Tln" secondAttribute="top" constant="22" id="XDV-A6-q30"/>
+                                                <constraint firstAttribute="trailing" secondItem="slj-gd-N1R" secondAttribute="trailing" constant="27" id="fcj-RD-nTy"/>
+                                                <constraint firstAttribute="bottom" secondItem="slj-gd-N1R" secondAttribute="bottom" constant="23.5" id="nGo-mn-sRX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -2800,10 +2811,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jg6-Ga-NTY"/>
                     </view>
+                    <connections>
+                        <outlet property="listenerNext" destination="jDs-Jr-7Yd" id="Vfq-ee-hal"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ka8-dj-VVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7805.625" y="2230.9859154929577"/>
+            <point key="canvasLocation" x="-7830" y="2231"/>
         </scene>
         <!--Agregar Cita Controller-->
         <scene sceneID="PFY-FK-1Ug">
@@ -3305,7 +3319,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disponible" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-dn-Ojp">
                                 <rect key="frame" x="80" y="513" width="160" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ocupado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xst-Lf-ElS">

@@ -29,10 +29,6 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     var DayCounter = 0
     var highlightdate = -1
     var dayreserv = 27
-    
-    
-    
-    
     public var idDoctor: String = ""
     
     override func viewDidLoad() {
@@ -160,9 +156,12 @@ class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UIColl
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        listenerNext.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+        listenerNext.isEnabled = true
         let dateString: String = "\(indexPath.row - PositionIndex + 1) \(currentMonth) \(year)"
-        print(dateString)
         highlightdate = indexPath.row
+        let params = ParamsNewAppointment()
+        params.setCalendar( date: dateString )
         collectionView.reloadData()
     }
     
