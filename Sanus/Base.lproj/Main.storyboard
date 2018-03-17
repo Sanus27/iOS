@@ -1905,6 +1905,7 @@
                         <outlet property="keyboardHeightLayoutConstraint" destination="Xnn-Z1-acC" id="91r-Na-w2O"/>
                         <outlet property="load" destination="3md-GK-R0u" id="FuG-Gb-wEx"/>
                         <outlet property="txtComents" destination="9Kn-0L-ePD" id="ZTK-rD-gaw"/>
+                        <outlet property="txtMensaje" destination="WRd-TD-HtQ" id="UoU-Fk-d8X"/>
                         <outletCollection property="collectionStar" destination="Nej-EJ-ein" collectionClass="NSMutableArray" id="pn7-5q-blK"/>
                         <outletCollection property="collectionStar" destination="jXT-Hc-wga" collectionClass="NSMutableArray" id="lvZ-fH-Sae"/>
                         <outletCollection property="collectionStar" destination="4OQ-PG-c3S" collectionClass="NSMutableArray" id="qZK-8x-8Fs"/>
@@ -3791,7 +3792,7 @@
         <segue reference="RDV-8D-BlE"/>
         <segue reference="u9q-Ce-3yM"/>
         <segue reference="rTW-iU-iRt"/>
-        <segue reference="A9J-a0-IhT"/>
+        <segue reference="lsY-y0-mY7"/>
         <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
 </document>

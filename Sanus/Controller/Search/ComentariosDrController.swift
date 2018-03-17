@@ -19,6 +19,8 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     @IBOutlet weak var btnComentEditing: UIButton!
     @IBOutlet weak var txtComents: UITextField!
+    @IBOutlet weak var txtMensaje: UIView!
+    
     var showComents: String!
     var ref: DocumentReference!
     var ref2: DocumentReference!
@@ -29,8 +31,10 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     var uid = ""
     var calif = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.txtMensaje.isHidden = true
         dataTable.delegate = self
         dataTable.dataSource = self
         txtComents.delegate = self
@@ -43,6 +47,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         ref = Firestore.firestore().collection("usuarios").document(uid)
         ref2 = Firestore.firestore().collection("doctores").document(id)
         ref3 = Firestore.firestore()
+        isDoctor()
         showData()
     }
 
@@ -283,6 +288,28 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBAction func btnAtras(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    public func isDoctor()  {
+        
+        let id = (Auth.auth().currentUser?.uid)!
+        ref = Firestore.firestore().collection("usuarios").document( id )
+        ref.getDocument { (document, error) in
+            
+            if let document = document {
+                let exist = document.data()
+                let typeData = exist!["tipo"] as? String
+                if typeData! == "Medico" {
+                    self.txtMensaje.isHidden = true
+                }
+                if typeData! == "Paciente" {
+                    self.txtMensaje.isHidden = false
+                }
+            }
+            
+            
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
