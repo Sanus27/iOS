@@ -20,20 +20,29 @@ class loginModel {
         let id = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document( id )
         ref.getDocument { (document, error) in
-            
+
             if let document = document {
+                
                 let exist = document.data()
-                    if exist != nil {
-                        this.performSegue(withIdentifier: "login", sender: this )
-                    } else {
-                        this.performSegue(withIdentifier: "completeUser", sender: this )
+                let typeData = exist!["tipo"] as? String
+                if exist != nil {
+                    if typeData! == "Medico" {
+                        this.performSegue(withIdentifier: "doctor", sender: this )
                     }
+                    if typeData! == "Paciente" {
+                        this.performSegue(withIdentifier: "login", sender: this )
+                    }
+                    this.performSegue(withIdentifier: "login", sender: this )
+                } else {
+                    this.performSegue(withIdentifier: "completeUser", sender: this )
+                }
+                
             }
-            
-            
+
+
         }
     }
-    
+
     //LOGIN
     public func startLogin(txtEmail: String, txtPassword: String, completionHandler: @escaping ((String) -> Void)) {
         Auth.auth().signIn( withEmail: txtEmail, password: txtPassword ) { ( user, error ) in

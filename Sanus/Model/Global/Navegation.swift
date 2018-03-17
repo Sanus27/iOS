@@ -46,9 +46,16 @@ class Navegation: UINavigationController {
             
             if let document = document {
                 let exist = document.data()
+                let typeData = exist!["tipo"] as? String
                 if exist != nil {
-                    let inicio = self.setStory(name: "loginTrue")
-                    self.present(inicio, animated: true, completion: nil )
+                    if typeData! == "Medico" {
+                        let inicio = self.setStory(name: "loginTrueDoctor")
+                        self.present(inicio, animated: true, completion: nil )
+                    }
+                    if typeData! == "Paciente" {
+                        let inicio = self.setStory(name: "loginTrue")
+                        self.present(inicio, animated: true, completion: nil )
+                    }
                 } else {
                     let register = self.setStory(name: "completeRegister")
                     self.present(register, animated: true, completion: nil)

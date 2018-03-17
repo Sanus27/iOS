@@ -20,6 +20,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     var valdP:Bool = false;
     var ref: DocumentReference!
     private let login = loginModel()
+    private let nav = Navegation()
     private let alert = Alerts()
     override func loadView() {
         super.loadView()

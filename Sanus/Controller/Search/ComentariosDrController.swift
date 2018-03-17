@@ -65,6 +65,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         if txtComents.text != "" {
             load.startAnimating()
             let date = Date()
+            let hours = date.timeIntervalSinceNow
             let formater = DateFormatter()
             formater.dateStyle = .short
             formater.timeStyle = .none
@@ -75,7 +76,8 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 "doctor": id,
                 "comentario": txtComents.text!,
                 "fecha": valDate,
-                "calificacion": cal
+                "calificacion": cal,
+                "hora": hours
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
