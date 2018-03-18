@@ -21,6 +21,8 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var listenerReturn: UIButton!
     @IBOutlet weak var load: UIActivityIndicatorView!
     
+    private var model = SettingProfileModel()
+    private var alert = Alerts()
     private var ref:DocumentReference!
     private var sexx:Int = 27
     private var imagen = UIImage()
@@ -48,18 +50,19 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     private func dataUser(){
-        ref.getDocument { (document, error) in
-            if let document = document {
-                let val = document.data()
-                let lastname = val!["apellido"] as! String
-                let name = val!["nombre"] as! String
-                var avatar = val!["avatar"] as? String
-                avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
-                let sex = val!["sexo"] as? String
-                //let year = val!["edad"] as? String
+        self.model.dataUser(this: self, completionHandler: { resp in
+            let displayError:Bool = resp["display-error"]! as! Bool
+            if displayError {
+                self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Intentalo mas tarde", actionAlert: nil )
+            } else {
+                let avatar: String? = resp["avatar"] as? String
+                let lastname: String = resp["apellido"] as! String
+                let name: String = resp["nombre"] as! String
+                let sex: String = resp["sex"] as! String
+                //let year: String = resp["year"] as! String
                 
                 if avatar != nil {
-                    Storage.storage().reference(forURL: avatar!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                    Storage.storage().reference( forURL: avatar! ).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
                         if let error = error?.localizedDescription {
                             print("fallo al traer imagenes", error)
                         } else {
@@ -80,15 +83,16 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
                 if sex == "Masculino" {
                     self.sexx = 0
                 }
-                
+
                 self.listenerName.text = name
                 self.listenerLastname.text = lastname
                 self.listenerSex.selectedSegmentIndex  = self.sexx
                 self.listenerYear.selectRow( self.miyear , inComponent: 0, animated: true)
-                
+
                 
             }
-        }
+            
+        })
 
     }
 
