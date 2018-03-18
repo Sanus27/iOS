@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7397" y="610"/>
+            <point key="canvasLocation" x="-7734" y="610"/>
         </scene>
         <!--Mi Perfil-->
         <scene sceneID="jZv-Tx-SUe">
@@ -776,10 +776,10 @@
             </objects>
             <point key="canvasLocation" x="-2929" y="-1058"/>
         </scene>
-        <!--Crear Cuenta Controller-->
+        <!--Create User Controller-->
         <scene sceneID="Bd2-T5-dAI">
             <objects>
-                <viewController id="x7J-4y-sX1" customClass="CrearCuentaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x7J-4y-sX1" customClass="CreateUserController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gLc-3l-t2z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2533,10 +2533,10 @@
             </objects>
             <point key="canvasLocation" x="2426" y="1494"/>
         </scene>
-        <!--Completar Registro Controller-->
+        <!--Complete User Controller-->
         <scene sceneID="Kiz-mv-8eA">
             <objects>
-                <viewController restorationIdentifier="completeRegister" storyboardIdentifier="completeRegister" id="Ywo-PO-xUm" customClass="CompletarRegistroController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="completeRegister" storyboardIdentifier="completeRegister" id="Ywo-PO-xUm" customClass="CompleteUserController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vDi-UU-WWs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2775,6 +2775,7 @@
                         <outlet property="txtApellido" destination="WTt-We-Ctw" id="XM8-MN-cAO"/>
                         <outlet property="txtNombre" destination="eq8-1A-dar" id="UVQ-xe-ood"/>
                         <segue destination="rL1-kQ-2gn" kind="show" identifier="goBuscador" id="n5x-9v-mmc"/>
+                        <segue destination="gj5-Wv-cLk" kind="show" identifier="completeLoginFalse" id="diq-QS-6Nw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ocz-E4-hQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3791,8 +3792,8 @@
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="u9q-Ce-3yM"/>
-        <segue reference="rTW-iU-iRt"/>
-        <segue reference="lsY-y0-mY7"/>
-        <segue reference="OAs-o2-dOy"/>
+        <segue reference="Ol0-Jl-lhK"/>
+        <segue reference="A9J-a0-IhT"/>
+        <segue reference="diq-QS-6Nw"/>
     </inferredMetricsTieBreakers>
 </document>
