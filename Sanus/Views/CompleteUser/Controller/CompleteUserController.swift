@@ -65,16 +65,6 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
         return mainStoryBoard.instantiateViewController(withIdentifier: name)
     }
     
-//    public func signOff(){
-//        let firebaseAuth = Auth.auth()
-//        do {
-//            try firebaseAuth.signOut()
-//            let inicio = self.setStory(name: "loginFalse")
-//            self.present(inicio, animated: true, completion: nil)
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-//    }
     
     func setYears(){
         for i in 2...99 {
@@ -144,31 +134,17 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
         if sexo.selectedSegmentIndex == 0 { sex = "Masculino" } else { sex = "Femenino" }
         //subir imagen
         if pesoImg != 0.0 {
-            let storage = Storage.storage().reference()
-            let directorio = storage.child("avatar/\(id!)")
             let avatar = id!
             let metaData = StorageMetadata()
             metaData.contentType = "image/png"
-//            self.model.uploadPicture( imagen: imagen, metaData: metaData, completionHandler: { resp in
-//                if resp == "success" {
-//                    print("cargo la imagen")
-//                    self.load.stopAnimating()
-//                } else {
-//                    print("Error al subir imagen", resp)
-//                }
-//            })
-            directorio.putData(UIImagePNGRepresentation(imagen)!, metadata: metaData) { (data, error) in
-                if error == nil {
+            self.model.uploadPicture( id: id!, imagen: imagen, metaData: metaData, completionHandler: { resp in
+                if resp == "success" {
                     print("cargo la imagen")
                     self.load.stopAnimating()
                 } else {
-                    if let error = error?.localizedDescription {
-                        print("Error al subir imagen", error)
-                    } else {
-
-                    }
+                    print("Error al subir imagen", resp)
                 }
-            }
+            })
             
             if ed != "" {
                 campos = ["avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
@@ -194,16 +170,6 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
             }
         })
         
-        
-//        ref = Firestore.firestore().collection("usuarios").document(id!)
-//        ref.setData(campos) { (error) in
-//            if let error = error?.localizedDescription {
-//                print("fallo al actualizar", error)
-//                
-//            } else {
-//                
-//            }
-//        }
     }
     
     
