@@ -122,6 +122,35 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         }
     }
     
+    
+    
+    @IBAction func btnSendMessage(_ sender: UIButton) {
+  
+            let date = Date()
+            let hours = date.timeIntervalSinceNow
+            let formater = DateFormatter()
+            formater.dateStyle = .short
+            formater.timeStyle = .none
+            let valDate = formater.string(from: date)
+            let usuario: String = self.uid!
+            self.ref = Firestore.firestore().collection("comentarios").addDocument(data: [
+                "autor": self.uid!,
+                "doctor": self.idDoctor!,
+                "fecha": String(valDate),
+                "hora": String(hours),
+                "mensaje": listenerTextMessage.text!,
+                "usuario": self.uid!
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("enviado")
+                }
+            }
+            
+        
+    }
+    
     @IBAction func btnBack(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

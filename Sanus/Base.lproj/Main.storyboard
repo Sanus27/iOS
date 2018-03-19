@@ -1982,6 +1982,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="btnNewComent:" destination="mpV-Hq-gx8" eventType="touchUpInside" id="4Wg-RI-MYf"/>
+                                            <action selector="btnSendMessage:" destination="WXW-pW-XBY" eventType="touchUpInside" id="Bd4-qj-tgn"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRu-yq-NnT">
@@ -3907,9 +3908,9 @@
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="jHR-2G-OTv"/>
-        <segue reference="ax6-Jm-EKh"/>
+        <segue reference="DgE-5p-x6P"/>
         <segue reference="Ol0-Jl-lhK"/>
-        <segue reference="A9J-a0-IhT"/>
+        <segue reference="lsY-y0-mY7"/>
         <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
 </document>
