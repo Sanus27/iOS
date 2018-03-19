@@ -1992,6 +1992,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="listenerMessengerChange:" destination="WXW-pW-XBY" eventType="editingChanged" id="tgy-XR-s0e"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2120,6 +2123,8 @@
                     </view>
                     <connections>
                         <outlet property="keyboardHeightLayoutConstraint" destination="m1j-tg-NCc" id="kbN-y4-paA"/>
+                        <outlet property="listenerSendMessage" destination="4OQ-Ta-Tc2" id="HHT-7u-pF9"/>
+                        <outlet property="listenerTextMessage" destination="aRu-yq-NnT" id="3EB-xW-lUl"/>
                         <outlet property="navbar" destination="jht-0t-mkE" id="ZTe-e8-5Jq"/>
                         <outlet property="tableData" destination="mdi-zG-Gqk" id="KCc-xv-zHG"/>
                     </connections>

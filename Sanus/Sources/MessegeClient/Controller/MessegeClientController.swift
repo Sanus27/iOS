@@ -11,6 +11,8 @@ import Firebase
 
 class MessegeClientController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var listenerTextMessage: UITextField!
+    @IBOutlet weak var listenerSendMessage: UIButton!
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
@@ -29,8 +31,21 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         self.idDoctor = showMessenger
         self.uid = Auth.auth().currentUser?.uid
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        listenerSendMessage.isEnabled = true;
+        listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
         showData()
         showInfoMessage()
+    }
+    
+    
+    @IBAction func listenerMessengerChange(_ sender: UITextField) {
+        if (listenerTextMessage.text?.isEmpty)! {
+            listenerSendMessage.isEnabled = true;
+            listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        } else {
+            listenerSendMessage.isEnabled = false;
+            listenerSendMessage.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+        }
     }
     
     public func showInfoMessage(){
