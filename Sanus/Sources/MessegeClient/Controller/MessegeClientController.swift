@@ -11,6 +11,7 @@ import Firebase
 
 class MessegeClientController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     var listItems = [Message]()
@@ -27,8 +28,21 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         getRef = Firestore.firestore()
         self.idDoctor = showMessenger
         self.uid = Auth.auth().currentUser?.uid
-        showData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        showData()
+        showInfoMessage()
+    }
+    
+    public func showInfoMessage(){
+        ref = Firestore.firestore().collection("usuarios").document( self.idDoctor! )
+        ref.addSnapshotListener { (document, error) in
+            if let document = document {
+                let val = document.data()
+                let name = val!["nombre"] as! String
+                let lastname = val!["apellido"] as! String
+                self.navbar.title = name + " " + lastname
+            }
+        }
     }
     
     public func showData(){

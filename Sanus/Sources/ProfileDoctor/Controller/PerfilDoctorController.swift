@@ -148,6 +148,14 @@ class PerfilDoctorController: UIViewController {
             let destiny = segue.destination as! ComentariosDrController
             destiny.showComents = id
         }
+        if segue.identifier == "goMessengePacient" {
+            let destiny = segue.destination as! MessegeClientController
+            destiny.showMessenger = id
+        }
+    }
+    
+    @IBAction func btnNewChat(_ sender: UIButton) {
+        performSegue(withIdentifier: "goMessengePacient", sender: self)
     }
     
     @IBAction func btnComents(_ sender: UIButton) {
