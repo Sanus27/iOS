@@ -1997,9 +1997,14 @@
                                             <action selector="listenerMessengerChange:" destination="WXW-pW-XBY" eventType="editingChanged" id="tgy-XR-s0e"/>
                                         </connections>
                                     </textField>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DMa-OB-F1S">
+                                        <rect key="frame" x="268" y="14" width="20" height="20"/>
+                                        <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="DMa-OB-F1S" secondAttribute="bottom" constant="14" id="9Zk-HP-ajx"/>
                                     <constraint firstItem="4OQ-Ta-Tc2" firstAttribute="leading" secondItem="aRu-yq-NnT" secondAttribute="trailing" constant="9" id="E5y-gu-Mio"/>
                                     <constraint firstItem="aRu-yq-NnT" firstAttribute="top" secondItem="Iq8-sR-3pF" secondAttribute="top" constant="9" id="JpR-rM-ewG"/>
                                     <constraint firstAttribute="bottom" secondItem="4OQ-Ta-Tc2" secondAttribute="bottom" constant="9" id="KZl-xA-jfz"/>
@@ -2008,7 +2013,9 @@
                                     <constraint firstItem="aRu-yq-NnT" firstAttribute="leading" secondItem="Iq8-sR-3pF" secondAttribute="leading" constant="27" id="Xdu-bn-I7m"/>
                                     <constraint firstItem="aRu-yq-NnT" firstAttribute="top" secondItem="Iq8-sR-3pF" secondAttribute="top" constant="9" id="cl9-Ya-Nh4"/>
                                     <constraint firstItem="4OQ-Ta-Tc2" firstAttribute="top" secondItem="Iq8-sR-3pF" secondAttribute="top" constant="9" id="j1f-fA-Uol"/>
+                                    <constraint firstAttribute="trailing" secondItem="DMa-OB-F1S" secondAttribute="trailing" constant="32" id="qU8-t2-P1D"/>
                                     <constraint firstAttribute="trailing" secondItem="4OQ-Ta-Tc2" secondAttribute="trailing" constant="27" id="wAw-wj-0Bt"/>
+                                    <constraint firstItem="DMa-OB-F1S" firstAttribute="top" secondItem="Iq8-sR-3pF" secondAttribute="top" constant="14" id="ySS-9E-MNj"/>
                                     <constraint firstAttribute="height" constant="48" id="z4k-NV-4ZQ"/>
                                 </constraints>
                             </view>
@@ -2126,6 +2133,7 @@
                         <outlet property="keyboardHeightLayoutConstraint" destination="m1j-tg-NCc" id="kbN-y4-paA"/>
                         <outlet property="listenerSendMessage" destination="4OQ-Ta-Tc2" id="HHT-7u-pF9"/>
                         <outlet property="listenerTextMessage" destination="aRu-yq-NnT" id="3EB-xW-lUl"/>
+                        <outlet property="load" destination="DMa-OB-F1S" id="42Z-Cr-Ny7"/>
                         <outlet property="navbar" destination="jht-0t-mkE" id="ZTe-e8-5Jq"/>
                         <outlet property="tableData" destination="mdi-zG-Gqk" id="KCc-xv-zHG"/>
                     </connections>

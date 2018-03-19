@@ -11,6 +11,7 @@ import Firebase
 
 class MessegeClientController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet weak var listenerTextMessage: UITextField!
     @IBOutlet weak var listenerSendMessage: UIButton!
     @IBOutlet weak var navbar: UINavigationItem!
@@ -126,6 +127,9 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     @IBAction func btnSendMessage(_ sender: UIButton) {
   
+            listenerSendMessage.isEnabled = false
+            listenerTextMessage.isHidden = true
+            self.load.startAnimating()
             print("enviando...")
             let date = Date()
             let hours = date.timeIntervalSinceNow
@@ -142,8 +146,15 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                 "usuario": self.uid!
             ]) { err in
                 if let err = err {
+                    self.load.stopAnimating()
+                    self.listenerSendMessage.isEnabled = true
+                    self.listenerSendMessage.isHidden = false
                     print("Error adding document: \(err)")
                 } else {
+                    self.load.stopAnimating()
+                    self.listenerSendMessage.isEnabled = true
+                    self.listenerTextMessage.isHidden = false
+                    self.listenerTextMessage.text = ""
                     print("enviado")
                 }
             }
