@@ -2041,18 +2041,18 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="456"/>
                                 <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMe" id="qMc-gz-dmQ" customClass="MessageMeCell" customModule="Sanus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMe" rowHeight="50" id="qMc-gz-dmQ" customClass="MessageMeCell" customModule="Sanus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qMc-gz-dmQ" id="Krf-uH-wPI">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRa-cG-gm1">
-                                                    <rect key="frame" x="93" y="6" width="200" height="32"/>
+                                                    <rect key="frame" x="93" y="10" width="200" height="29.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST3-Hc-m4X">
-                                                            <rect key="frame" x="10" y="5" width="180" height="22"/>
+                                                            <rect key="frame" x="10" y="5" width="180" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2075,14 +2075,56 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.9648237824" green="0.96952837709999995" blue="0.98356288670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="aRa-cG-gm1" firstAttribute="top" secondItem="Krf-uH-wPI" secondAttribute="top" constant="6" id="LLD-db-4Bs"/>
-                                                <constraint firstAttribute="bottom" secondItem="aRa-cG-gm1" secondAttribute="bottom" constant="5.5" id="cxK-4y-yS1"/>
+                                                <constraint firstItem="aRa-cG-gm1" firstAttribute="top" secondItem="Krf-uH-wPI" secondAttribute="top" constant="10" id="LLD-db-4Bs"/>
+                                                <constraint firstAttribute="bottom" secondItem="aRa-cG-gm1" secondAttribute="bottom" constant="10" id="cxK-4y-yS1"/>
                                                 <constraint firstAttribute="trailing" secondItem="aRa-cG-gm1" secondAttribute="trailing" constant="27" id="hUT-jp-nzU"/>
                                                 <constraint firstItem="aRa-cG-gm1" firstAttribute="leading" secondItem="Krf-uH-wPI" secondAttribute="leading" constant="93" id="kys-dx-Qxd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="txtMeMessage" destination="ST3-Hc-m4X" id="yis-T6-nmJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellDoctor" rowHeight="50" id="COq-6L-4nE" customClass="MessageDoctorCell" customModule="Sanus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="78" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="COq-6L-4nE" id="EQQ-6Y-sTy">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MkI-9R-DLY">
+                                                    <rect key="frame" x="27" y="10" width="200" height="29"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ae-ZN-blZ">
+                                                            <rect key="frame" x="10" y="5" width="180" height="19"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="9Ae-ZN-blZ" secondAttribute="trailing" constant="10" id="OuW-Ng-Mwn"/>
+                                                        <constraint firstItem="9Ae-ZN-blZ" firstAttribute="top" secondItem="MkI-9R-DLY" secondAttribute="top" constant="5" id="brd-4O-2in"/>
+                                                        <constraint firstItem="9Ae-ZN-blZ" firstAttribute="leading" secondItem="MkI-9R-DLY" secondAttribute="leading" constant="10" id="cmY-NG-RT9"/>
+                                                        <constraint firstAttribute="width" constant="200" id="i6X-hh-PAz"/>
+                                                        <constraint firstAttribute="bottom" secondItem="9Ae-ZN-blZ" secondAttribute="bottom" constant="5" id="yPu-g2-8vj"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="MkI-9R-DLY" secondAttribute="bottom" constant="10" id="GQE-Dv-oKc"/>
+                                                <constraint firstItem="MkI-9R-DLY" firstAttribute="top" secondItem="EQQ-6Y-sTy" secondAttribute="top" constant="10" id="wae-zX-utg"/>
+                                                <constraint firstItem="MkI-9R-DLY" firstAttribute="leading" secondItem="EQQ-6Y-sTy" secondAttribute="leading" constant="27" id="zO4-Lm-O12"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtDoctorMessage" destination="9Ae-ZN-blZ" id="v8y-Yu-Vhm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

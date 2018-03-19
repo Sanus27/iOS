@@ -18,6 +18,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var getRef:Firestore!
     var showMessenger: String?
     var idDoctor:String?
+    var uid: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         tableData.dataSource = self
         getRef = Firestore.firestore()
         self.idDoctor = showMessenger
+        self.uid = Auth.auth().currentUser?.uid
         showData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
@@ -62,11 +64,17 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableData.dequeueReusableCell(withIdentifier: "cellMe", for: indexPath) as! MessageMeCell
-        let message: Message
-        message = listItems[indexPath.row]
-        cell.txtMeMessage.text = message.mensaje
-        return cell
+
+        if listItems[indexPath.row].autor == self.uid {
+            let cell: MessageMeCell = tableView.dequeueReusableCell( withIdentifier: "cellMe", for: indexPath ) as! MessageMeCell
+            cell.txtMeMessage.text = listItems[indexPath.row].mensaje
+            return cell
+        } else {
+            let cell: MessageDoctorCell = tableView.dequeueReusableCell( withIdentifier: "cellDoctor", for: indexPath ) as! MessageDoctorCell
+            cell.txtDoctorMessage.text = listItems[indexPath.row].mensaje
+            return cell
+        }
+        
     }
     
     @objc func keyboardNotification(notification: NSNotification){

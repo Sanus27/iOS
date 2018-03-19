@@ -37,6 +37,7 @@
 		A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */; };
 		A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACF9B320334F0B004681AE /* CompleteUserController.swift */; };
 		A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6151620302A1C006622A8 /* CitasCell.swift */; };
+		A0BC1A05205F78B100F6A897 /* MessageDoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BC1A04205F78B100F6A897 /* MessageDoctorCell.swift */; };
 		A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D20202AA49E003FB0CB /* AjustesController.swift */; };
 		A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */; };
 		A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D24202AA4AC003FB0CB /* ChatController.swift */; };
@@ -94,6 +95,7 @@
 		A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaCinicaController.swift; sourceTree = "<group>"; };
 		A0ACF9B320334F0B004681AE /* CompleteUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserController.swift; sourceTree = "<group>"; };
 		A0B6151620302A1C006622A8 /* CitasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasCell.swift; sourceTree = "<group>"; };
+		A0BC1A04205F78B100F6A897 /* MessageDoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDoctorCell.swift; sourceTree = "<group>"; };
 		A0DC8D20202AA49E003FB0CB /* AjustesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesController.swift; sourceTree = "<group>"; };
 		A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuscarController.swift; sourceTree = "<group>"; };
 		A0DC8D24202AA4AC003FB0CB /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 			children = (
 				A0190D4D205F2FDD00121736 /* MessageMeCell.swift */,
 				A0190D4F205F320F00121736 /* Message.swift */,
+				A0BC1A04205F78B100F6A897 /* MessageDoctorCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -927,6 +930,7 @@
 				A06CDB67203024440092C621 /* DoctorCell.swift in Sources */,
 				A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */,
 				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,
+				A0BC1A05205F78B100F6A897 /* MessageDoctorCell.swift in Sources */,
 				A0F06AE3205DE3590004A914 /* CreateUserModel.swift in Sources */,
 				A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */,
 				A0190D4E205F2FDD00121736 /* MessageMeCell.swift in Sources */,

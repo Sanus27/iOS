@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sanus/Sources/MessegeClient/Controller/MessegeClientController.swift"
-            timestampString = "543111903.931648"
+            timestampString = "543128400.148386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "MessegeClientController"
             landmarkType = "3">
          </BreakpointContent>
