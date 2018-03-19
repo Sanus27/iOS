@@ -410,6 +410,14 @@
                                 <rect key="frame" x="0.0" y="171" width="320" height="348"/>
                                 <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h78-oF-c6k">
+                                <rect key="frame" x="234" y="133" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnChat:" destination="LLp-wB-0c7" eventType="touchUpInside" id="es6-4e-yBg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -429,6 +437,9 @@
                         <viewLayoutGuide key="safeArea" id="CjE-bW-xQ1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="icon-chat" id="zzG-7H-gxW"/>
+                    <connections>
+                        <segue destination="WXW-pW-XBY" kind="show" identifier="goMessengerDoctor" id="NXw-xO-ojV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOB-Kf-xPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1889,7 +1900,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="WXW-pW-XBY" kind="show" id="UZz-Kh-AOf"/>
+                                    <action selector="btnChat:" destination="JD1-63-NWW" eventType="touchUpInside" id="rGc-7e-5jl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1912,7 +1923,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="icon-chat" id="E6r-Ma-auw"/>
                     <connections>
-                        <segue destination="WXW-pW-XBY" kind="show" identifier="ChatController" id="egg-8P-6Ef"/>
+                        <segue destination="WXW-pW-XBY" kind="show" identifier="goMessengerPacient" id="ax6-Jm-EKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzk-Bt-xso" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2029,6 +2040,53 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mdi-zG-Gqk">
                                 <rect key="frame" x="0.0" y="64" width="320" height="456"/>
                                 <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMe" id="qMc-gz-dmQ" customClass="MessageMeCell" customModule="Sanus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qMc-gz-dmQ" id="Krf-uH-wPI">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRa-cG-gm1">
+                                                    <rect key="frame" x="93" y="6" width="200" height="32"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST3-Hc-m4X">
+                                                            <rect key="frame" x="5" y="5" width="190" height="22"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ST3-Hc-m4X" firstAttribute="leading" secondItem="aRa-cG-gm1" secondAttribute="leading" constant="5" id="0tu-hC-nm6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ST3-Hc-m4X" secondAttribute="trailing" constant="5" id="Txt-kd-naz"/>
+                                                        <constraint firstItem="ST3-Hc-m4X" firstAttribute="top" secondItem="aRa-cG-gm1" secondAttribute="top" constant="5" id="iQj-EP-qLf"/>
+                                                        <constraint firstAttribute="width" constant="200" id="jp4-XU-hot"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ST3-Hc-m4X" secondAttribute="bottom" constant="5" id="nUr-Hd-3be"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.9648237824" green="0.96952837709999995" blue="0.98356288670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="aRa-cG-gm1" firstAttribute="top" secondItem="Krf-uH-wPI" secondAttribute="top" constant="6" id="LLD-db-4Bs"/>
+                                                <constraint firstAttribute="bottom" secondItem="aRa-cG-gm1" secondAttribute="bottom" constant="5.5" id="cxK-4y-yS1"/>
+                                                <constraint firstAttribute="trailing" secondItem="aRa-cG-gm1" secondAttribute="trailing" constant="27" id="hUT-jp-nzU"/>
+                                                <constraint firstItem="aRa-cG-gm1" firstAttribute="leading" secondItem="Krf-uH-wPI" secondAttribute="leading" constant="93" id="kys-dx-Qxd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtMeMessage" destination="ST3-Hc-m4X" id="yis-T6-nmJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2048,6 +2106,7 @@
                     </view>
                     <connections>
                         <outlet property="keyboardHeightLayoutConstraint" destination="m1j-tg-NCc" id="kbN-y4-paA"/>
+                        <outlet property="tableData" destination="mdi-zG-Gqk" id="KCc-xv-zHG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBr-QE-7PG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3829,9 +3888,9 @@
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="jHR-2G-OTv"/>
-        <segue reference="UZz-Kh-AOf"/>
+        <segue reference="ax6-Jm-EKh"/>
         <segue reference="Ol0-Jl-lhK"/>
-        <segue reference="lsY-y0-mY7"/>
-        <segue reference="diq-QS-6Nw"/>
+        <segue reference="A9J-a0-IhT"/>
+        <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
 </document>

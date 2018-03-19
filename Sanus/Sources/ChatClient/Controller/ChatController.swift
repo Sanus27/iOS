@@ -7,30 +7,27 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ChatController: UIViewController {
 
+    private var uid: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        self.uid = Auth.auth().currentUser?.uid
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func btnChat(_ sender: UIButton) {
+        performSegue(withIdentifier: "goMessengerPacient", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goMessengerPacient" {
+            let destino = segue.destination as! MessegeClientController
+            destino.showMessenger = self.uid
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0190D4E205F2FDD00121736 /* MessageMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0190D4D205F2FDD00121736 /* MessageMeCell.swift */; };
+		A0190D50205F320F00121736 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0190D4F205F320F00121736 /* Message.swift */; };
 		A01D6774205085450025987C /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6773205085450025987C /* Hospitals.swift */; };
 		A01D6776205087990025987C /* HospitalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6775205087990025987C /* HospitalCell.swift */; };
 		A0263D932059780400A778B1 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0263D922059780400A778B1 /* JTAppleCalendar.framework */; };
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		5201B0ECFF5DB837C2E2C2DB /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
 		657C050E673AAF66B11075F4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
+		A0190D4D205F2FDD00121736 /* MessageMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMeCell.swift; sourceTree = "<group>"; };
+		A0190D4F205F320F00121736 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A01D6773205085450025987C /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
 		A01D6775205087990025987C /* HospitalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalCell.swift; sourceTree = "<group>"; };
 		A0263D922059780400A778B1 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
@@ -532,6 +536,8 @@
 		A0F06ACA205DD91F0004A914 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0190D4D205F2FDD00121736 /* MessageMeCell.swift */,
+				A0190D4F205F320F00121736 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -916,12 +922,14 @@
 				A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */,
 				A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */,
 				A0F06AE5205DE86A0004A914 /* CompleteUserModel.swift in Sources */,
+				A0190D50205F320F00121736 /* Message.swift in Sources */,
 				A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */,
 				A06CDB67203024440092C621 /* DoctorCell.swift in Sources */,
 				A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */,
 				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,
 				A0F06AE3205DE3590004A914 /* CreateUserModel.swift in Sources */,
 				A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */,
+				A0190D4E205F2FDD00121736 /* MessageMeCell.swift in Sources */,
 				A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */,
 				A0ED6DEE20538840009E143C /* ParamsNewAppointment.swift in Sources */,
 				A0FFAB292054F98B00D956BF /* loginModel.swift in Sources */,

@@ -7,14 +7,65 @@
 //
 
 import UIKit
+import Firebase
 
-class MessegeClientController: UIViewController, UITextFieldDelegate {
+class MessegeClientController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
+    var listItems = [Message]()
+    var ref:DocumentReference!
+    var getRef:Firestore!
+    var showMessenger: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableData.delegate = self
+        tableData.dataSource = self
+        getRef = Firestore.firestore()
+        showData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    public func showData(){
+        self.getRef.collection("mensajes").getDocuments { (result, error) in
+            if let error = error {
+                print("se ha producido un error \(error)")
+            } else {
+                
+                for doc in result!.documents {
+                    let id = doc.documentID
+                    let val = doc.data()
+                    let autor = val["autor"] as? String
+                    let doctor = val["doctor"] as? String
+                    let fecha = val["fecha"] as? String
+                    let hora = val["hora"] as? String
+                    let usuario = val["usuario"] as? String
+                    let mensaje = val["mensaje"] as? String
+                    let mess = Message( id:id, autor:autor!, doctor:doctor!, usuario:usuario!, hora:hora!, fecha:fecha!, mensaje:mensaje! )
+                    self.listItems.append(mess)
+                    self.tableData.reloadData()
+                    
+                }
+            }
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableData.dequeueReusableCell(withIdentifier: "cellMe", for: indexPath) as! MessageMeCell
+        let message: Message
+        message = listItems[indexPath.row]
+        cell.txtMeMessage.text = message.mensaje
+        return cell
     }
     
     @objc func keyboardNotification(notification: NSNotification){
