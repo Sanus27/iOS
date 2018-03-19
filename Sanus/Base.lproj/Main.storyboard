@@ -2041,7 +2041,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="456"/>
                                 <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMe" id="qMc-gz-dmQ" customClass="MessageMeCell" customModule="Sanus" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMe" id="qMc-gz-dmQ" customClass="MessageMeCell" customModule="Sanus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qMc-gz-dmQ" id="Krf-uH-wPI">
@@ -2051,8 +2051,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRa-cG-gm1">
                                                     <rect key="frame" x="93" y="6" width="200" height="32"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST3-Hc-m4X">
-                                                            <rect key="frame" x="5" y="5" width="190" height="22"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST3-Hc-m4X">
+                                                            <rect key="frame" x="10" y="5" width="180" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2060,8 +2060,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="ST3-Hc-m4X" firstAttribute="leading" secondItem="aRa-cG-gm1" secondAttribute="leading" constant="5" id="0tu-hC-nm6"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ST3-Hc-m4X" secondAttribute="trailing" constant="5" id="Txt-kd-naz"/>
+                                                        <constraint firstItem="ST3-Hc-m4X" firstAttribute="leading" secondItem="aRa-cG-gm1" secondAttribute="leading" constant="10" id="0tu-hC-nm6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ST3-Hc-m4X" secondAttribute="trailing" constant="10" id="Txt-kd-naz"/>
                                                         <constraint firstItem="ST3-Hc-m4X" firstAttribute="top" secondItem="aRa-cG-gm1" secondAttribute="top" constant="5" id="iQj-EP-qLf"/>
                                                         <constraint firstAttribute="width" constant="200" id="jp4-XU-hot"/>
                                                         <constraint firstAttribute="bottom" secondItem="ST3-Hc-m4X" secondAttribute="bottom" constant="5" id="nUr-Hd-3be"/>

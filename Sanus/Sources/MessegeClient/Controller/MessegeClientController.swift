@@ -17,19 +17,20 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var ref:DocumentReference!
     var getRef:Firestore!
     var showMessenger: String?
+    var idDoctor:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
+        self.idDoctor = showMessenger
         showData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        // Do any additional setup after loading the view.
     }
     
     public func showData(){
-        self.getRef.collection("mensajes").getDocuments { (result, error) in
+        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: self.idDoctor! ).getDocuments { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
