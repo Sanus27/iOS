@@ -18,10 +18,6 @@ class MessengerDrController: UIViewController {
         self.uid = Auth.auth().currentUser?.uid
     }
     
-    @IBAction func btnChat(_ sender: UIButton) {
-        performSegue(withIdentifier: "goMessengerDoctor", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goMessengerDoctor" {
             let destino = segue.destination as! MessegeClientController

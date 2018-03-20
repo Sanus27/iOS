@@ -21,7 +21,7 @@ class AjustesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.uid = (Auth.auth().currentUser?.uid)!
-        //dataUser()
+        dataUser()
     }
     
     
@@ -40,7 +40,6 @@ class AjustesController: UIViewController {
                     self.avatar.layer.borderWidth = 1
                     self.txtName.text = resp["fullname"] as? String
                 } else {
-                    print("default")
                     self.avatar.image = #imageLiteral(resourceName: "user")
                 }
             }

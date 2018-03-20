@@ -298,17 +298,39 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27155172" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pl-Qp-EAb">
+                                        <rect key="frame" x="94" y="8" width="164" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="i5S-yc-Qmj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medico general" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wse-Os-G8x">
+                                        <rect key="frame" x="94" y="31.5" width="164" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="iTP-we-By1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="pzH-RB-Zeo" firstAttribute="leading" secondItem="g3r-sX-ZsZ" secondAttribute="leadingMargin" id="4uf-Fw-coP"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pzH-RB-Zeo" secondAttribute="trailing" id="Cv8-Oh-wUJ"/>
+                                    <constraint firstItem="3Pl-Qp-EAb" firstAttribute="trailing" secondItem="g3r-sX-ZsZ" secondAttribute="trailingMargin" id="EHG-yo-UFe"/>
                                     <constraint firstAttribute="bottom" secondItem="pzH-RB-Zeo" secondAttribute="bottom" constant="8" id="NYe-1u-USc"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="y2E-FD-Ib5" secondAttribute="trailing" id="Qvy-s1-Cm4"/>
                                     <constraint firstAttribute="height" constant="60" id="RpF-GY-HJP"/>
                                     <constraint firstItem="y2E-FD-Ib5" firstAttribute="top" secondItem="g3r-sX-ZsZ" secondAttribute="top" constant="8" id="YaF-Tw-pvz"/>
                                     <constraint firstItem="y2E-FD-Ib5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g3r-sX-ZsZ" secondAttribute="leading" id="c34-tH-F88"/>
                                     <constraint firstItem="y2E-FD-Ib5" firstAttribute="leading" secondItem="g3r-sX-ZsZ" secondAttribute="leading" constant="9" id="cMq-wP-QPw"/>
+                                    <constraint firstItem="Wse-Os-G8x" firstAttribute="bottom" secondItem="g3r-sX-ZsZ" secondAttribute="bottomMargin" id="kl4-Uf-har"/>
+                                    <constraint firstItem="Wse-Os-G8x" firstAttribute="leading" secondItem="3Pl-Qp-EAb" secondAttribute="leading" id="mpc-1C-Pxj"/>
+                                    <constraint firstItem="3Pl-Qp-EAb" firstAttribute="baseline" secondItem="y2E-FD-Ib5" secondAttribute="baseline" id="pxk-tQ-oCF"/>
                                     <constraint firstItem="pzH-RB-Zeo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g3r-sX-ZsZ" secondAttribute="leading" id="tvE-gy-jar"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -361,12 +383,21 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Mi Perfil" image="icon-doctor" id="eVm-RG-x3B"/>
                     <connections>
+                        <outlet property="StarFive" destination="r53-1v-cLY" id="C7D-do-gQA"/>
+                        <outlet property="StarFour" destination="ep3-qA-ohk" id="cy8-Sd-kMD"/>
+                        <outlet property="StarOne" destination="p71-ZJ-VOD" id="gsB-yI-2ZX"/>
+                        <outlet property="StarThree" destination="xRT-cY-Y2I" id="96k-1F-QK1"/>
+                        <outlet property="StarTwo" destination="XfG-pO-r7p" id="wnC-hd-1Zg"/>
+                        <outlet property="avatar" destination="IXt-PV-Mnc" id="JRx-dL-Dnz"/>
+                        <outlet property="cv" destination="kIW-u8-8QW" id="gve-Vw-CEn"/>
+                        <outlet property="doctor" destination="Wse-Os-G8x" id="RIT-8C-HDc"/>
+                        <outlet property="txtIdCard" destination="3Pl-Qp-EAb" id="b0D-dD-x5A"/>
                         <segue destination="mpV-Hq-gx8" kind="show" identifier="goComents" id="rTW-iU-iRt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbP-06-qhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6336" y="-189"/>
+            <point key="canvasLocation" x="-6337.5" y="-189.08450704225353"/>
         </scene>
         <!--Chat-->
         <scene sceneID="PZ4-54-XiO">
@@ -382,7 +413,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7I-d9-af5">
                                 <rect key="frame" x="40" y="55" width="240" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mensajes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WW-Y8-ftY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mis mensajes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WW-Y8-ftY">
                                         <rect key="frame" x="15" y="0.0" width="210" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
