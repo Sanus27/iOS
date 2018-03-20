@@ -36,6 +36,8 @@
 		A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E8BC1205890D600811243 /* SettingsModel.swift */; };
 		A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */; };
 		A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACF9B320334F0B004681AE /* CompleteUserController.swift */; };
+		A0B4B4C12060C4AC000833B1 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4B4C02060C4AC000833B1 /* ChatCell.swift */; };
+		A0B4B4C32060C782000833B1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4B4C22060C782000833B1 /* Contact.swift */; };
 		A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6151620302A1C006622A8 /* CitasCell.swift */; };
 		A0BC1A05205F78B100F6A897 /* MessageDoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BC1A04205F78B100F6A897 /* MessageDoctorCell.swift */; };
 		A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D20202AA49E003FB0CB /* AjustesController.swift */; };
@@ -94,6 +96,8 @@
 		A09E8BC1205890D600811243 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaCinicaController.swift; sourceTree = "<group>"; };
 		A0ACF9B320334F0B004681AE /* CompleteUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserController.swift; sourceTree = "<group>"; };
+		A0B4B4C02060C4AC000833B1 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		A0B4B4C22060C782000833B1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		A0B6151620302A1C006622A8 /* CitasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasCell.swift; sourceTree = "<group>"; };
 		A0BC1A04205F78B100F6A897 /* MessageDoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDoctorCell.swift; sourceTree = "<group>"; };
 		A0DC8D20202AA49E003FB0CB /* AjustesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesController.swift; sourceTree = "<group>"; };
@@ -514,6 +518,8 @@
 		A0F06AC7205DD8EB0004A914 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0B4B4C02060C4AC000833B1 /* ChatCell.swift */,
+				A0B4B4C22060C782000833B1 /* Contact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -909,6 +915,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
+				A0B4B4C32060C782000833B1 /* Contact.swift in Sources */,
 				A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */,
 				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,
 				A0DC8D29202AA4BA003FB0CB /* CreateUserController.swift in Sources */,
@@ -917,6 +924,7 @@
 				A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */,
 				A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */,
 				A04E8BAE205DA41D00E094ED /* HistoryAppointmentController.swift in Sources */,
+				A0B4B4C12060C4AC000833B1 /* ChatCell.swift in Sources */,
 				A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */,
 				A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */,
 				A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */,

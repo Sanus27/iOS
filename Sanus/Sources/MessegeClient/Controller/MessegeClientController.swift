@@ -62,11 +62,13 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     public func showData(){
-        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: self.idDoctor! ).getDocuments { (result, error) in
+        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: self.idDoctor! ).addSnapshotListener { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
                 
+                self.listItems.removeAll()
+                self.tableData.reloadData()
                 for doc in result!.documents {
                     let id = doc.documentID
                     let val = doc.data()
@@ -79,8 +81,8 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                     let mess = Message( id:id, autor:autor!, doctor:doctor!, usuario:usuario!, hora:hora!, fecha:fecha!, mensaje:mensaje! )
                     self.listItems.append(mess)
                     self.tableData.reloadData()
-                    
                 }
+                
             }
         }
     }
@@ -155,7 +157,17 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                     self.listenerSendMessage.isEnabled = true
                     self.listenerTextMessage.isHidden = false
                     self.listenerTextMessage.text = ""
-                    print("enviado")
+                    
+                    let data = ["autor": self.uid!, "doctor": self.idDoctor! ]
+                    self.ref = Firestore.firestore().collection("contactos").document( self.idDoctor! )
+                    self.ref.setData(data) { (error) in
+                        if let error = error?.localizedDescription {
+                            print("se ha producido un error", error)
+                        } else {
+                            print("existo")
+                        }
+                    }
+                    
                 }
             }
             

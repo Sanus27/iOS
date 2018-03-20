@@ -82,7 +82,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                 "comentario": txtComents.text!,
                 "fecha": valDate,
                 "calificacion": cal,
-                "hora": hours
+                "hora": String(hours)
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -96,7 +96,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                         button.setTitle("☆", for: .normal)
                     }
                     self.calif = 0
-                    self.dismiss(animated: true, completion: nil)
+                    //self.dismiss(animated: true, completion: nil)
                     
                 }
             }
@@ -174,20 +174,21 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         
         
     
-        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).getDocuments { (result , error) in
+        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).addSnapshotListener { (result , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
+                
+                self.listComents.removeAll()
+                self.dataTable.reloadData()
                 for document in result!.documents {
                     let valComen = document.data()
                     let rating = valComen["calificacion"] as? String
                     let user = valComen["usuario"] as? String
                     let date = valComen["fecha"] as? String
                     let comment = valComen["comentario"] as? String
-                   
                     
-                    
-                    self.ref3.collection("usuarios").document(user!).getDocument { (resp, error) in
+                    self.ref3.collection("usuarios").document(user!).addSnapshotListener { (resp, error) in
                         if let error = error {
                             print("se ha producido un error \(error)")
                         } else {
