@@ -28,6 +28,7 @@ class SettingsModel: UIViewController {
                 var avatar = val!["avatar"] as? String
                 let name = val!["nombre"] as! String
                 let lastname = val!["apellido"] as! String
+                let state = val!["estado"] as! String
                 let fullname: String = name + " " + lastname
                 
                 if avatar != nil {
@@ -38,7 +39,7 @@ class SettingsModel: UIViewController {
                             print("fallo al traer imagenes", error)
                             completionHandler( self.success )
                         } else {
-                            self.success = [ "warning": false, "defaults": false, "avatar": data!, "fullname": fullname ]
+                            self.success = [ "warning": false, "defaults": false, "avatar": data!, "fullname": fullname, "estado": state ]
                             
                             completionHandler( self.success )
                         }
