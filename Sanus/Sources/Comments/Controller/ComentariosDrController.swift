@@ -96,7 +96,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
                         button.setTitle("☆", for: .normal)
                     }
                     self.calif = 0
-                    //self.dismiss(animated: true, completion: nil)
                     
                 }
             }

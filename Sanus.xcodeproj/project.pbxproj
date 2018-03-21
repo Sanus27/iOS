@@ -56,6 +56,7 @@
 		A0F06AE3205DE3590004A914 /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F06AE2205DE3590004A914 /* CreateUserModel.swift */; };
 		A0F06AE5205DE86A0004A914 /* CompleteUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F06AE4205DE86A0004A914 /* CompleteUserModel.swift */; };
 		A0F06AE7205DFD000004A914 /* SettingProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F06AE6205DFD000004A914 /* SettingProfileModel.swift */; };
+		A0F270932060E8380010C07D /* MessageDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F270922060E8380010C07D /* MessageDrCell.swift */; };
 		A0F2A234202D7C8D00778C7B /* MessegeClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A233202D7C8D00778C7B /* MessegeClientController.swift */; };
 		A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2A235202D814700778C7B /* PreguntarForoController.swift */; };
 		A0FFAB292054F98B00D956BF /* loginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFAB282054F98B00D956BF /* loginModel.swift */; };
@@ -116,6 +117,7 @@
 		A0F06AE2205DE3590004A914 /* CreateUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
 		A0F06AE4205DE86A0004A914 /* CompleteUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserModel.swift; sourceTree = "<group>"; };
 		A0F06AE6205DFD000004A914 /* SettingProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileModel.swift; sourceTree = "<group>"; };
+		A0F270922060E8380010C07D /* MessageDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDrCell.swift; sourceTree = "<group>"; };
 		A0F2A233202D7C8D00778C7B /* MessegeClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeClientController.swift; sourceTree = "<group>"; };
 		A0F2A235202D814700778C7B /* PreguntarForoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntarForoController.swift; sourceTree = "<group>"; };
 		A0FFAB282054F98B00D956BF /* loginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginModel.swift; sourceTree = "<group>"; };
@@ -718,6 +720,7 @@
 		A0F06ADF205DDB4A0004A914 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A0F270922060E8380010C07D /* MessageDrCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */,
 				A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */,
 				A0263D9620597C0A00A778B1 /* CalendarCell.swift in Sources */,
+				A0F270932060E8380010C07D /* MessageDrCell.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* MessegeClientController.swift in Sources */,
 				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,
 				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,

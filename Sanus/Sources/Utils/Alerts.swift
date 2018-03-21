@@ -6,12 +6,12 @@
 //  Copyright © 2018 Luis. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import FirebaseAuth
 
 class Alerts {
     
+    private var login = loginModel()
     private var resp:Int = 0
     private var conta:Int = 270
     
@@ -63,6 +63,7 @@ class Alerts {
         if acept == "signOut" {
             let firebaseAuth = Auth.auth()
             do {
+                self.login.chageSatateUser(state: "0")
                 try firebaseAuth.signOut()
                 this.performSegue( withIdentifier: "salir", sender: this );
             } catch let signOutError as NSError {
