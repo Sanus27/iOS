@@ -61,6 +61,31 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         }
     }
     
+    public func showInfoUser( uid:String?, completionHandler: @escaping ((String) -> Void)) {
+        ref = Firestore.firestore().collection("usuarios").document( uid! )
+        ref.addSnapshotListener { (document, error) in
+            if let document = document {
+                let val = document.data()
+                let typeUser = val!["tipo"] as! String
+                completionHandler( typeUser )
+            }
+        }
+    }
+    
+    public func addContact( idDoctor:String?, completionHandler: @escaping ((String) -> Void)) {
+        let data = ["autor": self.uid!, "doctor": idDoctor! ]
+        self.ref = Firestore.firestore().collection("contactos").document( self.idDoctor! )
+        self.ref.setData(data) { (error) in
+            if let error = error?.localizedDescription {
+                completionHandler( "error" )
+                print("se ha producido un error", error)
+            } else {
+                completionHandler( "Success" )
+                //print("existo")
+            }
+        }
+    }
+    
     public func showData(){
         self.getRef.collection("mensajes").whereField("doctor", isEqualTo: self.idDoctor! ).addSnapshotListener { (result, error) in
             if let error = error {
@@ -158,15 +183,12 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                     self.listenerTextMessage.isHidden = false
                     self.listenerTextMessage.text = ""
                     
-                    let data = ["autor": self.uid!, "doctor": self.idDoctor! ]
-                    self.ref = Firestore.firestore().collection("contactos").document( self.idDoctor! )
-                    self.ref.setData(data) { (error) in
-                        if let error = error?.localizedDescription {
-                            print("se ha producido un error", error)
-                        } else {
-                            print("existo")
+                    self.showInfoUser( uid: self.uid, completionHandler: { resp in
+                        if resp == "Paciente" {
+                            self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
                         }
-                    }
+                    })
+                    
                     
                 }
             }
