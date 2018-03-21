@@ -29,11 +29,14 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func showData(){
-        
-        self.getRef.collection("contactos").whereField("autor", isEqualTo: self.uid ).addSnapshotListener { (result, error) in
+        self.getRef.collection("contactos").whereField("doctor", isEqualTo: self.uid ).addSnapshotListener { (result, error) in
+            
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
+                
+                self.listItems.removeAll()
+                self.tableData.reloadData()
                 
                 for doc in result!.documents {
                     let id = doc.documentID
@@ -42,7 +45,7 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
                     let doctor = valCont["doctor"] as? String
                     
                     
-                    self.ref = Firestore.firestore().collection("usuarios").document( doctor! )
+                    self.ref = Firestore.firestore().collection("usuarios").document( author! )
                     self.ref.addSnapshotListener { (resp, error) in
                         if let error = error {
                             print("se ha producido un error \(error)")
@@ -66,7 +69,6 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
         }
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,8 +83,7 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableData.dequeueReusableCell( withIdentifier: "cell", for: indexPath ) as! MessageDrCell
         let contact:Contact
         contact = listItems[indexPath.row]
-        let fullname = contact.nombre! + " " + contact.apellidos!
-        cell.txtPaciente?.text = fullname
+        cell.txtPaciente?.text = contact.nombre!
         cell.avatar.layer.masksToBounds = false
         cell.online.layer.cornerRadius = cell.online.frame.height / 2
         cell.online.clipsToBounds = true

@@ -35,6 +35,9 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print("se ha producido un error \(error)")
             } else {
 
+                self.listItems.removeAll()
+                self.tableData.reloadData()
+                
                 for doc in result!.documents {
                     let id = doc.documentID
                     let valCont = doc.data()
@@ -81,8 +84,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableData.dequeueReusableCell( withIdentifier: "cell", for: indexPath ) as! ChatCell
         let contact:Contact
         contact = listItems[indexPath.row]
-        let fullname = contact.nombre! + " " + contact.apellidos!
-        cell.txtNameUser?.text = fullname
+        cell.txtNameUser?.text = contact.nombre!
         cell.avatar.layer.masksToBounds = false
         cell.online.layer.cornerRadius = cell.online.frame.height / 2
         cell.online.clipsToBounds = true
