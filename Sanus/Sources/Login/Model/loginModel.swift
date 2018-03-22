@@ -24,13 +24,18 @@ class loginModel {
                 
                 let exist = document.data()
                 if exist != nil {
-                    self.chageSatateUser( state:"1" )
                     let typeData = exist!["tipo"] as? String
                     if typeData! == "Medico" {
+                        self.chageSatateUser( state:"1" )
                         this.performSegue(withIdentifier: "doctor", sender: this )
                     }
                     if typeData! == "Paciente" {
+                        self.chageSatateUser( state:"1" )
                         this.performSegue(withIdentifier: "login", sender: this )
+                    }
+                    if typeData! == "Admin" {
+                        let alerts = Alerts()
+                        alerts.alertSimple(this: this, titileAlert: "Acceso restringido", bodyAlert: "El acceso al sistema es unicamente es para pacientes y doctores", actionAlert: nil )
                     }
                 } else {
                     this.performSegue(withIdentifier: "completeUser", sender: this )

@@ -56,6 +56,10 @@ class Navegation: UINavigationController {
                         let inicio = self.setStory(name: "loginTrue")
                         self.present(inicio, animated: true, completion: nil )
                     }
+                    if typeData == "Admin" {
+                        let login = self.setStory(name: "loginFalse")
+                        self.present(login, animated: true, completion: nil)
+                    }
                 } else {
                     let register = self.setStory(name: "completeRegister")
                     self.present(register, animated: true, completion: nil)

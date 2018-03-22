@@ -157,18 +157,21 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
             listenerSendMessage.isEnabled = false
             listenerTextMessage.isHidden = true
             self.load.startAnimating()
-            print("enviando...")
+        
             let date = Date()
-            let hours = date.timeIntervalSinceNow
-            let formater = DateFormatter()
-            formater.dateStyle = .short
-            formater.timeStyle = .none
-            let valDate = formater.string(from: date)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            let fech = formatter.string(from: date)
+        
+            let format = DateFormatter()
+            format.dateFormat = "hh:mm:ss"
+            let hours = format.string(from: date)
+        
             self.ref = Firestore.firestore().collection("mensajes").addDocument(data: [
                 "autor": self.uid!,
                 "doctor": self.idDoctor!,
-                "fecha": String(valDate),
-                "hora": String(hours),
+                "fecha": fech,
+                "hora": hours,
                 "mensaje": listenerTextMessage.text!,
                 "usuario": self.uid!
             ]) { err in

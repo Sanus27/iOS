@@ -96,6 +96,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.load.startAnimating()
         self.login.startLogin( txtEmail: txtEmail.text!, txtPassword: txtPassword.text!, completionHandler: { resp in
             self.load.stopAnimating()
+            self.txtPassword.text! = "";
+            self.txtEmail.text! = "";
+            self.valdE = false;
+            self.valdP = false;
             if resp == "success" {
                 self.login.isLoggedIsCompleateLogin( this: self )
             } else {
@@ -105,10 +109,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 if(resp == "There is no user record corresponding to this identifier. The user may have been deleted."){
                     self.alert.alertAvanced( this: self, titileAlert: "Correo no esta registrado", bodyAlert: "¿Desea crear una cuenta?", actionAcept: "login", cancelAlert: nil )
                 }
-                self.txtPassword.text! = "";
-                self.txtEmail.text! = "";
-                self.valdE = false;
-                self.valdP = false;
             }
         })
         

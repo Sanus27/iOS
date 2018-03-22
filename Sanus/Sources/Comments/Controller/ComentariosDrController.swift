@@ -70,19 +70,22 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         if txtComents.text != "" {
             load.startAnimating()
             let date = Date()
-            let hours = date.timeIntervalSinceNow
-            let formater = DateFormatter()
-            formater.dateStyle = .short
-            formater.timeStyle = .none
-            let valDate = formater.string(from: date)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            let fech = formatter.string(from: date)
+            
+            let format = DateFormatter()
+            format.dateFormat = "hh:mm:ss"
+            let hours = format.string(from: date)
+            
             let cal:String = String(calif)
             ref = Firestore.firestore().collection("comentarios").addDocument(data: [
                 "usuario": uid,
                 "doctor": id,
                 "comentario": txtComents.text!,
-                "fecha": valDate,
+                "fecha": fech,
                 "calificacion": cal,
-                "hora": String(hours)
+                "hora": hours
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
