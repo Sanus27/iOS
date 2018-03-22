@@ -23,6 +23,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var showMessenger: String?
     var idDoctor:String?
     var uid: String?
+    var resp: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,29 +62,42 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         }
     }
     
-    public func showInfoUser( uid:String?, completionHandler: @escaping ((String) -> Void)) {
+    public func showInfoUser( uid:String?, autor:String?, doctor:String?, completionHandler: @escaping (([String:Any]) -> Void)) {
+        
         ref = Firestore.firestore().collection("usuarios").document( uid! )
         ref.addSnapshotListener { (document, error) in
             if let document = document {
                 let val = document.data()
                 let typeUser = val!["tipo"] as! String
-                completionHandler( typeUser )
+                
+                self.getRef.collection("contactos").whereField("autor", isEqualTo: autor! ).whereField("doctor", isEqualTo: doctor! ).addSnapshotListener { (result, error) in
+                    if result!.documents.count != 0 {
+                        self.resp = [ "exist": true, "tipo": typeUser ]
+                        completionHandler( self.resp )
+                    } else {
+                        self.resp = [ "exist": false, "tipo": typeUser ]
+                        completionHandler( self.resp )
+                    }
+                }
             }
         }
+        
     }
     
     public func addContact( idDoctor:String?, completionHandler: @escaping ((String) -> Void)) {
-        let data = ["autor": self.uid!, "doctor": idDoctor! ]
-        self.ref = Firestore.firestore().collection("contactos").document( self.idDoctor! )
-        self.ref.setData(data) { (error) in
-            if let error = error?.localizedDescription {
-                completionHandler( "error" )
-                print("se ha producido un error", error)
-            } else {
-                completionHandler( "Success" )
-                //print("existo")
-            }
+        
+        self.ref = Firestore.firestore().collection("contactos").addDocument(data: [
+            "autor": self.uid!,
+            "doctor": idDoctor!,
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completionHandler( "error" )
+                } else {
+                    completionHandler( "Success" )
+                }
         }
+        
     }
     
     public func showData(){
@@ -186,9 +200,13 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                     self.listenerTextMessage.isHidden = false
                     self.listenerTextMessage.text = ""
                     
-                    self.showInfoUser( uid: self.uid, completionHandler: { resp in
-                        if resp == "Paciente" {
-                            self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
+                    self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
+                        let exist = resp["exist"] as! Bool
+                        let typeUser = resp["tipo"] as! String
+                        if !exist {
+                            if typeUser == "Paciente" {
+                                self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
+                            }
                         }
                     })
                     
