@@ -32,8 +32,10 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     var calif = 0
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.listComents.removeAll()
+        self.dataTable.reloadData()
         self.txtMensaje.isHidden = true
         dataTable.delegate = self
         dataTable.dataSource = self

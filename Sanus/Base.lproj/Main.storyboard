@@ -1611,12 +1611,12 @@
                         <outlet property="txtIdCard" destination="6bY-8w-QmN" id="N7H-cq-Gkj"/>
                         <outlet property="txtSpecialty" destination="wG5-BY-02W" id="Z7R-5m-bv3"/>
                         <segue destination="mpV-Hq-gx8" kind="show" identifier="comentarios" id="Ol0-Jl-lhK"/>
-                        <segue destination="WXW-pW-XBY" kind="show" identifier="goMessengePacient" id="DgE-5p-x6P"/>
+                        <segue destination="WXW-pW-XBY" kind="show" identifier="goMessengePacient" id="2Ak-ZI-q4n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzY-KU-qKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7734.375" y="1493.661971830986"/>
+            <point key="canvasLocation" x="-7734" y="1494"/>
         </scene>
         <!--Comentarios Dr Controller-->
         <scene sceneID="anm-Wp-07b">
@@ -4017,8 +4017,8 @@
         <segue reference="n5x-9v-mmc"/>
         <segue reference="acG-SJ-JJD"/>
         <segue reference="u9q-Ce-3yM"/>
-        <segue reference="ax6-Jm-EKh"/>
-        <segue reference="rTW-iU-iRt"/>
+        <segue reference="2Ak-ZI-q4n"/>
+        <segue reference="Ol0-Jl-lhK"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>

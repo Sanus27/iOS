@@ -19,8 +19,10 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var listItems = [Contact]()
     var uid: String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.listItems.removeAll()
+        self.tableData.reloadData()
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()

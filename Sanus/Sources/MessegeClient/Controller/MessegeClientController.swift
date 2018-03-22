@@ -25,8 +25,10 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var uid: String?
     var resp: [String:Any] = [:]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.listItems.removeAll()
+        self.tableData.reloadData()
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
@@ -61,44 +63,9 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
             }
         }
     }
+
     
-    public func showInfoUser( uid:String?, autor:String?, doctor:String?, completionHandler: @escaping (([String:Any]) -> Void)) {
-        
-        ref = Firestore.firestore().collection("usuarios").document( uid! )
-        ref.addSnapshotListener { (document, error) in
-            if let document = document {
-                let val = document.data()
-                let typeUser = val!["tipo"] as! String
-                
-                self.getRef.collection("contactos").whereField("autor", isEqualTo: autor! ).whereField("doctor", isEqualTo: doctor! ).addSnapshotListener { (result, error) in
-                    if result!.documents.count != 0 {
-                        self.resp = [ "exist": true, "tipo": typeUser ]
-                        completionHandler( self.resp )
-                    } else {
-                        self.resp = [ "exist": false, "tipo": typeUser ]
-                        completionHandler( self.resp )
-                    }
-                }
-            }
-        }
-        
-    }
-    
-    public func addContact( idDoctor:String?, completionHandler: @escaping ((String) -> Void)) {
-        
-        self.ref = Firestore.firestore().collection("contactos").addDocument(data: [
-            "autor": self.uid!,
-            "doctor": idDoctor!,
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                    completionHandler( "error" )
-                } else {
-                    completionHandler( "Success" )
-                }
-        }
-        
-    }
+
     
     public func showData(){
         self.getRef.collection("mensajes").whereField("doctor", isEqualTo: self.idDoctor! ).addSnapshotListener { (result, error) in
@@ -164,6 +131,44 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         }
     }
     
+    
+    public func showInfoUser( uid:String?, autor:String?, doctor:String?, completionHandler: @escaping (([String:Any]) -> Void)) {
+        
+        ref = Firestore.firestore().collection("usuarios").document( uid! )
+        ref.addSnapshotListener { (document, error) in
+            if let document = document {
+                let val = document.data()
+                let typeUser = val!["tipo"] as! String
+                
+                self.getRef.collection("contactos").whereField("autor", isEqualTo: autor! ).whereField("doctor", isEqualTo: doctor! ).addSnapshotListener { (result, error) in
+                    if result!.documents.count != 0 {
+                        self.resp = [ "exist": true, "tipo": typeUser ]
+                        completionHandler( self.resp )
+                    } else {
+                        self.resp = [ "exist": false, "tipo": typeUser ]
+                        completionHandler( self.resp )
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    public func addContact( idDoctor:String?, completionHandler: @escaping ((String) -> Void)) {
+        
+        self.ref = Firestore.firestore().collection("contactos").addDocument(data: [
+            "autor": self.uid!,
+            "doctor": idDoctor!,
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completionHandler( "error" )
+                } else {
+                    completionHandler( "Success" )
+                }
+        }
+        
+    }
     
     
     @IBAction func btnSendMessage(_ sender: UIButton) {
