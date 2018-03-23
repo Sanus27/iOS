@@ -214,6 +214,11 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                         self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
                     }
                     
+                    self.listenerSendMessage.isHidden = false
+                    self.listenerSendMessage.isEnabled = true
+                    self.load.stopAnimating()
+                    self.listenerSendMessage.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+                    
                 }
             }
     
