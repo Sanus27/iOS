@@ -32,7 +32,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func showData(){
         
         
-        self.getRef.collection("doctores").getDocuments { (result, error) in
+        self.getRef.collection("doctores").order(by: "calificacion", descending: true).getDocuments { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
