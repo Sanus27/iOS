@@ -181,9 +181,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     
     @IBAction func btnSendMessage(_ sender: UIButton) {
-        if listenerTextMessage.text != nil {
-            self.newMessage()
-        }
+        self.newMessage()
     }
     
     public func newMessage() {
@@ -214,10 +212,6 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                         self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
                     }
                     
-                    self.listenerSendMessage.isHidden = false
-                    self.listenerSendMessage.isEnabled = true
-                    self.load.stopAnimating()
-                    self.listenerSendMessage.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
                     
                 }
             }
@@ -255,6 +249,12 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                             self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
                         }
                     }
+                    
+                    self.load.stopAnimating()
+                    self.listenerSendMessage.isHidden = false
+                    self.listenerSendMessage.isEnabled = false;
+                    self.listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+                    
                 })
         
         
