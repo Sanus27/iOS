@@ -50,7 +50,6 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let author = valCont["autor"] as? String
                     let doctor = valCont["doctor"] as? String
 
-
                     self.ref = Firestore.firestore().collection("usuarios").document( doctor! )
                     self.ref.getDocument { (resp, error) in
                         if let error = error {

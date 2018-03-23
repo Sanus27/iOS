@@ -123,7 +123,7 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
             if let id = tableData.indexPathForSelectedRow {
                 let fila = listItems[id.row]
                 let destino = segue.destination as! MessegeClientController
-                destino.showMessenger = fila.doctor
+                destino.showMessenger = fila.autor
             }
         }
     }
