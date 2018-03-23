@@ -102,10 +102,10 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                     let hora = valMsn["hora"] as? String
                     let usuario = valMsn["usuario"] as? String
                     let mensaje = valMsn["mensaje"] as? String
-                    let mess = Message( id:id, autor:autor!, doctor:doctor!, usuario:usuario!, hora:hora!, fecha:fecha!, mensaje:mensaje! )
-                    self.listItems.append(mess)
-                    print("mensajes")
-                    print(valMsn)
+                    if mensaje != "" {
+                        let mess = Message( id:id, autor:autor, doctor:doctor, usuario:usuario, hora:hora, fecha:fecha, mensaje:mensaje )
+                        self.listItems.append(mess)
+                    }
                     self.tableData.reloadData()
                 }
                 
