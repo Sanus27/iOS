@@ -36,15 +36,11 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         getRef = Firestore.firestore()
         self.idDoctor = showMessenger
         self.uid = Auth.auth().currentUser?.uid
+        showData()
+        showInfoMessage()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         listenerSendMessage.isEnabled = false;
         listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        showData()
-        showInfoMessage()
     }
     
     
