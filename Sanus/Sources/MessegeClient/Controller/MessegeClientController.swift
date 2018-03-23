@@ -172,6 +172,10 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     
     @IBAction func btnSendMessage(_ sender: UIButton) {
+        self.newMessage()
+    }
+    
+    public func newMessage() {
   
             listenerSendMessage.isEnabled = false
             listenerTextMessage.isHidden = true

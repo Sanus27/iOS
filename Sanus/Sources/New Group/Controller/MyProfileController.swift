@@ -29,8 +29,8 @@ class MyProfileController: UIViewController {
     //var ref: DocumentReference!
     //var ref2: DocumentReference!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.uid = (Auth.auth().currentUser?.uid)!
         showData()
     }

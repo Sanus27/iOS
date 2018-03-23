@@ -25,11 +25,16 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
         tableData.dataSource = self
         getRef = Firestore.firestore()
         self.uid = (Auth.auth().currentUser?.uid)!
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showData()
     }
     
     private func showData(){
-        self.getRef.collection("contactos").whereField("doctor", isEqualTo: self.uid ).addSnapshotListener { (result, error) in
+        self.getRef.collection("contactos").whereField("doctor", isEqualTo: self.uid ).getDocuments { (result, error) in
             
             if let error = error {
                 print("se ha producido un error \(error)")
@@ -46,7 +51,7 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     
                     self.ref = Firestore.firestore().collection("usuarios").document( author! )
-                    self.ref.addSnapshotListener { (resp, error) in
+                    self.ref.getDocument { (resp, error) in
                         if let error = error {
                             print("se ha producido un error \(error)")
                         } else {

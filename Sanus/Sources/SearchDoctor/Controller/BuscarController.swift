@@ -20,8 +20,8 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     var listDoctors = [Doctor]()
     var listFilter = [Doctor]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()

@@ -19,20 +19,24 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var listItems = [Contact]()
     var uid: String = ""
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.listItems.removeAll()
-        self.tableData.reloadData()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
         self.uid = (Auth.auth().currentUser?.uid)!
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.listItems.removeAll()
+        self.tableData.reloadData()
         showData()
     }
     
     private func showData(){
 
-        self.getRef.collection("contactos").whereField("autor", isEqualTo: self.uid ).addSnapshotListener { (result, error) in
+        self.getRef.collection("contactos").whereField("autor", isEqualTo: self.uid ).getDocuments { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
@@ -48,7 +52,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
                     self.ref = Firestore.firestore().collection("usuarios").document( doctor! )
-                    self.ref.addSnapshotListener { (resp, error) in
+                    self.ref.getDocument { (resp, error) in
                         if let error = error {
                             print("se ha producido un error \(error)")
                         } else {
