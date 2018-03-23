@@ -24,8 +24,8 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var idDoctor:String?
     var uid: String?
     var resp: [String:Any] = [:]
-    var autorMsn: String?
-    var doctorMsn: String?
+    var usuarioMsn: String? = ""
+    var doctorMsn: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +60,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
             if let document = document {
                 let val = document.data()
                 let name = val!["nombre"] as! String
-                let lastname = val!["apellido"] as! String
-                self.navbar.title = name + " " + lastname
+                self.navbar.title = name
             }
         }
     }
@@ -70,36 +69,48 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
 
     
     public func showData(){
-
+        
+            self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
                 
-                self.getRef.collection("mensajes").whereField("doctor", isEqualTo: self.idDoctor! ).whereField("usuario", isEqualTo: self.uid! ).order(by: "hora", descending: false).addSnapshotListener { (resp, error) in
-                    if let error = error {
-                        print("se ha producido un error \(error)")
-                    } else {
-                        
-                        self.listItems.removeAll()
-                        self.tableData.reloadData()
-                        
-                        for docs in resp!.documents {
-                            let id = docs.documentID
-                            let valMsn = docs.data()
-                            let autor = valMsn["autor"] as? String
-                            let doctor = valMsn["doctor"] as? String
-                            let fecha = valMsn["fecha"] as? String
-                            let hora = valMsn["hora"] as? String
-                            let usuario = valMsn["usuario"] as? String
-                            let mensaje = valMsn["mensaje"] as? String
-                            let mess = Message( id:id, autor:autor!, doctor:doctor!, usuario:usuario!, hora:hora!, fecha:fecha!, mensaje:mensaje! )
-                            self.listItems.append(mess)
-                            print("mensajes")
-                            print(valMsn)
-                            self.tableData.reloadData()
-                        }
-                        
-                    }
+                let typeUser = resp["tipo"] as! String
+                if typeUser == "Paciente" {
+                    self.showMessages( idDoctor:self.idDoctor!, uid:self.uid! )
                 }
+                if typeUser == "Medico" {
+                    self.showMessages( idDoctor:self.uid!, uid:self.idDoctor! )
+                }
+                
+            })
         
-        
+    }
+    
+    private func showMessages( idDoctor:String, uid:String ){
+        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: idDoctor ).whereField("usuario", isEqualTo: uid ).order(by: "hora", descending: false).addSnapshotListener { (resp, error) in
+            if let error = error {
+                print("se ha producido un error \(error)")
+            } else {
+                
+                self.listItems.removeAll()
+                self.tableData.reloadData()
+                
+                for docs in resp!.documents {
+                    let id = docs.documentID
+                    let valMsn = docs.data()
+                    let autor = valMsn["autor"] as? String
+                    let doctor = valMsn["doctor"] as? String
+                    let fecha = valMsn["fecha"] as? String
+                    let hora = valMsn["hora"] as? String
+                    let usuario = valMsn["usuario"] as? String
+                    let mensaje = valMsn["mensaje"] as? String
+                    let mess = Message( id:id, autor:autor!, doctor:doctor!, usuario:usuario!, hora:hora!, fecha:fecha!, mensaje:mensaje! )
+                    self.listItems.append(mess)
+                    print("mensajes")
+                    print(valMsn)
+                    self.tableData.reloadData()
+                }
+                
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -198,23 +209,20 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
             let format = DateFormatter()
             format.dateFormat = "hh:mm:ss"
             let hours = format.string(from: date)
+            
+            self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
         
-            self.ref = Firestore.firestore().collection("usuarios").document( self.uid! )
-            self.ref.addSnapshotListener { (document, error) in
-                if let document = document {
-                    let val = document.data()
-                    let typeUser = val!["tipo"] as! String
-                    
-                    if typeUser == "Paciente" {
-                        self.insertMsn( autor:self.uid!, doctor:self.idDoctor!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario:self.uid! )
-                    }
-                    if typeUser == "Medico" {
-                        self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
-                    }
-                    
-                    
+                let typeUser = resp["tipo"] as! String
+                if typeUser == "Paciente" {
+                    self.insertMsn( autor:self.uid!, doctor:self.idDoctor!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario:self.uid! )
                 }
-            }
+                if typeUser == "Medico" {
+                    self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
+                }
+               
+                
+            })
+    
     
         }
         
