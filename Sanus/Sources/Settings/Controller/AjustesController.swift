@@ -29,12 +29,12 @@ class AjustesController: UIViewController {
     
     private func dataUser(){
         self.model.showData( uid: self.uid , completionHandler: { resp in
-            let warning = resp["warning"] as! Bool
-            let defaults = resp["defaults"] as! Bool
-            if warning {
+            let warning = resp["warning"] as? Bool
+            let defaults = resp["defaults"] as? Bool
+            if warning! {
                 print("Se ha producido un error")
             } else {
-                if !defaults {
+                if !defaults! {
                     self.avatar.image = UIImage(data: resp["avatar"]! as! Data)
                     self.avatar.layer.masksToBounds = false
                     self.avatar.layer.cornerRadius = 25

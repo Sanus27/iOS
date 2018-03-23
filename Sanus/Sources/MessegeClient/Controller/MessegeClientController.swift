@@ -27,8 +27,8 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var autorMsn: String?
     var doctorMsn: String?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.listItems.removeAll()
         self.tableData.reloadData()
         tableData.delegate = self
@@ -39,6 +39,10 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         listenerSendMessage.isEnabled = false;
         listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showData()
         showInfoMessage()
     }
@@ -70,13 +74,15 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
 
     
     public func showData(){
-        print(self.idDoctor!)
 
                 
                 self.getRef.collection("mensajes").whereField("doctor", isEqualTo: self.idDoctor! ).whereField("usuario", isEqualTo: self.uid! ).order(by: "hora", descending: false).addSnapshotListener { (resp, error) in
                     if let error = error {
                         print("se ha producido un error \(error)")
                     } else {
+                        
+                        self.listItems.removeAll()
+                        self.tableData.reloadData()
                         
                         for docs in resp!.documents {
                             let id = docs.documentID
@@ -179,13 +185,15 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     
     @IBAction func btnSendMessage(_ sender: UIButton) {
-        self.newMessage()
+        if listenerTextMessage.text != nil {
+            self.newMessage()
+        }
     }
     
     public func newMessage() {
-        
+        if listenerTextMessage.text != nil {
             listenerSendMessage.isEnabled = false
-            listenerTextMessage.isHidden = true
+            listenerSendMessage.isHidden = true
             self.load.startAnimating()
         
             let date = Date()
@@ -197,54 +205,59 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
             format.dateFormat = "hh:mm:ss"
             let hours = format.string(from: date)
         
-            self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
-                let typeUser = resp["tipo"] as! String
-                
-                if typeUser == "Paciente" {
-                    self.insertMsn( autor:self.uid!, doctor:self.idDoctor!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario:self.uid! )
+            self.ref = Firestore.firestore().collection("usuarios").document( self.uid! )
+            self.ref.addSnapshotListener { (document, error) in
+                if let document = document {
+                    let val = document.data()
+                    let typeUser = val!["tipo"] as! String
+                    
+                    if typeUser == "Paciente" {
+                        self.insertMsn( autor:self.uid!, doctor:self.idDoctor!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario:self.uid! )
+                    }
+                    if typeUser == "Medico" {
+                        self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
+                    }
+                    
                 }
-                if typeUser == "Medico" {
-                    self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
-                }
-                
-            })
-        
-        
-            
+            }
+    
+        }
         
     }
     
     public func insertMsn( autor:String, doctor:String, fecha:String, hora:String, mensaje:String, usuario:String ){
-        self.ref = Firestore.firestore().collection("mensajes").addDocument(data: [
-            "autor": autor,
-            "doctor": doctor,
-            "fecha": fecha,
-            "hora": hora,
-            "mensaje": mensaje,
-            "usuario": usuario
-        ]) { err in
-            if let err = err {
-                self.load.stopAnimating()
-                self.listenerSendMessage.isEnabled = true
-                self.listenerSendMessage.isHidden = false
-                print("Error adding document: \(err)")
-            } else {
-                self.load.stopAnimating()
-                self.listenerSendMessage.isEnabled = true
-                self.listenerTextMessage.isHidden = false
-                self.listenerTextMessage.text = ""
-    
-            self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
-                let exist = resp["exist"] as! Bool
-                let typeUser = resp["tipo"] as! String
-                if !exist {
-                    if typeUser == "Paciente" {
-                        self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
+        if listenerTextMessage.text != nil {
+            self.ref = Firestore.firestore().collection("mensajes").addDocument(data: [
+                "autor": autor,
+                "doctor": doctor,
+                "fecha": fecha,
+                "hora": hora,
+                "mensaje": mensaje,
+                "usuario": usuario
+            ]) { err in
+                if let err = err {
+                    self.load.stopAnimating()
+                    self.listenerSendMessage.isEnabled = true
+                    self.listenerSendMessage.isHidden = false
+                    print("Error adding document: \(err)")
+                } else {
+                    self.load.stopAnimating()
+                    self.listenerSendMessage.isEnabled = true
+                    self.listenerTextMessage.isHidden = false
+                    self.listenerTextMessage.text = ""
+        
+                self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
+                    let exist = resp["exist"] as! Bool
+                    let typeUser = resp["tipo"] as! String
+                    if !exist {
+                        if typeUser == "Paciente" {
+                            self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
+                        }
                     }
+                })
+        
+        
                 }
-            })
-    
-    
             }
         }
     }
