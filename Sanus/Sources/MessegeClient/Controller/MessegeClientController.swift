@@ -51,7 +51,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
                     self.userType = "Paciente"
                 }
                 if typeUser == "Medico" {
-                    self.userType = "Paciente"
+                    self.userType = "Medico"
                 }
             }
         }
@@ -131,7 +131,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     public func showMessages( idDoctor:String, uid:String ){
     
-        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: idDoctor ).whereField("usuario", isEqualTo: uid ).order(by: "fecha", descending: false).order(by: "hora", descending: false).addSnapshotListener { (resp, error) in
+        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: idDoctor ).whereField("usuario", isEqualTo: uid ).order(by: "fecha", descending: true).order(by: "hora", descending: true).addSnapshotListener { (resp, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
@@ -212,11 +212,13 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         let hours = format.string(from: date)
         
         if self.userType == "Paciente" {
+            print("paciente")
             self.insertMsn( autor:self.uid!, doctor:self.idDoctor!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario:self.uid! )
-        }
-        if self.userType == "Medico"  {
+        } else {
+            print("medico")
             self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
         }
+        
         
     }
     
