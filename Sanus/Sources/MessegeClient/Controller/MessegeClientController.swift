@@ -24,6 +24,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var idDoctor:String?
     var uid: String?
     var resp: [String:Any] = [:]
+    var userType: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +36,26 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         listenerSendMessage.isEnabled = false;
         listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
+        verifyDidUserType()
         showData()
         showInfoMessage()
     }
     
-    
+    func verifyDidUserType(){
+        self.ref = Firestore.firestore().collection("usuarios").document( uid! )
+        self.ref.addSnapshotListener { (document, error) in
+            if let document = document {
+                let val = document.data()
+                let typeUser = val!["tipo"] as! String
+                if typeUser == "Paciente" {
+                    self.userType = "Paciente"
+                }
+                if typeUser == "Medico" {
+                    self.userType = "Paciente"
+                }
+            }
+        }
+    }
     @IBAction func listenerMessengerChange(_ sender: UITextField) {
         if (listenerTextMessage.text?.isEmpty)! {
             listenerSendMessage.isEnabled = false;
@@ -182,53 +198,67 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     @IBAction func btnSendMessage(_ sender: UIButton) {
   
-            listenerSendMessage.isEnabled = false
-            listenerTextMessage.isHidden = true
-            self.load.startAnimating()
+        listenerSendMessage.isEnabled = false
+        listenerTextMessage.isHidden = true
+        self.load.startAnimating()
         
-            let date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-            let fech = formatter.string(from: date)
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let fech = formatter.string(from: date)
         
-            let format = DateFormatter()
-            format.dateFormat = "hh:mm:ss"
-            let hours = format.string(from: date)
+        let format = DateFormatter()
+        format.dateFormat = "hh:mm:ss"
+        let hours = format.string(from: date)
         
-            self.ref = Firestore.firestore().collection("mensajes").addDocument(data: [
-                "autor": self.uid!,
-                "doctor": self.idDoctor!,
-                "fecha": fech,
-                "hora": hours,
-                "mensaje": listenerTextMessage.text!,
-                "usuario": self.uid!
-            ]) { err in
-                if let err = err {
-                    self.load.stopAnimating()
-                    self.listenerSendMessage.isEnabled = true
-                    self.listenerSendMessage.isHidden = false
-                    print("Error adding document: \(err)")
-                } else {
-                    self.load.stopAnimating()
-                    self.listenerSendMessage.isEnabled = true
-                    self.listenerTextMessage.isHidden = false
-                    self.listenerTextMessage.text = ""
-                    
-                    self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
-                        let exist = resp["exist"] as! Bool
-                        let typeUser = resp["tipo"] as! String
-                        if !exist {
-                            if typeUser == "Paciente" {
-                                self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
-                            }
+        if self.userType == "Paciente" {
+            self.insertMsn( autor:self.uid!, doctor:self.idDoctor!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario:self.uid! )
+        }
+        if self.userType == "Medico"  {
+            self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
+        }
+        
+    }
+    
+    public func insertMsn( autor:String, doctor:String, fecha:String, hora:String, mensaje:String, usuario:String ){
+        self.ref = Firestore.firestore().collection("mensajes").addDocument(data: [
+            "autor": autor,
+            "doctor": doctor,
+            "fecha": fecha,
+            "hora": hora,
+            "mensaje": mensaje,
+            "usuario": usuario
+        ]) { err in
+            if let err = err {
+                self.load.stopAnimating()
+                self.listenerSendMessage.isEnabled = true
+                self.listenerSendMessage.isHidden = false
+                print("Error adding document: \(err)")
+            } else {
+                self.load.stopAnimating()
+                self.listenerSendMessage.isEnabled = true
+                self.listenerTextMessage.isHidden = false
+                self.listenerTextMessage.text = ""
+                
+                self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
+                    let exist = resp["exist"] as! Bool
+                    let typeUser = resp["tipo"] as! String
+                    if !exist {
+                        if typeUser == "Paciente" {
+                            self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
                         }
-                    })
+                    }
                     
+                    self.load.stopAnimating()
+                    self.listenerSendMessage.isHidden = false
+                    self.listenerSendMessage.isEnabled = false;
+                    self.listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
                     
-                }
+                })
+                
+                
             }
-            
-        
+        }
     }
     
     @IBAction func btnBack(_ sender: UIBarButtonItem) {
