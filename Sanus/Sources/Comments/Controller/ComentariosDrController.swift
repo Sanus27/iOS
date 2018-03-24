@@ -176,7 +176,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         
         
     
-        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).addSnapshotListener { (result , error) in
+        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).order(by: "hora", descending: true).addSnapshotListener { (result , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {

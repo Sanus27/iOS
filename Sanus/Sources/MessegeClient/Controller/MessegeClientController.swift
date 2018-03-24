@@ -131,7 +131,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     
     public func showMessages( idDoctor:String, uid:String ){
     
-        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: idDoctor ).whereField("usuario", isEqualTo: uid ).order(by: "fecha", descending: true).order(by: "hora", descending: true).addSnapshotListener { (resp, error) in
+        self.getRef.collection("mensajes").whereField("doctor", isEqualTo: idDoctor ).whereField("usuario", isEqualTo: uid ).order(by: "hora", descending: false ).addSnapshotListener { (resp, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {
