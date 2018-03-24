@@ -36,8 +36,8 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
     private let alert = Alerts()
     private var model = CompleteUserModel()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         imagePickerController.delegate = self
         getRef = Firestore.firestore()
         edad.delegate = self

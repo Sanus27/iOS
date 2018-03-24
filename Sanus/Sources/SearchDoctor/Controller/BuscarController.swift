@@ -20,8 +20,8 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     var listDoctors = [Doctor]()
     var listFilter = [Doctor]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
@@ -32,7 +32,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func showData(){
         
         
-        self.getRef.collection("doctores").order(by: "calificacion", descending: true).getDocuments { (result, error) in
+        self.getRef.collection("doctores").getDocuments { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")
             } else {

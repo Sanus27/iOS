@@ -32,10 +32,8 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     var calif = 0
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.listComents.removeAll()
-        self.dataTable.reloadData()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.txtMensaje.isHidden = true
         dataTable.delegate = self
         dataTable.dataSource = self
@@ -178,7 +176,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         
         
     
-        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).order(by: "hora", descending: true).addSnapshotListener { (result , error) in
+        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).addSnapshotListener { (result , error) in
             if let error = error {
                 print("hay un error en firebase", error)
             } else {

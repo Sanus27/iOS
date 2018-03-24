@@ -33,8 +33,8 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
     var ed:String = ""
     var miyear:Int = 0
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         listenerYear.delegate = self
         listenerYear.dataSource = self
         let uid = (Auth.auth().currentUser?.uid)!

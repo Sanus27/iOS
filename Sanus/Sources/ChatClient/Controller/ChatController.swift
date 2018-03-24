@@ -21,15 +21,12 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.listItems.removeAll()
-        self.tableData.reloadData()
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
         self.uid = (Auth.auth().currentUser?.uid)!
-        self.showData()
+        showData()
     }
-    
     
     private func showData(){
 
@@ -46,6 +43,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let valCont = doc.data()
                     let author = valCont["autor"] as? String
                     let doctor = valCont["doctor"] as? String
+
 
                     self.ref = Firestore.firestore().collection("usuarios").document( doctor! )
                     self.ref.addSnapshotListener { (resp, error) in
