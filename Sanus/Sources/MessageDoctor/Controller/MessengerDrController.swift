@@ -34,7 +34,7 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func showData(){
-        self.getRef.collection("comentarios").whereField("doctor", isEqualTo: self.uid).order(by: "fecha", descending: true).order(by: "hora", descending: true).addSnapshotListener { (result , error) in
+        self.getRef.collection("contactos").whereField("doctor", isEqualTo: self.uid ).getDocuments { (result, error) in
             
             if let error = error {
                 print("se ha producido un error \(error)")
@@ -132,4 +132,3 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.endEditing(true);
     }
 }
-
