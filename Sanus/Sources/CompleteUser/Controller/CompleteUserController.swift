@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseStorage
 
 class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -31,15 +30,13 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
     var valdA:Bool = false
     var imagen = UIImage()
     var pesoImg:Float = 0.0
-    var ref: DocumentReference!
-    var getRef: Firestore!
+    private var imgDefault = "user_defaul"
     private let alert = Alerts()
     private var model = CompleteUserModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
-        getRef = Firestore.firestore()
         edad.delegate = self
         edad.dataSource = self
         self.imageView.layer.masksToBounds = false
@@ -135,9 +132,8 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
         //subir imagen
         if pesoImg != 0.0 {
             let avatar = id!
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/png"
-            self.model.uploadPicture( id: id!, imagen: imagen, metaData: metaData, completionHandler: { resp in
+            
+            self.model.uploadPicture( imagen: imagen, completionHandler: { resp in
                 if resp == "success" {
                     print("cargo la imagen")
                     self.load.stopAnimating()
@@ -147,17 +143,17 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
             })
             
             if ed != "" {
-                campos = ["avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
+                campos = [ "avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
             } else {
-                campos = ["avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
+                campos = [ "avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
             }
             
         } else {
-            
+            //
             if ed != "" {
-                campos = ["nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente" ]
+                campos = [ "avatar": String(describing: imgDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
             } else {
-                campos = ["nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente" ]
+                campos = [ "avatar": String(describing: imgDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
             }
         }
         

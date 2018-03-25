@@ -18,19 +18,16 @@ class CreateUserController: UIViewController {
     @IBOutlet weak var listenerCreateUser: UIButton!
     @IBOutlet weak var listenerDismis: UIButton!
     @IBOutlet weak var txtPassword: UITextField!
-    var valdE:Bool = false
-    var valdP1:Bool = false
-    var valdP2:Bool = false
-    var iconClick = true
-    var ref: DocumentReference!
-    var getRef: Firestore!
-    var pass:String = ""
+    private var valdE:Bool = false
+    private var valdP1:Bool = false
+    private var valdP2:Bool = false
+    private var iconClick = true
+    private var pass:String = ""
     private let alert = Alerts()
     private let model = CreateUserModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRef = Firestore.firestore()
         listenerBtnShow.setTitle("Mostrar", for: .normal)
         txtPassword.isSecureTextEntry = true
         listenerCreateUser.isEnabled = false;

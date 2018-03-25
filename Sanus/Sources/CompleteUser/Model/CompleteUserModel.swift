@@ -32,9 +32,11 @@ class CompleteUserModel: UIViewController {
         }
     }
     
-    public func uploadPicture( id: String, imagen:UIImage, metaData: StorageMetadata, completionHandler: @escaping ((String) -> Void)) {
+    public func uploadPicture( imagen:UIImage, completionHandler: @escaping ((String) -> Void)) {
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
         let storage = Storage.storage().reference()
-        let directorio = storage.child("avatar/\(id)")
+        let directorio = storage.child("avatar/\(self.uid!)")
         directorio.putData(UIImagePNGRepresentation(imagen)!, metadata: metaData) { (data, error) in
             if error == nil {
                 self.resp = "success"

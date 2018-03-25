@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
@@ -16,12 +14,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var load: UIActivityIndicatorView!
-    var valdE:Bool = false;
-    var valdP:Bool = false;
-    var ref: DocumentReference!
+    var valdE:Bool = false
+    var valdP:Bool = false
     private let login = loginModel()
     private let nav = Navegation()
     private let alert = Alerts()
+    
     override func loadView() {
         super.loadView()
         txtEmail.delegate = self
