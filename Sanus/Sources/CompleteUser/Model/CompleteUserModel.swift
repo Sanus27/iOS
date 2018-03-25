@@ -15,12 +15,12 @@ class CompleteUserModel: UIViewController {
     
     private var resp: String?
     private let alert = Alerts()
-    private var uid: String?
+    private var uid: String = ""
     private var ref: DocumentReference!
+    private var campos: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uid = Auth.auth().currentUser?.uid
     }
     
     public func getAlert( this: UIViewController, completionHandler: @escaping ((String) -> Void)) {
@@ -33,10 +33,11 @@ class CompleteUserModel: UIViewController {
     }
     
     public func uploadPicture( imagen:UIImage, completionHandler: @escaping ((String) -> Void)) {
+        self.uid = (Auth.auth().currentUser?.uid)!
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
         let storage = Storage.storage().reference()
-        let directorio = storage.child("avatar/\(self.uid!)")
+        let directorio = storage.child("avatar/\(String(describing:  self.uid ))")
         directorio.putData(UIImagePNGRepresentation(imagen)!, metadata: metaData) { (data, error) in
             if error == nil {
                 self.resp = "success"
@@ -50,9 +51,17 @@ class CompleteUserModel: UIViewController {
         }
     }
     
-    public func completeUser( data:[String:Any], id: String ,completionHandler: @escaping ((String) -> Void)) {
-        self.ref = Firestore.firestore().collection("usuarios").document(id)
-        self.ref.setData(data) { (error) in
+    public func completeUser( data:[String:Any] ,completionHandler: @escaping ((String) -> Void)) {
+
+        self.uid = (Auth.auth().currentUser?.uid)!
+        if data["avatar"] as! String == "1" {
+            campos = [ "avatar": self.uid , "nombre": data["nombre"]!, "apellido": data["apellido"]!, "edad": data["edad"] ?? "", "sexo": data["sexo"]!, "tipo": "Paciente", "estado": "1" ]
+        } else {
+            campos = [ "avatar": data["avatar"]!, "nombre": data["nombre"]!, "apellido": data["apellido"]!, "edad": data["edad"] ?? "", "sexo": data["sexo"]!, "tipo": "Paciente", "estado": "1" ]
+        }
+    
+        self.ref = Firestore.firestore().collection("usuarios").document( self.uid )
+        self.ref.setData(campos) { (error) in
             if let error = error?.localizedDescription {
                 self.resp = error
                 completionHandler( self.resp! )
@@ -61,6 +70,7 @@ class CompleteUserModel: UIViewController {
                 completionHandler( self.resp! )
             }
         }
+        
     }
     
     

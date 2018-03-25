@@ -29,20 +29,18 @@ class AjustesController: UIViewController {
     private func dataUser(){
         self.model.showData( uid: self.uid , completionHandler: { resp in
             let warning = resp["warning"] as! Bool
-            let defaults = resp["defaults"] as! Bool
+            //let defaults = resp["defaults"] as! Bool
             if warning {
                 print("Se ha producido un error")
             } else {
-                if !defaults {
-                    self.avatar.image = UIImage(data: resp["avatar"]! as! Data)
-                    self.avatar.layer.masksToBounds = false
-                    self.avatar.layer.cornerRadius = 25
-                    self.avatar.clipsToBounds = true
-                    self.avatar.layer.borderWidth = 1
-                    self.txtName.text = resp["fullname"] as? String
-                } else {
-                    self.avatar.image = #imageLiteral(resourceName: "user")
-                }
+                
+                self.avatar.image = UIImage(data: resp["avatar"]! as! Data)
+                self.avatar.layer.masksToBounds = false
+                self.avatar.layer.cornerRadius = 25
+                self.avatar.clipsToBounds = true
+                self.avatar.layer.borderWidth = 1
+                self.txtName.text = resp["fullname"] as? String
+                
                 
                 let state = resp["estado"] as? String
                 if state == "0" {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -30,7 +29,7 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
     var valdA:Bool = false
     var imagen = UIImage()
     var pesoImg:Float = 0.0
-    private var imgDefault = "user_defaul"
+    private var imgDefault = "userDefaults.png"
     private let alert = Alerts()
     private var model = CompleteUserModel()
     
@@ -125,14 +124,12 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
         btnGuardar.isEnabled = false;
         btnGuardar.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
         
-        let id = Auth.auth().currentUser?.uid
+        var imgSet = ""
         let nombre = txtNombre.text!
         let apellido = txtApellido.text!
         if sexo.selectedSegmentIndex == 0 { sex = "Masculino" } else { sex = "Femenino" }
         //subir imagen
         if pesoImg != 0.0 {
-            let avatar = id!
-            
             self.model.uploadPicture( imagen: imagen, completionHandler: { resp in
                 if resp == "success" {
                     print("cargo la imagen")
@@ -142,23 +139,16 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
                 }
             })
             
-            if ed != "" {
-                campos = [ "avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
-            } else {
-                campos = [ "avatar": String(describing: avatar), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
-            }
+            imgSet = "1"
             
         } else {
-            //
-            if ed != "" {
-                campos = [ "avatar": String(describing: imgDefault), "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
-            } else {
-                campos = [ "avatar": String(describing: imgDefault), "nombre": nombre, "apellido": apellido, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
-            }
+            imgSet = self.imgDefault
         }
         
+        campos = [ "avatar": imgSet, "nombre": nombre, "apellido": apellido, "edad": ed, "sexo": sex, "tipo": "Paciente", "estado": "1" ]
+        
         //insertar datos
-        self.model.completeUser( data: campos, id: id!, completionHandler: { resp in
+        self.model.completeUser( data: campos, completionHandler: { resp in
             if resp == "success" {
                 self.alert.alertSimple(this: self, titileAlert: "Se han actualizado tus datos", bodyAlert: "Ahora puedes utilizar nuestra aplicación", actionAlert: "completeRegister")
             } else {
