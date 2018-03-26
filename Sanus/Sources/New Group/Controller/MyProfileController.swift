@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import FirebaseStorage
 
 class MyProfileController: UIViewController {
@@ -26,19 +24,16 @@ class MyProfileController: UIViewController {
     
     private var model = ProfileDoctorModel()
     private var uid: String?
-    //var ref: DocumentReference!
-    //var ref2: DocumentReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uid = (Auth.auth().currentUser?.uid)!
         showData()
     }
 
     public func showData(){
         
-        self.model.showData(uid: self.uid!, completionHandler: { resp in
-            print("data...")
+        self.model.showData( completionHandler: { resp in
+        
             let vacio = resp["vacio"]! as! Bool
             if !vacio {
                 

@@ -25,7 +25,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
-        //showData()
+        showData()
         listFilter = listDoctors
     }
     

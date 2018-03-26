@@ -19,11 +19,11 @@ class ProfileDoctorModel: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uid = (Auth.auth().currentUser?.uid)!
     }
 
-    public func showData(  uid: String, completionHandler: @escaping (([String:Any]) -> Void)) {
-        self.ref = Firestore.firestore().collection("doctores").document( uid )
+    public func showData(  completionHandler: @escaping (([String:Any]) -> Void)) {
+        self.uid = (Auth.auth().currentUser?.uid)!
+        self.ref = Firestore.firestore().collection("doctores").document( self.uid! )
         self.ref.getDocument { (document, error) in
             if let document = document {
                 let valDoctor = document.data()
@@ -33,7 +33,7 @@ class ProfileDoctorModel: UIViewController {
                 let calif = valDoctor!["calificacion"] as! String
                 let coment = valDoctor!["comentario"] as! String
                 
-                self.ref2 = Firestore.firestore().collection("usuarios").document( uid )
+                self.ref2 = Firestore.firestore().collection("usuarios").document( self.uid! )
                 self.ref2.getDocument { (doc, error) in
                     if let doc = doc {
                         let valUser = doc.data()
