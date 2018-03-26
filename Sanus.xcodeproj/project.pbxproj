@@ -17,6 +17,7 @@
 		A0263D9820597D2C00A778B1 /* CalendarVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0263D9720597D2C00A778B1 /* CalendarVariables.swift */; };
 		A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */; };
 		A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */; };
+		A03C06642068AADB00411FD4 /* MessengeDrModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C06632068AADB00411FD4 /* MessengeDrModel.swift */; };
 		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
 		A04E8BAC205DA3CE00E094ED /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */; };
 		A04E8BAE205DA41D00E094ED /* HistoryAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAD205DA41D00E094ED /* HistoryAppointmentController.swift */; };
@@ -77,6 +78,7 @@
 		A0263D9720597D2C00A778B1 /* CalendarVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVariables.swift; sourceTree = "<group>"; };
 		A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorMedicalCell.swift; sourceTree = "<group>"; };
 		A03297B02036A20D001C3B49 /* ComentariosDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrCell.swift; sourceTree = "<group>"; };
+		A03C06632068AADB00411FD4 /* MessengeDrModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengeDrModel.swift; sourceTree = "<group>"; };
 		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
 		A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		A04E8BAD205DA41D00E094ED /* HistoryAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAppointmentController.swift; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 			isa = PBXGroup;
 			children = (
 				A0F270922060E8380010C07D /* MessageDrCell.swift */,
+				A03C06632068AADB00411FD4 /* MessengeDrModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 			isa = PBXGroup;
 			children = (
 				A0F06AB2205DD67D0004A914 /* Utils */,
+				A0F06ADD205DDB320004A914 /* MessageDoctor */,
 				A0F06AC8205DD9090004A914 /* MessegeClient */,
 				A0F06AC5205DD8D40004A914 /* ChatClient */,
 				A0F06AC2205DD89D0004A914 /* AddAppointment */,
@@ -741,7 +745,6 @@
 				A0F06AB6205DD7550004A914 /* SelectClinic */,
 				A0F06AB3205DD6AC0004A914 /* HistoryAppointment */,
 				A0F06AAF205DD6420004A914 /* Comments */,
-				A0F06ADD205DDB320004A914 /* MessageDoctor */,
 				A0F06ADA205DDB0E0004A914 /* ProfileDoctor */,
 				A0F06AA9205DD5560004A914 /* SearchDoctor */,
 				A04F3AF82054DA3D00535DF5 /* CreateUser */,
@@ -947,6 +950,7 @@
 				A0F06AE5205DE86A0004A914 /* CompleteUserModel.swift in Sources */,
 				A0190D50205F320F00121736 /* Message.swift in Sources */,
 				A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */,
+				A03C06642068AADB00411FD4 /* MessengeDrModel.swift in Sources */,
 				A06CDB67203024440092C621 /* DoctorCell.swift in Sources */,
 				A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */,
 				A0F2A236202D814700778C7B /* PreguntarForoController.swift in Sources */,
