@@ -12,43 +12,51 @@ import Firebase
 class CitasController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var table: UITableView!
-    var ref:DocumentReference!
-    var getRef:Firestore!
-    var listItems = [Appointment]()
+    //var ref:DocumentReference!
+    //var getRef:Firestore!
+    private var listItems = [Appointment]()
+    private let model = HistoryAppointmentModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
-        getRef = Firestore.firestore()
+        //getRef = Firestore.firestore()
         showData()
     }
     
     func showData(){
-        getRef.collection("citas").addSnapshotListener { (resp , error) in
-            if let error = error {
-                print("hay un error en firebase", error)
-            } else {
-                
-                self.listItems.removeAll()
-                
-                for document in resp!.documents {
-                    let id = document.documentID
-                    let val = document.data()
-                    let doctor = val["doctor"] as? String
-                    let date = val["fecha"] as? String
-                    let hour = val["hora"] as? String
-                    let user = val["usuario"] as? String
-                    let hospital = val["hospital"] as? String
-                    //var avatar = val["avatar"] as? String
-                    //avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
-                    let appointment = Appointment(id: id, doctor: doctor, date: date, hour: hour, hospital: hospital, user: user)
-                    self.listItems.append(appointment)
-                    self.table.reloadData()
-                }
-                
-            }
-        }
+        
+        self.model.showData(completionHandler: { resp in
+            self.listItems.removeAll()
+            self.table.reloadData()
+            self.listItems = self.model.listItems
+            self.table.reloadData()
+        })
+//        getRef.collection("citas").addSnapshotListener { (resp , error) in
+//            if let error = error {
+//                print("hay un error en firebase", error)
+//            } else {
+//
+//                self.listItems.removeAll()
+//
+//                for document in resp!.documents {
+//                    let id = document.documentID
+//                    let val = document.data()
+//                    let doctor = val["doctor"] as? String
+//                    let date = val["fecha"] as? String
+//                    let hour = val["hora"] as? String
+//                    let user = val["usuario"] as? String
+//                    let hospital = val["hospital"] as? String
+//                    //var avatar = val["avatar"] as? String
+//                    //avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
+//                    let appointment = Appointment(id: id, doctor: doctor, date: date, hour: hour, hospital: hospital, user: user)
+//                    self.listItems.append(appointment)
+//                    self.table.reloadData()
+//                }
+//
+//            }
+//        }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

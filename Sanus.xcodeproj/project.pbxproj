@@ -36,6 +36,7 @@
 		A0656E6D206A22C70054D1AA /* MessegeClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */; };
 		A0656E6F206AF7330054D1AA /* SelectClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */; };
 		A0656E71206AFA710054D1AA /* SelectDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */; };
+		A0656E73206B01A20054D1AA /* HistoryAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E72206B01A20054D1AA /* HistoryAppointmentModel.swift */; };
 		A06CDB67203024440092C621 /* DoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CDB66203024440092C621 /* DoctorCell.swift */; };
 		A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082457F202A9FAB00543AD0 /* AppDelegate.swift */; };
 		A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824583202A9FAB00543AD0 /* Main.storyboard */; };
@@ -104,6 +105,7 @@
 		A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeClientModel.swift; sourceTree = "<group>"; };
 		A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClinicModel.swift; sourceTree = "<group>"; };
 		A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorModel.swift; sourceTree = "<group>"; };
+		A0656E72206B01A20054D1AA /* HistoryAppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAppointmentModel.swift; sourceTree = "<group>"; };
 		A06CDB66203024440092C621 /* DoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCell.swift; sourceTree = "<group>"; };
 		A082457C202A9FAB00543AD0 /* Sanus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A082457F202A9FAB00543AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 			children = (
 				A05AEB37202AD66C00F0D343 /* Appointment.swift */,
 				A0B6151620302A1C006622A8 /* CitasCell.swift */,
+				A0656E72206B01A20054D1AA /* HistoryAppointmentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1003,6 +1006,7 @@
 				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,
 				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,
 				A04E8BB0205DB5F500E094ED /* MessengerDrController.swift in Sources */,
+				A0656E73206B01A20054D1AA /* HistoryAppointmentModel.swift in Sources */,
 				A0656E6F206AF7330054D1AA /* SelectClinicModel.swift in Sources */,
 				A084A36020502864001509CE /* Alerts.swift in Sources */,
 				A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */,
