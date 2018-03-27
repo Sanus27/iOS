@@ -8,7 +8,6 @@
 
 
 import UIKit
-import Firebase
 import FirebaseStorage
 
 class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -16,18 +15,16 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var nextListener: UIButton!
-    private var ref:DocumentReference!
-    private var getRef:Firestore!
     private var listItems = [Doctor]()
     private var listFilter = [Doctor]()
     private var selected:NSNumber = 0
     public var idHospital = ""
+    private let model = SelectDoctorModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableData.dataSource = self
         tableData.delegate = self
-        getRef = Firestore.firestore()
         nextListener.isEnabled = false
         nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
     }
@@ -43,44 +40,14 @@ class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITable
         let params = ParamsNewAppointment()
         idHospital = params.getHospital()!
         
-        print("mostrar data")
-        print(idHospital)
-        
-        self.getRef.collection("doctores").whereField( "hospital", isEqualTo: idHospital ).addSnapshotListener { (result, error) in
-            if let error = error {
-                print("se ha producido un error \(error)")
-            } else {
-                
-                for doc in result!.documents {
-                    let id = doc.documentID
-                    let valDoc = doc.data()
-                    let specialty = valDoc["especialidad"] as? String
-                    
-                    
-                    self.ref = Firestore.firestore().collection("usuarios").document(id)
-                    self.ref.addSnapshotListener { (resp, error) in
-                        if let error = error {
-                            print("se ha producido un error \(error)")
-                        } else {
-                            
-                            if let resp = resp {
-                                let valUser = resp.data()
-                                var avatar = valUser!["avatar"] as? String
-                                let name = valUser!["nombre"] as? String
-                                let lastname = valUser!["apellido"] as? String
-                                avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
-                                let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
-                                self.listFilter.append(doctor)
-                                self.listItems.append(doctor)
-                                self.tableData.reloadData()
-                            }
-                            
-                        }
-                    }
-                    
-                }
-            }
-        }
+        self.model.showData(idHospital: idHospital, completionHandler: { resp in
+            self.listFilter.removeAll()
+            self.listItems.removeAll()
+            self.tableData.reloadData()
+            self.listItems = self.model.listItems
+            self.listFilter = self.model.listItems
+            self.tableData.reloadData()
+        })
         
     }
     

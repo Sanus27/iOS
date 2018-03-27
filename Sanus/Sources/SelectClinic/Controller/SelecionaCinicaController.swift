@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import Firebase
 
 class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var nextListener: UIButton!
-    //private var getRef:Firestore!
     private var listItems = [Hospitals]()
     private var listFilter = [Hospitals]()
     private var selected:NSNumber = 0
@@ -25,7 +23,6 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tableData.dataSource = self
         tableData.delegate = self
-        //getRef = Firestore.firestore()
         nextListener.isEnabled = false
         nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
         showData()

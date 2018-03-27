@@ -35,6 +35,7 @@
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
 		A0656E6D206A22C70054D1AA /* MessegeClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */; };
 		A0656E6F206AF7330054D1AA /* SelectClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */; };
+		A0656E71206AFA710054D1AA /* SelectDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */; };
 		A06CDB67203024440092C621 /* DoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CDB66203024440092C621 /* DoctorCell.swift */; };
 		A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082457F202A9FAB00543AD0 /* AppDelegate.swift */; };
 		A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824583202A9FAB00543AD0 /* Main.storyboard */; };
@@ -102,6 +103,7 @@
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
 		A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeClientModel.swift; sourceTree = "<group>"; };
 		A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClinicModel.swift; sourceTree = "<group>"; };
+		A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorModel.swift; sourceTree = "<group>"; };
 		A06CDB66203024440092C621 /* DoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCell.swift; sourceTree = "<group>"; };
 		A082457C202A9FAB00543AD0 /* Sanus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A082457F202A9FAB00543AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				A028287D2050C31C00EE84AC /* DoctorMedicalCell.swift */,
+				A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -995,6 +998,7 @@
 				A028287E2050C31C00EE84AC /* DoctorMedicalCell.swift in Sources */,
 				A0263D9620597C0A00A778B1 /* CalendarCell.swift in Sources */,
 				A0F270932060E8380010C07D /* MessageDrCell.swift in Sources */,
+				A0656E71206AFA710054D1AA /* SelectDoctorModel.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* MessegeClientController.swift in Sources */,
 				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,
 				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,
