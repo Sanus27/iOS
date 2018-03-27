@@ -75,7 +75,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
             let fech = formatter.string(from: date)
             
             let format = DateFormatter()
-            format.dateFormat = "hh:mm:ss"
+            format.dateFormat = "HH:mm:ss:SS"
             let hours = format.string(from: date)
             
             let cal:String = String(calif)

@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 import FirebaseStorage
 
 class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -18,14 +17,12 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
     var uid: String = ""
     private var model = MessengeDrModel()
     var getRef:Firestore!
-    var ref:DocumentReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableData.delegate = self
         tableData.dataSource = self
         self.getRef = Firestore.firestore()
-        self.uid = (Auth.auth().currentUser?.uid)!
     }
     
     override func viewWillAppear(_ animated: Bool) {

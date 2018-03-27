@@ -208,7 +208,7 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         let fech = formatter.string(from: date)
         
         let format = DateFormatter()
-        format.dateFormat = "hh:mm:ss"
+        format.dateFormat = "HH:mm:ss:SS"
         let hours = format.string(from: date)
         
         if self.userType == "Paciente" {

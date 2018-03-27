@@ -24,15 +24,16 @@ class PerfilDoctorController: UIViewController {
     @IBOutlet weak var StarFive: UIButton!
     
     var showProfile: Doctor!
-    var ref: DocumentReference!
-    var ref2: DocumentReference!
+    //var ref: DocumentReference!
+    //var ref2: DocumentReference!
     var id = ""
+    private var model = PerfilDoctorModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         id = showProfile.id!
-        ref = Firestore.firestore().collection("doctores").document(id)
-        ref2 = Firestore.firestore().collection("usuarios").document(id)
+        //ref = Firestore.firestore().collection("doctores").document(id)
+        //ref2 = Firestore.firestore().collection("usuarios").document(id)
         showData()
     }
     
@@ -42,105 +43,82 @@ class PerfilDoctorController: UIViewController {
     }
     
     func showData(){
-        ref.getDocument { (document, error) in
+        self.model.showData( uid: id, completionHandler: { resp in
+            let name = resp["name"] as? String
+            let lastname = resp["lastname"] as? String
+            let avatar = resp["avatar"] as? String
+            let cv = resp["cv"] as? String
+            let specialty = resp["especialidad"] as? String
+            let idCard = resp["cedula"] as? String
+            let calif = resp["calificacion"] as? String
             
             
-            self.ref2.getDocument { (docs, err) in
-                if let docs = docs {
-                    let valUser = docs.data()
-                    let name = valUser!["nombre"] as! String
-                    let lastname = valUser!["apellido"] as! String
-                    self.navbar.title = name + " " + lastname
-                    var avatar = valUser!["avatar"] as? String
-                    
-                    if avatar != nil {
-                        avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
-                        Storage.storage().reference(forURL: avatar!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
-                            if let error = error?.localizedDescription {
-                                print("fallo al traer imagenes", error)
-                            } else {
-                                self.avatar.image = UIImage(data: data!)
-                                self.avatar.layer.masksToBounds = false
-                                self.avatar.layer.cornerRadius = self.avatar.frame.height / 2
-                                self.avatar.clipsToBounds = true
-                                self.avatar.layer.borderWidth = 1
-                            }
-                        })
-                    } else {
-                        self.avatar?.image = #imageLiteral(resourceName: "user")
-                    }
+            Storage.storage().reference(forURL: avatar!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                if let error = error?.localizedDescription {
+                    print("fallo al traer imagenes", error)
+                } else {
+                    self.avatar.image = UIImage(data: data!)
+                    self.avatar.layer.masksToBounds = false
+                    self.avatar.layer.cornerRadius = self.avatar.frame.height / 2
+                    self.avatar.clipsToBounds = true
+                    self.avatar.layer.borderWidth = 1
                 }
-            }
+            })
+            self.navbar.title = name! + " " + lastname!
+            self.txtCV.text = cv
+            self.txtSpecialty.text = specialty
+            self.txtIdCard.text = idCard
             
-            if let document = document {
-                let val = document.data()
-                let cv = val!["cv"] as! String
-                self.txtCV.text = cv
-                let specialty = val!["especialidad"] as! String
-                self.txtSpecialty.text = specialty
-                let idCard = val!["cedula"] as! String
-                self.txtIdCard.text = idCard
-                var calif = val!["calificacion"] as! String
-                let coment = val!["comentario"] as! String
-                
-                if calif != "" {
-                    if calif != "0" {
-                        let op:Int = Int(calif)! / Int(coment)!
-                        calif = String(op)
-                    }
-        
-                    if calif == "20" {
-                       self.StarOne.setTitle("★", for: .normal)
-                    }
-                    if calif == "30" {
-                        self.StarOne.setTitle("★", for: .normal)
-                    }
-                    if calif == "40" {
-                        self.StarOne.setTitle("★", for: .normal)
-                        self.StarTwo.setTitle("★", for: .normal)
-                    }
-                    if calif == "50" {
-                        self.StarOne.setTitle("★", for: .normal)
-                        self.StarTwo.setTitle("★", for: .normal)
-                    }
-                    if calif == "60" {
-                        self.StarOne.setTitle("★", for: .normal)
-                        self.StarTwo.setTitle("★", for: .normal)
-                        self.StarThree.setTitle("★", for: .normal)
-                    }
-                    if calif == "70" {
-                        self.StarOne.setTitle("★", for: .normal)
-                        self.StarTwo.setTitle("★", for: .normal)
-                        self.StarThree.setTitle("★", for: .normal)
-                    }
-                    if calif == "80" {
-                        self.StarOne.setTitle("★", for: .normal)
-                        self.StarTwo.setTitle("★", for: .normal)
-                        self.StarThree.setTitle("★", for: .normal)
-                        self.StarFour.setTitle("★", for: .normal)
-                    }
-                    if calif == "90" {
-                        self.StarOne.setTitle("★", for: .normal)
-                        self.StarTwo.setTitle("★", for: .normal)
-                        self.StarThree.setTitle("★", for: .normal)
-                        self.StarFour.setTitle("★", for: .normal)
-                        self.StarFive.setTitle("★", for: .normal)
-                    }
-                    if calif == "100" {
-                        self.StarOne.setTitle("★", for: .normal)
-                        self.StarTwo.setTitle("★", for: .normal)
-                        self.StarThree.setTitle("★", for: .normal)
-                        self.StarFour.setTitle("★", for: .normal)
-                        self.StarFive.setTitle("★", for: .normal)
-                    }
-                }
-                
-                
-                
-            } else {
-                print("documento no existe")
+            
+            if calif == "20" {
+                self.StarOne.setTitle("★", for: .normal)
             }
-        }
+            if calif == "30" {
+                self.StarOne.setTitle("★", for: .normal)
+            }
+            if calif == "40" {
+                self.StarOne.setTitle("★", for: .normal)
+                self.StarTwo.setTitle("★", for: .normal)
+            }
+            if calif == "50" {
+                self.StarOne.setTitle("★", for: .normal)
+                self.StarTwo.setTitle("★", for: .normal)
+            }
+            if calif == "60" {
+                self.StarOne.setTitle("★", for: .normal)
+                self.StarTwo.setTitle("★", for: .normal)
+                self.StarThree.setTitle("★", for: .normal)
+            }
+            if calif == "70" {
+                self.StarOne.setTitle("★", for: .normal)
+                self.StarTwo.setTitle("★", for: .normal)
+                self.StarThree.setTitle("★", for: .normal)
+            }
+            if calif == "80" {
+                self.StarOne.setTitle("★", for: .normal)
+                self.StarTwo.setTitle("★", for: .normal)
+                self.StarThree.setTitle("★", for: .normal)
+                self.StarFour.setTitle("★", for: .normal)
+            }
+            if calif == "90" {
+                self.StarOne.setTitle("★", for: .normal)
+                self.StarTwo.setTitle("★", for: .normal)
+                self.StarThree.setTitle("★", for: .normal)
+                self.StarFour.setTitle("★", for: .normal)
+                self.StarFive.setTitle("★", for: .normal)
+            }
+            if calif == "100" {
+                self.StarOne.setTitle("★", for: .normal)
+                self.StarTwo.setTitle("★", for: .normal)
+                self.StarThree.setTitle("★", for: .normal)
+                self.StarFour.setTitle("★", for: .normal)
+                self.StarFive.setTitle("★", for: .normal)
+            }
+
+            
+        })
+
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
