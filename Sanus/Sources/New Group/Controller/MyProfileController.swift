@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseAuth
 
 class MyProfileController: UIViewController {
 
@@ -27,6 +28,7 @@ class MyProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.uid = (Auth.auth().currentUser?.uid)!
         showData()
     }
 
