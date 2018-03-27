@@ -217,7 +217,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     public func isDoctor()  {
-        self.model.isDoctor(id: id, completionHandler:  { resp in
+        self.model.isDoctor( completionHandler:  { resp in
             if resp == "Medico" { self.txtMensaje.isHidden = true }
             if resp == "Paciente" { self.txtMensaje.isHidden = false }
         })

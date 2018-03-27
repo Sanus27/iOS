@@ -25,6 +25,8 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     var uid: String?
     var resp: [String:Any] = [:]
     var userType: String = ""
+    private let modelC = ComentariosDrModel()
+    private let model = MessegeClientModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +44,12 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     func verifyDidUserType(){
-        self.ref = Firestore.firestore().collection("usuarios").document( uid! )
-        self.ref.addSnapshotListener { (document, error) in
-            if let document = document {
-                let val = document.data()
-                let typeUser = val!["tipo"] as! String
-                if typeUser == "Paciente" {
-                    self.userType = "Paciente"
-                }
-                if typeUser == "Medico" {
-                    self.userType = "Medico"
-                }
-            }
-        }
+        self.modelC.isDoctor( completionHandler:  { resp in
+            if resp == "Medico" { self.userType = "Medico" }
+            if resp == "Paciente" { self.userType = "Paciente" }
+        })
     }
+    
     @IBAction func listenerMessengerChange(_ sender: UITextField) {
         if (listenerTextMessage.text?.isEmpty)! {
             listenerSendMessage.isEnabled = false;
@@ -67,66 +61,20 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     public func showInfoMessage(){
-        ref = Firestore.firestore().collection("usuarios").document( self.idDoctor! )
-        ref.addSnapshotListener { (document, error) in
-            if let document = document {
-                let val = document.data()
-                let name = val!["nombre"] as! String
-                self.navbar.title = name
-            }
-        }
-    }
-    
-    public func showInfoUser( uid:String?, autor:String?, doctor:String?, completionHandler: @escaping (([String:Any]) -> Void)) {
-        
-        ref = Firestore.firestore().collection("usuarios").document( uid! )
-        ref.addSnapshotListener { (document, error) in
-            if let document = document {
-                let val = document.data()
-                let typeUser = val!["tipo"] as! String
-                
-                self.getRef.collection("contactos").whereField("autor", isEqualTo: autor! ).whereField("doctor", isEqualTo: doctor! ).addSnapshotListener { (result, error) in
-                    if result!.documents.count != 0 {
-                        self.resp = [ "exist": true, "tipo": typeUser ]
-                        completionHandler( self.resp )
-                    } else {
-                        self.resp = [ "exist": false, "tipo": typeUser ]
-                        completionHandler( self.resp )
-                    }
-                }
-            }
-        }
-        
-    }
-    
-    public func addContact( idDoctor:String?, completionHandler: @escaping ((String) -> Void)) {
-        
-        self.ref = Firestore.firestore().collection("contactos").addDocument(data: [
-            "autor": self.uid!,
-            "doctor": idDoctor!,
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                    completionHandler( "error" )
-                } else {
-                    completionHandler( "Success" )
-                }
-        }
-        
-    }
-    
-    public func showData(){
-        self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
-            
-            let typeUser = resp["tipo"] as! String
-            if typeUser == "Paciente" {
-                self.showMessages( idDoctor:self.idDoctor!, uid:self.uid! )
-            }
-            if typeUser == "Medico" {
-                self.showMessages( idDoctor:self.uid!, uid:self.idDoctor! )
-            }
-            
+        self.model.showInfoMessage(idDoctor: self.idDoctor!, completionHandler:  { resp in
+            self.navbar.title = resp
         })
+    }
+    
+    
+   
+    public func showData(){
+        
+        self.modelC.isDoctor( completionHandler:  { resp in
+            if resp == "Medico" { self.showMessages( idDoctor:self.uid!, uid:self.idDoctor! ) }
+            if resp == "Paciente" { self.showMessages( idDoctor:self.idDoctor!, uid:self.uid! ) }
+        })
+        
     }
     
     public func showMessages( idDoctor:String, uid:String ){
@@ -212,10 +160,8 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
         let hours = format.string(from: date)
         
         if self.userType == "Paciente" {
-            print("paciente")
             self.insertMsn( autor:self.uid!, doctor:self.idDoctor!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario:self.uid! )
         } else {
-            print("medico")
             self.insertMsn( autor:self.uid!, doctor:self.uid!, fecha:fech, hora:hours, mensaje:self.listenerTextMessage.text!, usuario: self.idDoctor! )
         }
         
@@ -223,44 +169,37 @@ class MessegeClientController: UIViewController, UITextFieldDelegate, UITableVie
     }
     
     public func insertMsn( autor:String, doctor:String, fecha:String, hora:String, mensaje:String, usuario:String ){
-        self.ref = Firestore.firestore().collection("mensajes").addDocument(data: [
-            "autor": autor,
-            "doctor": doctor,
-            "fecha": fecha,
-            "hora": hora,
-            "mensaje": mensaje,
-            "usuario": usuario
-        ]) { err in
-            if let err = err {
+        
+        self.model.addMsn( getRef:getRef, autor: autor, doctor: doctor, fecha: fecha, hora: hora, mensaje: mensaje, usuario: usuario, completionHandler: { resp in
+            if resp == "error" {
                 self.load.stopAnimating()
                 self.listenerSendMessage.isEnabled = true
                 self.listenerSendMessage.isHidden = false
-                print("Error adding document: \(err)")
-            } else {
+            }
+            if resp == "Success"{
+                print("resp")
+                print(resp)
                 self.load.stopAnimating()
                 self.listenerSendMessage.isEnabled = true
                 self.listenerTextMessage.isHidden = false
                 self.listenerTextMessage.text = ""
                 
-                self.showInfoUser( uid: self.uid, autor: self.uid!, doctor: self.idDoctor!, completionHandler: { resp in
-                    let exist = resp["exist"] as! Bool
-                    let typeUser = resp["tipo"] as! String
-                    if !exist {
-                        if typeUser == "Paciente" {
-                            self.addContact( idDoctor: self.idDoctor, completionHandler: { resp in })
-                        }
-                    }
-                    
-                    self.load.stopAnimating()
-                    self.listenerSendMessage.isHidden = false
-                    self.listenerSendMessage.isEnabled = false;
-                    self.listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
-                    
-                })
+//                self.modelC.isDoctor( completionHandler:  { resp in
+//                    if resp == "Medico" { self.showMessages( idDoctor:self.uid!, uid:self.idDoctor! ) }
+//                    if resp == "Paciente" { self.showMessages( idDoctor:self.idDoctor!, uid:self.uid! ) }
+//                })
                 
                 
+                
+                self.load.stopAnimating()
+                self.listenerSendMessage.isHidden = false
+                self.listenerSendMessage.isEnabled = false;
+                self.listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
             }
-        }
+        })
+        
+        
+        
     }
     
     @IBAction func btnBack(_ sender: UIBarButtonItem) {

@@ -8,14 +8,12 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 import FirebaseStorage
 
 class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableData: UITableView!
     var getRef:Firestore!
-    var ref:DocumentReference!
     var listItems = [Contact]()
     var uid: String = ""
     private let model = ChatModel()
@@ -25,7 +23,6 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
-        self.uid = (Auth.auth().currentUser?.uid)!
         showData()
     }
     

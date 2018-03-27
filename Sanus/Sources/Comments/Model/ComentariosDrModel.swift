@@ -122,7 +122,7 @@ class ComentariosDrModel: UIViewController {
     }
     
     
-    public func isDoctor( id:String, completionHandler: @escaping ((String) -> Void)) {
+    public func isDoctor( completionHandler: @escaping ((String) -> Void)) {
         
         let id = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document( id )
