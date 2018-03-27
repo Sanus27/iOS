@@ -14,18 +14,18 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var nextListener: UIButton!
-    private var ref:DocumentReference!
-    private var getRef:Firestore!
+    //private var getRef:Firestore!
     private var listItems = [Hospitals]()
     private var listFilter = [Hospitals]()
     private var selected:NSNumber = 0
     public var idHospital = ""
+    private let model = SelectClinicModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableData.dataSource = self
         tableData.delegate = self
-        getRef = Firestore.firestore()
+        //getRef = Firestore.firestore()
         nextListener.isEnabled = false
         nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
         showData()
@@ -35,24 +35,14 @@ class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableV
 
     private func showData(){
         
-        self.getRef.collection("hospitales").addSnapshotListener { (result, error) in
-            if let error = error {
-                print("se ha producido un error \(error)")
-            } else {
-    
-                    for doc in result!.documents {
-                        let id = doc.documentID
-                        let valDoc = doc.data()
-                        let name = valDoc["nombre"] as? String
-                        let address = valDoc["direccion"] as? String
-                        let hospital = Hospitals( id: id, address: address, name: name )
-                        self.listItems.append(hospital)
-                        self.listFilter.append(hospital)
-                        self.tableData.reloadData()
-                    }
-                
-            }
-        }
+        self.model.showData(completionHandler: { resp in
+            self.listItems.removeAll()
+            self.listFilter.removeAll()
+            self.tableData.reloadData()
+            self.listItems = self.model.listItems
+            self.listFilter = self.model.listItems
+            self.tableData.reloadData()
+        })
         
     }
     
