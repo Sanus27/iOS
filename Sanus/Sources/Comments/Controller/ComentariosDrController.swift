@@ -21,16 +21,15 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var txtComents: UITextField!
     @IBOutlet weak var txtMensaje: UIView!
     
-    var showComents: String!
-    var ref: DocumentReference!
-    var ref2: DocumentReference!
-    var ref3: Firestore!
-    var getRef: Firestore!
-    var listComents = [Comments]()
-    var id = ""
-    var uid = ""
-    var calif = 0
-    
+    public var showComents: String!
+    private var ref: DocumentReference!
+    private var getRef: Firestore!
+    public var listComents = [Comments]()
+    private var id = ""
+    private var uid = ""
+    private var calif = 0
+    private var alert = Alerts()
+    private var model = ComentariosDrModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +43,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         getRef = Firestore.firestore()
         uid = (Auth.auth().currentUser?.uid)!
         id = showComents
-        ref = Firestore.firestore().collection("usuarios").document(uid)
-        ref2 = Firestore.firestore().collection("doctores").document(id)
-        ref3 = Firestore.firestore()
+        //ref = Firestore.firestore().collection("usuarios").document(uid)
         isDoctor()
         showData()
     }
@@ -79,64 +76,35 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
             let hours = format.string(from: date)
             
             let cal:String = String(calif)
-            ref = Firestore.firestore().collection("comentarios").addDocument(data: [
-                "usuario": uid,
-                "doctor": id,
-                "comentario": txtComents.text!,
-                "fecha": fech,
-                "calificacion": cal,
-                "hora": hours
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
+            
+            self.model.newComent(uid:uid, id:id, coment:txtComents.text!, fech:fech, cal:cal, hours:hours, completionHandler:  { resp in
+                if resp == "success" {
                     self.load.stopAnimating()
-                } else {
-                    self.load.stopAnimating()
-                    self.ratings( data: cal )
+                    self.model.ratings(data:cal, id:self.id, completionHandler: { result in
+                        if result == "success" {
+                            
+                        }
+                    })
                     self.txtComents.text = ""
                     self.txtComents.resignFirstResponder()
                     for button in self.collectionStar {
                         button.setTitle("☆", for: .normal)
                     }
                     self.calif = 0
-                    
+                } else {
+                    self.load.stopAnimating()
+                    self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Se ha producido un error al escribir un nuevo comentario, intentalo mas tarde", actionAlert: nil )
                 }
-            }
+            })
             
         } else {
             
-            let alerta = UIAlertController(title: "Alerta", message: "Para poder enviar el comentario debes escribir algo", preferredStyle: .alert);
-            let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil);
-            alerta.addAction(aceptar);
-            self.present(alerta, animated: true, completion: nil);
+            self.alert.alertSimple(this: self, titileAlert: "Alerta!", bodyAlert: "Para poder enviar el comentario debes escribir algo", actionAlert: nil)
             
         }
     }
     
     
-    func ratings( data:String ) {
-        ref2.getDocument { (document, error) in
-            if let document = document {
-                let val = document.data()
-                let puntaje = val!["calificacion"] as! String
-                let comment = val!["comentario"] as! String
-                let cedula = val!["cedula"] as! String
-                let cv = val!["cv"] as! String
-                let especialidad = val!["especialidad"] as! String
-                let hospital = val!["hospital"] as! String
-                let cal = Int(puntaje)! + Int(data)!
-                let com = Int(comment)! + 1
-                let data = [ "calificacion": String(cal), "cedula": cedula, "cv":cv, "especialidad": especialidad, "comentario": String(com), "hospital":hospital ]
-                self.ref2.setData(data) { (err) in
-                    if let err = err?.localizedDescription {
-                        print("Se ha producido un error \(err)")
-                    } else {
-                        //print("Exito al modificar los data")
-                    }
-                }
-            }
-        }
-    }
     
     @IBAction func starRagting(_ sender: UIButton) {
         let tag = sender.tag
@@ -174,57 +142,12 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     
     func showData(){
         
-        
-    
-        getRef.collection("comentarios").whereField("doctor", isEqualTo: id).order(by: "hora", descending: true).addSnapshotListener { (result , error) in
-            if let error = error {
-                print("hay un error en firebase", error)
-            } else {
-                
-                self.listComents.removeAll()
-                self.dataTable.reloadData()
-                for document in result!.documents {
-                    let valComen = document.data()
-                    let rating = valComen["calificacion"] as? String
-                    let user = valComen["usuario"] as? String
-                    let date = valComen["fecha"] as? String
-                    let comment = valComen["comentario"] as? String
-                    
-                    self.ref3.collection("usuarios").document(user!).addSnapshotListener { (resp, error) in
-                        if let error = error {
-                            print("se ha producido un error \(error)")
-                        } else {
+        self.model.showData( getRef: getRef, idDoctor: id, completionHandler:  { resp in
+            self.listComents.removeAll()
+            self.listComents = self.model.listComents
+            self.dataTable.reloadData()
+        })
 
-                           if let resp = resp {
-                                let valUser = resp.data()
-                                var avatar = valUser!["avatar"] as? String
-                                let nombre = valUser!["nombre"] as? String
-                                let apellido = valUser!["apellido"] as? String
-                                let fullname = nombre! + " " + apellido!
-                                avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
-                            
-                                let comments = Comments( comment: comment, doctor: fullname, date: date, user: user, avatar: avatar, rating: rating )
-                                self.listComents.append(comments)
-                                self.dataTable.reloadData()
-                            }
-
-                        }
-                    }
-                    
-                    
-                    
-                    
-                }
-            }
-        }
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -294,25 +217,10 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     public func isDoctor()  {
-        
-        let id = (Auth.auth().currentUser?.uid)!
-        ref = Firestore.firestore().collection("usuarios").document( id )
-        ref.getDocument { (document, error) in
-            
-            if let document = document {
-                let exist = document.data()
-                let typeData = exist!["tipo"] as? String
-                if typeData! == "Medico" {
-                    self.txtMensaje.isHidden = true
-                }
-                if typeData! == "Paciente" {
-                    self.txtMensaje.isHidden = false
-                }
-            }
-            
-            
-        }
-        
+        self.model.isDoctor(id: id, completionHandler:  { resp in
+            if resp == "Medico" { self.txtMensaje.isHidden = true }
+            if resp == "Paciente" { self.txtMensaje.isHidden = false }
+        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

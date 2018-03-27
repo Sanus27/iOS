@@ -24,16 +24,12 @@ class PerfilDoctorController: UIViewController {
     @IBOutlet weak var StarFive: UIButton!
     
     var showProfile: Doctor!
-    //var ref: DocumentReference!
-    //var ref2: DocumentReference!
     var id = ""
     private var model = PerfilDoctorModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        id = showProfile.id!
-        //ref = Firestore.firestore().collection("doctores").document(id)
-        //ref2 = Firestore.firestore().collection("usuarios").document(id)
+        self.id = showProfile.id!
         showData()
     }
     
@@ -43,7 +39,7 @@ class PerfilDoctorController: UIViewController {
     }
     
     func showData(){
-        self.model.showData( uid: id, completionHandler: { resp in
+        self.model.showData( uid: self.id, completionHandler: { resp in
             let name = resp["name"] as? String
             let lastname = resp["lastname"] as? String
             let avatar = resp["avatar"] as? String
@@ -124,11 +120,11 @@ class PerfilDoctorController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "comentarios" {
             let destiny = segue.destination as! ComentariosDrController
-            destiny.showComents = id
+            destiny.showComents = self.id
         }
         if segue.identifier == "goMessengePacient" {
             let destiny = segue.destination as! MessegeClientController
-            destiny.showMessenger = id
+            destiny.showMessenger = self.id
         }
     }
     
