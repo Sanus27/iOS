@@ -15,62 +15,29 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
     
-    var ref:DocumentReference!
-    var getRef:Firestore!
+    //public var ref:DocumentReference!
+    public var getRef:Firestore!
     var listDoctors = [Doctor]()
     var listFilter = [Doctor]()
+    private var model = SearchDoctorModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableData.delegate = self
         tableData.dataSource = self
-        getRef = Firestore.firestore()
+        self.getRef = Firestore.firestore()
         showData()
-        listFilter = listDoctors
+        self.listFilter = self.listDoctors
     }
     
     func showData(){
         
-        
-        self.getRef.collection("doctores").getDocuments { (result, error) in
-            if let error = error {
-                print("se ha producido un error \(error)")
-            } else {
-                
-                for doc in result!.documents {
-                    let id = doc.documentID
-                    let valDoc = doc.data()
-                    let specialty = valDoc["especialidad"] as? String
-                    
-                    
-                    self.ref = Firestore.firestore().collection("usuarios").document(id)
-                    self.ref.getDocument { (resp, error) in
-                        if let error = error {
-                            print("se ha producido un error \(error)")
-                        } else {
-                                
-                                if let resp = resp {
-                                    let valUser = resp.data()
-                                    var avatar = valUser!["avatar"] as? String
-                                    let name = valUser!["nombre"] as? String
-                                    let lastname = valUser!["apellido"] as? String
-                                    avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
-                                    let doctor = Doctor( id:id, avatar: avatar, idCard: nil, cv: nil, specialty: specialty, horario: nil, nombre: name, apellido: lastname)
-                                    self.listFilter.append(doctor)
-                                    self.listDoctors.append(doctor)
-                                    self.tableData.reloadData()
-                                }
-                                
-                        }
-                    }
+        self.model.showData( getRef:self.getRef, completionHandler: { resp in
+            self.listFilter = self.model.listItem
+            self.listDoctors = self.model.listItem
+            self.tableData.reloadData()
+        })
 
-                }
-            }
-        }
-        
-        
-        
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
