@@ -1,0 +1,26 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "ddeabb300a65816c62066b6f2247108c9dba9863",
+  "iOS" : [
+    {
+      "name" : "FacebookLogin",
+      "hash" : "876b0992f994db2a9aeb2d3d787d06ae41c9753b903e53fb31cbf08699e0ad5d"
+    },
+    {
+      "name" : "FacebookCore",
+      "hash" : "1ab525df194c188eac51fe34b84964e2e814e8bcf18503492adff2adffb3a2c2"
+    },
+    {
+      "name" : "FacebookShare",
+      "hash" : "793f93ed7ac21e6e1e7e62d05ceb3f2021eae76c89b7d8271faabc5d3e66a92c"
+    }
+  ]
+}

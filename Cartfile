@@ -1,2 +1,3 @@
 github "patchthecode/JTAppleCalendar" "master"
 github "https://github.com/fabio914/GoogleSignIn-iOS" "master"
+github "https://github.com/facebook/Facebook-SDK-Swift" "master"

@@ -1,0 +1,27 @@
+{
+  "Mac" : [
+    {
+      "name" : "Bolts",
+      "hash" : "57354f65e332647e1149395b34665338959c57bb42dc1b2c2d36c3eb65fe496e"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "Bolts",
+      "hash" : "5d655dd174d2de412a49222dbf111b211f8ea38a62cf94d135a83ca3d73fc160"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "Bolts",
+      "hash" : "078cf305c7a8c8aca8f3ffe58cae8779971f6c8dd03c1094cf7bc57206dc1383"
+    }
+  ],
+  "commitish" : "1.9.0",
+  "iOS" : [
+    {
+      "name" : "Bolts",
+      "hash" : "9191e6f5b235ce5ebfbeb33d6a96040af16a94d648048eb9706c7880c94041bb"
+    }
+  ]
+}
