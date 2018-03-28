@@ -37,7 +37,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         btnLogin.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
     
-    func isValidEmailAddress(emailAddressString: String) -> Bool {
+    private func isValidEmailAddress(emailAddressString: String) -> Bool {
         
         var returnValue = true
         let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
@@ -76,7 +76,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         valid();
     }
     
-    func valid(){
+    private func valid(){
         if ( valdE == true && valdP == true) {
             btnLogin.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
             btnLogin.isEnabled = true;

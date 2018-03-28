@@ -27,11 +27,11 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
     private var sexx:Int = 27
     private var imagen = UIImage()
     private var pesoImg:Float = 0.0
-    var plataforma:String = ""
-    var campos: [String:Any] = [:]
-    var plataformas = ["Selecciona tu edad", "1 Año"]
-    var ed:String = ""
-    var miyear:Int = 0
+    private var plataforma:String = ""
+    private var campos: [String:Any] = [:]
+    private var plataformas = ["Selecciona tu edad", "1 Año"]
+    private var ed:String = ""
+    private var miyear:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
         dataUser()
     }
     
-    func setYears(){
+    private func setYears(){
         for i in 2...99 {
             plataformas.append("\(i) Años")
         }

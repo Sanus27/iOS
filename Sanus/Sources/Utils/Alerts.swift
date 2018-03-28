@@ -12,8 +12,6 @@ import FirebaseAuth
 class Alerts {
     
     private var login = loginModel()
-    private var resp:Int = 0
-    private var conta:Int = 270
     
     public func alertSimple( this: UIViewController, titileAlert: String?, bodyAlert: String?, actionAlert: String? ) -> Void {
         let alert = UIAlertController(title: titileAlert, message: bodyAlert, preferredStyle: .alert);
@@ -35,21 +33,6 @@ class Alerts {
         alert.addAction(acept);
         alert.addAction(cancel);
         this.present(alert, animated: true, completion: nil);
-    }
-    
-    public func prueba() ->Int {
-        
-        func dentro() -> Int {
-            if conta == 27 {
-                self.resp = 1
-            } else {
-                self.resp = 2
-            }
-            return self.resp
-        }
-        
-        return dentro()
-        
     }
     
  

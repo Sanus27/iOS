@@ -23,8 +23,8 @@ class PerfilDoctorController: UIViewController {
     @IBOutlet weak var StarFour: UIButton!
     @IBOutlet weak var StarFive: UIButton!
     
-    var showProfile: Doctor!
-    var id = ""
+    public var showProfile: Doctor!
+    private var id = ""
     private var model = PerfilDoctorModel()
     
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class PerfilDoctorController: UIViewController {
         showData()
     }
     
-    func showData(){
+    private func showData(){
         self.model.showData( uid: self.id, completionHandler: { resp in
             let name = resp["name"] as? String
             let lastname = resp["lastname"] as? String

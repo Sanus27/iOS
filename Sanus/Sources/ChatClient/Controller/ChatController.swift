@@ -13,9 +13,9 @@ import FirebaseStorage
 class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableData: UITableView!
-    var getRef:Firestore!
-    var listItems = [Contact]()
-    var uid: String = ""
+    private var getRef:Firestore!
+    private var listItems = [Contact]()
+    private var uid: String = ""
     private let model = ChatModel()
     
     override func viewDidLoad() {

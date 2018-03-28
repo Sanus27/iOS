@@ -10,9 +10,9 @@ import Foundation
 
 class Hospitals{
     
-    var id: String?
-    var address: String?
-    var name: String?
+    public var id: String?
+    public var address: String?
+    public var name: String?
     
     init( id: String?, address: String?, name: String? ) {
         self.id = id

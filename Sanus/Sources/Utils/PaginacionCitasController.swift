@@ -33,12 +33,12 @@ class PaginacionCitasController:UIPageViewController, UIPageViewControllerDataSo
         }
     }
     
-    func nextView( index:Int ){
+    public func nextView( index:Int ){
         let siguienteController = VCArr[ index + 1]
         setViewControllers([siguienteController], direction: .forward, animated: true, completion: nil)
     }
     
-    func previewView(index: Int){
+    public func previewView(index: Int){
         let atrasController = VCArr[ index - 1]
         setViewControllers([atrasController], direction: .reverse, animated: true, completion: nil)
     }

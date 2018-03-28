@@ -30,7 +30,7 @@ class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.listFilter = self.listDoctors
     }
     
-    func showData(){
+    private func showData(){
         
         self.model.showData( getRef:self.getRef, completionHandler: { resp in
             self.listFilter = self.model.listItem

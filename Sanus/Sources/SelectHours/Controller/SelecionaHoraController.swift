@@ -26,7 +26,7 @@ class SelecionaHoraController: UIViewController {
         showData()
     }
     
-    func showData(){
+    private func showData(){
         print("idDoctor vista hora")
         print(self.idDoctor)
         ref = Firestore.firestore().collection("horarios").document( self.idDoctor )

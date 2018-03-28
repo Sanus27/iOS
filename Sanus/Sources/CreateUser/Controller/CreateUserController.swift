@@ -34,7 +34,7 @@ class CreateUserController: UIViewController {
         listenerCreateUser.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
     
-    func isValidEmailAddress(emailAddressString: String) -> Bool {
+    private func isValidEmailAddress(emailAddressString: String) -> Bool {
         var returnValue = true
         let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
         
@@ -72,7 +72,7 @@ class CreateUserController: UIViewController {
     }
     
     
-    func validate(){
+    private func validate(){
         if ( valdE == true && valdP1 == true ) {
             listenerCreateUser.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
             listenerCreateUser.isEnabled = true;

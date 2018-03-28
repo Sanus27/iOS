@@ -16,6 +16,7 @@ class SettingsModel: UIViewController {
     private var uid:String = ""
     private var success: [String:Any] = [:]
     private let url:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

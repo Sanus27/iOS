@@ -12,8 +12,7 @@ import FirebaseAuth
 
 class Navegation: UINavigationController {
     
-    var ref: DocumentReference!
-    var sesion: NSNumber = 27
+    private var ref: DocumentReference!
     
     override func loadView() {
         super.loadView()

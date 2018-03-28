@@ -11,12 +11,12 @@ import Foundation
 class Comments{
     
     //var id: String?
-    var comment: String?
-    var doctor: String?
-    var date: String?
-    var user: String?
-    var avatar: String?
-    var rating: String?
+    public var comment: String?
+    public var doctor: String?
+    public var date: String?
+    public var user: String?
+    public var avatar: String?
+    public var rating: String?
     
     init( comment: String?, doctor: String?, date: String?, user: String?, avatar: String?, rating: String? ) {
         self.comment = comment

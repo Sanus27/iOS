@@ -234,6 +234,20 @@
 			path = Sanus;
 			sourceTree = "<group>";
 		};
+		A0D3CCDF206B4198008F6D8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0D3CCE0206B41AA008F6D8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A0F06AA3205DD45E0004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,7 +598,7 @@
 		A0F06ACB205DD96C0004A914 /* ForumList */ = {
 			isa = PBXGroup;
 			children = (
-				A0F06ACD205DD9E50004A914 /* Model */,
+				A0D3CCE0206B41AA008F6D8D /* Model */,
 				A0F06ACC205DD9DE0004A914 /* Controller */,
 			);
 			path = ForumList;
@@ -598,17 +612,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		A0F06ACD205DD9E50004A914 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A0F06ACE205DD9FB0004A914 /* ForumNewQuestion */ = {
 			isa = PBXGroup;
 			children = (
-				A0F06AD0205DDA2B0004A914 /* Model */,
+				A0D3CCDF206B4198008F6D8D /* Model */,
 				A0F06ACF205DDA230004A914 /* Controller */,
 			);
 			path = ForumNewQuestion;
@@ -620,13 +627,6 @@
 				A0F2A235202D814700778C7B /* PreguntarForoController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A0F06AD0205DDA2B0004A914 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A0F06AD1205DDA5E0004A914 /* Settings */ = {

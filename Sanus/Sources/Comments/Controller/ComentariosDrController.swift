@@ -63,7 +63,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
        newComent()
     }
     
-    func newComent(){
+    private func newComent(){
         if txtComents.text != "" {
             load.startAnimating()
             let date = Date()
@@ -140,7 +140,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func showData(){
+    private func showData(){
         
         self.model.showData( getRef: getRef, idDoctor: id, completionHandler:  { resp in
             self.listComents.removeAll()
@@ -216,7 +216,7 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         dismiss(animated: true, completion: nil)
     }
     
-    public func isDoctor()  {
+    private func isDoctor()  {
         self.model.isDoctor( completionHandler:  { resp in
             if resp == "Medico" { self.txtMensaje.isHidden = true }
             if resp == "Paciente" { self.txtMensaje.isHidden = false }

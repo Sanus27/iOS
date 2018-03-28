@@ -4014,8 +4014,9 @@
         <image name="user" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n5x-9v-mmc"/>
-        <segue reference="acG-SJ-JJD"/>
+        <segue reference="J52-na-bCo"/>
+        <segue reference="tUF-tm-zKi"/>
+        <segue reference="RDV-8D-BlE"/>
         <segue reference="u9q-Ce-3yM"/>
         <segue reference="ax6-Jm-EKh"/>
         <segue reference="rTW-iU-iRt"/>

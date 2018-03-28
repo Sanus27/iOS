@@ -13,14 +13,12 @@ import FirebaseStorage
 
 class ChatModel: UIViewController {
 
-    //var getRef:Firestore!
     private var ref:DocumentReference!
     public var listItems = [Contact]()
     private var uid:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getRef = Firestore.firestore()
     }
     
     public func showData( getRef:Firestore, completionHandler: @escaping (([Contact]) -> Void)) {

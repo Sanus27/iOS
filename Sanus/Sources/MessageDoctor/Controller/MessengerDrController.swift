@@ -13,10 +13,10 @@ import FirebaseStorage
 class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableData: UITableView!
-    var listItems = [Contact]()
-    var uid: String = ""
+    private var listItems = [Contact]()
+    private var uid: String = ""
     private var model = MessengeDrModel()
-    var getRef:Firestore!
+    private var getRef:Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()

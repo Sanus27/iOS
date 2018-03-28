@@ -32,7 +32,7 @@ class MyProfileController: UIViewController {
         showData()
     }
 
-    public func showData(){
+    private func showData(){
         
         self.model.showData( completionHandler: { resp in
         

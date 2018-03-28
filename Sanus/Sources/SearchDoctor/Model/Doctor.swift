@@ -10,14 +10,14 @@ import Foundation
 
 class Doctor {
     
-    var avatar: String?
-    var idCard: String?
-    var cv: String?
-    var specialty: String?
-    var horario: String?
-    var nombre: String?
-    var apellido: String?
-    var id: String?
+    public var avatar: String?
+    public var idCard: String?
+    public var cv: String?
+    public var specialty: String?
+    public var horario: String?
+    public var nombre: String?
+    public var apellido: String?
+    public var id: String?
     
     init( id:String?, avatar: String?, idCard: String?, cv:String?, specialty:String?, horario:String?, nombre:String?, apellido: String? ) {
         self.id = id

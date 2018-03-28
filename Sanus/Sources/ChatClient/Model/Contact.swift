@@ -10,13 +10,13 @@ import Foundation
 
 class Contact {
     
-    var id: String?
-    var avatar: String?
-    var autor: String?
-    var doctor: String?
-    var nombre: String?
-    var apellidos: String?
-    var estado: String?
+    public var id: String?
+    public var avatar: String?
+    public var autor: String?
+    public var doctor: String?
+    public var nombre: String?
+    public var apellidos: String?
+    public var estado: String?
     
     init( id: String?, avatar: String?, autor: String?, doctor: String?, nombre: String?, apellidos: String?, estado: String? ) {
         self.id = id

@@ -10,13 +10,13 @@ import Foundation
 
 class Message {
     
-    var id: String?
-    var autor: String?
-    var doctor: String?
-    var usuario: String?
-    var hora: String?
-    var fecha: String?
-    var mensaje: String?
+    public var id: String?
+    public var autor: String?
+    public var doctor: String?
+    public var usuario: String?
+    public var hora: String?
+    public var fecha: String?
+    public var mensaje: String?
     
     init( id: String?, autor: String?, doctor: String?, usuario: String?, hora: String?, fecha: String?, mensaje: String? ) {
         self.id = id

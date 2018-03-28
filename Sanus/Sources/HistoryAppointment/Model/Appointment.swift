@@ -10,12 +10,12 @@ import Foundation
 
 class Appointment{
     
-    var id: String?
-    var doctor: String?
-    var date: String?
-    var hour: String?
-    var hospital: String?
-    var user: String?
+    public var id: String?
+    public var doctor: String?
+    public var date: String?
+    public var hour: String?
+    public var hospital: String?
+    public var user: String?
     
     init( id:String?, doctor:String?, date:String?, hour: String?, hospital:String?, user:String? ) {
         self.id = id

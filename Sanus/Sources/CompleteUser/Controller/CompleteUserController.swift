@@ -19,16 +19,16 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var imageView: UIImageView!
     
     let imagePickerController = UIImagePickerController()
-    var plataforma:String = ""
-    var sex:String = ""
-    var ed:String = ""
-    var uid:String = ""
-    var campos: [String:Any] = [:]
-    var plataformas = ["Selecciona tu edad", "1 Año"]
-    var valdN:Bool = false
-    var valdA:Bool = false
-    var imagen = UIImage()
-    var pesoImg:Float = 0.0
+    private var plataforma:String = ""
+    private var sex:String = ""
+    private var ed:String = ""
+    private var uid:String = ""
+    private var campos: [String:Any] = [:]
+    private var plataformas = ["Selecciona tu edad", "1 Año"]
+    private var valdN:Bool = false
+    private var valdA:Bool = false
+    private var imagen = UIImage()
+    private var pesoImg:Float = 0.0
     private var imgDefault = "userDefaults.png"
     private let alert = Alerts()
     private var model = CompleteUserModel()
@@ -48,7 +48,7 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
         setYears()
     }
     
-    func getAlert(){
+    private func getAlert(){
         self.model.getAlert(this: self, completionHandler: { resp in
             if resp == "success" {
                 self.alert.alertAvanced(this: self, titileAlert: "Sanus", bodyAlert: "Para completar el registro necesitamos algunos datos", actionAcept: nil, cancelAlert: "signOut" )
@@ -56,13 +56,13 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
         })
     }
     
-    public func setStory(name: String) -> UIViewController {
+    private func setStory(name: String) -> UIViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return mainStoryBoard.instantiateViewController(withIdentifier: name)
     }
     
     
-    func setYears(){
+    private func setYears(){
         for i in 2...99 {
             plataformas.append("\(i) Años")
         }
@@ -89,7 +89,7 @@ class CompleteUserController: UIViewController, UIPickerViewDataSource, UIPicker
         validar();
     }
     
-    func validar(){
+    private func validar(){
         if ( valdA == true && valdN == true) {
             btnGuardar.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
             btnGuardar.isEnabled = true;
