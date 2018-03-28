@@ -8,14 +8,14 @@
   "tvOS" : [
     {
       "name" : "JTAppleCalendar",
-      "hash" : "db2d49408d92b94190809aa0b442ac21412f0460c4919d3c5279ac66a57fecf6"
+      "hash" : "76fe4cbd1749b5c7bd5b77518b8d705b6dc703d3e19f15da6db8265a37a55f21"
     }
   ],
   "commitish" : "e5f794568429047ecec17c5815c01ef931321f6b",
   "iOS" : [
     {
       "name" : "JTAppleCalendar",
-      "hash" : "f2321b7c43213dacc9ea902347dd3d7eafad3db14810ac3f981299c4ffed5748"
+      "hash" : "ed0555cdca589136332a2e286930aab7f2c1f58105b732db2c23625756dedd32"
     }
   ]
 }

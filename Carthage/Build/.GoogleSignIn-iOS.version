@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "76a1af107aad14bf7cbbb45485c938cafe042feb",
+  "iOS" : [
+    {
+      "name" : "GoogleSignIn",
+      "hash" : "e44b97f272d6fdb1c825456a3a4163ed7d0b907c09842ae997c2e7e9aa4f798c"
+    }
+  ]
+}
