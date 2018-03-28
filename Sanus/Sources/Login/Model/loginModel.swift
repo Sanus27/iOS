@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 import FirebaseAuth
 
 class loginModel {
@@ -58,6 +59,31 @@ class loginModel {
                     self.resp = error
                     completionHandler( self.resp )
                 }
+            }
+        }
+    }
+    
+    public func loginFacebook( this:UIViewController, completionHandler: @escaping ((String) -> Void)) {
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: this) { (resp, error) in
+            if error != nil {
+                completionHandler( "errro de permisos" )
+                return
+            } else {
+                print(resp!.token.tokenString)
+                let accessToken = FBSDKAccessToken.current()
+                guard let accessTokenString = accessToken?.tokenString else { return }
+                let credentials = FacebookAuthProvider.credential( withAccessToken: accessTokenString )
+                
+                Auth.auth().signIn(with: credentials, completion: { (user, err) in
+                    if err != nil {
+                        completionHandler( "error" )
+                        print("se ha producido un error", err!)
+                        return
+                    } else {
+                        completionHandler( "success" )
+                        print("informacion del usuario: ", user!)
+                    }
+                })
             }
         }
     }

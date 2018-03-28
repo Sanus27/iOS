@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sanus/Sources/Login/Controller/LoginController.swift"
-            timestampString = "543963287.879656"
+            timestampString = "543967139.7611181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "LoginController"
             landmarkType = "3">
          </BreakpointContent>
