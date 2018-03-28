@@ -831,6 +831,9 @@
                                                                                 <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnLoginGmail:" destination="gj5-Wv-cLk" eventType="touchUpInside" id="ngn-YT-TII"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ei-pQ-x3T">
                                                                         <rect key="frame" x="135.5" y="0.0" width="130.5" height="45"/>
@@ -843,6 +846,9 @@
                                                                                 <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="btnLoginFacebook:" destination="gj5-Wv-cLk" eventType="touchUpInside" id="y48-Y7-80t"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>

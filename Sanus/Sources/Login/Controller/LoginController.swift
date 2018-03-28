@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
@@ -111,6 +112,23 @@ class LoginController: UIViewController, UITextFieldDelegate {
         })
         
     }
+    
+    
+    @IBAction func btnLoginFacebook(_ sender: UIButton) {
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (resp, error) in
+            if error != nil {
+                print("El inicio de sesion a fallado: ", error!)
+                return
+            } else {
+                print(resp!.token.tokenString)
+            }
+        }
+    }
+    
+    @IBAction func btnLoginGmail(_ sender: UIButton) {
+        print("gmaillll")
+    }
+    
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
