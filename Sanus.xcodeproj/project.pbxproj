@@ -61,6 +61,7 @@
 		A0E1388020579FEB0019EEA8 /* SettingProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E1387F20579FEB0019EEA8 /* SettingProfileController.swift */; };
 		A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */; };
 		A0E25F32202CB76D00A385C2 /* ComentariosDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */; };
+		A0E3F27B206B8B6800392A28 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */; };
 		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
 		A0ED6DEE20538840009E143C /* ParamsNewAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */; };
 		A0F06AE3205DE3590004A914 /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F06AE2205DE3590004A914 /* CreateUserModel.swift */; };
@@ -133,6 +134,7 @@
 		A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDoctorController.swift; sourceTree = "<group>"; };
 		A0E25F31202CB76D00A385C2 /* ComentariosDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrController.swift; sourceTree = "<group>"; };
 		A0E3F279206B7FD500392A28 /* Sanus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sanus.entitlements; sourceTree = "<group>"; };
+		A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
 		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamsNewAppointment.swift; sourceTree = "<group>"; };
 		A0F06AE2205DE3590004A914 /* CreateUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			files = (
 				F06181F8B7F8FDE789097BFA /* Pods_Sanus.framework in Frameworks */,
 				A0263D932059780400A778B1 /* JTAppleCalendar.framework in Frameworks */,
+				A0E3F27B206B8B6800392A28 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +173,7 @@
 		91E29BD572C67E8F9ABCD045 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */,
 				A0263D922059780400A778B1 /* JTAppleCalendar.framework */,
 				D8484398106A8DE2914F5D92 /* Pods_Sanus.framework */,
 			);
@@ -907,6 +911,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GoogleSignIn.framework",
 			);
 			outputPaths = (
 			);
