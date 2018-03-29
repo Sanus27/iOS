@@ -8,6 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
+import GoogleSignIn
 
 class Alerts {
     
