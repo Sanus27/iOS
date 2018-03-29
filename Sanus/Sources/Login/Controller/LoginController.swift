@@ -160,9 +160,9 @@ class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegat
                     return
                 } else {
                     self.load.stopAnimating()
+                    self.login.isLoggedIsCompleateLogin( this: self )
                     guard let uid = user?.uid else { return }
                     print("Successfully logged into Firebase with Google", uid)
-                    self.login.isLoggedIsCompleateLogin( this: self )
                 }
             })
             
