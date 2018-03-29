@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class LoginController: UIViewController, UITextFieldDelegate {
+
+
+class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
+    @IBOutlet weak var btnLoginGmail: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -22,6 +27,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     override func loadView() {
         super.loadView()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        btnLoginGmail.addTarget( self, action: #selector(loginGmail), for: .touchUpInside )
         txtEmail.delegate = self
         txtPassword.delegate = self
     }
@@ -124,33 +131,17 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Ha fallado la auenticacion, intentalo mas tarde", actionAlert: nil )
             }
         })
-//        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (resp, error) in
-//            if error != nil {
-//                print("El inicio de sesion a fallado: ", error!)
-//                return
-//            } else {
-//                print(resp!.token.tokenString)
-//                let accessToken = FBSDKAccessToken.current()
-//                guard let accessTokenString = accessToken?.tokenString else { return }
-//                let credentials = FacebookAuthProvider.credential( withAccessToken: accessTokenString )
-//
-//                Auth.auth().signIn(with: credentials, completion: { (user, err) in
-//                    if err != nil {
-//                        print("se ha producido un error", err!)
-//                        return
-//                    } else {
-//                        print("informacion del usuario: ", user!)
-//                    }
-//                })
-//            }
-//        }
+        
     }
     
-    @IBAction func btnLoginGmail(_ sender: UIButton) {
-        print("gmaillll")
+    fileprivate func setupGoogleButtons() {
+        
     }
     
-    
+    @objc func loginGmail(){
+        print("login.....gmail....")
+        GIDSignIn.sharedInstance().signIn()
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gj5-Wv-cLk">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -831,9 +831,6 @@
                                                                                 <integer key="value" value="5"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="btnLoginGmail:" destination="gj5-Wv-cLk" eventType="touchUpInside" id="ngn-YT-TII"/>
-                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ei-pQ-x3T">
                                                                         <rect key="frame" x="135.5" y="0.0" width="130.5" height="45"/>
@@ -878,6 +875,7 @@
                     <navigationItem key="navigationItem" id="t6n-M4-jnD"/>
                     <connections>
                         <outlet property="btnLogin" destination="S0g-ES-TK4" id="1gu-qD-JcU"/>
+                        <outlet property="btnLoginGmail" destination="Yd2-E1-Ge6" id="xw6-5y-UyJ"/>
                         <outlet property="load" destination="FqX-zI-icv" id="qhK-mF-EhY"/>
                         <outlet property="txtEmail" destination="zN5-N1-RLm" id="Lwc-ox-9US"/>
                         <outlet property="txtPassword" destination="xgi-eL-FXe" id="5Qp-Bq-2cP"/>

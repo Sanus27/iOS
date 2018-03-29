@@ -69,7 +69,6 @@ class loginModel {
                 completionHandler( "errro de permisos" )
                 return
             } else {
-                print(resp!.token.tokenString)
                 let accessToken = FBSDKAccessToken.current()
                 guard let accessTokenString = accessToken?.tokenString else { return }
                 let credentials = FacebookAuthProvider.credential( withAccessToken: accessTokenString )
