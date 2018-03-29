@@ -12,15 +12,15 @@ import FBSDKCoreKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         //LOGIN GMAIL
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+        //GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        //GIDSignIn.sharedInstance().delegate = self
         //FACEBOOK LOGIN
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -29,28 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         return true
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let err = error {
-            print("Failed to log into Google: ", err)
-            return
-        } else {
-            
-            guard let idToken = user.authentication.idToken else { return }
-            guard let accessToken = user.authentication.accessToken else { return }
-            let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
-            
-            Auth.auth().signIn(with: credentials, completion: { (user, error) in
-                if let err = error {
-                    print("Failed to create a Firebase User with Google account: ", err)
-                    return
-                } else {
-                    guard let uid = user?.uid else { return }
-                    print("Successfully logged into Firebase with Google", uid)
-                }
-            })
-            
-        }
-    }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let face = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])

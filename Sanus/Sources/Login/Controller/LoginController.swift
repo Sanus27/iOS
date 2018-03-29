@@ -12,7 +12,7 @@ import GoogleSignIn
 
 
 
-class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
+class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBOutlet weak var btnLoginGmail: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
@@ -27,6 +27,8 @@ class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegat
     
     override func loadView() {
         super.loadView()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         btnLoginGmail.addTarget( self, action: #selector(loginGmail), for: .touchUpInside )
         txtEmail.delegate = self
@@ -134,12 +136,38 @@ class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegat
         
     }
     
-    fileprivate func setupGoogleButtons() {
-        
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let err = error {
+            self.load.stopAnimating()
+             self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Ha fallado la auenticacion, intentalo mas tarde", actionAlert: nil )
+            print("Failed to log into Google: ", err)
+            return
+        } else {
+            
+            guard let idToken = user.authentication.idToken else { return }
+            guard let accessToken = user.authentication.accessToken else { return }
+            let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            
+            Auth.auth().signIn(with: credentials, completion: { (user, error) in
+                if let err = error {
+                    self.load.stopAnimating()
+                     self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Ha fallado la auenticacion, intentalo mas tarde", actionAlert: nil )
+                    print("Failed to create a Firebase User with Google account: ", err)
+                    return
+                } else {
+                    self.load.stopAnimating()
+                    guard let uid = user?.uid else { return }
+                    print("Successfully logged into Firebase with Google", uid)
+                    self.login.isLoggedIsCompleateLogin( this: self )
+                }
+            })
+            
+        }
     }
     
     @objc func loginGmail(){
-        print("login.....gmail....")
+        self.load.startAnimating()
         GIDSignIn.sharedInstance().signIn()
     }
     
