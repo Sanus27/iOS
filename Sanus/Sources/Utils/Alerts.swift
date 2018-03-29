@@ -48,6 +48,8 @@ class Alerts {
             do {
                 self.login.chageSatateUser(state: "0")
                 try firebaseAuth.signOut()
+                logOutFacebook()
+                logOutGoogle()
                 this.performSegue( withIdentifier: "salir", sender: this );
             } catch let signOutError as NSError {
                 self.alertSimple(this: this, titileAlert: "Se ha producido un error", bodyAlert: "Intentalo mas tarde", actionAlert: nil  )
@@ -69,5 +71,13 @@ class Alerts {
         }
     }
     
+    private func logOutFacebook(){
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+    }
+    
+    private func logOutGoogle(){
+        GIDSignIn.sharedInstance().signOut()
+    }
     
 }
