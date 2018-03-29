@@ -123,13 +123,16 @@ class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegat
     
     
     @IBAction func btnLoginFacebook(_ sender: UIButton) {
-        
+       
+        self.load.startAnimating()
         self.login.loginFacebook(this: self, completionHandler: { resp in
             print("result")
             print(resp)
             if resp == "success" {
+                self.load.stopAnimating()
                 self.login.isLoggedIsCompleateLogin( this: self )
             } else {
+                self.load.stopAnimating()
                 self.alert.alertSimple(this: self, titileAlert: "Se ha producido un error", bodyAlert: "Ha fallado la auenticacion, intentalo mas tarde", actionAlert: nil )
             }
         })
