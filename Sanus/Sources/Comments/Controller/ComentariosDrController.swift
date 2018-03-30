@@ -43,7 +43,6 @@ class ComentariosDrController: UIViewController, UITableViewDelegate, UITableVie
         getRef = Firestore.firestore()
         uid = (Auth.auth().currentUser?.uid)!
         id = showComents
-        //ref = Firestore.firestore().collection("usuarios").document(uid)
         isDoctor()
         showData()
     }

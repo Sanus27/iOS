@@ -1566,19 +1566,11 @@
                                     <action selector="btnNewChat:" destination="IHO-us-7nY" eventType="touchUpInside" id="nqI-fP-bwg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="● En linea" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfy-NE-zrZ">
-                                <rect key="frame" x="16" y="80" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96090251207351685" green="0.96560662984848022" blue="0.97964173555374146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2bi-SY-fcc" firstAttribute="leading" secondItem="Rfy-NE-zrZ" secondAttribute="trailing" constant="140" id="0eF-b6-lvz"/>
                             <constraint firstItem="3cY-Ev-DCV" firstAttribute="top" secondItem="ren-ZK-oze" secondAttribute="bottom" constant="8" id="0rf-sm-c1g"/>
                             <constraint firstItem="8wQ-fP-cLP" firstAttribute="trailing" secondItem="2bi-SY-fcc" secondAttribute="trailing" constant="16" id="1nL-Gv-Jyo"/>
-                            <constraint firstItem="ren-ZK-oze" firstAttribute="top" secondItem="Rfy-NE-zrZ" secondAttribute="bottom" constant="113" id="57u-j3-wvR"/>
                             <constraint firstItem="8wQ-fP-cLP" firstAttribute="trailing" secondItem="ren-ZK-oze" secondAttribute="trailing" constant="85" id="7P0-Xk-4gB"/>
                             <constraint firstItem="OmB-A2-y0V" firstAttribute="top" secondItem="3cY-Ev-DCV" secondAttribute="bottom" constant="16" id="AOl-o2-Rj3"/>
                             <constraint firstItem="JaJ-9P-csk" firstAttribute="leading" secondItem="WpJ-70-57v" secondAttribute="trailing" constant="20" id="AVh-BS-yqn"/>
@@ -1587,7 +1579,6 @@
                             <constraint firstItem="0HW-dA-xHX" firstAttribute="leading" secondItem="8wQ-fP-cLP" secondAttribute="leading" id="Ein-r4-omn"/>
                             <constraint firstItem="2bi-SY-fcc" firstAttribute="top" secondItem="0HW-dA-xHX" secondAttribute="bottom" constant="16" id="ICU-SM-Sep"/>
                             <constraint firstItem="ren-ZK-oze" firstAttribute="top" secondItem="WpJ-70-57v" secondAttribute="bottom" constant="8" id="UPb-ap-Mx1"/>
-                            <constraint firstItem="Rfy-NE-zrZ" firstAttribute="leading" secondItem="8wQ-fP-cLP" secondAttribute="leading" constant="16" id="Vgd-JB-TW0"/>
                             <constraint firstItem="WpJ-70-57v" firstAttribute="top" secondItem="0HW-dA-xHX" secondAttribute="bottom" constant="16" id="YG3-st-6X4"/>
                             <constraint firstItem="8wQ-fP-cLP" firstAttribute="trailing" secondItem="3cY-Ev-DCV" secondAttribute="trailing" constant="40" id="dGb-Yc-lRq"/>
                             <constraint firstItem="2bi-SY-fcc" firstAttribute="leading" secondItem="WpJ-70-57v" secondAttribute="trailing" constant="21" id="exR-M5-7dS"/>
@@ -1597,7 +1588,6 @@
                             <constraint firstItem="JaJ-9P-csk" firstAttribute="top" secondItem="2bi-SY-fcc" secondAttribute="bottom" constant="12" id="lWx-i1-8Ns"/>
                             <constraint firstItem="0HW-dA-xHX" firstAttribute="top" secondItem="8wQ-fP-cLP" secondAttribute="top" id="qdh-Oz-FYL"/>
                             <constraint firstItem="8wQ-fP-cLP" firstAttribute="trailing" secondItem="OmB-A2-y0V" secondAttribute="trailing" constant="40" id="rD4-Er-eb4"/>
-                            <constraint firstItem="Rfy-NE-zrZ" firstAttribute="top" secondItem="0HW-dA-xHX" secondAttribute="bottom" constant="16" id="tf5-bf-uIg"/>
                             <constraint firstItem="ren-ZK-oze" firstAttribute="leading" secondItem="8wQ-fP-cLP" secondAttribute="leading" constant="85" id="ys4-4e-g0s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8wQ-fP-cLP"/>
@@ -4021,8 +4011,8 @@
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="u9q-Ce-3yM"/>
-        <segue reference="ax6-Jm-EKh"/>
-        <segue reference="rTW-iU-iRt"/>
+        <segue reference="DgE-5p-x6P"/>
+        <segue reference="Ol0-Jl-lhK"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
