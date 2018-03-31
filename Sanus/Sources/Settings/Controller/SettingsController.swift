@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class AjustesController: UIViewController {
+class SettingsController: UIViewController {
 
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var txtName: UILabel!

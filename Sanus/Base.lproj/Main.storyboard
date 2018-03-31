@@ -2226,7 +2226,7 @@
         <!--Ajustes-->
         <scene sceneID="GPi-rj-Pw1">
             <objects>
-                <viewController id="DyF-a3-ddc" customClass="AjustesController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DyF-a3-ddc" customClass="SettingsController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="081-un-H3i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
