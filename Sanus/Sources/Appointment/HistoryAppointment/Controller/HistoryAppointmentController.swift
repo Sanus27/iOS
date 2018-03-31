@@ -11,15 +11,27 @@ import Firebase
 
 class HistoryAppointmentController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var listenerBtnAdd: UIButton!
     @IBOutlet weak var table: UITableView!
     private var listItems = [Appointment]()
     private let model = HistoryAppointmentModel()
+    private let modelComent = ComentariosDrModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
+        self.listenerBtnAdd.isHidden = true
         showData()
+        typeUser()
+    }
+    
+    private func typeUser(){
+        self.modelComent.isDoctor(completionHandler: { resp in
+            if resp == "Paciente" {
+                self.listenerBtnAdd.isHidden = false
+            }
+        })
     }
     
     private func showData(){

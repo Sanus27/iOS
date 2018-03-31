@@ -1151,6 +1151,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Citas" image="icon-citas" id="rIe-aF-s50"/>
                     <connections>
+                        <outlet property="listenerBtnAdd" destination="ELs-r2-ueC" id="dkM-Pm-aTn"/>
                         <outlet property="table" destination="8C3-S2-fTd" id="2HT-EC-XjH"/>
                     </connections>
                 </viewController>
@@ -3946,7 +3947,7 @@
         <segue reference="RDV-8D-BlE"/>
         <segue reference="hkD-kU-v79"/>
         <segue reference="DgE-5p-x6P"/>
-        <segue reference="Ol0-Jl-lhK"/>
+        <segue reference="rTW-iU-iRt"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="BwR-zZ-Ti0"/>
         <segue reference="OAs-o2-dOy"/>

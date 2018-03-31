@@ -256,8 +256,8 @@
 		A05D26F6206F63F2004C153D /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
-				A0F06ADA205DDB0E0004A914 /* ProfileDoctor */,
-				A0F06AAF205DD6420004A914 /* Comments */,
+				A0F06ADA205DDB0E0004A914 /* MyProfileDoctor */,
+				A0F06AAF205DD6420004A914 /* CommentsDoctor */,
 				A0F06AAC205DD5E70004A914 /* ProfileDoctor */,
 				A0F06AA9205DD5560004A914 /* SearchDoctor */,
 			);
@@ -420,13 +420,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A0F06AAF205DD6420004A914 /* Comments */ = {
+		A0F06AAF205DD6420004A914 /* CommentsDoctor */ = {
 			isa = PBXGroup;
 			children = (
 				A0F06AB1205DD6570004A914 /* Model */,
 				A0F06AB0205DD6500004A914 /* Controller */,
 			);
-			path = Comments;
+			path = CommentsDoctor;
 			sourceTree = "<group>";
 		};
 		A0F06AB0205DD6500004A914 /* Controller */ = {
@@ -701,13 +701,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A0F06ADA205DDB0E0004A914 /* ProfileDoctor */ = {
+		A0F06ADA205DDB0E0004A914 /* MyProfileDoctor */ = {
 			isa = PBXGroup;
 			children = (
 				A0F06ADC205DDB240004A914 /* Model */,
 				A0F06ADB205DDB1E0004A914 /* Controller */,
 			);
-			name = ProfileDoctor;
+			name = MyProfileDoctor;
 			path = "New Group";
 			sourceTree = "<group>";
 		};
