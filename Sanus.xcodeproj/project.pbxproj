@@ -33,12 +33,11 @@
 		A03C066E206A19EE00411FD4 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C066D206A19EE00411FD4 /* ChatModel.swift */; };
 		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
 		A04E8BAC205DA3CE00E094ED /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */; };
-		A04E8BAE205DA41D00E094ED /* HistoryAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAD205DA41D00E094ED /* HistoryAppointmentController.swift */; };
 		A04E8BB0205DB5F500E094ED /* MessengerDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */; };
 		A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */; };
 		A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9720487F5D00D4C8DD /* SelectDoctorController.swift */; };
 		A051DF9A20487FD000D4C8DD /* SelectDayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9920487FD000D4C8DD /* SelectDayController.swift */; };
-		A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */; };
+		A051DF9C2048802100D4C8DD /* SelectHourController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9B2048802100D4C8DD /* SelectHourController.swift */; };
 		A051DF9E2048809200D4C8DD /* AddAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* AddAppointmentController.swift */; };
 		A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Appointment.swift */; };
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
@@ -62,7 +61,7 @@
 		A0DC8D21202AA49E003FB0CB /* AjustesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D20202AA49E003FB0CB /* AjustesController.swift */; };
 		A0DC8D23202AA4A5003FB0CB /* BuscarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */; };
 		A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D24202AA4AC003FB0CB /* ChatController.swift */; };
-		A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D26202AA4B4003FB0CB /* CitasController.swift */; };
+		A0DC8D27202AA4B4003FB0CB /* HistoryAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D26202AA4B4003FB0CB /* HistoryAppointmentController.swift */; };
 		A0DC8D29202AA4BA003FB0CB /* CreateUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D28202AA4BA003FB0CB /* CreateUserController.swift */; };
 		A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */; };
 		A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */; };
@@ -110,12 +109,11 @@
 		A03C066D206A19EE00411FD4 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
 		A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
-		A04E8BAD205DA41D00E094ED /* HistoryAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAppointmentController.swift; sourceTree = "<group>"; };
 		A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerDrController.swift; sourceTree = "<group>"; };
 		A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginacionCitasController.swift; sourceTree = "<group>"; };
 		A051DF9720487F5D00D4C8DD /* SelectDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorController.swift; sourceTree = "<group>"; };
 		A051DF9920487FD000D4C8DD /* SelectDayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayController.swift; sourceTree = "<group>"; };
-		A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaHoraController.swift; sourceTree = "<group>"; };
+		A051DF9B2048802100D4C8DD /* SelectHourController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHourController.swift; sourceTree = "<group>"; };
 		A051DF9D2048809200D4C8DD /* AddAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentController.swift; sourceTree = "<group>"; };
 		A05AEB37202AD66C00F0D343 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
@@ -141,7 +139,7 @@
 		A0DC8D20202AA49E003FB0CB /* AjustesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesController.swift; sourceTree = "<group>"; };
 		A0DC8D22202AA4A5003FB0CB /* BuscarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuscarController.swift; sourceTree = "<group>"; };
 		A0DC8D24202AA4AC003FB0CB /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
-		A0DC8D26202AA4B4003FB0CB /* CitasController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitasController.swift; sourceTree = "<group>"; };
+		A0DC8D26202AA4B4003FB0CB /* HistoryAppointmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryAppointmentController.swift; sourceTree = "<group>"; };
 		A0DC8D28202AA4BA003FB0CB /* CreateUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserController.swift; sourceTree = "<group>"; };
 		A0DC8D2A202AA4C1003FB0CB /* ForoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForoController.swift; sourceTree = "<group>"; };
 		A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -449,7 +447,7 @@
 		A0F06AB4205DD6BF0004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A0DC8D26202AA4B4003FB0CB /* CitasController.swift */,
+				A0DC8D26202AA4B4003FB0CB /* HistoryAppointmentController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -546,7 +544,6 @@
 		A0F06ABF205DD86E0004A914 /* SelectHours */ = {
 			isa = PBXGroup;
 			children = (
-				A0F06AC1205DD8800004A914 /* Model */,
 				A0F06AC0205DD8790004A914 /* Controller */,
 			);
 			path = SelectHours;
@@ -555,16 +552,9 @@
 		A0F06AC0205DD8790004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */,
+				A051DF9B2048802100D4C8DD /* SelectHourController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A0F06AC1205DD8800004A914 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A0F06AC2205DD89D0004A914 /* AddAppointment */ = {
@@ -722,30 +712,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A0F06AD7205DDAE10004A914 /* AppointmentNow */ = {
-			isa = PBXGroup;
-			children = (
-				A0F06AD9205DDAFA0004A914 /* Model */,
-				A0F06AD8205DDAF40004A914 /* Controller */,
-			);
-			path = AppointmentNow;
-			sourceTree = "<group>";
-		};
-		A0F06AD8205DDAF40004A914 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				A04E8BAD205DA41D00E094ED /* HistoryAppointmentController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		A0F06AD9205DDAFA0004A914 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A0F06ADA205DDB0E0004A914 /* ProfileDoctor */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,7 +779,6 @@
 				A04F3AF72054DA3D00535DF5 /* Login */,
 				A04F3AF92054DA3D00535DF5 /* CompleteUser */,
 				A0F06AAC205DD5E70004A914 /* ProfileDoctor */,
-				A0F06AD7205DDAE10004A914 /* AppointmentNow */,
 				A0F06AD4205DDA870004A914 /* SettingsProfile */,
 				A0F06AD1205DDA5E0004A914 /* Settings */,
 				A0F06ACE205DD9FB0004A914 /* ForumNewQuestion */,
@@ -1013,12 +978,11 @@
 				A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */,
 				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,
 				A0DC8D29202AA4BA003FB0CB /* CreateUserController.swift in Sources */,
-				A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */,
+				A0DC8D27202AA4B4003FB0CB /* HistoryAppointmentController.swift in Sources */,
 				A051DF9E2048809200D4C8DD /* AddAppointmentController.swift in Sources */,
 				A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */,
 				A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */,
 				A0202F132063931000ACF0AB /* ProfileDoctorModel.swift in Sources */,
-				A04E8BAE205DA41D00E094ED /* HistoryAppointmentController.swift in Sources */,
 				A0B4B4C12060C4AC000833B1 /* ChatCell.swift in Sources */,
 				A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */,
 				A0DC8D2B202AA4C1003FB0CB /* ForoController.swift in Sources */,
@@ -1046,7 +1010,7 @@
 				A03C066E206A19EE00411FD4 /* ChatModel.swift in Sources */,
 				A0FFAB292054F98B00D956BF /* loginModel.swift in Sources */,
 				A0F06AE7205DFD000004A914 /* SettingProfileModel.swift in Sources */,
-				A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */,
+				A051DF9C2048802100D4C8DD /* SelectHourController.swift in Sources */,
 				A01D6776205087990025987C /* HospitalCell.swift in Sources */,
 				A0263D9820597D2C00A778B1 /* CalendarVariables.swift in Sources */,
 				A0E1388020579FEB0019EEA8 /* SettingProfileController.swift in Sources */,

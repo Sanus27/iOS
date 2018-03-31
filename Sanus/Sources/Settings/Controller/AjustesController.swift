@@ -22,14 +22,13 @@ class AjustesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.uid = (Auth.auth().currentUser?.uid)!
-        dataUser()
+        //dataUser()
     }
     
     
     private func dataUser(){
         self.model.showData( uid: self.uid , completionHandler: { resp in
             let warning = resp["warning"] as! Bool
-            //let defaults = resp["defaults"] as! Bool
             if warning {
                 print("Se ha producido un error")
             } else {

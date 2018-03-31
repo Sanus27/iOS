@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7734" y="610"/>
+            <point key="canvasLocation" x="-6338" y="609"/>
         </scene>
         <!--Mi Perfil-->
         <scene sceneID="jZv-Tx-SUe">
@@ -398,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbP-06-qhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6337.5" y="-189.08450704225353"/>
+            <point key="canvasLocation" x="-6338" y="-400"/>
         </scene>
         <!--Chat-->
         <scene sceneID="PZ4-54-XiO">
@@ -540,73 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOB-Kf-xPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5315.625" y="-189.08450704225353"/>
-        </scene>
-        <!--Citas-->
-        <scene sceneID="bGI-t4-OKX">
-            <objects>
-                <viewController id="crC-Wt-J24" customClass="HistoryAppointmentController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2wS-eu-VYz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerCitas" translatesAutoresizingMaskIntoConstraints="NO" id="hst-Lm-NwX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgc-bT-caa">
-                                <rect key="frame" x="40" y="55" width="240" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Citas para hoy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxu-4a-bmO">
-                                        <rect key="frame" x="15" y="0.0" width="210" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="2rt-KW-pb2"/>
-                                    <constraint firstItem="Kxu-4a-bmO" firstAttribute="top" secondItem="Zgc-bT-caa" secondAttribute="top" id="LGk-3k-Gf5"/>
-                                    <constraint firstAttribute="bottom" secondItem="Kxu-4a-bmO" secondAttribute="bottom" id="aSn-8h-fyG"/>
-                                    <constraint firstAttribute="trailing" secondItem="Kxu-4a-bmO" secondAttribute="trailing" constant="15" id="flx-FY-CNS"/>
-                                    <constraint firstItem="Kxu-4a-bmO" firstAttribute="leading" secondItem="Zgc-bT-caa" secondAttribute="leading" constant="15" id="hlk-0B-8Iv"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GGL-to-zT8">
-                                <rect key="frame" x="0.0" y="170" width="320" height="398"/>
-                                <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="hst-Lm-NwX" firstAttribute="trailing" secondItem="AMp-Za-Z6G" secondAttribute="trailing" id="6mA-9W-lV0"/>
-                            <constraint firstItem="AMp-Za-Z6G" firstAttribute="bottom" secondItem="hst-Lm-NwX" secondAttribute="bottom" constant="349" id="CVE-nN-PX4"/>
-                            <constraint firstAttribute="bottom" secondItem="GGL-to-zT8" secondAttribute="bottom" id="Czr-Sq-UjU"/>
-                            <constraint firstItem="Zgc-bT-caa" firstAttribute="leading" secondItem="AMp-Za-Z6G" secondAttribute="leading" constant="40" id="Hzx-fP-86E"/>
-                            <constraint firstItem="AMp-Za-Z6G" firstAttribute="trailing" secondItem="GGL-to-zT8" secondAttribute="trailing" id="Nx5-BF-jTf"/>
-                            <constraint firstItem="AMp-Za-Z6G" firstAttribute="trailing" secondItem="Zgc-bT-caa" secondAttribute="trailing" constant="40" id="QVx-hw-3mm"/>
-                            <constraint firstItem="AMp-Za-Z6G" firstAttribute="bottom" secondItem="Zgc-bT-caa" secondAttribute="bottom" constant="404" id="Xm3-82-Reh"/>
-                            <constraint firstItem="Zgc-bT-caa" firstAttribute="top" secondItem="AMp-Za-Z6G" secondAttribute="top" constant="35" id="ZRP-RR-fwY"/>
-                            <constraint firstItem="GGL-to-zT8" firstAttribute="top" secondItem="hst-Lm-NwX" secondAttribute="bottom" id="cBJ-kb-iKx"/>
-                            <constraint firstItem="hst-Lm-NwX" firstAttribute="top" secondItem="2wS-eu-VYz" secondAttribute="top" id="faD-wd-lcO"/>
-                            <constraint firstItem="hst-Lm-NwX" firstAttribute="leading" secondItem="AMp-Za-Z6G" secondAttribute="leading" id="p17-ec-JHk"/>
-                            <constraint firstItem="GGL-to-zT8" firstAttribute="leading" secondItem="AMp-Za-Z6G" secondAttribute="leading" id="xbW-tZ-3xa"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="AMp-Za-Z6G"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Citas" image="icon-citas" id="V9M-16-C0y"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ggM-6H-7RS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-7399" y="-189"/>
+            <point key="canvasLocation" x="-5303" y="-400"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="z84-Kq-t85">
@@ -619,10 +553,10 @@
                         <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="R7c-rH-wRz" kind="relationship" relationship="viewControllers" id="Hdf-xd-PDj"/>
-                        <segue destination="crC-Wt-J24" kind="relationship" relationship="viewControllers" id="fKv-m5-HEf"/>
-                        <segue destination="LLp-wB-0c7" kind="relationship" relationship="viewControllers" id="iOL-Fy-p7o"/>
-                        <segue destination="DyF-a3-ddc" kind="relationship" relationship="viewControllers" id="u9q-Ce-3yM"/>
+                        <segue destination="R7c-rH-wRz" kind="relationship" relationship="viewControllers" id="dqm-8c-qeE"/>
+                        <segue destination="l1j-Mx-Vrr" kind="relationship" relationship="viewControllers" id="BwR-zZ-Ti0"/>
+                        <segue destination="LLp-wB-0c7" kind="relationship" relationship="viewControllers" id="MZ9-52-EPV"/>
+                        <segue destination="DyF-a3-ddc" kind="relationship" relationship="viewControllers" id="hkD-kU-v79"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYi-Wa-r67" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1030,7 +964,7 @@
         <!--Citas-->
         <scene sceneID="5uB-Kh-GDq">
             <objects>
-                <viewController id="l1j-Mx-Vrr" customClass="CitasController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l1j-Mx-Vrr" customClass="HistoryAppointmentController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1sN-tJ-sk6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1224,10 +1158,10 @@
             </objects>
             <point key="canvasLocation" x="-4294" y="610"/>
         </scene>
-        <!--Seleciona Cinica Controller-->
+        <!--Select Clinic Controller-->
         <scene sceneID="Fh2-PG-0lX">
             <objects>
-                <viewController restorationIdentifier="SelectClinica" storyboardIdentifier="SelectClinica" id="lKq-fg-9iu" customClass="SelecionaCinicaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectClinica" storyboardIdentifier="SelectClinica" id="lKq-fg-9iu" customClass="SelectClinicController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mfT-kh-JBz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1610,7 +1544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzY-KU-qKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7734.375" y="1493.661971830986"/>
+            <point key="canvasLocation" x="-6338" y="1460"/>
         </scene>
         <!--Comentarios Dr Controller-->
         <scene sceneID="anm-Wp-07b">
@@ -1937,7 +1871,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="id8-Pj-TZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6778" y="1494"/>
+            <point key="canvasLocation" x="-5303" y="1460"/>
         </scene>
         <!--Chat-->
         <scene sceneID="Sao-o6-EUT">
@@ -2521,7 +2455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZSF-iF-mMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="609.50704225352115"/>
+            <point key="canvasLocation" x="-339" y="547"/>
         </scene>
         <!--Setting Profile Controller-->
         <scene sceneID="a8h-UX-M3t">
@@ -2755,7 +2689,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJ0-Rr-FeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="1494"/>
+            <point key="canvasLocation" x="-339" y="1536"/>
         </scene>
         <!--Complete User Controller-->
         <scene sceneID="Kiz-mv-8eA">
@@ -3223,10 +3157,10 @@
             </objects>
             <point key="canvasLocation" x="-4965" y="2339"/>
         </scene>
-        <!--Seleciona Hora Controller-->
+        <!--Select Hour Controller-->
         <scene sceneID="ANG-9b-G7p">
             <objects>
-                <viewController restorationIdentifier="SelectHours" storyboardIdentifier="SelectHours" id="ros-cL-sG2" customClass="SelecionaHoraController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectHours" storyboardIdentifier="SelectHours" id="ros-cL-sG2" customClass="SelectHourController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sg2-ww-B9G" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4010,10 +3944,11 @@
     <inferredMetricsTieBreakers>
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
-        <segue reference="u9q-Ce-3yM"/>
+        <segue reference="hkD-kU-v79"/>
         <segue reference="DgE-5p-x6P"/>
         <segue reference="Ol0-Jl-lhK"/>
         <segue reference="lsY-y0-mY7"/>
+        <segue reference="BwR-zZ-Ti0"/>
         <segue reference="OAs-o2-dOy"/>
     </inferredMetricsTieBreakers>
 </document>

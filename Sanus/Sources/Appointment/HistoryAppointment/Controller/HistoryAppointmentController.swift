@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CitasController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryAppointmentController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var table: UITableView!
     private var listItems = [Appointment]()

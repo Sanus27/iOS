@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SelecionaHoraController: UIViewController {
+class SelectHourController: UIViewController {
 
     
     @IBOutlet weak var listenerNext: UIButton!
