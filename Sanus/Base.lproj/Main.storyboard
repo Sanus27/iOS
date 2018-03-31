@@ -3027,10 +3027,10 @@
             </objects>
             <point key="canvasLocation" x="-2929" y="-189"/>
         </scene>
-        <!--Seleciona Doctor Controller-->
+        <!--Select Doctor Controller-->
         <scene sceneID="8Ah-B4-cq6">
             <objects>
-                <viewController restorationIdentifier="SelectDoctormio" storyboardIdentifier="SelectDoctormio" id="peK-zN-rnE" customClass="SelecionaDoctorController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectDoctormio" storyboardIdentifier="SelectDoctormio" id="peK-zN-rnE" customClass="SelectDoctorController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bFb-YA-PpS" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3378,10 +3378,10 @@
             </objects>
             <point key="canvasLocation" x="-3636" y="2339"/>
         </scene>
-        <!--Agregar Cita Controller-->
+        <!--Add Appointment Controller-->
         <scene sceneID="PFY-FK-1Ug">
             <objects>
-                <viewController restorationIdentifier="SaveCite" storyboardIdentifier="SaveCite" id="96v-LY-zLV" customClass="AgregarCitaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SaveCite" storyboardIdentifier="SaveCite" id="96v-LY-zLV" customClass="AddAppointmentController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JlF-Mx-1Sj" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3681,10 +3681,10 @@
             </objects>
             <point key="canvasLocation" x="-2966" y="2339"/>
         </scene>
-        <!--Seleciona Dia Controller-->
+        <!--Select Day Controller-->
         <scene sceneID="hBI-N8-QQT">
             <objects>
-                <viewController restorationIdentifier="SelectDay" storyboardIdentifier="SelectDay" id="P6D-23-hyi" customClass="SelecionaDiaController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectDay" storyboardIdentifier="SelectDay" id="P6D-23-hyi" customClass="SelectDayController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zna-Ln-biE" customClass="Sel">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3802,7 +3802,7 @@
                                     <constraint firstItem="kZe-pE-vNu" firstAttribute="leading" secondItem="Kwe-ql-m7I" secondAttribute="trailing" id="v2Z-54-nWk"/>
                                 </constraints>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fbp-jg-UTe">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fbp-jg-UTe">
                                 <rect key="frame" x="27" y="273" width="266" height="194"/>
                                 <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

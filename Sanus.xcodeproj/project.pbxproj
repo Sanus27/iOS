@@ -36,10 +36,10 @@
 		A04E8BAE205DA41D00E094ED /* HistoryAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAD205DA41D00E094ED /* HistoryAppointmentController.swift */; };
 		A04E8BB0205DB5F500E094ED /* MessengerDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */; };
 		A051DF9620487E8900D4C8DD /* PaginacionCitasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */; };
-		A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */; };
-		A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */; };
+		A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9720487F5D00D4C8DD /* SelectDoctorController.swift */; };
+		A051DF9A20487FD000D4C8DD /* SelectDayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9920487FD000D4C8DD /* SelectDayController.swift */; };
 		A051DF9C2048802100D4C8DD /* SelecionaHoraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */; };
-		A051DF9E2048809200D4C8DD /* AgregarCitaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */; };
+		A051DF9E2048809200D4C8DD /* AddAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* AddAppointmentController.swift */; };
 		A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Appointment.swift */; };
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
 		A0656E6D206A22C70054D1AA /* MessegeClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */; };
@@ -53,7 +53,7 @@
 		A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */; };
 		A084A36020502864001509CE /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084A35F20502864001509CE /* Alerts.swift */; };
 		A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E8BC1205890D600811243 /* SettingsModel.swift */; };
-		A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */; };
+		A0A62621202D7C0200EE34D2 /* SelectClinicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* SelectClinicController.swift */; };
 		A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACF9B320334F0B004681AE /* CompleteUserController.swift */; };
 		A0B4B4C12060C4AC000833B1 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4B4C02060C4AC000833B1 /* ChatCell.swift */; };
 		A0B4B4C32060C782000833B1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4B4C22060C782000833B1 /* Contact.swift */; };
@@ -113,10 +113,10 @@
 		A04E8BAD205DA41D00E094ED /* HistoryAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAppointmentController.swift; sourceTree = "<group>"; };
 		A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerDrController.swift; sourceTree = "<group>"; };
 		A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginacionCitasController.swift; sourceTree = "<group>"; };
-		A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaDoctorController.swift; sourceTree = "<group>"; };
-		A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaDiaController.swift; sourceTree = "<group>"; };
+		A051DF9720487F5D00D4C8DD /* SelectDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorController.swift; sourceTree = "<group>"; };
+		A051DF9920487FD000D4C8DD /* SelectDayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayController.swift; sourceTree = "<group>"; };
 		A051DF9B2048802100D4C8DD /* SelecionaHoraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaHoraController.swift; sourceTree = "<group>"; };
-		A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarCitaController.swift; sourceTree = "<group>"; };
+		A051DF9D2048809200D4C8DD /* AddAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentController.swift; sourceTree = "<group>"; };
 		A05AEB37202AD66C00F0D343 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
 		A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeClientModel.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		A082458B202A9FAC00543AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A084A35F20502864001509CE /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		A09E8BC1205890D600811243 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecionaCinicaController.swift; sourceTree = "<group>"; };
+		A0A62620202D7C0200EE34D2 /* SelectClinicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClinicController.swift; sourceTree = "<group>"; };
 		A0ACF9B320334F0B004681AE /* CompleteUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserController.swift; sourceTree = "<group>"; };
 		A0B4B4C02060C4AC000833B1 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		A0B4B4C22060C782000833B1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -270,6 +270,19 @@
 				A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */,
 			);
 			path = Sanus;
+			sourceTree = "<group>";
+		};
+		A0CD2A91206F583400305E59 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				A0F06AC2205DD89D0004A914 /* AddAppointment */,
+				A0F06ABF205DD86E0004A914 /* SelectHours */,
+				A0F06ABC205DD8220004A914 /* SelectDay */,
+				A0F06AB9205DD7CD0004A914 /* SelectDoctor */,
+				A0F06AB6205DD7550004A914 /* SelectClinic */,
+				A0F06AB3205DD6AC0004A914 /* HistoryAppointment */,
+			);
+			path = Appointment;
 			sourceTree = "<group>";
 		};
 		A0D3CCDF206B4198008F6D8D /* Model */ = {
@@ -463,7 +476,7 @@
 		A0F06AB7205DD7830004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A0A62620202D7C0200EE34D2 /* SelecionaCinicaController.swift */,
+				A0A62620202D7C0200EE34D2 /* SelectClinicController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -490,7 +503,7 @@
 		A0F06ABA205DD7DA0004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A051DF9720487F5D00D4C8DD /* SelecionaDoctorController.swift */,
+				A051DF9720487F5D00D4C8DD /* SelectDoctorController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -516,7 +529,7 @@
 		A0F06ABD205DD8350004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A051DF9920487FD000D4C8DD /* SelecionaDiaController.swift */,
+				A051DF9920487FD000D4C8DD /* SelectDayController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -557,7 +570,6 @@
 		A0F06AC2205DD89D0004A914 /* AddAppointment */ = {
 			isa = PBXGroup;
 			children = (
-				A0F06AC4205DD8B30004A914 /* Model */,
 				A0F06AC3205DD8AD0004A914 /* Controller */,
 			);
 			path = AddAppointment;
@@ -566,16 +578,9 @@
 		A0F06AC3205DD8AD0004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A051DF9D2048809200D4C8DD /* AgregarCitaController.swift */,
+				A051DF9D2048809200D4C8DD /* AddAppointmentController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A0F06AC4205DD8B30004A914 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A0F06AC5205DD8D40004A914 /* ChatClient */ = {
@@ -796,16 +801,11 @@
 		A0F06AE1205DDBBF0004A914 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A0CD2A91206F583400305E59 /* Appointment */,
 				A0F06AB2205DD67D0004A914 /* Utils */,
 				A0F06ADD205DDB320004A914 /* MessageDoctor */,
 				A0F06AC8205DD9090004A914 /* MessegeClient */,
 				A0F06AC5205DD8D40004A914 /* ChatClient */,
-				A0F06AC2205DD89D0004A914 /* AddAppointment */,
-				A0F06ABF205DD86E0004A914 /* SelectHours */,
-				A0F06ABC205DD8220004A914 /* SelectDay */,
-				A0F06AB9205DD7CD0004A914 /* SelectDoctor */,
-				A0F06AB6205DD7550004A914 /* SelectClinic */,
-				A0F06AB3205DD6AC0004A914 /* HistoryAppointment */,
 				A0F06AAF205DD6420004A914 /* Comments */,
 				A0F06ADA205DDB0E0004A914 /* ProfileDoctor */,
 				A0F06AA9205DD5560004A914 /* SearchDoctor */,
@@ -1010,11 +1010,11 @@
 				A03C06662069BF3000411FD4 /* PerfilDoctorModel.swift in Sources */,
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
 				A0B4B4C32060C782000833B1 /* Contact.swift in Sources */,
-				A051DF9820487F5D00D4C8DD /* SelecionaDoctorController.swift in Sources */,
+				A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */,
 				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,
 				A0DC8D29202AA4BA003FB0CB /* CreateUserController.swift in Sources */,
 				A0DC8D27202AA4B4003FB0CB /* CitasController.swift in Sources */,
-				A051DF9E2048809200D4C8DD /* AgregarCitaController.swift in Sources */,
+				A051DF9E2048809200D4C8DD /* AddAppointmentController.swift in Sources */,
 				A0DC8D25202AA4AC003FB0CB /* ChatController.swift in Sources */,
 				A0B6151720302A1C006622A8 /* CitasCell.swift in Sources */,
 				A0202F132063931000ACF0AB /* ProfileDoctorModel.swift in Sources */,
@@ -1059,12 +1059,12 @@
 				A0656E71206AFA710054D1AA /* SelectDoctorModel.swift in Sources */,
 				A0F2A234202D7C8D00778C7B /* MessegeClientController.swift in Sources */,
 				A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */,
-				A0A62621202D7C0200EE34D2 /* SelecionaCinicaController.swift in Sources */,
+				A0A62621202D7C0200EE34D2 /* SelectClinicController.swift in Sources */,
 				A04E8BB0205DB5F500E094ED /* MessengerDrController.swift in Sources */,
 				A0656E73206B01A20054D1AA /* HistoryAppointmentModel.swift in Sources */,
 				A0656E6F206AF7330054D1AA /* SelectClinicModel.swift in Sources */,
 				A084A36020502864001509CE /* Alerts.swift in Sources */,
-				A051DF9A20487FD000D4C8DD /* SelecionaDiaController.swift in Sources */,
+				A051DF9A20487FD000D4C8DD /* SelectDayController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

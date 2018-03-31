@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelecionaCinicaController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SelectClinicController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tableData: UITableView!

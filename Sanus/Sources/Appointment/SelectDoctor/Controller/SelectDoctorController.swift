@@ -10,7 +10,7 @@
 import UIKit
 import FirebaseStorage
 
-class SelecionaDoctorController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SelectDoctorController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tableData: UITableView!

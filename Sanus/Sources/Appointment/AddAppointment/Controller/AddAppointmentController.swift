@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AgregarCitaController: UIViewController {
+class AddAppointmentController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

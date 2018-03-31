@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-class SelecionaDiaController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SelectDayController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var Calendar: UICollectionView!
