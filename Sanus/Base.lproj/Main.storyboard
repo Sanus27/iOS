@@ -13,7 +13,7 @@
         <!--Buscar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BuscarController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchDoctorController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1546,10 +1546,10 @@
             </objects>
             <point key="canvasLocation" x="-6338" y="1460"/>
         </scene>
-        <!--Comentarios Dr Controller-->
+        <!--Comments Dr Controller-->
         <scene sceneID="anm-Wp-07b">
             <objects>
-                <viewController id="mpV-Hq-gx8" customClass="ComentariosDrController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mpV-Hq-gx8" customClass="CommentsDrController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hws-Xp-cmH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

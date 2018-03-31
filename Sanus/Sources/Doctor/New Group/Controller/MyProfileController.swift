@@ -122,7 +122,7 @@ class MyProfileController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goComents" {
-            let destiny = segue.destination as! ComentariosDrController
+            let destiny = segue.destination as! CommentsDrController
             destiny.showComents = self.uid
         }
     }

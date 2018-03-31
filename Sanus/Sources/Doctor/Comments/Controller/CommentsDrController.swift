@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
-class ComentariosDrController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet var collectionStar: [UIButton]!
     @IBOutlet weak var dataTable: UITableView!

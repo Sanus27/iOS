@@ -119,7 +119,7 @@ class PerfilDoctorController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "comentarios" {
-            let destiny = segue.destination as! ComentariosDrController
+            let destiny = segue.destination as! CommentsDrController
             destiny.showComents = self.id
         }
         if segue.identifier == "goMessengePacient" {

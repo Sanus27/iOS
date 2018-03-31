@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class BuscarController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
