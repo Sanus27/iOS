@@ -1877,7 +1877,7 @@
         <!--Chat-->
         <scene sceneID="Sao-o6-EUT">
             <objects>
-                <viewController id="JD1-63-NWW" customClass="ChatController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JD1-63-NWW" customClass="MessengerClientController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3UL-5v-6o2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2022,10 +2022,10 @@
             </objects>
             <point key="canvasLocation" x="-1500" y="609.50704225352115"/>
         </scene>
-        <!--Messege Client Controller-->
+        <!--Chat Controller-->
         <scene sceneID="WWA-Qq-j2o">
             <objects>
-                <viewController id="WXW-pW-XBY" customClass="MessegeClientController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WXW-pW-XBY" customClass="ChatController" customModule="Sanus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dTa-Jj-foj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3946,7 +3946,7 @@
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="hkD-kU-v79"/>
-        <segue reference="DgE-5p-x6P"/>
+        <segue reference="ax6-Jm-EKh"/>
         <segue reference="rTW-iU-iRt"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="BwR-zZ-Ti0"/>

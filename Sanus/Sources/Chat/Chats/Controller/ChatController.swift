@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MessegeClientController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class ChatController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var load: UIActivityIndicatorView!
     @IBOutlet weak var listenerTextMessage: UITextField!

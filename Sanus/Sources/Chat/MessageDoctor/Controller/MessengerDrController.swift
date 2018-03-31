@@ -85,7 +85,7 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "goMessengerDoctor" {
             if let id = tableData.indexPathForSelectedRow {
                 let fila = listItems[id.row]
-                let destino = segue.destination as! MessegeClientController
+                let destino = segue.destination as! ChatController
                 destino.showMessenger = fila.autor
             }
         }

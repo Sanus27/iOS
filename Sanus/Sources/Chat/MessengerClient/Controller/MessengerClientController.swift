@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MessengerClientController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableData: UITableView!
     private var getRef:Firestore!
@@ -83,7 +83,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "goMessengerPacient" {
             if let id = tableData.indexPathForSelectedRow {
                 let fila = listItems[id.row]
-                let destino = segue.destination as! MessegeClientController
+                let destino = segue.destination as! ChatController
                 destino.showMessenger = fila.doctor
             }
         }

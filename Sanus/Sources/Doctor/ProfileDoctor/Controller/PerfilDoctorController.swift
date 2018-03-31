@@ -123,7 +123,7 @@ class PerfilDoctorController: UIViewController {
             destiny.showComents = self.id
         }
         if segue.identifier == "goMessengePacient" {
-            let destiny = segue.destination as! MessegeClientController
+            let destiny = segue.destination as! ChatController
             destiny.showMessenger = self.id
         }
     }

@@ -117,7 +117,6 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
         avatar.image = imagenTomada!
         imagen = imagenTomada!
         pesoImg = Float(imagen.size.width)
-        print(pesoImg)
         dismiss(animated: true, completion: nil)
     }
     
