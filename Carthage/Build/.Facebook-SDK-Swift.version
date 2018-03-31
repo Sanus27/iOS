@@ -8,19 +8,19 @@
   "tvOS" : [
 
   ],
-  "commitish" : "ddeabb300a65816c62066b6f2247108c9dba9863",
+  "commitish" : "2d04d2a89d2c8e420e9a8847038c81093f2eb124",
   "iOS" : [
     {
       "name" : "FacebookLogin",
-      "hash" : "876b0992f994db2a9aeb2d3d787d06ae41c9753b903e53fb31cbf08699e0ad5d"
+      "hash" : "5459799045a6bb99c7c00b11ceff579a2e46a2447f82e87e4dfde5a9b213cb7c"
     },
     {
       "name" : "FacebookCore",
-      "hash" : "1ab525df194c188eac51fe34b84964e2e814e8bcf18503492adff2adffb3a2c2"
+      "hash" : "1ac82b7b3ee464646a1d0b1f34510e83b1b50ffe890b3597aea16d1991b4e299"
     },
     {
       "name" : "FacebookShare",
-      "hash" : "793f93ed7ac21e6e1e7e62d05ceb3f2021eae76c89b7d8271faabc5d3e66a92c"
+      "hash" : "6d90cd6608f3ddb90360fa686b84a315658f926cc25227f97837028adcfbcb06"
     }
   ]
 }

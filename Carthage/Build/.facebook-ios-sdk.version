@@ -7,35 +7,35 @@
   ],
   "tvOS" : [
     {
-      "name" : "FBSDKTVOSKit",
-      "hash" : "fa835150c488bb1db450b2a1e50a970a08e9b853056fc5975b6e0c49d214846f"
+      "name" : "FBSDKShareKit",
+      "hash" : "fb1100f54187733b3bd016563acec168c5862f351f49d05d728852f11cc7a33f"
     },
     {
-      "name" : "FBSDKShareKit",
-      "hash" : "73da9de091a4f5d92b3fc92b06ebc964869d37036f64278c2b433d00cba27e69"
+      "name" : "FBSDKTVOSKit",
+      "hash" : "a3b06be2d31f5260015c30c33c6331f0955b70dfff6f237b7e7812a457434505"
     },
     {
       "name" : "FBSDKCoreKit",
-      "hash" : "81aaa0f5dfd1939d4f7566909f8bb78f8abff7c83478250866251886604f5eae"
+      "hash" : "44cf79e963c3b8fbef5dec9423aba94de9dbd279dac6eb06ddd9eae0dbb8a9b7"
     }
   ],
   "commitish" : "sdk-version-4.31.1",
   "iOS" : [
     {
       "name" : "FBSDKPlacesKit",
-      "hash" : "efdbb5e14d4c607cdafb7a5a7a27ce14a1db3f8a6b88325d86bfc6971d82eed6"
+      "hash" : "7b28190a470f41b2fddf1a1402c65e1839b257e2d893221721bf231d7e5c6b65"
     },
     {
       "name" : "FBSDKLoginKit",
-      "hash" : "11406b468660c2a9222b90860fb882b0f15aa7ff607f81125e06ca0de063a9c4"
+      "hash" : "9c96c99f401c5efd94fc1fc4f2e4ea6dfac636b8502d8c8d32b55d3fdbd23e9a"
     },
     {
       "name" : "FBSDKShareKit",
-      "hash" : "2303d9747a4287b0bf751aa47fd3f7c6e72e7b5456c8623ef6905c792aded268"
+      "hash" : "642fd5730ed719d82535177ea7263d0f6993c10068cdf3f75c06ad05bcc67f26"
     },
     {
       "name" : "FBSDKCoreKit",
-      "hash" : "b970df1f803a4cbc80aa4e5ae45b2ae0361eccf0f7eb042491c9d826dab372b7"
+      "hash" : "8081ce6d9f104e886a43711fd1aac10a05d2a23b2e93823aa535c807de2de56a"
     }
   ]
 }
