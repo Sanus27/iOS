@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import FirebaseStorage
 
 class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -22,14 +20,13 @@ class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var txtMensaje: UIView!
     
     public var showComents: String!
-    private var ref: DocumentReference!
-    private var getRef: Firestore!
     public var listComents = [Comments]()
     private var id = ""
     private var uid = ""
     private var calif = 0
     private var alert = Alerts()
     private var model = ComentariosDrModel()
+    private let user = ParamsNewAppointment()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +37,7 @@ class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDa
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         dataTable.estimatedRowHeight = 105
         dataTable.rowHeight = UITableViewAutomaticDimension
-        getRef = Firestore.firestore()
-        uid = (Auth.auth().currentUser?.uid)!
+        uid = self.user.getID()!
         id = showComents
         isDoctor()
         showData()
@@ -141,7 +137,7 @@ class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDa
     
     private func showData(){
         
-        self.model.showData( getRef: getRef, idDoctor: id, completionHandler:  { resp in
+        self.model.showData( idDoctor: id, completionHandler:  { resp in
             self.listComents.removeAll()
             self.listComents = self.model.listComents
             self.dataTable.reloadData()
@@ -216,10 +212,12 @@ class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func isDoctor()  {
-        self.model.isDoctor( completionHandler:  { resp in
-            if resp == "Medico" { self.txtMensaje.isHidden = true }
-            if resp == "Paciente" { self.txtMensaje.isHidden = false }
-        })
+        let resp = self.user.getTypeUser()!
+        if resp == "Medico" { self.txtMensaje.isHidden = true }
+        if resp == "Paciente" { self.txtMensaje.isHidden = false }
+//        self.model.isDoctor( completionHandler:  { resp in
+//            
+//        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

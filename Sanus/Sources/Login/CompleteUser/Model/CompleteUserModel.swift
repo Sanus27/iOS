@@ -17,6 +17,7 @@ class CompleteUserModel: UIViewController {
     private let alert = Alerts()
     private var uid: String = ""
     private var ref: DocumentReference!
+    private let user = ParamsNewAppointment()
     private var campos: [String:Any] = [:]
     
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class CompleteUserModel: UIViewController {
     }
     
     public func uploadPicture( imagen:UIImage, completionHandler: @escaping ((String) -> Void)) {
-        self.uid = (Auth.auth().currentUser?.uid)!
+        self.uid = self.user.getID()!
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
         let storage = Storage.storage().reference()
@@ -53,7 +54,7 @@ class CompleteUserModel: UIViewController {
     
     public func completeUser( data:[String:Any] ,completionHandler: @escaping ((String) -> Void)) {
 
-        self.uid = (Auth.auth().currentUser?.uid)!
+        self.uid = self.user.getID()!
         if data["avatar"] as! String == "1" {
             campos = [ "avatar": self.uid , "nombre": data["nombre"]!, "apellido": data["apellido"]!, "edad": data["edad"] ?? "", "sexo": data["sexo"]!, "tipo": "Paciente", "estado": "1" ]
         } else {

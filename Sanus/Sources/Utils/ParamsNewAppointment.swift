@@ -13,6 +13,8 @@ class ParamsNewAppointment {
     public var idHospital:String? = ""
     public var idDoctor:String? = ""
     public var idCalendar:String? = ""
+    public var idUser:String? = ""
+    public var idTypeUser:String? = ""
     
     public func getHospital() -> String? {
         idHospital = UserDefaults.standard.object(forKey: "idHospital") as? String
@@ -44,4 +46,32 @@ class ParamsNewAppointment {
         UserDefaults.standard.set( date , forKey: "idCalendar")
     }
     
+    public func getID() -> String? {
+        idUser = UserDefaults.standard.object(forKey: "idUser") as? String
+        return idUser
+    }
+    
+    public func setID( id:String? ){
+        UserDefaults.standard.removeObject(forKey: "idUser")
+        UserDefaults.standard.set( id , forKey: "idUser")
+    }
+    
+    public func getTypeUser() -> String? {
+        idTypeUser = UserDefaults.standard.object(forKey: "idTypeUser") as? String
+        return idTypeUser
+    }
+    
+    public func setTypeUser( id:String? ){
+        UserDefaults.standard.removeObject(forKey: "idTypeUser")
+        UserDefaults.standard.set( id , forKey: "idTypeUser")
+    }
+    
+    
+    public func removeID(){
+        UserDefaults.standard.removeObject(forKey: "idUser")
+    }
+    
+    public func removeTypeUser() {
+        UserDefaults.standard.removeObject(forKey: "idTypeUser")
+    }
 }

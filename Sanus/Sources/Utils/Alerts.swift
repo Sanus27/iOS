@@ -14,7 +14,8 @@ import GoogleSignIn
 
 class Alerts {
     
-    private var login = loginModel()
+    private let login = loginModel()
+    private let user = ParamsNewAppointment()
     
     public func alertSimple( this: UIViewController, titileAlert: String?, bodyAlert: String?, actionAlert: String? ) -> Void {
         let alert = UIAlertController(title: titileAlert, message: bodyAlert, preferredStyle: .alert);
@@ -81,6 +82,8 @@ class Alerts {
     
     private func logOutGoogle(){
         GIDSignIn.sharedInstance().signOut()
+        self.user.removeID()
+        self.user.removeTypeUser()
     }
     
 }

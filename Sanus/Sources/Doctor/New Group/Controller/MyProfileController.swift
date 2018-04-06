@@ -25,10 +25,11 @@ class MyProfileController: UIViewController {
     
     private var model = ProfileDoctorModel()
     private var uid: String?
+    private let user = ParamsNewAppointment()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uid = (Auth.auth().currentUser?.uid)!
+        self.uid = self.user.getID()!
         showData()
     }
 

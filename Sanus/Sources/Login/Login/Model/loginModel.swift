@@ -13,11 +13,13 @@ import FirebaseAuth
 
 class loginModel {
     
+    private let user = ParamsNewAppointment()
     private var ref: DocumentReference!
     private var resp:String = ""
     
     public func isLoggedIsCompleateLogin( this: UIViewController ) -> Void {
         let id = (Auth.auth().currentUser?.uid)!
+        self.user.setID(id: id)
         ref = Firestore.firestore().collection("usuarios").document( id )
         ref.getDocument { (document, error) in
 
@@ -26,6 +28,7 @@ class loginModel {
                 let exist = document.data()
                 if exist != nil {
                     let typeData = exist!["tipo"] as? String
+                    self.user.setTypeUser(id: typeData)
                     if typeData! == "Medico" {
                         self.chageSatateUser( state:"1" )
                         this.performSegue(withIdentifier: "doctor", sender: this )

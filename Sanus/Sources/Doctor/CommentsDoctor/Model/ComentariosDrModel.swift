@@ -13,6 +13,7 @@ import FirebaseAuth
 class ComentariosDrModel: UIViewController {
 
     private var ref:DocumentReference!
+    private let user = ParamsNewAppointment()
     public var listComents = [Comments]()
     public var resp: String = ""
     
@@ -21,8 +22,8 @@ class ComentariosDrModel: UIViewController {
     }
 
 
-    public func showData( getRef:Firestore, idDoctor: String, completionHandler: @escaping (([Comments]) -> Void)) {
-        
+    public func showData( idDoctor: String, completionHandler: @escaping (([Comments]) -> Void)) {
+        let getRef = Firestore.firestore()
         getRef.collection("comentarios").whereField( "doctor", isEqualTo: idDoctor ).order(by: "hora", descending: true).addSnapshotListener { (result , error) in
             if let error = error {
                 print("hay un error en firebase", error)
@@ -124,7 +125,7 @@ class ComentariosDrModel: UIViewController {
     
     public func isDoctor( completionHandler: @escaping ((String) -> Void)) {
         
-        let id = (Auth.auth().currentUser?.uid)!
+        let id = self.user.getID()!
         ref = Firestore.firestore().collection("usuarios").document( id )
         ref.getDocument { (document, error) in
             if let document = document {

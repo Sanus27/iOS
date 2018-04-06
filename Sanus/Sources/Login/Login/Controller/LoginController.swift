@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-
-
 class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBOutlet weak var btnLoginGmail: UIButton!

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseStorage
 
 class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -16,13 +15,11 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
     private var listItems = [Contact]()
     private var uid: String = ""
     private var model = MessengeDrModel()
-    private var getRef:Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableData.delegate = self
         tableData.dataSource = self
-        self.getRef = Firestore.firestore()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +28,7 @@ class MessengerDrController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func showData(){
-        self.model.showData( getRef:self.getRef, completionHandler: { resp in
+        self.model.showData( completionHandler: { resp in
             self.listItems.removeAll()
             self.tableData.reloadData()
             self.listItems = self.model.listItems

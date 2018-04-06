@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class SettingsController: UIViewController {
 
@@ -17,12 +16,13 @@ class SettingsController: UIViewController {
     private let alert = Alerts()
     private let model = SettingsModel()
     private let login = loginModel()
+    private let user = ParamsNewAppointment()
     
     @IBOutlet weak var listenerState: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uid = (Auth.auth().currentUser?.uid)!
-        //dataUser()
+        self.uid = self.user.getID()!
+        dataUser()
     }
     
     

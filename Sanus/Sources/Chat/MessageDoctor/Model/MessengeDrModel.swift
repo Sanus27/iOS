@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 import FirebaseStorage
 
 class MessengeDrModel: UIViewController {
@@ -16,13 +15,11 @@ class MessengeDrModel: UIViewController {
     public var listItems = [Contact]()
     private var uid: String = ""
     private var ref:DocumentReference!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    public func showData( getRef:Firestore, completionHandler: @escaping (([Contact]) -> Void)) {
-        self.uid = (Auth.auth().currentUser?.uid)!
+    private let user = ParamsNewAppointment()
+
+    public func showData( completionHandler: @escaping (([Contact]) -> Void)) {
+        let getRef = Firestore.firestore()
+        self.uid = self.user.getID()!
         getRef.collection("contactos").whereField("doctor", isEqualTo: self.uid ).addSnapshotListener { (result, error) in
             
             if let error = error {
