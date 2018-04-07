@@ -16,8 +16,14 @@ class HistoryAppointmentModel: UIViewController {
     public var listItems = [Appointment]()
     
 
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
+    }
+    
     public func showData( completionHandler: @escaping (([Appointment]) -> Void)) {
         
+        isConected()
         getRef = Firestore.firestore()
         getRef.collection("citas").addSnapshotListener { (resp , error) in
             if let error = error {

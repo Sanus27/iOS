@@ -17,11 +17,14 @@ class ProfileDoctorModel: UIViewController {
     private var ref2: DocumentReference!
     private var uid: String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
     }
 
     public func showData(  completionHandler: @escaping (([String:Any]) -> Void)) {
+        
+        isConected()
         self.uid = (Auth.auth().currentUser?.uid)!
         self.ref = Firestore.firestore().collection("doctores").document( self.uid! )
         self.ref.getDocument { (document, error) in
@@ -49,6 +52,7 @@ class ProfileDoctorModel: UIViewController {
                 completionHandler( self.resp )
             }
         }
+        
     }
 
 }

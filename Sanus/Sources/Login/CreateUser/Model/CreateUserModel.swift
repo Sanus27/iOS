@@ -12,12 +12,15 @@ import FirebaseAuth
 class CreateUserModel: UIViewController {
 
     private var resp: String?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
     }
     
     public func createUser(txtEmail: String, txtPassword: String, completionHandler: @escaping ((String) -> Void)) {
+        
+        isConected()
         Auth.auth().createUser( withEmail: txtEmail, password: txtPassword ) { (user, error) in
         
             if user != nil {

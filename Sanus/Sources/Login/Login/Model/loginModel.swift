@@ -17,7 +17,13 @@ class loginModel {
     private var ref: DocumentReference!
     private var resp:String = ""
     
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
+    }
+    
     public func isLoggedIsCompleateLogin( this: UIViewController ) -> Void {
+        isConected()
         let id = (Auth.auth().currentUser?.uid)!
         self.user.setID(id: id)
         ref = Firestore.firestore().collection("usuarios").document( id )
@@ -53,6 +59,7 @@ class loginModel {
 
     
     public func startLogin(txtEmail: String, txtPassword: String, completionHandler: @escaping ((String) -> Void)) {
+        isConected()
         Auth.auth().signIn( withEmail: txtEmail, password: txtPassword ) { ( user, error ) in
             if user != nil {
                 self.resp = "success"
@@ -67,6 +74,7 @@ class loginModel {
     }
     
     public func loginFacebook( this:UIViewController, completionHandler: @escaping ((String) -> Void)) {
+        isConected()
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: this) { (resp, error) in
             if error != nil {
                 completionHandler( "errro de permisos" )
@@ -91,7 +99,7 @@ class loginModel {
     }
     
     public func chageSatateUser( state:String? ){
-        
+        isConected()
         let uid = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document( uid )
         ref.getDocument { (document, error) in
@@ -113,7 +121,6 @@ class loginModel {
                 }
             }
         }
-        
     }
     
     

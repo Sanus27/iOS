@@ -25,6 +25,8 @@ class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegat
     
     override func loadView() {
         super.loadView()
+        btnLogin.isEnabled = true;
+        btnLogin.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -38,11 +40,6 @@ class LoginController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegat
         return true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        btnLogin.isEnabled = true;
-        btnLogin.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
-    }
     
     private func isValidEmailAddress(emailAddressString: String) -> Bool {
         

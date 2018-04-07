@@ -17,12 +17,13 @@ class ComentariosDrModel: UIViewController {
     public var listComents = [Comments]()
     public var resp: String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
     }
 
-
     public func showData( idDoctor: String, completionHandler: @escaping (([Comments]) -> Void)) {
+        isConected()
         let getRef = Firestore.firestore()
         getRef.collection("comentarios").whereField( "doctor", isEqualTo: idDoctor ).order(by: "hora", descending: true).addSnapshotListener { (result , error) in
             if let error = error {
@@ -70,6 +71,7 @@ class ComentariosDrModel: UIViewController {
     
     public func newComent( uid:String, id:String, coment:String, fech:String, cal:String, hours:String, completionHandler: @escaping ((String) -> Void)) {
         
+        isConected()
         self.ref = Firestore.firestore().collection("comentarios").addDocument(data: [
             "usuario": uid,
             "doctor": id,
@@ -94,6 +96,7 @@ class ComentariosDrModel: UIViewController {
     
     public func ratings( data:String, id:String, completionHandler: @escaping ((String) -> Void)) {
         
+        isConected()
         ref = Firestore.firestore().collection("doctores").document( id )
         ref.getDocument { (document, error) in
             if let document = document {
@@ -125,6 +128,7 @@ class ComentariosDrModel: UIViewController {
     
     public func isDoctor( completionHandler: @escaping ((String) -> Void)) {
         
+        isConected()
         let id = self.user.getID()!
         ref = Firestore.firestore().collection("usuarios").document( id )
         ref.getDocument { (document, error) in

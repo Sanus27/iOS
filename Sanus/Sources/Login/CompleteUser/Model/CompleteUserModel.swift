@@ -20,20 +20,26 @@ class CompleteUserModel: UIViewController {
     private let user = ParamsNewAppointment()
     private var campos: [String:Any] = [:]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
     }
     
     public func getAlert( this: UIViewController, completionHandler: @escaping ((String) -> Void)) {
+        
+        isConected()
         Auth.auth().addStateDidChangeListener{ ( auth, user ) in
             if user != nil {
                 self.resp = "success"
                 completionHandler( self.resp! )
             }
         }
+        
     }
     
     public func uploadPicture( imagen:UIImage, completionHandler: @escaping ((String) -> Void)) {
+        
+        isConected()
         self.uid = self.user.getID()!
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
@@ -50,10 +56,12 @@ class CompleteUserModel: UIViewController {
                 }
             }
         }
+        
     }
     
     public func completeUser( data:[String:Any] ,completionHandler: @escaping ((String) -> Void)) {
 
+        isConected()
         self.uid = self.user.getID()!
         if data["avatar"] as! String == "1" {
             campos = [ "avatar": self.uid , "nombre": data["nombre"]!, "apellido": data["apellido"]!, "edad": data["edad"] ?? "", "sexo": data["sexo"]!, "tipo": "Paciente", "estado": "1" ]

@@ -25,8 +25,8 @@ class Navegation: UINavigationController {
         return mainStoryBoard.instantiateViewController(withIdentifier: name)
     }
     
-    
     public func isLoggedIn() {
+        
         Auth.auth().addStateDidChangeListener{ ( auth, user ) in
             if user != nil {
                 self.isLoggedIfisCompleate()
@@ -35,6 +35,7 @@ class Navegation: UINavigationController {
                 self.present(login, animated: true, completion: nil)
             }
         }
+        
     }
     
     public func isLoggedIfisCompleate()  {

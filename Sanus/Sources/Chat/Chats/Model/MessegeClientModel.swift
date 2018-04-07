@@ -21,9 +21,14 @@ class MessegeClientModel: UIViewController {
         self.getRef = Firestore.firestore()
     }
 
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
+    }
     
     public func showInfoMessage( idDoctor:String, completionHandler: @escaping ((String) -> Void)) {
         
+        isConected()
         ref = Firestore.firestore().collection("usuarios").document( idDoctor )
         ref.addSnapshotListener { (document, error) in
             if let document = document {
@@ -38,6 +43,7 @@ class MessegeClientModel: UIViewController {
     
     public func verifyIsExistContact( getRef:Firestore, idAuthor:String, idDoctor:String, completionHandler: @escaping ( (Bool) -> Void)) {
         
+        isConected()
         getRef.collection("contactos").whereField("autor", isEqualTo: idAuthor ).whereField("doctor", isEqualTo: idDoctor ).addSnapshotListener { (result, error) in
             if result!.documents.count != 0 {
                 self.resp = true
@@ -52,6 +58,7 @@ class MessegeClientModel: UIViewController {
     
     public func addContact( idDoctor:String?, completionHandler: @escaping ((String) -> Void)) {
         
+        isConected()
         let uid = (Auth.auth().currentUser?.uid)!
         self.ref = Firestore.firestore().collection("contactos").addDocument(data: [
             "autor": uid,
@@ -70,6 +77,7 @@ class MessegeClientModel: UIViewController {
     
     public func addMsn( getRef:Firestore!, autor:String, doctor:String, fecha:String, hora:String, mensaje:String, usuario:String, completionHandler: @escaping ((String) -> Void)) {
         
+        isConected()
         self.ref = Firestore.firestore().collection("mensajes").addDocument(data: [
             "autor": autor,
             "doctor": doctor,

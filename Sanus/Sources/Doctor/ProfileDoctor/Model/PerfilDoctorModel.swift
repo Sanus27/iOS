@@ -18,11 +18,15 @@ class PerfilDoctorModel: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
+    }
+    
     public func showData( uid:String, completionHandler: @escaping (([String:Any]) -> Void)) {
+        isConected()
         ref = Firestore.firestore().collection("doctores").document( uid )
         ref2 = Firestore.firestore().collection("usuarios").document( uid )
         ref.getDocument { (document, error) in

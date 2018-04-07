@@ -17,12 +17,15 @@ class SettingProfileModel: UIViewController {
     private var success: [String:Any] = [:]
     private var uid: String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
     }
     
-    
     public func dataUser( this:UIViewController, completionHandler: @escaping (([String:Any]) -> Void)) {
+        
+        isConected()
         let uid = Auth.auth().currentUser?.uid
         self.ref = Firestore.firestore().collection("usuarios").document( uid! )
         self.ref.getDocument { (document, error) in

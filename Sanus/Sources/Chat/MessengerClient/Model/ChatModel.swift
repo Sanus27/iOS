@@ -17,13 +17,15 @@ class ChatModel: UIViewController {
     public var listItems = [Contact]()
     private var uid:String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
     }
     
     public func showData( getRef:Firestore, completionHandler: @escaping (([Contact]) -> Void)) {
         self.uid = (Auth.auth().currentUser?.uid)!
     
+        isConected()
         getRef.collection("contactos").whereField("autor", isEqualTo: self.uid ).addSnapshotListener { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")

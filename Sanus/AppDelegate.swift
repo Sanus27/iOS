@@ -14,14 +14,26 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
-    var window: UIWindow?
+    public var window: UIWindow?
+    private var reachability: Reachability!
+    
+    func isConected(){
+        self.reachability = Reachability.init()
+        if self.reachability.connection == .none {
+            let nav = self.window?.rootViewController as? UINavigationController?
+            let this = nav??.visibleViewController
+            let login = self.setStory(name: "conectedFalse")
+            this!.present(login, animated: true, completion: nil)
+        }
+    }
+    
+    func setStory(name: String) -> UIViewController {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return mainStoryBoard.instantiateViewController(withIdentifier: name)
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        //LOGIN GMAIL
-        //GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        //GIDSignIn.sharedInstance().delegate = self
-        //FACEBOOK LOGIN
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()

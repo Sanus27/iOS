@@ -18,7 +18,13 @@ class SearchDoctorModel: UIViewController {
         super.viewDidLoad()
     }
 
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
+    }
+    
     public func showData( getRef:Firestore, completionHandler: @escaping (([Doctor]) -> Void)) {
+        isConected()
         getRef.collection("doctores").getDocuments { (result, error) in
             if let error = error {
                 print("se ha producido un error \(error)")

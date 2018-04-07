@@ -17,7 +17,14 @@ class MessengeDrModel: UIViewController {
     private var ref:DocumentReference!
     private let user = ParamsNewAppointment()
 
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
+    }
+    
     public func showData( completionHandler: @escaping (([Contact]) -> Void)) {
+        
+        isConected()
         let getRef = Firestore.firestore()
         self.uid = self.user.getID()!
         getRef.collection("contactos").whereField("doctor", isEqualTo: self.uid ).addSnapshotListener { (result, error) in

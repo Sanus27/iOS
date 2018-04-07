@@ -17,11 +17,14 @@ class SettingsModel: UIViewController {
     private var success: [String:Any] = [:]
     private let url:String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
     }
     
     public func showData( uid: String ,completionHandler: @escaping (([String:Any]) -> Void)) {
+       
+        isConected()
         ref = Firestore.firestore().collection("usuarios").document( uid )
         ref.getDocument { (document, error) in
             if let document = document {
@@ -53,6 +56,7 @@ class SettingsModel: UIViewController {
                 print("documento no existe")
             }
         }
+        
     }
 
 

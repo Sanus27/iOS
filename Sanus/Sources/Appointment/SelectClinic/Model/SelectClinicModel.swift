@@ -14,9 +14,14 @@ class SelectClinicModel: UIViewController {
     private var getRef:Firestore!
     public var listItems = [Hospitals]()
     
+    public func isConected(){
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.isConected()
+    }
 
     public func showData( completionHandler: @escaping (([Hospitals]) -> Void)) {
         
+        isConected()
         self.getRef = Firestore.firestore()
         self.getRef.collection("hospitales").addSnapshotListener { (result, error) in
             if let error = error {

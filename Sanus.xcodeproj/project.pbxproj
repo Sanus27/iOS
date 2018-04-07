@@ -41,6 +41,8 @@
 		A051DF9E2048809200D4C8DD /* AddAppointmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051DF9D2048809200D4C8DD /* AddAppointmentController.swift */; };
 		A05AEB38202AD66C00F0D343 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB37202AD66C00F0D343 /* Appointment.swift */; };
 		A05AEB3A202AD74000F0D343 /* Comentarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05AEB39202AD74000F0D343 /* Comentarios.swift */; };
+		A05B03E1207857AA006A5768 /* ConectFalseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05B03E0207857AA006A5768 /* ConectFalseController.swift */; };
+		A05B03E320785979006A5768 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05B03E220785979006A5768 /* Reachability.swift */; };
 		A0656E6D206A22C70054D1AA /* MessegeClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */; };
 		A0656E6F206AF7330054D1AA /* SelectClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */; };
 		A0656E71206AFA710054D1AA /* SelectDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */; };
@@ -115,6 +117,8 @@
 		A051DF9D2048809200D4C8DD /* AddAppointmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentController.swift; sourceTree = "<group>"; };
 		A05AEB37202AD66C00F0D343 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		A05AEB39202AD74000F0D343 /* Comentarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentarios.swift; sourceTree = "<group>"; };
+		A05B03E0207857AA006A5768 /* ConectFalseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConectFalseController.swift; sourceTree = "<group>"; };
+		A05B03E220785979006A5768 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A0656E6C206A22C70054D1AA /* MessegeClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeClientModel.swift; sourceTree = "<group>"; };
 		A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClinicModel.swift; sourceTree = "<group>"; };
 		A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorModel.swift; sourceTree = "<group>"; };
@@ -454,6 +458,8 @@
 				A03DA6CB204B738600EFE474 /* Navegation.swift */,
 				A051DF9520487E8900D4C8DD /* PaginacionCitasController.swift */,
 				A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */,
+				A05B03E0207857AA006A5768 /* ConectFalseController.swift */,
+				A05B03E220785979006A5768 /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -953,6 +959,7 @@
 			files = (
 				A03C06662069BF3000411FD4 /* PerfilDoctorModel.swift in Sources */,
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
+				A05B03E320785979006A5768 /* Reachability.swift in Sources */,
 				A0B4B4C32060C782000833B1 /* Contact.swift in Sources */,
 				A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */,
 				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,
@@ -968,6 +975,7 @@
 				A0DC8D2F202AA4D3003FB0CB /* Doctor.swift in Sources */,
 				A0656E6D206A22C70054D1AA /* MessegeClientModel.swift in Sources */,
 				A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */,
+				A05B03E1207857AA006A5768 /* ConectFalseController.swift in Sources */,
 				A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */,
 				A0DC8D21202AA49E003FB0CB /* SettingsController.swift in Sources */,
 				A0F06AE5205DE86A0004A914 /* CompleteUserModel.swift in Sources */,
