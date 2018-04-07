@@ -8,20 +8,20 @@
   "watchOS" : [
     {
       "name" : "Bolts",
-      "hash" : "2996eac2445cc93449e0effe9c03ce37ac9777645cca70b5f7d5cdbf7fcab062"
+      "hash" : "ebeb0a35ab4527e24fb84bc9972c6a38fb9390a6551444cd7e9ab34ea44b04c4"
     }
   ],
   "tvOS" : [
     {
       "name" : "Bolts",
-      "hash" : "8745150f6122c4ddda58abe629b77661eb5af02d904ad150c48dfd23da1e6ec5"
+      "hash" : "c51a965e1e270c292a5a8ae67be821ae475eb9e99ae3ecf61d2c5f9c3a4315e1"
     }
   ],
   "commitish" : "1.9.0",
   "iOS" : [
     {
       "name" : "Bolts",
-      "hash" : "ef05ab70fa75fa194892335f096b0ea7fd4c09f0c3b39c9342c6b36f63ee7943"
+      "hash" : "f593a3dd4344633d2b3848027265769e2e04f5aca3614e892ba1402d19bd0221"
     }
   ]
 }

@@ -408,21 +408,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sin internet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggl-fy-OBZ">
-                                <rect key="frame" x="116" y="33" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a Internet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIP-A8-emb">
+                                <rect key="frame" x="116" y="520" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.0" green="0.68627450980392157" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Te has quedado sin conexion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggl-fy-OBZ">
+                                <rect key="frame" x="11" y="483" width="298" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.68627450980392157" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9A6-fK-FnT" firstAttribute="trailing" secondItem="ggl-fy-OBZ" secondAttribute="trailing" constant="11" id="DVY-4k-r3K"/>
+                            <constraint firstItem="9A6-fK-FnT" firstAttribute="bottom" secondItem="kIP-A8-emb" secondAttribute="bottom" constant="27" id="PRK-Nn-ORp"/>
+                            <constraint firstItem="ggl-fy-OBZ" firstAttribute="leading" secondItem="9A6-fK-FnT" secondAttribute="leading" constant="11" id="Quc-1H-JoD"/>
+                            <constraint firstItem="ggl-fy-OBZ" firstAttribute="top" secondItem="9A6-fK-FnT" secondAttribute="top" constant="463" id="a6l-pd-gtW"/>
+                            <constraint firstItem="9A6-fK-FnT" firstAttribute="bottom" secondItem="ggl-fy-OBZ" secondAttribute="bottom" constant="64" id="eWU-Nd-qOe"/>
+                            <constraint firstItem="kIP-A8-emb" firstAttribute="leading" secondItem="9A6-fK-FnT" secondAttribute="leading" constant="116" id="ha0-e8-gS0"/>
+                            <constraint firstItem="9A6-fK-FnT" firstAttribute="trailing" secondItem="kIP-A8-emb" secondAttribute="trailing" constant="116" id="uyS-P3-3lw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9A6-fK-FnT"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwK-do-v7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7436" y="-400"/>
+            <point key="canvasLocation" x="-7436.25" y="-400.35211267605632"/>
         </scene>
         <!--Chat-->
         <scene sceneID="PZ4-54-XiO">

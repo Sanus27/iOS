@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		293C5B726B6F1A8A673521E6 /* Pods_Sanus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C5E72F9DE0BF6EA192B6AD /* Pods_Sanus.framework */; };
+		44A1974688587041986AB39C /* Pods_Sanus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F464463ED3368F9520E3585 /* Pods_Sanus.framework */; };
 		A0190D4E205F2FDD00121736 /* MessageMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0190D4D205F2FDD00121736 /* MessageMeCell.swift */; };
 		A0190D50205F320F00121736 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0190D4F205F320F00121736 /* Message.swift */; };
 		A01D6774205085450025987C /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D6773205085450025987C /* Hospitals.swift */; };
@@ -47,6 +47,10 @@
 		A0656E6F206AF7330054D1AA /* SelectClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */; };
 		A0656E71206AFA710054D1AA /* SelectDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */; };
 		A0656E73206B01A20054D1AA /* HistoryAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E72206B01A20054D1AA /* HistoryAppointmentModel.swift */; };
+		A065D6CB20788AEF00A4E734 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6CA20788AEF00A4E734 /* loading.json */; };
+		A065D6CD2078973200A4E734 /* internet.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6CC2078973100A4E734 /* internet.json */; };
+		A065D6CF2078976000A4E734 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6CE2078975F00A4E734 /* splash.json */; };
+		A065D6D12078981D00A4E734 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6D02078981D00A4E734 /* love.json */; };
 		A06CDB67203024440092C621 /* DoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CDB66203024440092C621 /* DoctorCell.swift */; };
 		A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082457F202A9FAB00543AD0 /* AppDelegate.swift */; };
 		A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824583202A9FAB00543AD0 /* Main.storyboard */; };
@@ -82,8 +86,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		392E849CAF076E5F9D602B55 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
-		46C5E72F9DE0BF6EA192B6AD /* Pods_Sanus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sanus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FA8F505DFAD1D2C23D1A4D4 /* Pods-Sanus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.debug.xcconfig"; sourceTree = "<group>"; };
+		6F464463ED3368F9520E3585 /* Pods_Sanus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sanus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0190D4D205F2FDD00121736 /* MessageMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMeCell.swift; sourceTree = "<group>"; };
 		A0190D4F205F320F00121736 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A01D6773205085450025987C /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
@@ -123,6 +127,10 @@
 		A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClinicModel.swift; sourceTree = "<group>"; };
 		A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorModel.swift; sourceTree = "<group>"; };
 		A0656E72206B01A20054D1AA /* HistoryAppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAppointmentModel.swift; sourceTree = "<group>"; };
+		A065D6CA20788AEF00A4E734 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		A065D6CC2078973100A4E734 /* internet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = internet.json; sourceTree = "<group>"; };
+		A065D6CE2078975F00A4E734 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		A065D6D02078981D00A4E734 /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = love.json; sourceTree = "<group>"; };
 		A06CDB66203024440092C621 /* DoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCell.swift; sourceTree = "<group>"; };
 		A082457C202A9FAB00543AD0 /* Sanus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A082457F202A9FAB00543AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +166,7 @@
 		A0F270922060E8380010C07D /* MessageDrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDrCell.swift; sourceTree = "<group>"; };
 		A0F2A233202D7C8D00778C7B /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		A0FFAB282054F98B00D956BF /* loginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginModel.swift; sourceTree = "<group>"; };
-		FBA06EBB060F8EF096EC5026 /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
+		E9B44BB4C40189A73EEB7ED9 /* Pods-Sanus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sanus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sanus/Pods-Sanus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +184,7 @@
 				A01FC4AC206B8D2000D630B9 /* FBSDKShareKit.framework in Frameworks */,
 				A01FC4B0206B8D7800D630B9 /* FBSDKPlacesKit.framework in Frameworks */,
 				A01FC4B2206B8DA100D630B9 /* Bolts.framework in Frameworks */,
-				293C5B726B6F1A8A673521E6 /* Pods_Sanus.framework in Frameworks */,
+				44A1974688587041986AB39C /* Pods_Sanus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,16 +204,16 @@
 				A01FC4A3206B8C3F00D630B9 /* FBSDKCoreKit.framework */,
 				A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */,
 				A0263D922059780400A778B1 /* JTAppleCalendar.framework */,
-				46C5E72F9DE0BF6EA192B6AD /* Pods_Sanus.framework */,
+				6F464463ED3368F9520E3585 /* Pods_Sanus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		95866CB571BEE092A328E713 /* Pods */ = {
+		9DF63C1D25CDF5AC94557F8C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				392E849CAF076E5F9D602B55 /* Pods-Sanus.debug.xcconfig */,
-				FBA06EBB060F8EF096EC5026 /* Pods-Sanus.release.xcconfig */,
+				3FA8F505DFAD1D2C23D1A4D4 /* Pods-Sanus.debug.xcconfig */,
+				E9B44BB4C40189A73EEB7ED9 /* Pods-Sanus.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -278,13 +286,24 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		A065D6C920788ADC00A4E734 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				A065D6CE2078975F00A4E734 /* splash.json */,
+				A065D6CC2078973100A4E734 /* internet.json */,
+				A065D6CA20788AEF00A4E734 /* loading.json */,
+				A065D6D02078981D00A4E734 /* love.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		A0824573202A9FAB00543AD0 = {
 			isa = PBXGroup;
 			children = (
 				A082457E202A9FAB00543AD0 /* Sanus */,
 				A082457D202A9FAB00543AD0 /* Products */,
 				91E29BD572C67E8F9ABCD045 /* Frameworks */,
-				95866CB571BEE092A328E713 /* Pods */,
+				9DF63C1D25CDF5AC94557F8C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,6 +318,7 @@
 		A082457E202A9FAB00543AD0 /* Sanus */ = {
 			isa = PBXGroup;
 			children = (
+				A065D6C920788ADC00A4E734 /* Animations */,
 				A0E3F279206B7FD500392A28 /* Sanus.entitlements */,
 				A0F06AE1205DDBBF0004A914 /* Sources */,
 				A0824583202A9FAB00543AD0 /* Main.storyboard */,
@@ -779,13 +799,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A082458E202A9FAC00543AD0 /* Build configuration list for PBXNativeTarget "Sanus" */;
 			buildPhases = (
-				0C94411D02C775272690FDAD /* [CP] Check Pods Manifest.lock */,
+				E2F5F6D81CE8ED654509A1FA /* [CP] Check Pods Manifest.lock */,
 				A0824578202A9FAB00543AD0 /* Sources */,
 				A0824579202A9FAB00543AD0 /* Frameworks */,
 				A082457A202A9FAB00543AD0 /* Resources */,
 				A0263D942059783700A778B1 /* ShellScript */,
-				7A8989FE3B00982D24088322 /* [CP] Embed Pods Frameworks */,
-				72B0EBC8B3ABD9348C811006 /* [CP] Copy Pods Resources */,
+				DEC452F9AB4208B271F77E49 /* [CP] Embed Pods Frameworks */,
+				F8F3DBA6CB1BF99EE83C289F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -843,8 +863,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A065D6CB20788AEF00A4E734 /* loading.json in Resources */,
 				A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */,
 				A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */,
+				A065D6D12078981D00A4E734 /* love.json in Resources */,
+				A065D6CF2078976000A4E734 /* splash.json in Resources */,
+				A065D6CD2078973200A4E734 /* internet.json in Resources */,
 				A0824587202A9FAB00543AD0 /* Assets.xcassets in Resources */,
 				A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */,
 			);
@@ -853,80 +877,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C94411D02C775272690FDAD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sanus-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72B0EBC8B3ABD9348C811006 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A8989FE3B00982D24088322 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A0263D942059783700A778B1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -949,6 +899,82 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		DEC452F9AB4208B271F77E49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2F5F6D81CE8ED654509A1FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sanus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8F3DBA6CB1BF99EE83C289F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sanus/Pods-Sanus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1152,7 +1178,7 @@
 		};
 		A082458F202A9FAC00543AD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 392E849CAF076E5F9D602B55 /* Pods-Sanus.debug.xcconfig */;
+			baseConfigurationReference = 3FA8F505DFAD1D2C23D1A4D4 /* Pods-Sanus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sanus/Sanus.entitlements;
@@ -1174,7 +1200,7 @@
 		};
 		A0824590202A9FAC00543AD0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBA06EBB060F8EF096EC5026 /* Pods-Sanus.release.xcconfig */;
+			baseConfigurationReference = E9B44BB4C40189A73EEB7ED9 /* Pods-Sanus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sanus/Sanus.entitlements;

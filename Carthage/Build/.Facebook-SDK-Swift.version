@@ -12,15 +12,15 @@
   "iOS" : [
     {
       "name" : "FacebookLogin",
-      "hash" : "5459799045a6bb99c7c00b11ceff579a2e46a2447f82e87e4dfde5a9b213cb7c"
+      "hash" : "2931503086168521f4a35fda48d1b5338705729bf53917f5e9db527b9fb77dea"
     },
     {
       "name" : "FacebookCore",
-      "hash" : "1ac82b7b3ee464646a1d0b1f34510e83b1b50ffe890b3597aea16d1991b4e299"
+      "hash" : "0c03523454e9c2c122924a213557a3c6ec29558d937fc9f19c4116a52d130b3c"
     },
     {
       "name" : "FacebookShare",
-      "hash" : "6d90cd6608f3ddb90360fa686b84a315658f926cc25227f97837028adcfbcb06"
+      "hash" : "0fb440475934394176e5cec42fecc9a4b52ec8ed1e46c2fa66ee1dbb7a609aba"
     }
   ]
 }
