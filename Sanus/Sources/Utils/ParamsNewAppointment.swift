@@ -9,16 +9,9 @@
 import Foundation
 
 class ParamsNewAppointment {
-    
-    public var idHospital:String? = ""
-    public var idDoctor:String? = ""
-    public var idCalendar:String? = ""
-    public var idUser:String? = ""
-    public var idTypeUser:String? = ""
-    
+        
     public func getHospital() -> String? {
-        idHospital = UserDefaults.standard.object(forKey: "idHospital") as? String
-        return idHospital
+        return UserDefaults.standard.object(forKey: "idHospital") as? String
     }
     
     public func setHospital( id:String? ){
@@ -26,9 +19,17 @@ class ParamsNewAppointment {
         UserDefaults.standard.set( id , forKey: "idHospital")
     }
     
+    public func getHour() -> String? {
+        return UserDefaults.standard.object(forKey: "idHour") as? String
+    }
+    
+    public func setHour( id:String? ){
+        UserDefaults.standard.removeObject(forKey: "idHour")
+        UserDefaults.standard.set( id , forKey: "idHour")
+    }
+    
     public func getDoctor() -> String? {
-        idDoctor = UserDefaults.standard.object(forKey: "idDoctor") as? String
-        return idDoctor
+        return UserDefaults.standard.object(forKey: "idDoctor") as? String
     }
     
     public func setDoctor( id:String? ){
@@ -37,8 +38,7 @@ class ParamsNewAppointment {
     }
     
     public func getCalendar() -> String? {
-        idCalendar = UserDefaults.standard.object(forKey: "idCalendar") as? String
-        return idCalendar
+        return UserDefaults.standard.object(forKey: "idCalendar") as? String
     }
     
     public func setCalendar( date:String? ){
@@ -47,8 +47,7 @@ class ParamsNewAppointment {
     }
     
     public func getID() -> String? {
-        idUser = UserDefaults.standard.object(forKey: "idUser") as? String
-        return idUser
+        return UserDefaults.standard.object(forKey: "idUser") as? String
     }
     
     public func setID( id:String? ){
@@ -57,8 +56,7 @@ class ParamsNewAppointment {
     }
     
     public func getTypeUser() -> String? {
-        idTypeUser = UserDefaults.standard.object(forKey: "idTypeUser") as? String
-        return idTypeUser
+        return UserDefaults.standard.object(forKey: "idTypeUser") as? String
     }
     
     public func setTypeUser( id:String? ){

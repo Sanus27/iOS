@@ -215,9 +215,6 @@ class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDa
         let resp = self.user.getTypeUser()!
         if resp == "Medico" { self.txtMensaje.isHidden = true }
         if resp == "Paciente" { self.txtMensaje.isHidden = false }
-//        self.model.isDoctor( completionHandler:  { resp in
-//            
-//        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

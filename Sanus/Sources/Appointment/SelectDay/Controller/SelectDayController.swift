@@ -28,13 +28,13 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     var LeapYearContent = 2
     var DayCounter = 0
     var highlightdate = -1
-    var dayreserv = 27
     public var idDoctor: String = ""
+    private let idDay = ParamsNewAppointment()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         listenerNext.isEnabled = false
-        listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
+        listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)
         currentMonth = Months[month]
         labelMonth.text = "\(currentMonth) \(year)"
         GetStartDateDayPosition()
@@ -51,8 +51,6 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     func showData(){
         let params = ParamsNewAppointment()
         idDoctor = params.getDoctor()!
-        print("idDoctor")
-        print(idDoctor)
     }
     
     func GetStartDateDayPosition(){
@@ -146,23 +144,24 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
             cell.dateLabel.textColor = UIColor.white
         }
         
-        if dayreserv == indexPath.row {
-            cell.backgroundColor = UIColor.init(red: 255/255, green: 98/255, blue: 0/255, alpha: 1)
-            cell.dateLabel.textColor = UIColor.white
-        }
         
         return cell
     }
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        listenerNext.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+        listenerNext.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0)
         listenerNext.isEnabled = true
-        let dateString: String = "\(indexPath.row - PositionIndex + 1) \(currentMonth) \(year)"
+        let dateString:String = "\(indexPath.row - PositionIndex + 1) \(currentMonth) \(year)"
         highlightdate = indexPath.row
         let params = ParamsNewAppointment()
         params.setCalendar( date: dateString )
         collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)
+        listenerNext.isEnabled = false
     }
     
     @IBAction func nextMonth(_ sender: UIButton) {

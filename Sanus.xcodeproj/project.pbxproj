@@ -319,9 +319,9 @@
 			isa = PBXGroup;
 			children = (
 				A065D6C920788ADC00A4E734 /* Animations */,
-				A0E3F279206B7FD500392A28 /* Sanus.entitlements */,
 				A0F06AE1205DDBBF0004A914 /* Sources */,
 				A0824583202A9FAB00543AD0 /* Main.storyboard */,
+				A0E3F279206B7FD500392A28 /* Sanus.entitlements */,
 				A082457F202A9FAB00543AD0 /* AppDelegate.swift */,
 				A0824586202A9FAB00543AD0 /* Assets.xcassets */,
 				A082458B202A9FAC00543AD0 /* Info.plist */,

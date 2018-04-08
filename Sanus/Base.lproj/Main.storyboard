@@ -2058,7 +2058,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzk-Bt-xso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1500" y="609.50704225352115"/>
+            <point key="canvasLocation" x="-1500" y="608"/>
         </scene>
         <!--Chat Controller-->
         <scene sceneID="WWA-Qq-j2o">
@@ -2494,7 +2494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZSF-iF-mMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339" y="547"/>
+            <point key="canvasLocation" x="-339" y="608"/>
         </scene>
         <!--Setting Profile Controller-->
         <scene sceneID="a8h-UX-M3t">
@@ -2728,7 +2728,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJ0-Rr-FeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339" y="1536"/>
+            <point key="canvasLocation" x="-339" y="1537"/>
         </scene>
         <!--Complete User Controller-->
         <scene sceneID="Kiz-mv-8eA">
@@ -3984,7 +3984,7 @@
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="hkD-kU-v79"/>
-        <segue reference="NXw-xO-ojV"/>
+        <segue reference="ax6-Jm-EKh"/>
         <segue reference="rTW-iU-iRt"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="BwR-zZ-Ti0"/>
