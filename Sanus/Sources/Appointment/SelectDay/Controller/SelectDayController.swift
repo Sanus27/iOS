@@ -34,9 +34,9 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     
     
     //dias disponibles
-    var DaysOccupied = [ "1 Abril 2018", "2 Abril 2018", "3 Abril 2018", "4 Abril 2018", "5 Abril 2018", "6 Abril 2018", "9 Abril 2018" ]
+    var DaysOccupied = [  "27 Abril 2018"  ]
     //dias ocupados
-    var DaysAvailable = [ "11 Abril 2018", "12 Abril 2018", "13 Abril 2018" , "16 Abril 2018" , "17 Abril 2018" , "18 Abril 2018" , "19 Abril 2018" , "20 Abril 2018", "23 Abril 2018" , "24 Abril 2018" , "25 Abril 2018" , "26 Abril 2018" , "27 Abril 2018"  ]
+    var DaysAvailable = [ "11 Abril 2018", "12 Abril 2018", "13 Abril 2018" , "16 Abril 2018" , "17 Abril 2018" , "18 Abril 2018" , "19 Abril 2018" , "20 Abril 2018", "23 Abril 2018" , "24 Abril 2018" , "25 Abril 2018" , "26 Abril 2018" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,10 +132,18 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
             cell.isHidden = true
         }
         
+        //past days
+        if currentMonth <= Months[calendar.component(.month, from: date) - 1] && year <= calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox < day{
+            cell.backgroundColor = UIColor.red
+            cell.dateLabel.textColor = UIColor.white
+        }
+        
+        //weekend
         switch indexPath.row {
             case 5,6,12,13,19,20,26,27,33,34:
                 if Int(cell.dateLabel.text!)! > 0 {
                     cell.dateLabel.textColor = UIColor.lightGray
+                    cell.backgroundColor = UIColor.white
                 }
             default:
                 break
@@ -146,6 +154,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
             cell.backgroundColor = UIColor.gray
             cell.dateLabel.textColor = UIColor.white
         }
+        
         
         //day selected
         if highlightdate == indexPath.row {
