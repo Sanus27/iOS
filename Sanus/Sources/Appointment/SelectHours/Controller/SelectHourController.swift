@@ -29,10 +29,15 @@ class SelectHourController: UIViewController {
     
     private func showData(){
         //let idDoctor = self.model.getDoctor()!
-        //let idDay:String = self.model.getCalendar()!
-
-        //let daySelect = getDayOfWeek( today:idDay )
-        //print(daySelect)
+//        let idData:String = self.model.getCalendar()!
+//        let idDay:Int = self.model.getDay()!
+//        print("idData")
+//        print(idData)
+//        print("idDay")
+//        print(idDay)
+//        let idDay = Date()
+//        let daySelect = getDayOfWeek( today:idDay )
+//        print(daySelect)
         //print( daySelect )
 //        ref = Firestore.firestore().collection("horarios").document( idDoctor )
 //        ref.getDocument { (document, error) in
@@ -74,6 +79,7 @@ class SelectHourController: UIViewController {
         dateFormatter.dateStyle = .full
         dateFormatter.timeStyle = .full
         let dateString:String = (String(describing: dateFormatter.string(from: today) ))
+        print(dateString)
         let dateArr = dateString.components(separatedBy: " ")
         return dateArr[0]
     }

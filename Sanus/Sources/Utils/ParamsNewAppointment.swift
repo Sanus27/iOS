@@ -9,7 +9,17 @@
 import Foundation
 
 class ParamsNewAppointment {
-        
+    
+    
+    public func getDay() -> Int? {
+        return UserDefaults.standard.object(forKey: "idDay") as? Int
+    }
+    
+    public func setDay( date:Int? ){
+        UserDefaults.standard.removeObject(forKey: "idDay")
+        UserDefaults.standard.set( date , forKey: "idDay")
+    }
+    
     public func getHospital() -> String? {
         return UserDefaults.standard.object(forKey: "idHospital") as? String
     }
@@ -63,7 +73,6 @@ class ParamsNewAppointment {
         UserDefaults.standard.removeObject(forKey: "idTypeUser")
         UserDefaults.standard.set( id , forKey: "idTypeUser")
     }
-    
     
     public func removeID(){
         UserDefaults.standard.removeObject(forKey: "idUser")

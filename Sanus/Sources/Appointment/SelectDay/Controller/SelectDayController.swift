@@ -28,8 +28,15 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     var LeapYearContent = 2
     var DayCounter = 0
     var highlightdate = -1
+    //var DayWeek =
     public var idDoctor: String = ""
     private let idDay = ParamsNewAppointment()
+    
+    
+    //dias disponibles
+    var DaysOccupied = [ "1 Abril 2018", "2 Abril 2018", "3 Abril 2018", "4 Abril 2018", "5 Abril 2018", "6 Abril 2018", "9 Abril 2018" ]
+    //dias ocupados
+    var DaysAvailable = [ "11 Abril 2018", "12 Abril 2018", "13 Abril 2018" , "16 Abril 2018" , "17 Abril 2018" , "18 Abril 2018" , "19 Abril 2018" , "20 Abril 2018", "23 Abril 2018" , "24 Abril 2018" , "25 Abril 2018" , "26 Abril 2018" , "27 Abril 2018"  ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,14 +117,14 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         switch Direction {
-        case 0:
-            cell.dateLabel.text = "\(indexPath.row + 1 - NumberOfEmptyBox )"
-        case 1:
-            cell.dateLabel.text = "\(indexPath.row + 1 - NextNumberOfEmptyBox )"
-        case -1:
-            cell.dateLabel.text = "\(indexPath.row + 1 - PreviousNumberOfEmptyBox )"
-        default:
-            fatalError()
+            case 0:
+                cell.dateLabel.text = "\(indexPath.row + 1 - NumberOfEmptyBox )"
+            case 1:
+                cell.dateLabel.text = "\(indexPath.row + 1 - NextNumberOfEmptyBox )"
+            case -1:
+                cell.dateLabel.text = "\(indexPath.row + 1 - PreviousNumberOfEmptyBox )"
+            default:
+                fatalError()
         }
         
         //OCULTAR DIAS DEL MES ANTERIOR
@@ -126,23 +133,57 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         switch indexPath.row {
-        case 5,6,12,13,19,20,26,27,33,34:
-            if Int(cell.dateLabel.text!)! > 0 {
-                cell.dateLabel.textColor = UIColor.lightGray
-            }
-        default:
-            break
+            case 5,6,12,13,19,20,26,27,33,34:
+                if Int(cell.dateLabel.text!)! > 0 {
+                    cell.dateLabel.textColor = UIColor.lightGray
+                }
+            default:
+                break
         }
         
+        //current day
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == day{
             cell.backgroundColor = UIColor.gray
             cell.dateLabel.textColor = UIColor.white
         }
         
+        //day selected
         if highlightdate == indexPath.row {
             cell.backgroundColor = UIColor.init(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
             cell.dateLabel.textColor = UIColor.white
         }
+        
+        
+        //Days occupied
+        for i in 0...DaysOccupied.count - 1 {
+            
+            let DaysOccupiedArr = DaysOccupied[i].components(separatedBy: " ")
+            let MonthOccupied:String = DaysOccupiedArr[1]
+            let YearOccupied:Int = Int(DaysOccupiedArr[2])!
+            let DayOccupied:Int = Int(DaysOccupiedArr[0])!
+
+            if MonthOccupied == Months[calendar.component(.month, from: date) - 1] && YearOccupied == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == DayOccupied{
+                cell.backgroundColor = UIColor.red
+                cell.dateLabel.textColor = UIColor.white
+            }
+            
+        }
+        
+        //Days available
+        for j in 0...DaysAvailable.count - 1 {
+
+            let DaysAvailableArr = DaysAvailable[j].components(separatedBy: " ")
+            let MonthAvailable:String = DaysAvailableArr[1]
+            let YearAvailable:Int = Int(DaysAvailableArr[2])!
+            let DayAvailable:Int = Int(DaysAvailableArr[0])!
+
+            if MonthAvailable == Months[calendar.component(.month, from: date) - 1] && YearAvailable == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == DayAvailable{
+                cell.backgroundColor = UIColor.init(red: 0/255, green: 174/255, blue: 38/255, alpha: 1.0)
+                cell.dateLabel.textColor = UIColor.white
+            }
+
+        }
+        
         
         
         return cell
@@ -156,7 +197,12 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         highlightdate = indexPath.row
         let params = ParamsNewAppointment()
         params.setCalendar( date: dateString )
+        params.setDay( date: indexPath.row )
         collectionView.reloadData()
+        
+       
+        //print( DaysOfMonth[LeapYearContent] )
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
