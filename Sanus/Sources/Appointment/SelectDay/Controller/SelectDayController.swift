@@ -115,12 +115,13 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath ) as! CalendarCell
-        cell.backgroundColor = UIColor.clear
-        
+        cell.dateLabel.backgroundColor = UIColor.clear
         cell.dateLabel.textColor = UIColor.black
-        
         cell.dateLabel.layer.cornerRadius = 20
-        cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1.00)
+        cell.dateLabel.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.98, alpha:1.00)
+        cell.dateLabel.layer.masksToBounds = false
+        cell.dateLabel.layer.cornerRadius = 17.5
+        cell.dateLabel.clipsToBounds = true
         
         if cell.isHidden {
             cell.isHidden = false
@@ -181,14 +182,14 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         
         //current day
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == day{
-            cell.backgroundColor = UIColor.gray
+            cell.dateLabel.backgroundColor = UIColor.gray
             cell.dateLabel.textColor = UIColor.white
         }
         
         
         //day selected
         if highlightdate == indexPath.row {
-            cell.backgroundColor = UIColor.init(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
+            cell.dateLabel.backgroundColor = UIColor.init(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
             cell.dateLabel.textColor = UIColor.white
         }
         
@@ -202,7 +203,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
                 DayOccupied = Int(DaysOccupiedArr[0])!
 
                 if MonthOccupied == Months[calendar.component(.month, from: date) - 1] && YearOccupied == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == DayOccupied{
-                    cell.backgroundColor = UIColor.red
+                    cell.dateLabel.backgroundColor = UIColor.red
                     cell.dateLabel.textColor = UIColor.white
                 }
             }
@@ -217,7 +218,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
                 DayAvailable = Int(DaysAvailableArr[0])!
 
                 if MonthAvailable == Months[calendar.component(.month, from: date) - 1] && YearAvailable == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == DayAvailable{
-                    cell.backgroundColor = UIColor.init(red: 0/255, green: 174/255, blue: 38/255, alpha: 1.0)
+                    cell.dateLabel.backgroundColor = UIColor.init(red: 0/255, green: 174/255, blue: 38/255, alpha: 1.0)
                     cell.dateLabel.textColor = UIColor.white
                 }
             }
@@ -281,37 +282,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-    @IBAction func nextMonth(_ sender: UIButton) {
-        highlightdate = -1
-        switch currentMonth {
-        case "Diciembre":
-            month = 0
-            year += 1
-            Direction = 1
-            if LeapYearContent < 5 {
-                LeapYearContent += 1
-            }
-            if LeapYearContent == 4 {
-                DaysInMonths[1] = 29
-            }
-            if LeapYearContent == 5 {
-                LeapYearContent = 1
-                DaysInMonths[1] = 28
-            }
-            GetStartDateDayPosition()
-            currentMonth = Months[month]
-            labelMonth.text = "\(currentMonth) \(year)"
-            Calendar.reloadData()
-        default:
-            Direction = 1
-            GetStartDateDayPosition()
-            month += 1
-            currentMonth = Months[month]
-            labelMonth.text = "\(currentMonth) \(year)"
-            Calendar.reloadData()
-        }
-    }
-    
+   
     @IBAction func previewSwipe(_ sender: UISwipeGestureRecognizer) {
         highlightdate = -1
         switch currentMonth {
@@ -342,36 +313,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-    @IBAction func previewMonth(_ sender: UIButton) {
-        highlightdate = -1
-        switch currentMonth {
-        case "Enero":
-            month = 11
-            year -= 1
-            Direction = -1
-            if LeapYearContent > 0 {
-                LeapYearContent -= 1
-            }
-            if LeapYearContent == 0 {
-                DaysInMonths[1] = 29
-                LeapYearContent = 4
-            } else {
-                DaysInMonths[1] = 28
-            }
-            GetStartDateDayPosition()
-            currentMonth = Months[month]
-            labelMonth.text = "\(currentMonth) \(year)"
-            Calendar.reloadData()
-        default:
-            month -= 1
-            Direction = -1
-            GetStartDateDayPosition()
-            currentMonth = Months[month]
-            labelMonth.text = "\(currentMonth) \(year)"
-            Calendar.reloadData()
-        }
-    }
-    
+   
     @IBAction func btnPreview(_ sender: UIButton) {
         let preview = parent as? PaginacionCitasController
         preview?.previewView(index: 2)
