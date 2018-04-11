@@ -145,32 +145,33 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         
         //past days
 //        if currentMonth <= Months[calendar.component(.month, from: date) - 1] && year <= calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox < day{
-//            cell.backgroundColor = UIColor.red
+//            cell.dateLabel.backgroundColor = UIColor.red
 //            cell.dateLabel.textColor = UIColor.white
 //        }
         
-        //weekend
+
         switch indexPath.row {
-            case 5,6,12,13,19,20,26,27,33,34:
-                //if Int(cell.dateLabel.text!)! > 0 {
-                    cell.dateLabel.textColor = UIColor.lightGray
-                    //cell.backgroundColor = UIColor.white
-                //}
-//            case 1,2,3,4:
-//                if Int(cell.dateLabel.text!)! > 0 {
-//                    cell.dateLabel.textColor = UIColor.white
-//                    cell.backgroundColor = UIColor.yellow
-//                }
-//            case 14,15,16,17,18:
-//                //if Int(cell.dateLabel.text!)! > 0 {
-//                    cell.dateLabel.textColor = UIColor.white
-//                    cell.backgroundColor = UIColor.purple
-//                //}
-//            case 21,22,23,24,25:
-//                if Int(cell.dateLabel.text!)! > 0 {
-//                    cell.dateLabel.textColor = UIColor.white
-//                    cell.backgroundColor = UIColor.brown
-//                }
+            //lunes
+            case 0,7,14,21,28,35:
+                cell.dateLabel.textColor = UIColor.blue
+            //martes
+            case 1,8,15,22,29,36:
+                cell.dateLabel.textColor = UIColor.green
+            //miercoles
+            case 2,9,16,23,30:
+                cell.dateLabel.textColor = UIColor.cyan
+            //jueves
+            case 3,10,17,24,31:
+                cell.dateLabel.textColor = UIColor.darkGray
+            //viernes
+            case 4,11,18,25,32:
+                cell.dateLabel.textColor = UIColor.purple
+            //sabado
+            case 5,12,19,26,33:
+                cell.dateLabel.textColor = UIColor.lightGray
+            //domingo
+            case 6,13,20,27,34:
+                cell.dateLabel.textColor = UIColor.red
             default:
                 break
         }
