@@ -17,7 +17,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     
     private var selected:NSNumber = 0
     let Months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
-    let DaysOfMonth = [ "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" ]
+    let DaysOfMonth = [ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" ]
     var DaysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
     var currentMonth = String()
     var NumberOfEmptyBox = Int()
@@ -176,10 +176,6 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
                 break
         }
         
-        print("")
-        print("indexPath.row")
-        print(indexPath.row)
-        print("")
         
         //current day
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == day{
@@ -237,11 +233,35 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         highlightdate = indexPath.row
         let params = ParamsNewAppointment()
         params.setCalendar( date: dateString )
-        params.setDay( date: indexPath.row )
+        
         collectionView.reloadData()
         
+        switch indexPath.row {
+            //lunes
+            case 0,7,14,21,28,35:
+                params.setDay( date: DaysOfMonth[0] )
+            //martes
+            case 1,8,15,22,29,36:
+                params.setDay( date: DaysOfMonth[1] )
+            //miercoles
+            case 2,9,16,23,30:
+                params.setDay( date: DaysOfMonth[2] )
+            //jueves
+            case 3,10,17,24,31:
+                params.setDay( date: DaysOfMonth[3] )
+            //viernes
+            case 4,11,18,25,32:
+                params.setDay( date: DaysOfMonth[4] )
+            //sabado
+            case 5,12,19,26,33:
+                params.setDay( date: DaysOfMonth[5] )
+            //domingo
+            case 6,13,20,27,34:
+                params.setDay( date: DaysOfMonth[6] )
+            default:
+                break
+        }
        
-        //print( DaysOfMonth[LeapYearContent] )
         
     }
     

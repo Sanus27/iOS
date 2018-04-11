@@ -11,11 +11,11 @@ import Foundation
 class ParamsNewAppointment {
     
     
-    public func getDay() -> Int? {
-        return UserDefaults.standard.object(forKey: "idDay") as? Int
+    public func getDay() -> String? {
+        return UserDefaults.standard.object(forKey: "idDay") as? String
     }
     
-    public func setDay( date:Int? ){
+    public func setDay( date:String? ){
         UserDefaults.standard.removeObject(forKey: "idDay")
         UserDefaults.standard.set( date , forKey: "idDay")
     }

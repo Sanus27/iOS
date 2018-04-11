@@ -15,6 +15,7 @@ class SelectHourController: UIViewController {
     private var ref:DocumentReference!
     private let model = ParamsNewAppointment()
     private var listItems = [Any]()
+    let getRef = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,61 +29,29 @@ class SelectHourController: UIViewController {
     }
     
     private func showData(){
-        //let idDoctor = self.model.getDoctor()!
-//        let idData:String = self.model.getCalendar()!
-//        let idDay:Int = self.model.getDay()!
-//        print("idData")
-//        print(idData)
-//        print("idDay")
-//        print(idDay)
-//        let idDay = Date()
-//        let daySelect = getDayOfWeek( today:idDay )
-//        print(daySelect)
-        //print( daySelect )
-//        ref = Firestore.firestore().collection("horarios").document( idDoctor )
-//        ref.getDocument { (document, error) in
-//
-//            if let document = document{
-//                let val = document.data()
-//                let lunes = val!["lunes"]
-//                let martes = val!["martes"]
-//                let miercoles = val!["miercoles"]
-//                let jueves = val!["jueves"]
-//                let viernes = val!["viernes"]
-//
-//                //print("lunes")
-//                //print(lunes!)
-//
-//                //print("martes")
-//                //print(martes!)
-//
-//                //print("miercoles")
-//                //print(miercoles!)
-//
-//                //print("jueves")
-//                //print(jueves!)
-//
-//                //print("viernes")
-//                //print(viernes!)
-//
-//
-//            } else {
-//                print("error:", error!)
-//            }
-//
-//        }
+        
+        let idDoctor = self.model.getDoctor()!
+        let idDay:String = self.model.getDay()!
+
+        getRef.collection("horarios").whereField("doctor", isEqualTo: idDoctor).whereField("dia", isEqualTo: idDay).addSnapshotListener { (result , error) in
+
+            if let error = error {
+                print("hay un error en firebase", error)
+            } else {
+                
+                for document in result!.documents {
+                    let valHours = document.data()
+                    let data = valHours["data"] as Any
+                    self.listItems.append(data)
+                }
+                
+            }
+
+        }
+        
     }
     
-    func getDayOfWeek( today:Date ) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "es_EC")
-        dateFormatter.dateStyle = .full
-        dateFormatter.timeStyle = .full
-        let dateString:String = (String(describing: dateFormatter.string(from: today) ))
-        print(dateString)
-        let dateArr = dateString.components(separatedBy: " ")
-        return dateArr[0]
-    }
+
     
     @IBAction func btnPreview(_ sender: UIButton) {
         let preview = parent as? PaginacionCitasController
