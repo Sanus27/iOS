@@ -9,16 +9,19 @@
 import UIKit
 import Firebase
 
-class SelectHourController: UIViewController {
+class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var listenerNext: UIButton!
     private var ref:DocumentReference!
     private let model = ParamsNewAppointment()
-    private var listItems = [Any]()
+    private var listItems = [Schedules]()
     let getRef = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableData.dataSource = self
+        tableData.delegate = self
         listenerNext.isEnabled = false
         listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
     }
@@ -39,10 +42,15 @@ class SelectHourController: UIViewController {
                 print("hay un error en firebase", error)
             } else {
                 
+                self.listItems.removeAll()
                 for document in result!.documents {
                     let valHours = document.data()
-                    let data = valHours["data"] as Any
-                    self.listItems.append(data)
+                    let data = valHours["data"] as! [String]
+                    for i in 0...data.count - 1 {
+                        let schedules = Schedules( hour: data[i] )
+                        self.listItems.append(schedules)
+                        self.tableData.reloadData()
+                    }
                 }
                 
             }
@@ -51,6 +59,21 @@ class SelectHourController: UIViewController {
         
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.listItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableData.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SchedulesCell
+        let schedules: Schedules
+        schedules = listItems[indexPath.row]
+        cell.txtSchedules.text = schedules.hour
+        return cell
+    }
 
     
     @IBAction func btnPreview(_ sender: UIButton) {

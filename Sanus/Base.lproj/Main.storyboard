@@ -3258,7 +3258,7 @@
                                 <rect key="frame" x="0.0" y="198" width="320" height="370"/>
                                 <color key="backgroundColor" red="0.9648237824" green="0.96952837709999995" blue="0.98356288670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="106" id="Jtd-Pc-Aew">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="106" id="Jtd-Pc-Aew" customClass="SchedulesCell" customModule="Sanus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jtd-Pc-Aew" id="5Ff-YJ-Tln">
@@ -3298,6 +3298,9 @@
                                                 <constraint firstItem="slj-gd-N1R" firstAttribute="top" secondItem="5Ff-YJ-Tln" secondAttribute="topMargin" constant="2" id="OAU-I1-7yb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtSchedules" destination="jlT-Fp-p7l" id="eIu-f5-c8C"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -3345,6 +3348,7 @@
                     </view>
                     <connections>
                         <outlet property="listenerNext" destination="jDs-Jr-7Yd" id="Vfq-ee-hal"/>
+                        <outlet property="tableData" destination="F4q-qN-9sI" id="7IF-JV-Uo2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ka8-dj-VVd" userLabel="First Responder" sceneMemberID="firstResponder"/>

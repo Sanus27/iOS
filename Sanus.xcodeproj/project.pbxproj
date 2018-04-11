@@ -71,6 +71,8 @@
 		A0DC8D29202AA4BA003FB0CB /* CreateUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D28202AA4BA003FB0CB /* CreateUserController.swift */; };
 		A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */; };
 		A0DC8D2F202AA4D3003FB0CB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC8D2E202AA4D3003FB0CB /* Doctor.swift */; };
+		A0DFCEF9207E854100FC07A4 /* SchedulesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCEF8207E854100FC07A4 /* SchedulesCell.swift */; };
+		A0DFCEFB207E85E100FC07A4 /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCEFA207E85E100FC07A4 /* Schedules.swift */; };
 		A0E1388020579FEB0019EEA8 /* SettingProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E1387F20579FEB0019EEA8 /* SettingProfileController.swift */; };
 		A0E25F30202CB6F400A385C2 /* PerfilDoctorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */; };
 		A0E25F32202CB76D00A385C2 /* CommentsDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* CommentsDrController.swift */; };
@@ -153,6 +155,8 @@
 		A0DC8D28202AA4BA003FB0CB /* CreateUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserController.swift; sourceTree = "<group>"; };
 		A0DC8D2C202AA4C9003FB0CB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		A0DC8D2E202AA4D3003FB0CB /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		A0DFCEF8207E854100FC07A4 /* SchedulesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesCell.swift; sourceTree = "<group>"; };
+		A0DFCEFA207E85E100FC07A4 /* Schedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedules.swift; sourceTree = "<group>"; };
 		A0E1387F20579FEB0019EEA8 /* SettingProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileController.swift; sourceTree = "<group>"; };
 		A0E25F2F202CB6F400A385C2 /* PerfilDoctorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilDoctorController.swift; sourceTree = "<group>"; };
 		A0E25F31202CB76D00A385C2 /* CommentsDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsDrController.swift; sourceTree = "<group>"; };
@@ -342,6 +346,15 @@
 				A0F06AB3205DD6AC0004A914 /* HistoryAppointment */,
 			);
 			path = Appointment;
+			sourceTree = "<group>";
+		};
+		A0DFCEF7207E84FB00FC07A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0DFCEF8207E854100FC07A4 /* SchedulesCell.swift */,
+				A0DFCEFA207E85E100FC07A4 /* Schedules.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A0F06AA3205DD45E0004A914 /* Controller */ = {
@@ -593,6 +606,7 @@
 		A0F06ABF205DD86E0004A914 /* SelectHours */ = {
 			isa = PBXGroup;
 			children = (
+				A0DFCEF7207E84FB00FC07A4 /* Model */,
 				A0F06AC0205DD8790004A914 /* Controller */,
 			);
 			path = SelectHours;
@@ -1019,10 +1033,12 @@
 				A03297B12036A20D001C3B49 /* ComentariosDrCell.swift in Sources */,
 				A0ED6DEE20538840009E143C /* ParamsNewAppointment.swift in Sources */,
 				A03C066E206A19EE00411FD4 /* ChatModel.swift in Sources */,
+				A0DFCEF9207E854100FC07A4 /* SchedulesCell.swift in Sources */,
 				A0FFAB292054F98B00D956BF /* loginModel.swift in Sources */,
 				A0F06AE7205DFD000004A914 /* SettingProfileModel.swift in Sources */,
 				A051DF9C2048802100D4C8DD /* SelectHourController.swift in Sources */,
 				A01D6776205087990025987C /* HospitalCell.swift in Sources */,
+				A0DFCEFB207E85E100FC07A4 /* Schedules.swift in Sources */,
 				A0263D9820597D2C00A778B1 /* CalendarVariables.swift in Sources */,
 				A0E1388020579FEB0019EEA8 /* SettingProfileController.swift in Sources */,
 				A01D6774205085450025987C /* Hospitals.swift in Sources */,
