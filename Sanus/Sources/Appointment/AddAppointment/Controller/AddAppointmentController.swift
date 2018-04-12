@@ -17,9 +17,11 @@ class AddAppointmentController: UIViewController {
     @IBOutlet weak var txtAdress: UILabel!
     @IBOutlet weak var txtNameDoctor: UILabel!
     @IBOutlet weak var txtSpeciality: UILabel!
-    @IBOutlet weak var txtDate: UILabel!
-    @IBOutlet weak var txtDay: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var txtDate: UILabel!
+    @IBOutlet weak var txtHour: UILabel!
+    
+    
     @IBOutlet weak var load: UIActivityIndicatorView!
     let params = ParamsNewAppointment()
     let alert = Alerts()
@@ -33,8 +35,8 @@ class AddAppointmentController: UIViewController {
         getClinicInfo()
         getDoctorInfo()
         getNameDoctor()
-        //txtDate.text = params.getCalendar()!
-        //txtDay.text = params.getHour()!
+        txtDate.text = params.getCalendar()!
+        txtHour.text = params.getHour()!
     }
     
     private func getAvatar( img:String ){
@@ -42,10 +44,10 @@ class AddAppointmentController: UIViewController {
             if let err = err?.localizedDescription {
                 print("fallo al traer imagenes", err)
             } else {
-//                self.avatar.image = UIImage(data: result!)
-//                self.avatar.layer.masksToBounds = false
-//                self.avatar.layer.cornerRadius = self.avatar.frame.height / 2
-//                self.avatar.clipsToBounds = true
+                self.avatar.image = UIImage(data: result!)
+                self.avatar.layer.masksToBounds = false
+                self.avatar.layer.cornerRadius = self.avatar.frame.height / 2
+                self.avatar.clipsToBounds = true
             }
         })
     }
@@ -57,8 +59,8 @@ class AddAppointmentController: UIViewController {
                 print("se ha producido un error")
             } else {
                 let valClinic = resp?.data()
-                //self.txtNameClinic.text = valClinic!["nombre"] as? String
-                //self.txtAdress.text = valClinic!["direccion"] as? String
+                self.txtNameClinic.text = valClinic!["nombre"] as? String
+                self.txtAdress.text = valClinic!["direccion"] as? String
             }
         }
     }
@@ -70,7 +72,7 @@ class AddAppointmentController: UIViewController {
                 print("se ha producido un error")
             } else {
                 let valDoctor = resp?.data()
-                //self.txtSpeciality.text = valDoctor!["especialidad"] as? String
+                self.txtSpeciality.text = valDoctor!["especialidad"] as? String
             }
         }
     }
@@ -88,7 +90,7 @@ class AddAppointmentController: UIViewController {
                 avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
                 self.getAvatar( img:avatar! )
                 let fullname = name! + " " + last!
-                //self.txtNameDoctor.text = fullname
+                self.txtNameDoctor.text = fullname
             }
         }
     }

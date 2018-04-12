@@ -36,26 +36,40 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
         let idDoctor = self.model.getDoctor()!
         let idDay:String = self.model.getDay()!
         
-        getRef.collection("horarios").whereField("doctor", isEqualTo: idDoctor).whereField("dia", isEqualTo: idDay).addSnapshotListener { (result , error) in
-            
-            if let error = error {
-                print("hay un error en firebase", error)
+        getRef.collection("horarios").document(idDoctor).collection( idDay ).addSnapshotListener { (result , error) in
+            if error != nil {
+                print("Se ha producido un error")
             } else {
-                
                 self.listItems.removeAll()
                 for document in result!.documents {
                     let valHours = document.data()
-                    let data = valHours["data"] as! [String]
-                    for i in 0...data.count - 1 {
-                        let schedules = Schedules( hour: data[i] )
-                        self.listItems.append(schedules)
-                        self.tableData.reloadData()
-                    }
+                    let hour = valHours["hora"] as! String
+                    let schedules = Schedules( hour: hour )
+                    self.listItems.append(schedules)
+                    self.tableData.reloadData()
                 }
-                
             }
-            
         }
+//        getRef.collection("horarios").whereField("doctor", isEqualTo: idDoctor).whereField("dia", isEqualTo: idDay).addSnapshotListener { (result , error) in
+//
+//            if let error = error {
+//                print("hay un error en firebase", error)
+//            } else {
+//
+//                self.listItems.removeAll()
+//                for document in result!.documents {
+//                    let valHours = document.data()
+//                    let data = valHours["horario"] as! [String]
+//                    for i in 0...data.count - 1 {
+//                        let schedules = Schedules( hour: data[i] )
+//                        self.listItems.append(schedules)
+//                        self.tableData.reloadData()
+//                    }
+//                }
+//
+//            }
+//
+//        }
         
     }
     
@@ -90,6 +104,11 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.clear
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
     
     @IBAction func btnPreview(_ sender: UIButton) {

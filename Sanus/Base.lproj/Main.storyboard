@@ -3653,6 +3653,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mLm-la-9Gz"/>
                     </view>
+                    <connections>
+                        <outlet property="avatar" destination="RW9-DX-IRF" id="8Er-Y3-qPN"/>
+                        <outlet property="txtAdress" destination="MOd-gn-2fC" id="39D-uJ-2Zq"/>
+                        <outlet property="txtDate" destination="hJI-iv-Khn" id="VQ4-4P-9wM"/>
+                        <outlet property="txtHour" destination="bK5-8e-obq" id="ZPH-x7-qgw"/>
+                        <outlet property="txtNameClinic" destination="WM6-i8-1mr" id="ZGV-z1-CQt"/>
+                        <outlet property="txtNameDoctor" destination="ggP-Wo-ZD7" id="3kv-d3-j29"/>
+                        <outlet property="txtSpeciality" destination="VI7-5D-eKj" id="SPO-by-eZM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yep-nk-zBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
