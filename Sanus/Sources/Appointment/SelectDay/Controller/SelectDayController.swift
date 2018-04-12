@@ -10,7 +10,7 @@ import UIKit
 import JTAppleCalendar
 
 class SelectDayController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var listenerNext: UIButton!
@@ -115,6 +115,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath ) as! CalendarCell
+        
         cell.dateLabel.backgroundColor = UIColor.clear
         cell.dateLabel.textColor = UIColor.black
         cell.dateLabel.layer.cornerRadius = 20
@@ -128,14 +129,14 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         switch Direction {
-            case 0:
-                cell.dateLabel.text = "\(indexPath.row + 1 - NumberOfEmptyBox )"
-            case 1:
-                cell.dateLabel.text = "\(indexPath.row + 1 - NextNumberOfEmptyBox )"
-            case -1:
-                cell.dateLabel.text = "\(indexPath.row + 1 - PreviousNumberOfEmptyBox )"
-            default:
-                fatalError()
+        case 0:
+            cell.dateLabel.text = "\(indexPath.row + 1 - NumberOfEmptyBox )"
+        case 1:
+            cell.dateLabel.text = "\(indexPath.row + 1 - NextNumberOfEmptyBox )"
+        case -1:
+            cell.dateLabel.text = "\(indexPath.row + 1 - PreviousNumberOfEmptyBox )"
+        default:
+            fatalError()
         }
         
         //OCULTAR DIAS DEL MES ANTERIOR
@@ -144,36 +145,36 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         //past days
-//        if currentMonth <= Months[calendar.component(.month, from: date) - 1] && year <= calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox < day{
-//            cell.dateLabel.backgroundColor = UIColor.red
-//            cell.dateLabel.textColor = UIColor.white
-//        }
+        //        if currentMonth <= Months[calendar.component(.month, from: date) - 1] && year <= calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox < day{
+        //            cell.dateLabel.backgroundColor = UIColor.red
+        //            cell.dateLabel.textColor = UIColor.white
+        //        }
         
-
+        
         switch indexPath.row {
-            //lunes
-            case 0,7,14,21,28,35:
-                cell.dateLabel.textColor = UIColor.blue
-            //martes
-            case 1,8,15,22,29,36:
-                cell.dateLabel.textColor = UIColor.green
-            //miercoles
-            case 2,9,16,23,30:
-                cell.dateLabel.textColor = UIColor.cyan
-            //jueves
-            case 3,10,17,24,31:
-                cell.dateLabel.textColor = UIColor.darkGray
-            //viernes
-            case 4,11,18,25,32:
-                cell.dateLabel.textColor = UIColor.purple
-            //sabado
-            case 5,12,19,26,33:
-                cell.dateLabel.textColor = UIColor.lightGray
-            //domingo
-            case 6,13,20,27,34:
-                cell.dateLabel.textColor = UIColor.red
-            default:
-                break
+        //lunes
+        case 0,7,14,21,28,35:
+            cell.dateLabel.textColor = UIColor.blue
+        //martes
+        case 1,8,15,22,29,36:
+            cell.dateLabel.textColor = UIColor.green
+        //miercoles
+        case 2,9,16,23,30:
+            cell.dateLabel.textColor = UIColor.cyan
+        //jueves
+        case 3,10,17,24,31:
+            cell.dateLabel.textColor = UIColor.darkGray
+        //viernes
+        case 4,11,18,25,32:
+            cell.dateLabel.textColor = UIColor.purple
+        //sabado
+        case 5,12,19,26,33:
+            cell.dateLabel.textColor = UIColor.lightGray
+        //domingo
+        case 6,13,20,27,34:
+            cell.dateLabel.textColor = UIColor.red
+        default:
+            break
         }
         
         
@@ -198,7 +199,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
                 MonthOccupied = DaysOccupiedArr[1]
                 YearOccupied = Int(DaysOccupiedArr[2])!
                 DayOccupied = Int(DaysOccupiedArr[0])!
-
+                
                 if MonthOccupied == Months[calendar.component(.month, from: date) - 1] && YearOccupied == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == DayOccupied{
                     cell.dateLabel.backgroundColor = UIColor.red
                     cell.dateLabel.textColor = UIColor.white
@@ -213,7 +214,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
                 MonthAvailable = DaysAvailableArr[1]
                 YearAvailable = Int(DaysAvailableArr[2])!
                 DayAvailable = Int(DaysAvailableArr[0])!
-
+                
                 if MonthAvailable == Months[calendar.component(.month, from: date) - 1] && YearAvailable == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == DayAvailable{
                     cell.dateLabel.backgroundColor = UIColor.init(red: 0/255, green: 174/255, blue: 38/255, alpha: 1.0)
                     cell.dateLabel.textColor = UIColor.white
@@ -225,7 +226,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         listenerNext.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0)
         listenerNext.isEnabled = true
@@ -237,31 +238,31 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.reloadData()
         
         switch indexPath.row {
-            //lunes
-            case 0,7,14,21,28,35:
-                params.setDay( date: DaysOfMonth[0] )
-            //martes
-            case 1,8,15,22,29,36:
-                params.setDay( date: DaysOfMonth[1] )
-            //miercoles
-            case 2,9,16,23,30:
-                params.setDay( date: DaysOfMonth[2] )
-            //jueves
-            case 3,10,17,24,31:
-                params.setDay( date: DaysOfMonth[3] )
-            //viernes
-            case 4,11,18,25,32:
-                params.setDay( date: DaysOfMonth[4] )
-            //sabado
-            case 5,12,19,26,33:
-                params.setDay( date: DaysOfMonth[5] )
-            //domingo
-            case 6,13,20,27,34:
-                params.setDay( date: DaysOfMonth[6] )
-            default:
-                break
+        //lunes
+        case 0,7,14,21,28,35:
+            params.setDay( date: DaysOfMonth[0] )
+        //martes
+        case 1,8,15,22,29,36:
+            params.setDay( date: DaysOfMonth[1] )
+        //miercoles
+        case 2,9,16,23,30:
+            params.setDay( date: DaysOfMonth[2] )
+        //jueves
+        case 3,10,17,24,31:
+            params.setDay( date: DaysOfMonth[3] )
+        //viernes
+        case 4,11,18,25,32:
+            params.setDay( date: DaysOfMonth[4] )
+        //sabado
+        case 5,12,19,26,33:
+            params.setDay( date: DaysOfMonth[5] )
+        //domingo
+        case 6,13,20,27,34:
+            params.setDay( date: DaysOfMonth[6] )
+        default:
+            break
         }
-       
+        
         
     }
     
@@ -271,7 +272,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     
- 
+    
     @IBAction func nextSwipe(_ sender: UISwipeGestureRecognizer) {
         highlightdate = -1
         switch currentMonth {
@@ -303,7 +304,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-   
+    
     @IBAction func previewSwipe(_ sender: UISwipeGestureRecognizer) {
         highlightdate = -1
         switch currentMonth {
@@ -334,7 +335,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-   
+    
     @IBAction func btnPreview(_ sender: UIButton) {
         let preview = parent as? PaginacionCitasController
         preview?.previewView(index: 2)
@@ -348,5 +349,6 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
-
+    
 }
+

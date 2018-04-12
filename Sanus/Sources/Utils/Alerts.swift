@@ -16,6 +16,7 @@ class Alerts {
     
     private let login = loginModel()
     private let user = ParamsNewAppointment()
+    //private let appointment = NewAppointment()
     
     public func alertSimple( this: UIViewController, titileAlert: String?, bodyAlert: String?, actionAlert: String? ) -> Void {
         let alert = UIAlertController(title: titileAlert, message: bodyAlert, preferredStyle: .alert);
@@ -39,7 +40,7 @@ class Alerts {
         this.present(alert, animated: true, completion: nil);
     }
     
- 
+    
     private func actionAcept( this: UIViewController, acept: String?  ){
         if acept == "login" {
             this.performSegue(withIdentifier: "returnCreateUser", sender: this);
@@ -60,6 +61,21 @@ class Alerts {
                 print ("Error signing out: %@", signOutError)
             }
         }
+        if acept == "cancelAppoinment" {
+            self.removeUserDefault()
+            this.dismiss(animated: true, completion: nil )
+        }
+        
+        if acept == "saveAppointment" {
+            
+            //self.appointment.newAppintment(completionHandler: { resp in
+                
+ 
+                
+            //})
+            
+            
+        }
     }
     
     private func actionCancel( this: UIViewController, cancel: String? ){
@@ -75,6 +91,14 @@ class Alerts {
         }
     }
     
+    private func removeUserDefault(){
+        //self.user.removeDoctor()
+        //self.user.removeDay()
+        //self.user.removeHospital()
+        //self.user.removeHour()
+        //self.user.removeCalendar()
+    }
+    
     private func logOutFacebook(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
@@ -87,3 +111,4 @@ class Alerts {
     }
     
 }
+

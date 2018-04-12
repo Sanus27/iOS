@@ -21,8 +21,8 @@ class SettingsController: UIViewController {
     @IBOutlet weak var listenerState: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uid = self.user.getID()!
-        dataUser()
+        //self.uid = self.user.getID()!
+        //dataUser()
     }
     
     

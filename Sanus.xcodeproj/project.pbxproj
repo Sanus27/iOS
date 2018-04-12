@@ -357,6 +357,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A0ED219B207F3F970031045E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		A0F06AA3205DD45E0004A914 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +631,7 @@
 		A0F06AC2205DD89D0004A914 /* AddAppointment */ = {
 			isa = PBXGroup;
 			children = (
+				A0ED219B207F3F970031045E /* Model */,
 				A0F06AC3205DD8AD0004A914 /* Controller */,
 			);
 			path = AddAppointment;

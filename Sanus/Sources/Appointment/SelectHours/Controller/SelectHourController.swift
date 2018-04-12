@@ -35,9 +35,9 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let idDoctor = self.model.getDoctor()!
         let idDay:String = self.model.getDay()!
-
+        
         getRef.collection("horarios").whereField("doctor", isEqualTo: idDoctor).whereField("dia", isEqualTo: idDay).addSnapshotListener { (result , error) in
-
+            
             if let error = error {
                 print("hay un error en firebase", error)
             } else {
@@ -54,7 +54,7 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 
             }
-
+            
         }
         
     }
@@ -74,7 +74,23 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.txtSchedules.text = schedules.hour
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listenerNext.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
+        listenerNext.isEnabled = true;
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
+        let fila = listItems[indexPath.row]
+        let idHour = fila.hour!
+        let params = ParamsNewAppointment()
+        params.setHour( id: idHour)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor.clear
+    }
     
     @IBAction func btnPreview(_ sender: UIButton) {
         let preview = parent as? PaginacionCitasController
@@ -89,6 +105,6 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
-
-
+    
+    
 }
