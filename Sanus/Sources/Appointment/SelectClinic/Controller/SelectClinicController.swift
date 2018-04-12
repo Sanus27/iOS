@@ -19,8 +19,8 @@ class SelectClinicController: UIViewController, UITableViewDelegate, UITableView
     public var idHospital = ""
     private let model = SelectClinicModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableData.dataSource = self
         tableData.delegate = self
         nextListener.isEnabled = false
@@ -29,13 +29,13 @@ class SelectClinicController: UIViewController, UITableViewDelegate, UITableView
         listFilter = listItems
     }
     
-
     private func showData(){
         
+        self.listItems.removeAll()
+        self.listFilter.removeAll()
+        self.tableData.reloadData()
+        
         self.model.showData(completionHandler: { resp in
-            self.listItems.removeAll()
-            self.listFilter.removeAll()
-            self.tableData.reloadData()
             self.listItems = self.model.listItems
             self.listFilter = self.model.listItems
             self.tableData.reloadData()

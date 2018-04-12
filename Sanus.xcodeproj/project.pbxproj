@@ -79,6 +79,7 @@
 		A0E3F27B206B8B6800392A28 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */; };
 		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
 		A0ED219D207F40AF0031045E /* NewAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED219C207F40AF0031045E /* NewAppointmentModel.swift */; };
+		A0ED219F207FE8F20031045E /* SelectHourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED219E207FE8F20031045E /* SelectHourModel.swift */; };
 		A0ED6DEE20538840009E143C /* ParamsNewAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */; };
 		A0F06AE3205DE3590004A914 /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F06AE2205DE3590004A914 /* CreateUserModel.swift */; };
 		A0F06AE5205DE86A0004A914 /* CompleteUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F06AE4205DE86A0004A914 /* CompleteUserModel.swift */; };
@@ -165,6 +166,7 @@
 		A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
 		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0ED219C207F40AF0031045E /* NewAppointmentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAppointmentModel.swift; sourceTree = "<group>"; };
+		A0ED219E207FE8F20031045E /* SelectHourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHourModel.swift; sourceTree = "<group>"; };
 		A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamsNewAppointment.swift; sourceTree = "<group>"; };
 		A0F06AE2205DE3590004A914 /* CreateUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
 		A0F06AE4205DE86A0004A914 /* CompleteUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserModel.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			children = (
 				A0DFCEF8207E854100FC07A4 /* SchedulesCell.swift */,
 				A0DFCEFA207E85E100FC07A4 /* Schedules.swift */,
+				A0ED219E207FE8F20031045E /* SelectHourModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1016,6 +1019,7 @@
 				A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */,
 				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,
 				A0DC8D29202AA4BA003FB0CB /* CreateUserController.swift in Sources */,
+				A0ED219F207FE8F20031045E /* SelectHourModel.swift in Sources */,
 				A0DC8D27202AA4B4003FB0CB /* HistoryAppointmentController.swift in Sources */,
 				A051DF9E2048809200D4C8DD /* AddAppointmentController.swift in Sources */,
 				A0DC8D25202AA4AC003FB0CB /* MessengerClientController.swift in Sources */,

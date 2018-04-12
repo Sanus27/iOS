@@ -29,12 +29,12 @@ class SelectDoctorModel: UIViewController {
                 print("se ha producido un error \(error)")
             } else {
                 
+                self.listItems.removeAll()
                 for doc in result!.documents {
                     let id = doc.documentID
                     let valDoc = doc.data()
                     let specialty = valDoc["especialidad"] as? String
-                    
-                    
+        
                     self.ref = Firestore.firestore().collection("usuarios").document(id)
                     self.ref.addSnapshotListener { (resp, error) in
                         if let error = error {

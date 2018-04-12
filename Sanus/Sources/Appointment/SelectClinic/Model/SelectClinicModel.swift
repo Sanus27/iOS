@@ -28,6 +28,7 @@ class SelectClinicModel: UIViewController {
                 print("se ha producido un error \(error)")
             } else {
                 
+                self.listItems.removeAll() 
                 for doc in result!.documents {
                     let id = doc.documentID
                     let valDoc = doc.data()

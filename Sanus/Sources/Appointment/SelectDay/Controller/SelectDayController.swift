@@ -52,16 +52,16 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         listenerNext.isEnabled = false
         listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         currentMonth = Months[month]
         labelMonth.text = "\(currentMonth) \(year)"
         GetStartDateDayPosition()
         if weekday == 0 {
             weekday = 7
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         showData()
     }
     

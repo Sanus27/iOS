@@ -7,69 +7,55 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var listenerNext: UIButton!
-    private var ref:DocumentReference!
-    private let model = ParamsNewAppointment()
+    //private var ref:DocumentReference!
+    //private let model = ParamsNewAppointment()
     private var listItems = [Schedules]()
-    let getRef = Firestore.firestore()
+    //let getRef = Firestore.firestore()
+    private let selectHour = SelectHourModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableData.dataSource = self
         tableData.delegate = self
         listenerNext.isEnabled = false
         listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         showData()
     }
     
     private func showData(){
         
-        let idDoctor = self.model.getDoctor()!
-        let idDay:String = self.model.getDay()!
+        self.listItems.removeAll()
+        self.tableData.reloadData()
         
-        getRef.collection("horarios").document(idDoctor).collection( idDay ).addSnapshotListener { (result , error) in
-            if error != nil {
-                print("Se ha producido un error")
-            } else {
-                self.listItems.removeAll()
-                for document in result!.documents {
-                    let valHours = document.data()
-                    let hour = valHours["hora"] as! String
-                    let schedules = Schedules( hour: hour )
-                    self.listItems.append(schedules)
-                    self.tableData.reloadData()
-                }
-            }
-        }
-//        getRef.collection("horarios").whereField("doctor", isEqualTo: idDoctor).whereField("dia", isEqualTo: idDay).addSnapshotListener { (result , error) in
+        self.selectHour.showData( completionHandler: { resp in
+            self.listItems = self.selectHour.listItems
+            self.tableData.reloadData()
+        })
+        
+//        let idDoctor = self.model.getDoctor()!
+//        let idDay:String = self.model.getDay()!
 //
-//            if let error = error {
-//                print("hay un error en firebase", error)
+//        getRef.collection("horarios").document(idDoctor).collection( idDay ).addSnapshotListener { (result , error) in
+//            if error != nil {
+//                print("Se ha producido un error")
 //            } else {
-//
 //                self.listItems.removeAll()
 //                for document in result!.documents {
 //                    let valHours = document.data()
-//                    let data = valHours["horario"] as! [String]
-//                    for i in 0...data.count - 1 {
-//                        let schedules = Schedules( hour: data[i] )
-//                        self.listItems.append(schedules)
-//                        self.tableData.reloadData()
-//                    }
+//                    let hour = valHours["hora"] as! String
+//                    let schedules = Schedules( hour: hour )
+//                    self.listItems.append(schedules)
+//                    self.tableData.reloadData()
 //                }
-//
 //            }
-//
 //        }
+
         
     }
     

@@ -17,33 +17,28 @@ class SelectDoctorController:  UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var nextListener: UIButton!
     private var listItems = [Doctor]()
     private var listFilter = [Doctor]()
-    private var selected:NSNumber = 0
     public var idHospital = ""
     private let model = SelectDoctorModel()
+    private let params = ParamsNewAppointment()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableData.dataSource = self
         tableData.delegate = self
         nextListener.isEnabled = false
         nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.idHospital = self.params.getHospital()!
         showData()
-        listFilter = listItems
+        self.listFilter = self.listItems
     }
     
     private func showData(){
         
-        let params = ParamsNewAppointment()
-        idHospital = params.getHospital()!
+        self.listFilter.removeAll()
+        self.listItems.removeAll()
+        self.tableData.reloadData()
         
-        self.model.showData(idHospital: idHospital, completionHandler: { resp in
-            self.listFilter.removeAll()
-            self.listItems.removeAll()
-            self.tableData.reloadData()
+        self.model.showData(idHospital: self.idHospital, completionHandler: { resp in
             self.listItems = self.model.listItems
             self.listFilter = self.model.listItems
             self.tableData.reloadData()
@@ -88,12 +83,11 @@ class SelectDoctorController:  UIViewController, UITableViewDelegate, UITableVie
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selected = 1
         nextListener.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0);
         nextListener.isEnabled = true;
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red: 0/255, green: 142/255, blue: 255/255, alpha: 1)
-        let fila = listFilter[indexPath.row]
+        let fila = listItems[indexPath.row]
         let idDoctor = fila.id!
         let params = ParamsNewAppointment()
         params.setDoctor( id: idDoctor)
@@ -101,11 +95,9 @@ class SelectDoctorController:  UIViewController, UITableViewDelegate, UITableVie
     
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selected = 0
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor.clear
     }
-    
     
     @IBAction func btnSearch(_ sender: UITextField) {
         if txtSearch.text!.isEmpty {
