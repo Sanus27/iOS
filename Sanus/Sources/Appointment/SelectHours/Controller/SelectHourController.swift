@@ -7,16 +7,12 @@
 //
 
 import UIKit
-//import Firebase
 
 class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var listenerNext: UIButton!
-    //private var ref:DocumentReference!
-    //private let model = ParamsNewAppointment()
     private var listItems = [Schedules]()
-    //let getRef = Firestore.firestore()
     private let selectHour = SelectHourModel()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,25 +33,6 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
             self.listItems = self.selectHour.listItems
             self.tableData.reloadData()
         })
-        
-//        let idDoctor = self.model.getDoctor()!
-//        let idDay:String = self.model.getDay()!
-//
-//        getRef.collection("horarios").document(idDoctor).collection( idDay ).addSnapshotListener { (result , error) in
-//            if error != nil {
-//                print("Se ha producido un error")
-//            } else {
-//                self.listItems.removeAll()
-//                for document in result!.documents {
-//                    let valHours = document.data()
-//                    let hour = valHours["hora"] as! String
-//                    let schedules = Schedules( hour: hour )
-//                    self.listItems.append(schedules)
-//                    self.tableData.reloadData()
-//                }
-//            }
-//        }
-
         
     }
     

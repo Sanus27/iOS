@@ -13,6 +13,10 @@ import FirebaseStorage
 class AddAppointmentController: UIViewController {
     
     private var ref:DocumentReference!
+    private let newAppointment = NewAppointmentModel()
+    private let params = ParamsNewAppointment()
+    private let alert = Alerts()
+    
     @IBOutlet weak var txtNameClinic: UILabel!
     @IBOutlet weak var txtAdress: UILabel!
     @IBOutlet weak var txtNameDoctor: UILabel!
@@ -20,11 +24,6 @@ class AddAppointmentController: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var txtHour: UILabel!
-    
-    
-    @IBOutlet weak var load: UIActivityIndicatorView!
-    let params = ParamsNewAppointment()
-    let alert = Alerts()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -97,8 +96,34 @@ class AddAppointmentController: UIViewController {
     
     
     @IBAction func btnCreate(_ sender: UIButton) {
-        //self.load.startAnimating()
-        self.alert.alertAvanced(this: self, titileAlert: "Registrar nueva cita", bodyAlert: "Esta seguro en crear la cita?", actionAcept: "saveAppointment", cancelAlert: nil )
+        
+        let alert = UIAlertController(title: "Registrar nueva cita", message: "Esta seguro en crear la cita?", preferredStyle: .alert);
+        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+            self.newAppoint()
+        })
+        let cancel = UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
+            
+        })
+        alert.addAction(acept);
+        alert.addAction(cancel);
+        self.present(alert, animated: true, completion: nil);
+        
+
+    }
+    
+    
+    private func newAppoint(){
+        self.newAppointment.newAppintment { resp in
+            if resp == "success" {
+                self.alert.alertSimple(this: self, titileAlert: "Registro exitoso", bodyAlert: "Se ha registrado la cita correctamente", actionAlert: "cancelAppoinment")
+            }
+            if resp == "Se ha producido un error, intentelo nuevamente" {
+                self.alert.alertSimple(this: self, titileAlert: "Sanus", bodyAlert: resp, actionAlert: nil )
+            }
+            if resp == "Ya existe la cita, intentalo con otra" {
+                self.alert.alertSimple(this: self, titileAlert: "Sanus", bodyAlert: resp, actionAlert: nil )
+            }
+        }
     }
     
     @IBAction func btnCancel(_ sender: UIButton) {

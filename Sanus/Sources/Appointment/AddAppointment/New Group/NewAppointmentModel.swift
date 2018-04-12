@@ -32,60 +32,40 @@ class NewAppointmentModel {
     
     public func newAppintment( completionHandler: @escaping ((String) -> Void)) {
       
-        self.validAll(completionHandler: { resp in
-            print(resp)
-            if resp == "success"{
-//                self.insertAppintment(completionHandler: { data in
-//                    if data == "success" {
-//                        completionHandler("success")
-//                    } else {
-//                        completionHandler("Se ha producido un error, intentelo nuevamente")
-//                    }
-//                })
-                
-                //7:00 am - 8:00 am
-            }
-            if resp == "exist" {
-                completionHandler("Ya existe la cita, intentalo con otra")
-            }
-        })
-        
-    }
-    
-    public func validAll( completionHandler: @escaping ((String) -> Void)) {
-        
         getRef.collection("citas").whereField("doctor", isEqualTo: self.idDoctor! ).whereField("usuario", isEqualTo: self.idUser! ).whereField("hospital", isEqualTo: self.idHospital! ).whereField("fecha", isEqualTo: self.dateApp! ).whereField("hora", isEqualTo: self.hour! ).addSnapshotListener { (result, error) in
             
             
-                if result!.documents.count == 0 {
-                    completionHandler("success")
-                } else {
-                    completionHandler("exist")
+            if result!.documents.count == 0 {
+                
+                self.ref = Firestore.firestore().collection("citas").addDocument(data: [
+                    "doctor": self.idDoctor!,
+                    "usuario": self.idUser!,
+                    "hospital": self.idHospital!,
+                    "fecha": self.dateApp!,
+                    "hora": self.hour!
+                ]) { err in
+                    
+                    if err == nil {
+                        completionHandler("Se ha producido un error, intentelo nuevamente")
+                    } else {
+                        completionHandler("success")
+                    }
+                    
                 }
+                
+            } else {
+                completionHandler("Ya existe la cita, intentalo con otra")
+            }
             
         }
-    }
-    
-    
-    
-    public func insertAppintment( completionHandler: @escaping ((String) -> Void)) {
         
-        self.ref = Firestore.firestore().collection("citas").addDocument(data: [
-            "doctor": self.idDoctor!,
-            "usuario": self.idUser!,
-            "hospital": self.idHospital!,
-            "fecha": self.dateApp!,
-            "hora": self.hour!
-        ]) { err in
         
-            if err == nil {
-                completionHandler("Se ha producido un error, intentelo nuevamente")
-            } else {
-                completionHandler("success")
-            }
-        
-        }
         
     }
+    
+   
+    
+    
+  
     
 }

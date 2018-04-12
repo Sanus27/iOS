@@ -36,9 +36,10 @@ class HistoryAppointmentController: UIViewController, UITableViewDelegate, UITab
     
     private func showData(){
         
+        self.listItems.removeAll()
+        self.table.reloadData()
+        
         self.model.showData(completionHandler: { resp in
-            self.listItems.removeAll()
-            self.table.reloadData()
             self.listItems = self.model.listItems
             self.table.reloadData()
         })
