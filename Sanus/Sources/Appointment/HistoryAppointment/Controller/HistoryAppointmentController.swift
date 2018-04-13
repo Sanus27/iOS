@@ -62,7 +62,28 @@ class HistoryAppointmentController: UIViewController, UITableViewDelegate, UITab
         cell.hospitalCitas?.text = data.hospital
         cell.fechaCitas?.text = data.date
         cell.horaCitas?.text = data.hour
+        
+        if let urlFoto = data.avatar {
+            Storage.storage().reference(forURL: urlFoto).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                if let error = error?.localizedDescription {
+                    print("fallo al traer imagenes", error)
+                    cell.avatarCitas?.image = #imageLiteral(resourceName: "user")
+                } else {
+                    cell.avatarCitas?.image = UIImage(data: data!)
+                    cell.avatarCitas.layer.masksToBounds = false
+                    cell.avatarCitas.layer.cornerRadius = cell.avatarCitas.frame.height / 2
+                    cell.avatarCitas.clipsToBounds = true
+                    cell.avatarCitas.layer.borderWidth = 1
+                    //self.tableData.reloadData()
+                }
+            })
+        }
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 119
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

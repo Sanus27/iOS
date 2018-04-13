@@ -156,25 +156,25 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         switch indexPath.row {
         //lunes
         case 0,7,14,21,28,35:
-            cell.dateLabel.textColor = UIColor.blue
+            cell.dateLabel.textColor = UIColor.black
         //martes
         case 1,8,15,22,29,36:
-            cell.dateLabel.textColor = UIColor.green
+            cell.dateLabel.textColor = UIColor.black
         //miercoles
         case 2,9,16,23,30:
-            cell.dateLabel.textColor = UIColor.cyan
+            cell.dateLabel.textColor = UIColor.black
         //jueves
         case 3,10,17,24,31:
-            cell.dateLabel.textColor = UIColor.darkGray
+            cell.dateLabel.textColor = UIColor.black
         //viernes
         case 4,11,18,25,32:
-            cell.dateLabel.textColor = UIColor.purple
+            cell.dateLabel.textColor = UIColor.black
         //sabado
         case 5,12,19,26,33:
             cell.dateLabel.textColor = UIColor.lightGray
         //domingo
         case 6,13,20,27,34:
-            cell.dateLabel.textColor = UIColor.red
+            cell.dateLabel.textColor = UIColor.lightGray
         default:
             break
         }

@@ -16,13 +16,15 @@ class Appointment{
     public var hour: String?
     public var hospital: String?
     public var user: String?
+    public var avatar: String?
     
-    init( id:String?, doctor:String?, date:String?, hour: String?, hospital:String?, user:String? ) {
+    init( id:String?, doctor:String?, date:String?, hour: String?, hospital:String?, user:String?, avatar: String? ) {
         self.id = id
         self.doctor = doctor
         self.date = date
         self.hour = hour
         self.hospital = hospital
         self.user = user
+        self.avatar = avatar
     }
 }
