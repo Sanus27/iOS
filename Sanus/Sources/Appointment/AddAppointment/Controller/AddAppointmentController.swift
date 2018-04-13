@@ -98,8 +98,8 @@ class AddAppointmentController: UIViewController {
     @IBAction func btnCreate(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Registrar nueva cita", message: "Esta seguro en crear la cita?", preferredStyle: .alert);
-        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
-            self.newAppoint()
+        let acept = UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in 
+            self.alert.alertSimple(this: self, titileAlert: "Registro exitoso", bodyAlert: "Se ha registrado la cita correctamente", actionAlert: "cancelAppoinment")
         })
         let cancel = UIAlertAction(title: "Cancelar", style: .default, handler: { (action) in
             
@@ -112,22 +112,9 @@ class AddAppointmentController: UIViewController {
     }
     
     
-    private func newAppoint(){
-        self.newAppointment.newAppintment { resp in
-            if resp == "success" {
-                self.alert.alertSimple(this: self, titileAlert: "Registro exitoso", bodyAlert: "Se ha registrado la cita correctamente", actionAlert: "cancelAppoinment")
-            }
-            if resp == "Se ha producido un error, intentelo nuevamente" {
-                self.alert.alertSimple(this: self, titileAlert: "Sanus", bodyAlert: resp, actionAlert: nil )
-            }
-            if resp == "Ya existe la cita, intentalo con otra" {
-                self.alert.alertSimple(this: self, titileAlert: "Sanus", bodyAlert: resp, actionAlert: nil )
-            }
-        }
-    }
     
     @IBAction func btnCancel(_ sender: UIButton) {
-        self.alert.alertAvanced(this: self, titileAlert: "Registro de citas", bodyAlert: "Está seguro de cancelar", actionAcept: "cancelAppoinment", cancelAlert: nil )
+        self.alert.alertAvanced(this: self, titileAlert: "Cancelación de citas", bodyAlert: "Está seguro de cancelar", actionAcept: "deleteAppoinment", cancelAlert: nil )
     }
     
     

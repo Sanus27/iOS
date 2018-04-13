@@ -14,54 +14,81 @@ class NewAppointmentModel {
     private let params = ParamsNewAppointment()
     private var ref:DocumentReference!
     private var getRef:Firestore!
-    private let idDoctor:String?
-    private let idHospital:String?
-    private let idUser:String?
-    private let hour:String?
-    private let dateApp:String?
+    private var idDoctor:String?
+    private var idHospital:String?
+    private var idUser:String?
+    private var hour:String?
+    private var dateApp:String?
+    private var idRegister:String?
+
     
-    init() {
+    public func newAppintment( completionHandler: @escaping ((String) -> Void)) {
         self.idDoctor = self.params.getDoctor()!
         self.idHospital = self.params.getHospital()!
         self.idUser = self.params.getID()!
-        self.hour = self.params.getHour()!
+        self.hour = ""
         self.dateApp = self.params.getCalendar()!
-        self.getRef = Firestore.firestore()
-    }
-    
-    
-    public func newAppintment( completionHandler: @escaping ((String) -> Void)) {
-      
-        getRef.collection("citas").whereField("doctor", isEqualTo: self.idDoctor! ).whereField("usuario", isEqualTo: self.idUser! ).whereField("hospital", isEqualTo: self.idHospital! ).whereField("fecha", isEqualTo: self.dateApp! ).whereField("hora", isEqualTo: self.hour! ).addSnapshotListener { (result, error) in
+        
+        self.ref = Firestore.firestore().collection("citas").addDocument(data: [
+            "doctor": self.idDoctor!,
+            "usuario": self.idUser!,
+            "hospital": self.idHospital!,
+            "fecha": self.dateApp!,
+            "hora": self.hour!
+        ]) { err in
             
-            
-            if result!.documents.count == 0 {
-                
-                self.ref = Firestore.firestore().collection("citas").addDocument(data: [
-                    "doctor": self.idDoctor!,
-                    "usuario": self.idUser!,
-                    "hospital": self.idHospital!,
-                    "fecha": self.dateApp!,
-                    "hora": self.hour!
-                ]) { err in
-                    
-                    if err == nil {
-                        completionHandler("Se ha producido un error, intentelo nuevamente")
-                    } else {
-                        completionHandler("success")
-                    }
-                    
-                }
-                
+            if err != nil {
+                completionHandler("Se ha producido un error, intentelo nuevamente")
             } else {
-                completionHandler("Ya existe la cita, intentalo con otra")
+                self.params.setIdRegister(id: self.ref.documentID )
+                completionHandler(self.ref.documentID)
             }
             
         }
         
+    }
+    
+    
+    public func editAppintment( completionHandler: @escaping ((String) -> Void)) {
+        self.hour = self.params.getHour()!
+        self.idRegister = self.params.getIdRegister()!
         
+        
+        self.ref = Firestore.firestore().collection("citas").document( self.idRegister! )
+        self.ref.updateData([
+            "hora": self.hour!
+        ]) { err in
+            
+            if err != nil {
+                completionHandler("Se ha producido un error, intentelo nuevamente")
+            } else {
+                completionHandler("success")
+            }
+            
+        }
         
     }
+    
+    
+    public func deleteAppintment( completionHandler: @escaping ((String) -> Void)) {
+        self.hour = self.params.getHour()!
+        self.idRegister = self.params.getIdRegister()!
+        
+        
+        self.ref = Firestore.firestore().collection("citas").document( self.idRegister! )
+        self.ref.delete() { err in
+            
+            if err != nil {
+                completionHandler("Se ha producido un error, intentelo nuevamente")
+            } else {
+                completionHandler("success")
+            }
+            
+        }
+        
+    }
+    
+    
     
    
     

@@ -18,6 +18,7 @@ class SelectClinicController: UIViewController, UITableViewDelegate, UITableView
     private var selected:NSNumber = 0
     public var idHospital = ""
     private let model = SelectClinicModel()
+    private let alert = Alerts()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -110,7 +111,7 @@ class SelectClinicController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func btnAtras(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.alert.alertAvanced(this: self, titileAlert: "Sanus", bodyAlert: "Está seguro de salir", actionAcept: "cancelAppoinment", cancelAlert: nil )
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

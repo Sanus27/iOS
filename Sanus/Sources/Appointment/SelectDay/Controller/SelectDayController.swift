@@ -8,13 +8,15 @@
 
 import UIKit
 import JTAppleCalendar
+import Firebase
 
 class SelectDayController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var labelMonth: UILabel!
     @IBOutlet weak var Calendar: UICollectionView!
     @IBOutlet weak var listenerNext: UIButton!
-    
+    private let insert = NewAppointmentModel()
+    private let alert = Alerts()
     private var selected:NSNumber = 0
     let Months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
     let DaysOfMonth = [ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" ]
@@ -264,6 +266,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -342,8 +345,10 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
-        let next = parent as? PaginacionCitasController
-        next?.nextView(index: 2)
+        self.insert.newAppintment { resp in
+            let next = self.parent as? PaginacionCitasController
+            next?.nextView(index: 2)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

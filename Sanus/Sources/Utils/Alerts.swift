@@ -16,7 +16,7 @@ class Alerts {
     
     private let login = loginModel()
     private let user = ParamsNewAppointment()
-    //private let appointment = NewAppointment()
+    private let appointment = NewAppointmentModel()
     
     public func alertSimple( this: UIViewController, titileAlert: String?, bodyAlert: String?, actionAlert: String? ) -> Void {
         let alert = UIAlertController(title: titileAlert, message: bodyAlert, preferredStyle: .alert);
@@ -55,6 +55,7 @@ class Alerts {
                 try firebaseAuth.signOut()
                 logOutFacebook()
                 logOutGoogle()
+                removeUserDefault()
                 this.performSegue( withIdentifier: "salir", sender: this );
             } catch let signOutError as NSError {
                 self.alertSimple(this: this, titileAlert: "Se ha producido un error", bodyAlert: "Intentalo mas tarde", actionAlert: nil  )
@@ -65,18 +66,18 @@ class Alerts {
             self.removeUserDefault()
             this.dismiss(animated: true, completion: nil )
         }
-        
-        if acept == "saveAppointment" {
-            
-            //self.appointment.newAppintment(completionHandler: { resp in
-                
- 
-                
-            //})
-            
-            
+        if acept == "deleteAppoinment" {
+            self.deleteAppointment( this:this )
         }
     }
+    
+    private func deleteAppointment( this: UIViewController  ){
+        self.appointment.deleteAppintment { resp in
+            self.removeUserDefault()
+            this.dismiss(animated: true, completion: nil )
+        }
+    }
+    
     
     private func actionCancel( this: UIViewController, cancel: String? ){
         if cancel == "signOut" {
@@ -92,11 +93,12 @@ class Alerts {
     }
     
     private func removeUserDefault(){
-        //self.user.removeDoctor()
-        //self.user.removeDay()
-        //self.user.removeHospital()
-        //self.user.removeHour()
-        //self.user.removeCalendar()
+        self.user.removeDoctor()
+        self.user.removeIdRegister()
+        self.user.removeDay()
+        self.user.removeHospital()
+        self.user.removeHour()
+        self.user.removeCalendar()
     }
     
     private func logOutFacebook(){

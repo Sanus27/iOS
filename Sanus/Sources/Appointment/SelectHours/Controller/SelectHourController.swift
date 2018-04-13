@@ -14,6 +14,7 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var listenerNext: UIButton!
     private var listItems = [Schedules]()
     private let selectHour = SelectHourModel()
+    private let update = NewAppointmentModel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -80,8 +81,10 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
-        let next = parent as? PaginacionCitasController
-        next?.nextView(index: 3)
+        self.update.editAppintment { resp in
+            let next = self.parent as? PaginacionCitasController
+            next?.nextView(index: 3)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
