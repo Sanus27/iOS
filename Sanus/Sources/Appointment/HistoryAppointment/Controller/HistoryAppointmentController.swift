@@ -17,8 +17,8 @@ class HistoryAppointmentController: UIViewController, UITableViewDelegate, UITab
     private let model = HistoryAppointmentModel()
     private let modelComent = ComentariosDrModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         table.delegate = self
         table.dataSource = self
         self.listenerBtnAdd.isHidden = true

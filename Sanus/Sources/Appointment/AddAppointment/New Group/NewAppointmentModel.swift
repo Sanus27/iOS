@@ -71,20 +71,23 @@ class NewAppointmentModel {
     
     
     public func deleteAppintment( completionHandler: @escaping ((String) -> Void)) {
-        self.hour = self.params.getHour()!
-        self.idRegister = self.params.getIdRegister()!
-        
-        
-        self.ref = Firestore.firestore().collection("citas").document( self.idRegister! )
-        self.ref.delete() { err in
-            
-            if err != nil {
-                completionHandler("Se ha producido un error, intentelo nuevamente")
-            } else {
-                completionHandler("success")
+    
+        if self.params.getIdRegister() != nil {
+            self.idRegister = self.params.getIdRegister()!
+            self.ref = Firestore.firestore().collection("citas").document( self.idRegister! )
+            self.ref.delete() { err in
+                
+                if err != nil {
+                    completionHandler("Se ha producido un error, intentelo nuevamente")
+                } else {
+                    completionHandler("success")
+                }
+                
             }
-            
+        } else {
+            completionHandler("success")
         }
+        
         
     }
     

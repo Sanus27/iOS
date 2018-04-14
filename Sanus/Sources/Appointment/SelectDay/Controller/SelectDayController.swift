@@ -32,6 +32,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     var highlightdate = -1
     //var DayWeek =
     public var idDoctor: String = ""
+    private let appointment = NewAppointmentModel()
     private let idDay = ParamsNewAppointment()
     
     
@@ -147,10 +148,10 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         //past days
-        //        if currentMonth <= Months[calendar.component(.month, from: date) - 1] && year <= calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox < day{
-        //            cell.dateLabel.backgroundColor = UIColor.red
-        //            cell.dateLabel.textColor = UIColor.white
-        //        }
+        if currentMonth <= Months[calendar.component(.month, from: date) - 1] && year <= calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox < day{
+            cell.dateLabel.backgroundColor = UIColor.red
+            cell.dateLabel.textColor = UIColor.white
+        }
         
         
         switch indexPath.row {
@@ -340,8 +341,11 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     
     
     @IBAction func btnPreview(_ sender: UIButton) {
-        let preview = parent as? PaginacionCitasController
-        preview?.previewView(index: 2)
+        self.appointment.deleteAppintment { resp in
+            let preview = self.parent as? PaginacionCitasController
+            preview?.previewView(index: 2)
+        }
+        
     }
     
     @IBAction func btnNext(_ sender: UIButton) {

@@ -29,6 +29,8 @@ class HistoryAppointmentModel: UIViewController {
         self.idUser = self.user.getID()!
         var condition:String?
         var condition2:String?
+        var condition3:String?
+        
         if usr == "Medico" {
             condition = "doctor"
         } else {
@@ -53,9 +55,7 @@ class HistoryAppointmentModel: UIViewController {
                             let idUser = valAppoint["usuario"] as? String
                             let idHospital = valAppoint["hospital"] as? String
                             
-                            if usr == "Medico" {
-                                condition2 = idUser
-                            } else {
+                            if usr == "Medico" { condition2 = idUser } else {
                                 condition2 = docAppint!
                             }
                             
@@ -79,7 +79,13 @@ class HistoryAppointmentModel: UIViewController {
                                                     if let result = result {
                                                         let valHospital = result.data()
                                                         let hospital = valHospital!["nombre"] as? String
-                                                        let appointment = Appointment( id: id, doctor: doctor, date: date, hour: hour, hospital: hospital, user: idUser, avatar:avatar )
+                                                        if usr == "Medico" {
+                                                            condition3 = "Paciente"
+                                                        } else {
+                                                            condition3 = hospital!
+                                                        }
+                                                        
+                                                        let appointment = Appointment( id: id, doctor: doctor, date: date, hour: hour, hospital: condition3, user: idUser, avatar:avatar )
                                                         self.listItems.append(appointment)
                                                         completionHandler( self.listItems )
                                                     }

@@ -47,10 +47,7 @@
 		A0656E6F206AF7330054D1AA /* SelectClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */; };
 		A0656E71206AFA710054D1AA /* SelectDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */; };
 		A0656E73206B01A20054D1AA /* HistoryAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0656E72206B01A20054D1AA /* HistoryAppointmentModel.swift */; };
-		A065D6CB20788AEF00A4E734 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6CA20788AEF00A4E734 /* loading.json */; };
 		A065D6CD2078973200A4E734 /* internet.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6CC2078973100A4E734 /* internet.json */; };
-		A065D6CF2078976000A4E734 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6CE2078975F00A4E734 /* splash.json */; };
-		A065D6D12078981D00A4E734 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = A065D6D02078981D00A4E734 /* love.json */; };
 		A06CDB67203024440092C621 /* DoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CDB66203024440092C621 /* DoctorCell.swift */; };
 		A0824580202A9FAB00543AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082457F202A9FAB00543AD0 /* AppDelegate.swift */; };
 		A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824583202A9FAB00543AD0 /* Main.storyboard */; };
@@ -78,6 +75,8 @@
 		A0E25F32202CB76D00A385C2 /* CommentsDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E25F31202CB76D00A385C2 /* CommentsDrController.swift */; };
 		A0E3F27B206B8B6800392A28 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */; };
 		A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */; };
+		A0ECE253208197E700233D81 /* sin-internet.json in Resources */ = {isa = PBXBuildFile; fileRef = A0ECE252208197E700233D81 /* sin-internet.json */; };
+		A0ECE2552081980A00233D81 /* loading1.json in Resources */ = {isa = PBXBuildFile; fileRef = A0ECE2542081980A00233D81 /* loading1.json */; };
 		A0ED219D207F40AF0031045E /* NewAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED219C207F40AF0031045E /* NewAppointmentModel.swift */; };
 		A0ED219F207FE8F20031045E /* SelectHourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED219E207FE8F20031045E /* SelectHourModel.swift */; };
 		A0ED6DEE20538840009E143C /* ParamsNewAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */; };
@@ -131,10 +130,7 @@
 		A0656E6E206AF7330054D1AA /* SelectClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClinicModel.swift; sourceTree = "<group>"; };
 		A0656E70206AFA710054D1AA /* SelectDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorModel.swift; sourceTree = "<group>"; };
 		A0656E72206B01A20054D1AA /* HistoryAppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAppointmentModel.swift; sourceTree = "<group>"; };
-		A065D6CA20788AEF00A4E734 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		A065D6CC2078973100A4E734 /* internet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = internet.json; sourceTree = "<group>"; };
-		A065D6CE2078975F00A4E734 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
-		A065D6D02078981D00A4E734 /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = love.json; sourceTree = "<group>"; };
 		A06CDB66203024440092C621 /* DoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCell.swift; sourceTree = "<group>"; };
 		A082457C202A9FAB00543AD0 /* Sanus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A082457F202A9FAB00543AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +161,8 @@
 		A0E3F279206B7FD500392A28 /* Sanus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sanus.entitlements; sourceTree = "<group>"; };
 		A0E3F27A206B8B6800392A28 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
 		A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0ECE252208197E700233D81 /* sin-internet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "sin-internet.json"; sourceTree = "<group>"; };
+		A0ECE2542081980A00233D81 /* loading1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading1.json; sourceTree = "<group>"; };
 		A0ED219C207F40AF0031045E /* NewAppointmentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAppointmentModel.swift; sourceTree = "<group>"; };
 		A0ED219E207FE8F20031045E /* SelectHourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHourModel.swift; sourceTree = "<group>"; };
 		A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamsNewAppointment.swift; sourceTree = "<group>"; };
@@ -297,10 +295,9 @@
 		A065D6C920788ADC00A4E734 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				A065D6CE2078975F00A4E734 /* splash.json */,
+				A0ECE252208197E700233D81 /* sin-internet.json */,
+				A0ECE2542081980A00233D81 /* loading1.json */,
 				A065D6CC2078973100A4E734 /* internet.json */,
-				A065D6CA20788AEF00A4E734 /* loading.json */,
-				A065D6D02078981D00A4E734 /* love.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -892,14 +889,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A065D6CB20788AEF00A4E734 /* loading.json in Resources */,
 				A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */,
 				A0E42674202AA0AB007D5379 /* GoogleService-Info.plist in Resources */,
-				A065D6D12078981D00A4E734 /* love.json in Resources */,
-				A065D6CF2078976000A4E734 /* splash.json in Resources */,
 				A065D6CD2078973200A4E734 /* internet.json in Resources */,
+				A0ECE253208197E700233D81 /* sin-internet.json in Resources */,
 				A0824587202A9FAB00543AD0 /* Assets.xcassets in Resources */,
 				A0824585202A9FAB00543AD0 /* Main.storyboard in Resources */,
+				A0ECE2552081980A00233D81 /* loading1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

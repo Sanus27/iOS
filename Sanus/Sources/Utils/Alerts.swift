@@ -64,6 +64,7 @@ class Alerts {
         }
         if acept == "cancelAppoinment" {
             self.removeUserDefault()
+            self.deleteAppointment( this:this )
             this.dismiss(animated: true, completion: nil )
         }
         if acept == "deleteAppoinment" {
