@@ -15,7 +15,6 @@ class SearchDoctorController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableData: UITableView!
     @IBOutlet weak var txtSearch: UITextField!
     
-    //public var ref:DocumentReference!
     public var getRef:Firestore!
     var listDoctors = [Doctor]()
     var listFilter = [Doctor]()
@@ -26,6 +25,10 @@ class SearchDoctorController: UIViewController, UITableViewDelegate, UITableView
         tableData.delegate = self
         tableData.dataSource = self
         self.getRef = Firestore.firestore()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showData()
         self.listFilter = self.listDoctors
     }

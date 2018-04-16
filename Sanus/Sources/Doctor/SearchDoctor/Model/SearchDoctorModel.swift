@@ -30,6 +30,7 @@ class SearchDoctorModel: UIViewController {
                 print("se ha producido un error \(error)")
             } else {
                 
+                self.listItem.removeAll()
                 for doc in result!.documents {
                     let id = doc.documentID
                     let valDoc = doc.data()

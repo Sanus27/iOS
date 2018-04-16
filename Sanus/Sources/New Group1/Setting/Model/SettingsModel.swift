@@ -31,8 +31,9 @@ class SettingsModel: UIViewController {
                 let val = document.data()
                 var avatar = val!["avatar"] as? String
                 let name = val!["nombre"] as! String
+                let lastname = val!["apellido"] as! String
                 let state = val!["estado"] as! String
-                
+                let fullname = name + " " + lastname
                 if avatar != nil {
                     avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!
                     Storage.storage().reference(forURL: avatar!).getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
@@ -41,7 +42,7 @@ class SettingsModel: UIViewController {
                             print("fallo al traer imagenes", error)
                             completionHandler( self.success )
                         } else {
-                            self.success = [ "warning": false, "defaults": false, "avatar": data!, "fullname": name, "estado": state ]
+                            self.success = [ "warning": false, "defaults": false, "avatar": data!, "fullname": fullname, "estado": state ]
                             
                             completionHandler( self.success )
                         }

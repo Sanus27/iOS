@@ -30,7 +30,6 @@ class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtMensaje.isHidden = true
         dataTable.delegate = self
         dataTable.dataSource = self
         txtComents.delegate = self
@@ -38,18 +37,29 @@ class CommentsDrController: UIViewController, UITableViewDelegate, UITableViewDa
         dataTable.estimatedRowHeight = 105
         dataTable.rowHeight = UITableViewAutomaticDimension
         uid = self.user.getID()!
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        btnComentEditing.isEnabled = false
+        btnComentEditing.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
+        self.txtMensaje.isHidden = true
         id = showComents
         isDoctor()
         showData()
     }
-
     
     @IBAction func comentarioEditing(_ sender: UITextField) {
         let num = Int(txtComents.text!.count);
         if num > 0 {
-            btnComentEditing.isEnabled = true
+            if calif > 0 {
+                btnComentEditing.isEnabled = true
+                btnComentEditing.backgroundColor = UIColor(red: 3/255, green: 149/255, blue: 234/255, alpha: 1.0)
+            }
         } else {
             btnComentEditing.isEnabled = false
+            btnComentEditing.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
         }
     }
     

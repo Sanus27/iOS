@@ -27,14 +27,10 @@ class PerfilDoctorController: UIViewController {
     private var id = ""
     private var model = PerfilDoctorModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.id = showProfile.id!
-        showData()
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.id = showProfile.id!
         showData()
     }
     

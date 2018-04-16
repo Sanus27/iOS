@@ -26,8 +26,8 @@ class CreateUserController: UIViewController {
     private let alert = Alerts()
     private let model = CreateUserModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         listenerBtnShow.setTitle("Mostrar", for: .normal)
         txtPassword.isSecureTextEntry = true
         listenerCreateUser.isEnabled = false;

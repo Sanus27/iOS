@@ -37,6 +37,10 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
         super.viewDidLoad()
         listenerYear.delegate = self
         listenerYear.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let uid = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document( uid )
         setYears()

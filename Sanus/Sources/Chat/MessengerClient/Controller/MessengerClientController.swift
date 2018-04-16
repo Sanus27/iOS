@@ -18,8 +18,8 @@ class MessengerClientController: UIViewController, UITableViewDelegate, UITableV
     private var uid: String = ""
     private let model = ChatModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()

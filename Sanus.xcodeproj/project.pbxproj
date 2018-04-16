@@ -31,6 +31,7 @@
 		A03C06682069C93900411FD4 /* SearchDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C06672069C93900411FD4 /* SearchDoctorModel.swift */; };
 		A03C066C2069F6F300411FD4 /* ComentariosDrModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C066B2069F6F300411FD4 /* ComentariosDrModel.swift */; };
 		A03C066E206A19EE00411FD4 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C066D206A19EE00411FD4 /* ChatModel.swift */; };
+		A03C0F3920845E1700E89BF8 /* LoadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C0F3820845E1700E89BF8 /* LoadController.swift */; };
 		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
 		A04E8BAC205DA3CE00E094ED /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */; };
 		A04E8BB0205DB5F500E094ED /* MessengerDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */; };
@@ -114,6 +115,7 @@
 		A03C06672069C93900411FD4 /* SearchDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDoctorModel.swift; sourceTree = "<group>"; };
 		A03C066B2069F6F300411FD4 /* ComentariosDrModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrModel.swift; sourceTree = "<group>"; };
 		A03C066D206A19EE00411FD4 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		A03C0F3820845E1700E89BF8 /* LoadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadController.swift; sourceTree = "<group>"; };
 		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
 		A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerDrController.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */,
 				A05B03E0207857AA006A5768 /* ConectFalseController.swift */,
 				A05B03E220785979006A5768 /* Reachability.swift */,
+				A03C0F3820845E1700E89BF8 /* LoadController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1011,6 +1014,7 @@
 				A03C06662069BF3000411FD4 /* PerfilDoctorModel.swift in Sources */,
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
 				A05B03E320785979006A5768 /* Reachability.swift in Sources */,
+				A03C0F3920845E1700E89BF8 /* LoadController.swift in Sources */,
 				A0B4B4C32060C782000833B1 /* Contact.swift in Sources */,
 				A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */,
 				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,

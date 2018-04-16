@@ -27,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         }
     }
     
+    func isLoading(){
+        let nav = self.window?.rootViewController as? UINavigationController?
+        let this = nav??.visibleViewController
+        let loading = self.setStory(name: "loading")
+        this!.present(loading, animated: false, completion: nil)
+    }
+    
     func setStory(name: String) -> UIViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return mainStoryBoard.instantiateViewController(withIdentifier: name)

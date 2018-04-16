@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsController: UIViewController {
 
+    @IBOutlet weak var listenerState: UISegmentedControl!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var txtName: UILabel!
     private var uid:String = ""
@@ -18,13 +19,15 @@ class SettingsController: UIViewController {
     private let login = loginModel()
     private let user = ParamsNewAppointment()
     
-    @IBOutlet weak var listenerState: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.uid = self.user.getID()!
-        //dataUser()
+        self.uid = self.user.getID()!
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataUser()
+    }
     
     private func dataUser(){
         self.model.showData( uid: self.uid , completionHandler: { resp in

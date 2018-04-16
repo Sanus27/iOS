@@ -33,14 +33,18 @@ class ChatController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         tableData.delegate = self
         tableData.dataSource = self
         getRef = Firestore.firestore()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.idDoctor = showMessenger
         self.uid = Auth.auth().currentUser?.uid
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        listenerSendMessage.isEnabled = false;
-        listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
         verifyDidUserType()
         showData()
         showInfoMessage()
+        listenerSendMessage.isEnabled = false;
+        listenerSendMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3);
     }
     
     func verifyDidUserType(){
