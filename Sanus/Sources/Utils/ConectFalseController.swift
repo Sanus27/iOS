@@ -12,7 +12,7 @@ import Lottie
 class ConectFalseController: UIViewController {
 
     private var reachability: Reachability!
-    let animationView = LOTAnimationView(name: "sin-internet")
+    let animationView = LOTAnimationView(name: "internet")
     
     override func viewDidLoad() {
         super.viewDidLoad()

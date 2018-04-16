@@ -44,7 +44,7 @@ class SearchDoctorModel: UIViewController {
                             
                             if let resp = resp {
                                 let valUser = resp.data()
-                                var avatar = valUser!["avatar"] as? String
+                                var avatar:String? = valUser!["avatar"] as? String
                                 let name = valUser!["nombre"] as? String
                                 let lastname = valUser!["apellido"] as? String
                                 avatar = "gs://sanus-27.appspot.com/avatar/" + avatar!

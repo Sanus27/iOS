@@ -127,18 +127,7 @@ class ComentariosDrModel: UIViewController {
     
     
     public func isDoctor( completionHandler: @escaping ((String) -> Void)) {
-        
-        isConected()
-        let id = self.user.getID()!
-        ref = Firestore.firestore().collection("usuarios").document( id )
-        ref.getDocument { (document, error) in
-            if let document = document {
-                let exist = document.data()
-                let typeData = exist!["tipo"] as? String
-                completionHandler( typeData! )
-            }
-        }
-        
+        completionHandler( self.user.getTypeUser()! )
     }
     
 
