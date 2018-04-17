@@ -345,7 +345,6 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
             let preview = self.parent as? PaginacionCitasController
             preview?.previewView(index: 2)
         }
-        
     }
     
     @IBAction func btnNext(_ sender: UIButton) {

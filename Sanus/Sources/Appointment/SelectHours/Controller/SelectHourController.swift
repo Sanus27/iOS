@@ -16,12 +16,16 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
     private let selectHour = SelectHourModel()
     private let update = NewAppointmentModel()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableData.dataSource = self
         tableData.delegate = self
         listenerNext.isEnabled = false
         listenerNext.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showData()
     }
     
@@ -76,14 +80,18 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func btnPreview(_ sender: UIButton) {
-        let preview = parent as? PaginacionCitasController
-        preview?.previewView(index: 3)
+        self.update.deleteAppintment { resp in
+            let preview = self.parent as? PaginacionCitasController
+            preview?.previewView(index: 3)
+        }
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
         self.update.editAppintment { resp in
-            let next = self.parent as? PaginacionCitasController
-            next?.nextView(index: 3)
+            self.update.addAppointmentReserved { resp in
+                let next = self.parent as? PaginacionCitasController
+                next?.nextView(index: 3)
+            }
         }
     }
     

@@ -20,12 +20,16 @@ class SelectClinicController: UIViewController, UITableViewDelegate, UITableView
     private let model = SelectClinicModel()
     private let alert = Alerts()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableData.dataSource = self
         tableData.delegate = self
         nextListener.isEnabled = false
         nextListener.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5);
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showData()
         listFilter = listItems
     }

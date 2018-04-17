@@ -74,8 +74,10 @@ class Alerts {
     
     private func deleteAppointment( this: UIViewController  ){
         self.appointment.deleteAppintment { resp in
-            self.removeUserDefault()
-            this.dismiss(animated: true, completion: nil )
+            self.appointment.deleteAppintmentReserved { resp in
+                self.removeUserDefault()
+                this.dismiss(animated: true, completion: nil )
+            }
         }
     }
     

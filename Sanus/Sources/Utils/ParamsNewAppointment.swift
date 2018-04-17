@@ -98,6 +98,42 @@ class ParamsNewAppointment {
         UserDefaults.standard.set( id , forKey: "idRegister")
     }
     
+    public func getRegisterDate() -> String? {
+        return UserDefaults.standard.object(forKey: "RegisterDate") as? String
+    }
+    
+    public func setRegisterDate( id:String? ){
+        UserDefaults.standard.removeObject(forKey: "RegisterDate")
+        UserDefaults.standard.set( id , forKey: "RegisterDate")
+    }
+    
+    public func removeRegisterDate(){
+        UserDefaults.standard.removeObject(forKey: "RegisterDate")
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    public func getRegisterHour() -> String? {
+        return UserDefaults.standard.object(forKey: "RegisterHour") as? String
+    }
+    
+    public func setRegisterHour( id:String? ){
+        UserDefaults.standard.removeObject(forKey: "RegisterHour")
+        UserDefaults.standard.set( id , forKey: "RegisterHour")
+    }
+    
+    public func removeRegisterHour(){
+        UserDefaults.standard.removeObject(forKey: "RegisterHour")
+    }
+    
+    
+    
+    
     public func removeDay(){
         UserDefaults.standard.removeObject(forKey: "idDay")
     }

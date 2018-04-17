@@ -13,14 +13,13 @@ class NewAppointmentModel {
     
     private let params = ParamsNewAppointment()
     private var ref:DocumentReference!
-    private var getRef:Firestore!
     private var idDoctor:String?
     private var idHospital:String?
     private var idUser:String?
     private var hour:String?
     private var dateApp:String?
     private var idRegister:String?
-
+    private var getRef:DocumentReference!
     
     public func newAppintment( completionHandler: @escaping ((String) -> Void)) {
         self.idDoctor = self.params.getDoctor()!
@@ -92,9 +91,73 @@ class NewAppointmentModel {
     }
     
     
+    public func addAppointmentReserved( completionHandler: @escaping ((String) -> Void)) {
+        
+        
+        self.getRef = Firestore.firestore().collection("citas-ocupadas").document( self.params.getDoctor()! ).collection("fecha").addDocument(data: [
+            "fecha": self.params.getCalendar()!
+        ]) { err in
+            
+            if err != nil {
+                completionHandler("Se ha producido un error, intentelo nuevamente")
+            } else {
+               
+                self.params.setRegisterDate(id: self.getRef.documentID )
+                
+                self.ref = Firestore.firestore().collection("citas-ocupadas").document( self.params.getDoctor()! ).collection("hora").addDocument(data: [
+                    "hora": self.params.getHour()!
+                ]) { err in
+                    
+                    if err != nil {
+                        completionHandler("Se ha producido un error, intentelo nuevamente")
+                    } else {
+                        self.params.setRegisterHour(id: self.ref.documentID )
+                        completionHandler(self.ref.documentID)
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }
+
+
+        
+    }
     
-   
     
+    
+    public func deleteAppintmentReserved( completionHandler: @escaping ((String) -> Void)) {
+        
+        
+            self.ref = Firestore.firestore().collection("citas-ocupadas").document( self.params.getDoctor()! ).collection("fecha").document( self.params.getRegisterDate()! )
+            self.ref.delete() { err in
+                
+                if err != nil {
+                    completionHandler("Se ha producido un error, intentelo nuevamente")
+                } else {
+                    
+                    self.ref = Firestore.firestore().collection("citas-ocupadas").document( self.params.getDoctor()! ).collection("hora").document( self.params.getRegisterHour()! )
+                    self.ref.delete() { err in
+                        
+                        if err != nil {
+                            completionHandler("Se ha producido un error, intentelo nuevamente")
+                        } else {
+                            completionHandler("success")
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+       
+        
+    }
+    
+    
+
     
   
     
