@@ -48,23 +48,33 @@ class SelectHourModel: UIViewController {
                             print("Se ha producido un error")
                         } else {
                             
-                            
-                            for docs in resp!.documents {
-                                print("**********")
-                                let valSchedules = docs.data()
-                                let itemSchedules = valSchedules["hora"] as! String
+                            print( resp!.count )
+                            if resp!.count == 0 {
+                                let schedules = Schedules( hour: itemHours )
+                                self.listItems.append(schedules)
+                                completionHandler( self.listItems )
+                            } else {
                                 
-                                print("itemSchedules")
-                                print(itemSchedules)
-                                print(" ")
-                                if itemHours != itemSchedules {
-                                    let schedules = Schedules( hour: itemHours )
-                                    self.listItems.append(schedules)
+                                if result!.count == resp!.count {
                                     completionHandler( self.listItems )
+                                } else {
+                                    
+                                    for docs in resp!.documents {
+                                        let valSchedules = docs.data()
+                                        let itemSchedules = valSchedules["hora"] as! String
+                                    
+                                        if itemHours != itemSchedules {
+                                            let schedules = Schedules( hour: itemHours )
+                                            self.listItems.append(schedules)
+                                            completionHandler( self.listItems )
+                                        }
+                                    
+                                    }
+                                    
                                 }
                                 
-                                
                             }
+                            
                         }
                     }
                     

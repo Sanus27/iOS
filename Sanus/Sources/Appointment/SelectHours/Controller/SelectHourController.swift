@@ -35,6 +35,7 @@ class SelectHourController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableData.reloadData()
         
         self.selectHour.showData( completionHandler: { resp in
+            print(self.selectHour.listItems)
             self.listItems = self.selectHour.listItems
             self.tableData.reloadData()
         })
