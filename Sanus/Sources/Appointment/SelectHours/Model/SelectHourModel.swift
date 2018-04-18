@@ -32,10 +32,46 @@ class SelectHourModel: UIViewController {
                 self.listItems.removeAll()
                 for document in result!.documents {
                     let valHours = document.data()
-                    let hour = valHours["hora"] as! String
-                    let schedules = Schedules( hour: hour )
-                    self.listItems.append(schedules)
-                    completionHandler( self.listItems )
+                    let itemHours = valHours["hora"] as! String
+                    print("itemHours")
+                    print(itemHours)
+                    print(" ")
+                    //let schedules = Schedules( hour: itemHours )
+                    //self.listItems.append(schedules)
+                    //completionHandler( self.listItems )
+                    
+                    
+                    
+                    
+                    self.getRef.collection("citas-ocupadas").document(idDoctor).collection("hora").addSnapshotListener { (resp , erro) in
+                        if erro != nil {
+                            print("Se ha producido un error")
+                        } else {
+                            
+                            
+                            for docs in resp!.documents {
+                                print("**********")
+                                let valSchedules = docs.data()
+                                let itemSchedules = valSchedules["hora"] as! String
+                                
+                                print("itemSchedules")
+                                print(itemSchedules)
+                                print(" ")
+                                if itemHours != itemSchedules {
+                                    let schedules = Schedules( hour: itemHours )
+                                    self.listItems.append(schedules)
+                                    completionHandler( self.listItems )
+                                }
+                                
+                                
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
                 }
             }
         }
