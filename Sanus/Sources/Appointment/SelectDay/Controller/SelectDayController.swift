@@ -31,10 +31,19 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
     var DayCounter = 0
     var highlightdate = -1
     //var DayWeek =
+    private var ref: DocumentReference!
     public var idDoctor: String = ""
     private let appointment = NewAppointmentModel()
     private let idDay = ParamsNewAppointment()
+    private var dayReserved:[String] = []
     
+    private var lunesReserved:Bool?
+    private var martesReserved:Bool?
+    private var miercolesReserved:Bool?
+    private var juevesReserved:Bool?
+    private var viernesReserved:Bool?
+    private var sabadoReserved:Bool?
+    private var domingoReserved:Bool?
     
     //dias disponibles
     //var DaysOccupied:[String] = [  "27 Abril 2018"  ]
@@ -65,7 +74,27 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         if weekday == 0 {
             weekday = 7
         }
-        showData()
+        self.showData()
+    }
+    
+    private func getDaysReserved( completionHandler: @escaping ((String) -> Void)) {
+        ref = Firestore.firestore().collection("horarios").document( self.idDay.getDoctor()! )
+        ref.getDocument { (resp, error) in
+            if error != nil {
+                completionHandler("Se ha producido un error")
+            } else {
+                
+                let valDays = resp?.data()
+                let dias = valDays!["dias"] as? [String]
+                self.dayReserved = dias!
+                
+                for index in 0...self.dayReserved.count - 1 {
+                    completionHandler( dias![index] )
+                }
+                
+                
+            }
+        }
     }
     
     func showData(){
@@ -149,36 +178,99 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         
         //past days
         if currentMonth <= Months[calendar.component(.month, from: date) - 1] && year <= calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox < day{
-            cell.dateLabel.backgroundColor = UIColor.red
-            cell.dateLabel.textColor = UIColor.white
+            cell.isHidden = true
         }
         
+        self.getDaysReserved(completionHandler: { (resp) in
+            
+            if resp == "Se ha producido un error" {
+                print("error")
+            } else {
+                
+                
+                switch indexPath.row {
+                    //lunes
+                    case 0,7,14,21,28,35:
+                        if resp == self.DaysOfMonth[0] {
+                            cell.dateLabel.backgroundColor = UIColor.red
+                            cell.dateLabel.textColor = UIColor.lightText
+                        }
+                    //martes
+                    case 1,8,15,22,29,36:
+                        if resp == self.DaysOfMonth[1] {
+                            cell.dateLabel.backgroundColor = UIColor.red
+                            cell.dateLabel.textColor = UIColor.lightText
+                        }
+                    //miercoles
+                    case 2,9,16,23,30:
+                        if resp == self.DaysOfMonth[2] {
+                            cell.dateLabel.backgroundColor = UIColor.red
+                            cell.dateLabel.textColor = UIColor.lightText
+                        }
+                    //jueves
+                    case 3,10,17,24,31:
+                        if resp == self.DaysOfMonth[3] {
+                            cell.dateLabel.backgroundColor = UIColor.red
+                            cell.dateLabel.textColor = UIColor.lightText
+                        }
+                    //viernes
+                    case 4,11,18,25,32:
+                        if resp == self.DaysOfMonth[4] {
+                            cell.dateLabel.backgroundColor = UIColor.red
+                            cell.dateLabel.textColor = UIColor.lightText
+                        }
+                    //sabado
+                    case 5,12,19,26,33:
+                        if resp == self.DaysOfMonth[5] {
+                            cell.dateLabel.backgroundColor = UIColor.red
+                            cell.dateLabel.textColor = UIColor.lightText
+                        } else {
+                            cell.dateLabel.textColor = UIColor.lightGray
+                        }
+                    //domingo
+                    case 6,13,20,27,34:
+                        if resp == self.DaysOfMonth[6] {
+                            cell.dateLabel.backgroundColor = UIColor.red
+                            cell.dateLabel.textColor = UIColor.lightText
+                        } else {
+                            cell.dateLabel.textColor = UIColor.lightGray
+                        }
+                    default:
+                        break
+                }
+
+                
+//                if resp == self.DaysOfMonth[0] {
+//                    print("este es un lunes")
+//                }
+//                if resp == self.DaysOfMonth[1] {
+//                    print("este es un martes")
+//                }
+//                if resp == self.DaysOfMonth[2] {
+//                    print("este es un miercoles")
+//                }
+                if resp == self.DaysOfMonth[3] {
+                    print("este es un jueves")
+                }
+                if resp == self.DaysOfMonth[4] {
+                    print("este es un viernes")
+                }
+                if resp == self.DaysOfMonth[5] {
+                    print("este es un sabado")
+                }
+                if resp == self.DaysOfMonth[6] {
+                    print("este es un domingo")
+                }
+
+                
+            }
+            
+        })
         
-        switch indexPath.row {
-        //lunes
-        case 0,7,14,21,28,35:
-            cell.dateLabel.textColor = UIColor.black
-        //martes
-        case 1,8,15,22,29,36:
-            cell.dateLabel.textColor = UIColor.black
-        //miercoles
-        case 2,9,16,23,30:
-            cell.dateLabel.textColor = UIColor.black
-        //jueves
-        case 3,10,17,24,31:
-            cell.dateLabel.textColor = UIColor.black
-        //viernes
-        case 4,11,18,25,32:
-            cell.dateLabel.textColor = UIColor.black
-        //sabado
-        case 5,12,19,26,33:
-            cell.dateLabel.textColor = UIColor.lightGray
-        //domingo
-        case 6,13,20,27,34:
-            cell.dateLabel.textColor = UIColor.lightGray
-        default:
-            break
-        }
+        
+        
+        
+        
         
         
         //current day
