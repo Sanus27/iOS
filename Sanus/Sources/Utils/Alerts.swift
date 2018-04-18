@@ -63,19 +63,18 @@ class Alerts {
             }
         }
         if acept == "cancelAppoinment" {
-            self.removeUserDefault()
             self.deleteAppointment( this:this )
-            this.dismiss(animated: true, completion: nil )
+            self.removeUserDefault()
         }
         if acept == "deleteAppoinment" {
             self.deleteAppointment( this:this )
+            self.removeUserDefault()
         }
     }
     
     private func deleteAppointment( this: UIViewController  ){
         self.appointment.deleteAppintment { resp in
             self.appointment.deleteAppintmentReserved { resp in
-                self.removeUserDefault()
                 this.dismiss(animated: true, completion: nil )
             }
         }
@@ -102,6 +101,8 @@ class Alerts {
         self.user.removeHospital()
         self.user.removeHour()
         self.user.removeCalendar()
+        self.user.removeRegisterDate()
+        self.user.removeRegisterHour()
     }
     
     private func logOutFacebook(){

@@ -130,7 +130,8 @@ class NewAppointmentModel {
     
     public func deleteAppintmentReserved( completionHandler: @escaping ((String) -> Void)) {
         
-        
+        if self.params.getRegisterDate() != nil && self.params.getRegisterHour() != nil {
+            
             self.ref = Firestore.firestore().collection("citas-ocupadas").document( self.params.getDoctor()! ).collection("fecha").document( self.params.getRegisterDate()! )
             self.ref.delete() { err in
                 
@@ -152,6 +153,11 @@ class NewAppointmentModel {
                 }
                 
             }
+            
+        } else {
+            completionHandler("success")
+        }
+        
        
         
     }
