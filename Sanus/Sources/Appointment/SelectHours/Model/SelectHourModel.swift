@@ -33,12 +33,6 @@ class SelectHourModel: UIViewController {
                 for document in result!.documents {
                     let valHours = document.data()
                     let itemHours = valHours["hora"] as! String
-                    print("itemHours")
-                    print(itemHours)
-                    print(" ")
-                    //let schedules = Schedules( hour: itemHours )
-                    //self.listItems.append(schedules)
-                    //completionHandler( self.listItems )
                     
                     
                     
@@ -48,7 +42,7 @@ class SelectHourModel: UIViewController {
                             print("Se ha producido un error")
                         } else {
                             
-                            print( resp!.count )
+                      
                             if resp!.count == 0 {
                                 let schedules = Schedules( hour: itemHours )
                                 self.listItems.append(schedules)

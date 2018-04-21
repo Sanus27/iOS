@@ -31,7 +31,6 @@
 		A03C06682069C93900411FD4 /* SearchDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C06672069C93900411FD4 /* SearchDoctorModel.swift */; };
 		A03C066C2069F6F300411FD4 /* ComentariosDrModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C066B2069F6F300411FD4 /* ComentariosDrModel.swift */; };
 		A03C066E206A19EE00411FD4 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C066D206A19EE00411FD4 /* ChatModel.swift */; };
-		A03C0F3920845E1700E89BF8 /* LoadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03C0F3820845E1700E89BF8 /* LoadController.swift */; };
 		A03DA6CC204B738600EFE474 /* Navegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DA6CB204B738600EFE474 /* Navegation.swift */; };
 		A04E8BAC205DA3CE00E094ED /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */; };
 		A04E8BB0205DB5F500E094ED /* MessengerDrController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */; };
@@ -56,6 +55,7 @@
 		A082458A202A9FAB00543AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0824588202A9FAB00543AD0 /* LaunchScreen.storyboard */; };
 		A084A36020502864001509CE /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084A35F20502864001509CE /* Alerts.swift */; };
 		A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E8BC1205890D600811243 /* SettingsModel.swift */; };
+		A0A18D9B208AD0B80068D435 /* EditCurriculumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A18D9A208AD0B80068D435 /* EditCurriculumController.swift */; };
 		A0A62621202D7C0200EE34D2 /* SelectClinicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A62620202D7C0200EE34D2 /* SelectClinicController.swift */; };
 		A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ACF9B320334F0B004681AE /* CompleteUserController.swift */; };
 		A0B4B4C12060C4AC000833B1 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B4B4C02060C4AC000833B1 /* ChatCell.swift */; };
@@ -115,7 +115,6 @@
 		A03C06672069C93900411FD4 /* SearchDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDoctorModel.swift; sourceTree = "<group>"; };
 		A03C066B2069F6F300411FD4 /* ComentariosDrModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentariosDrModel.swift; sourceTree = "<group>"; };
 		A03C066D206A19EE00411FD4 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
-		A03C0F3820845E1700E89BF8 /* LoadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadController.swift; sourceTree = "<group>"; };
 		A03DA6CB204B738600EFE474 /* Navegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navegation.swift; sourceTree = "<group>"; };
 		A04E8BAB205DA3CE00E094ED /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		A04E8BAF205DB5F500E094ED /* MessengerDrController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerDrController.swift; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		A082458B202A9FAC00543AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A084A35F20502864001509CE /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		A09E8BC1205890D600811243 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		A0A18D9A208AD0B80068D435 /* EditCurriculumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCurriculumController.swift; sourceTree = "<group>"; };
 		A0A62620202D7C0200EE34D2 /* SelectClinicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClinicController.swift; sourceTree = "<group>"; };
 		A0ACF9B320334F0B004681AE /* CompleteUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserController.swift; sourceTree = "<group>"; };
 		A0B4B4C02060C4AC000833B1 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
@@ -276,6 +276,7 @@
 		A05D26F6206F63F2004C153D /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				A0A18D99208AD08D0068D435 /* EditCurriculum */,
 				A0F06ADA205DDB0E0004A914 /* MyProfileDoctor */,
 				A0F06AAF205DD6420004A914 /* CommentsDoctor */,
 				A0F06AAC205DD5E70004A914 /* ProfileDoctor */,
@@ -336,6 +337,22 @@
 				A0E42673202AA0AB007D5379 /* GoogleService-Info.plist */,
 			);
 			path = Sanus;
+			sourceTree = "<group>";
+		};
+		A0A18D99208AD08D0068D435 /* EditCurriculum */ = {
+			isa = PBXGroup;
+			children = (
+				A0A18D9C208AD0BF0068D435 /* Controller */,
+			);
+			path = EditCurriculum;
+			sourceTree = "<group>";
+		};
+		A0A18D9C208AD0BF0068D435 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0A18D9A208AD0B80068D435 /* EditCurriculumController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A0CD2A91206F583400305E59 /* Appointment */ = {
@@ -506,7 +523,6 @@
 				A0ED6DED20538840009E143C /* ParamsNewAppointment.swift */,
 				A05B03E0207857AA006A5768 /* ConectFalseController.swift */,
 				A05B03E220785979006A5768 /* Reachability.swift */,
-				A03C0F3820845E1700E89BF8 /* LoadController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1014,7 +1030,6 @@
 				A03C06662069BF3000411FD4 /* PerfilDoctorModel.swift in Sources */,
 				A0DC8D2D202AA4C9003FB0CB /* LoginController.swift in Sources */,
 				A05B03E320785979006A5768 /* Reachability.swift in Sources */,
-				A03C0F3920845E1700E89BF8 /* LoadController.swift in Sources */,
 				A0B4B4C32060C782000833B1 /* Contact.swift in Sources */,
 				A051DF9820487F5D00D4C8DD /* SelectDoctorController.swift in Sources */,
 				A09E8BC2205890D600811243 /* SettingsModel.swift in Sources */,
@@ -1044,6 +1059,7 @@
 				A0ACF9B420334F0B004681AE /* CompleteUserController.swift in Sources */,
 				A03C066C2069F6F300411FD4 /* ComentariosDrModel.swift in Sources */,
 				A0BC1A05205F78B100F6A897 /* MessageDoctorCell.swift in Sources */,
+				A0A18D9B208AD0B80068D435 /* EditCurriculumController.swift in Sources */,
 				A0F06AE3205DE3590004A914 /* CreateUserModel.swift in Sources */,
 				A0DC8D23202AA4A5003FB0CB /* SearchDoctorController.swift in Sources */,
 				A0190D4E205F2FDD00121736 /* MessageMeCell.swift in Sources */,

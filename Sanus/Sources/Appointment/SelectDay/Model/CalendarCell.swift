@@ -10,6 +10,6 @@ import UIKit
 
 class CalendarCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var selectedView: UIView!
+    
 }
 

@@ -269,7 +269,7 @@ class SelectDayController: UIViewController, UICollectionViewDelegate, UICollect
         
         //current day
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 - NumberOfEmptyBox == day{
-            cell.dateLabel.backgroundColor = UIColor.gray
+            cell.dateLabel.backgroundColor = UIColor.init(red: 0/255, green: 152/255, blue: 10/255, alpha: 1.0)
             cell.dateLabel.textColor = UIColor.white
         }
         

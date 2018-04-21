@@ -12,7 +12,6 @@ import FirebaseStorage
 
 class PerfilDoctorController: UIViewController {
     
-    @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var txtCV: UILabel!
     @IBOutlet weak var txtSpecialty: UILabel!
     @IBOutlet weak var avatar: UIImageView!
@@ -23,6 +22,8 @@ class PerfilDoctorController: UIViewController {
     @IBOutlet weak var StarFour: UIButton!
     @IBOutlet weak var StarFive: UIButton!
     
+    
+    @IBOutlet weak var txtNameDoctor: UILabel!
     public var showProfile: Doctor!
     private var id = ""
     private var model = PerfilDoctorModel()
@@ -56,7 +57,7 @@ class PerfilDoctorController: UIViewController {
                     self.avatar.layer.borderWidth = 1
                 }
             })
-            self.navbar.title = name! + " " + lastname!
+            self.txtNameDoctor.text = name! + " " + lastname!
             self.txtCV.text = cv
             self.txtSpecialty.text = specialty
             self.txtIdCard.text = idCard
@@ -132,8 +133,7 @@ class PerfilDoctorController: UIViewController {
         performSegue(withIdentifier: "comentarios", sender: self)
     }
 
-    
-    @IBAction func btnBack(_ sender: UIBarButtonItem) {
+    @IBAction func btnBack(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
