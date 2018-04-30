@@ -16,7 +16,7 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var listenerName: UITextField!
     @IBOutlet weak var listenerLastname: UITextField!
     @IBOutlet weak var listenerSex: UISegmentedControl!
-    @IBOutlet weak var listenerYear: UIPickerView!
+    //@IBOutlet weak var listenerYear: UIPickerView!
     @IBOutlet weak var listenerSave: UIButton!
     @IBOutlet weak var listenerReturn: UIButton!
     @IBOutlet weak var load: UIActivityIndicatorView!
@@ -35,23 +35,23 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        listenerYear.delegate = self
-        listenerYear.dataSource = self
+        //listenerYear.delegate = self
+        //listenerYear.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let uid = (Auth.auth().currentUser?.uid)!
         ref = Firestore.firestore().collection("usuarios").document( uid )
-        setYears()
+        //setYears()
         dataUser()
     }
     
-    private func setYears(){
-        for i in 2...99 {
-            plataformas.append("\(i) Años")
-        }
-    }
+//    private func setYears(){
+//        for i in 2...99 {
+//            plataformas.append("\(i) Años")
+//        }
+//    }
     
     private func dataUser(){
         self.model.dataUser(this: self, completionHandler: { resp in
@@ -91,7 +91,7 @@ class SettingProfileController: UIViewController, UIPickerViewDataSource, UIPick
                 self.listenerName.text = name
                 self.listenerLastname.text = lastname
                 self.listenerSex.selectedSegmentIndex  = self.sexx
-                self.listenerYear.selectRow( self.miyear , inComponent: 0, animated: true)
+                //self.listenerYear.selectRow( self.miyear , inComponent: 0, animated: true)
 
                 
             }
