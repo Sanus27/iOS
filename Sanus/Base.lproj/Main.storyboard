@@ -2123,7 +2123,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerChat" translatesAutoresizingMaskIntoConstraints="NO" id="FRP-td-KFA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FRP-td-KFA" secondAttribute="height" multiplier="320:171" id="bHA-WE-1GD"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqa-Le-qZb">
                                 <rect key="frame" x="27" y="55" width="266" height="60"/>
@@ -2137,11 +2140,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hWD-hQ-YdV" secondAttribute="trailing" constant="15" id="3wd-UM-5E9"/>
-                                    <constraint firstItem="hWD-hQ-YdV" firstAttribute="leading" secondItem="yqa-Le-qZb" secondAttribute="leading" constant="15" id="Aed-Dp-qR2"/>
-                                    <constraint firstAttribute="bottom" secondItem="hWD-hQ-YdV" secondAttribute="bottom" id="Fa8-Pk-jjO"/>
-                                    <constraint firstItem="hWD-hQ-YdV" firstAttribute="top" secondItem="yqa-Le-qZb" secondAttribute="top" id="I3m-ah-moD"/>
-                                    <constraint firstAttribute="height" constant="60" id="Nd1-ar-Ddi"/>
+                                    <constraint firstAttribute="width" secondItem="yqa-Le-qZb" secondAttribute="height" multiplier="133:30" id="8bx-cD-CLF"/>
+                                    <constraint firstAttribute="trailing" secondItem="hWD-hQ-YdV" secondAttribute="trailing" constant="15" id="Flo-nU-GEa"/>
+                                    <constraint firstItem="hWD-hQ-YdV" firstAttribute="top" secondItem="yqa-Le-qZb" secondAttribute="top" id="HBc-nb-jaP"/>
+                                    <constraint firstItem="hWD-hQ-YdV" firstAttribute="leading" secondItem="yqa-Le-qZb" secondAttribute="leading" constant="15" id="cgH-JU-78x"/>
+                                    <constraint firstAttribute="height" constant="60" id="let-Oa-qke"/>
+                                    <constraint firstAttribute="bottom" secondItem="hWD-hQ-YdV" secondAttribute="bottom" id="o7L-3R-TV0"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -2153,7 +2157,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E3t-yA-Hfp">
-                                <rect key="frame" x="0.0" y="83" width="320" height="348"/>
+                                <rect key="frame" x="0.0" y="171" width="320" height="260"/>
                                 <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="79" id="8G6-vO-Rbi" customClass="ChatCell" customModule="Sanus" customModuleProvider="target">
@@ -2237,18 +2241,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96090251209999999" green="0.9656066298" blue="0.97964173560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eRU-Pa-Jve" firstAttribute="trailing" secondItem="yqa-Le-qZb" secondAttribute="trailing" constant="27" id="Bnv-ug-tL6"/>
-                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="leading" secondItem="eRU-Pa-Jve" secondAttribute="leading" id="Fs9-LF-aHg"/>
-                            <constraint firstItem="FRP-td-KFA" firstAttribute="top" secondItem="3UL-5v-6o2" secondAttribute="top" id="Kfg-8M-bEx"/>
-                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="top" secondItem="FRP-td-KFA" secondAttribute="bottom" id="Slo-zD-vj4"/>
-                            <constraint firstItem="yqa-Le-qZb" firstAttribute="top" secondItem="eRU-Pa-Jve" secondAttribute="top" constant="35" id="bNh-so-AlR"/>
-                            <constraint firstItem="eRU-Pa-Jve" firstAttribute="bottom" secondItem="FRP-td-KFA" secondAttribute="bottom" constant="348" id="cN8-ZQ-O36"/>
-                            <constraint firstItem="FRP-td-KFA" firstAttribute="leading" secondItem="eRU-Pa-Jve" secondAttribute="leading" id="d0C-27-JHv"/>
-                            <constraint firstItem="eRU-Pa-Jve" firstAttribute="bottom" secondItem="yqa-Le-qZb" secondAttribute="bottom" constant="404" id="gcD-mO-gty"/>
-                            <constraint firstAttribute="trailing" secondItem="FRP-td-KFA" secondAttribute="trailing" id="mfg-Yb-PPg"/>
-                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="bottom" secondItem="eRU-Pa-Jve" secondAttribute="bottom" id="pJB-6D-g8r"/>
-                            <constraint firstItem="eRU-Pa-Jve" firstAttribute="trailing" secondItem="E3t-yA-Hfp" secondAttribute="trailing" id="qJ2-lZ-tIX"/>
-                            <constraint firstItem="yqa-Le-qZb" firstAttribute="leading" secondItem="eRU-Pa-Jve" secondAttribute="leading" constant="27" id="wcm-q4-0Og"/>
+                            <constraint firstItem="FRP-td-KFA" firstAttribute="trailing" secondItem="eRU-Pa-Jve" secondAttribute="trailing" id="9G8-Cg-vXZ"/>
+                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="trailing" secondItem="eRU-Pa-Jve" secondAttribute="trailing" id="Dm1-Nt-7qq"/>
+                            <constraint firstItem="FRP-td-KFA" firstAttribute="leading" secondItem="eRU-Pa-Jve" secondAttribute="leading" id="KnR-tw-TDG"/>
+                            <constraint firstItem="FRP-td-KFA" firstAttribute="top" secondItem="3UL-5v-6o2" secondAttribute="top" id="S79-dz-JZF"/>
+                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="top" secondItem="FRP-td-KFA" secondAttribute="bottom" id="khF-Hp-U4R"/>
+                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="top" secondItem="yqa-Le-qZb" secondAttribute="bottom" constant="56" id="oob-4c-c0v"/>
+                            <constraint firstItem="yqa-Le-qZb" firstAttribute="top" secondItem="eRU-Pa-Jve" secondAttribute="top" constant="35" id="veC-yF-5gB"/>
+                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="bottom" secondItem="eRU-Pa-Jve" secondAttribute="bottom" id="xEi-1X-vkv"/>
+                            <constraint firstItem="eRU-Pa-Jve" firstAttribute="trailing" secondItem="yqa-Le-qZb" secondAttribute="trailing" constant="27" id="xUa-xL-you"/>
+                            <constraint firstItem="E3t-yA-Hfp" firstAttribute="leading" secondItem="eRU-Pa-Jve" secondAttribute="leading" id="z2Y-JH-IoJ"/>
+                            <constraint firstItem="yqa-Le-qZb" firstAttribute="leading" secondItem="eRU-Pa-Jve" secondAttribute="leading" constant="27" id="zK8-OG-wFN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eRU-Pa-Jve"/>
                     </view>
@@ -2260,7 +2263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzk-Bt-xso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1500" y="608"/>
+            <point key="canvasLocation" x="-1500" y="607.5"/>
         </scene>
         <!--Chat Controller-->
         <scene sceneID="WWA-Qq-j2o">
@@ -4164,7 +4167,7 @@
         <segue reference="tUF-tm-zKi"/>
         <segue reference="RDV-8D-BlE"/>
         <segue reference="hkD-kU-v79"/>
-        <segue reference="NXw-xO-ojV"/>
+        <segue reference="ax6-Jm-EKh"/>
         <segue reference="rTW-iU-iRt"/>
         <segue reference="lsY-y0-mY7"/>
         <segue reference="BwR-zZ-Ti0"/>
